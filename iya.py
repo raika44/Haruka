@@ -362,7 +362,7 @@ Setgroup =""" Privasi Menu V.1 􀔃􀄆red check mark􏿿
 [No Joinned]
 -- Joinn on/off
 """
-KAC=[cl,ki2,kk,kc,kb,ke,ki,ka,kd,kc,ku]
+KAC=[cl,ki2,kk,kc,kb,ke,]
 DEF=[ka,ki,kk,ks,kb,ko,ke,kc,ku,kt,ks2,kk2,kd]
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
@@ -411,7 +411,7 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "Protectgr":False,
-    "AutoKick":True,
+    "AutoKick":False,
     "likeOn":False,
     "welcomemsg":False,
     "winvite":False,
@@ -1025,6 +1025,11 @@ def bot(op):
                         if data['status'] == 200:
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
+				
+        if op.type == 19: #Member Ke Kick
+          if op.param2 not in Bots:
+            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+            cl.inviteIntoGroup(op.param1,[op.param3])
        
         if op.type == 19:
            if op.param3 in admin:
