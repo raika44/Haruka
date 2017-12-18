@@ -789,13 +789,13 @@ def bot(op):
             if wait["Protectgr"] == True:
                 if wait["blacklist"][op.param2] == True:
                     try:
-                        random.choice(KAc).kickoutFromGroup(op.param1,[op.param2])
+                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                         G = cl.getGroup(op.param1)
                         G.preventJoinByTicket = True
                         cl.updateGroup(G)
                     except:
                         try:
-                            cl.kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                             G = cl.getGroup(op.param1)
                             G.preventJoinByTicket = True
                             cl.updateGroup(G)
@@ -807,20 +807,20 @@ def bot(op):
                     pass
                 elif wait["Protectgr"] == True:
                     wait ["blacklist"][op.param2] = True
-                    random.choice(KAc).kickoutFromGroup(op.param1,[op.param2])
-                    random.choice(KAc).inviteIntoGroup(op.param1,[op.param2])
+                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param2])
 			
         if op.type == 19:
 		if wait["AutoKick"] == True:
                     if op.param2 in admin:
                         pass
                     try:
-                        random.choice(KAc).kickoutFromGroup(op.param1,[op.param2])
-			random.choice(KAc).inviteIntoGroup(op.param1,[op.param3])
+                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+			random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                     except:
                         try:
-			    random.choice(KAc).kickoutFromGroup(op.param1,[op.param2])
-			    random.choice(KAc).inviteIntoGroup(op.param1,[op.param3])
+			    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
