@@ -794,11 +794,12 @@ def bot(op):
                     if op.param2 in admin:
                         pass
                     try:
-                        random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+                        random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])	
 			random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                     except:
-                           random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-			   random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+                        try:
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])	
+			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
