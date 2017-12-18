@@ -784,11 +784,21 @@ def bot(op):
         if op.type == 11:
            if wait["Protectgr"] == True:
                if op.param2 not in Bots:
-                   G = ka.getGroup(op.param1)
-                   G.preventJoinByTicket = True
-                   random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])	
-                   random.choice(DEF).updateGroup(G)
-			
+                  G = ki.getGroup(op.param1)
+                  G.preventJoinByTicket = True
+                  Ticket = ki.reissueGroupTicket(op.param1)
+                  ku.acceptGroupInvitationByTicket(op.param1,Ticket)
+                  ku.kickoutFromGroup(op.param1,[op,param2])
+                  ki.updateGroup(G)
+                  ku.leaveGroup(op.param1)
+                  ki.sendText(msg.to,"Jngn buka makanya")
+               if op.param2 in wait["blacklist"]:
+                 pass
+               #if op.param2 inwait["whitelist"]:
+                 #pass
+               else:
+                 wait["blacklist"][op.param2] = True
+		
         if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
@@ -797,11 +807,11 @@ def bot(op):
 		        if op.param2 in Bots:
 			    pass
 		        else:
-		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+		            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                         if op.param2 in wait["blacklist"]:
                             pass
 		        else:
-			    kk.inviteIntoGroup(op.param1,[op.param3])
+			    cl.inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
@@ -828,6 +838,7 @@ def bot(op):
                             wait["blacklist"][op.param2] = True
 		else:
 		    pass
+			
         #------Protect Group Kick finish-----#
 		
         if op.type == 15:
@@ -1026,10 +1037,13 @@ def bot(op):
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
 				
-        if op.type == 19: #Member Ke Kick
-          if op.param2 not in Bots:
-            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-            cl.inviteIntoGroup(op.param1,[op.param3])
+        if op.type == 17:
+                if op.param3 in wait["blacklist"]:
+                    try:
+                        cl.kickoutFromGroup(op.param1, op.param3)
+                    except:
+                        random.choice(KAC).kickoutFromGroup(op.param1, op.param3)
+				
        
         if op.type == 19:
            if op.param3 in admin:
