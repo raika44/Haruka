@@ -362,8 +362,8 @@ Setgroup =""" Privasi Menu V.1 􀔃􀄆red check mark􏿿
 [No Joinned]
 -- Joinn on/off
 """
-KAC=[cl,ki,kk,kc,ks,ka,kb,ko,ke,ku,kt2]
-DEF=[cl,ka,ki,kk,ks,kb,ko,ke,kc,ku,kt,ks2,ki2,kk2,kd]
+KAC=[cl,ki2,kk,kc,kb,ke]
+DEF=[ka,ki,kk,ks,kb,ko,ke,kc,ku,kt,ks2,kk2,kd]
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
 Bmid = kk.getProfile().mid
@@ -786,7 +786,8 @@ def bot(op):
                if op.param2 not in Bots:
                    G = ka.getGroup(op.param1)
                    G.preventJoinByTicket = True
-                   random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])		
+                   random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])	
+		   random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                    random.choice(DEF).updateGroup(G)
 			
         if op.type == 19:
@@ -799,7 +800,7 @@ def bot(op):
                     except:
                         try:
 			    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			    random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
@@ -1014,13 +1015,6 @@ def bot(op):
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
        
-        if op.type == 19:
-           if op.param2 not in Bots:
-              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
-           else: 
-               pass
-
         if op.type == 19:
            if op.param3 in admin:
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
