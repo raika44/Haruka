@@ -1,0 +1,2 @@
+# Haruka
+Install semua dulu
