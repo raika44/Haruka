@@ -3574,6 +3574,32 @@ def bot(op):
                   cl.updateGroup(G)
                   Ticket = cl.reissueGroupTicket(msg.to)
     #----------------------Fungsi Join Group Finish---------------#
+            elif msg.text in ["Protect:on","Protect on"]:
+                if wait["protectionOn"] == True:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Already on\n\n"+ datetime.today().strftime('%H:%M:%S'))
+                    else:
+                        cl.sendText(msg.to,"Protection On\n\n"+ datetime.today().strftime('%H:%M:%S'))
+                else:
+                    wait["protectionOn"] = True
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protection On\n\n"+ datetime.today().strftime('%H:%M:%S'))
+                    else:
+                        cl.sendText(msg.to,"Already on\n\n"+ datetime.today().strftime('%H:%M:%S'))
+
+            elif msg.text in ["Protect:off","Protect off"]:
+                if wait["protectionOn"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Already off\n\n"+ datetime.today().strftime('%H:%M:%S'))
+                    else:
+                        cl.sendText(msg.to,"Protection Off\n\n"+ datetime.today().strftime('%H:%M:%S'))
+                else:
+                    wait["protectionOn"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Protection Off\n\n"+ datetime.today().strftime('%H:%M:%S'))
+                    else:
+                        cl.sendText(msg.to,"Already off\n\n"+ datetime.today().strftime('%H:%M:%S'))
+
             elif "Bot1 backup" in msg.text:
                 if msg.from_ in admin:
                         try:
