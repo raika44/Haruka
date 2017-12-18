@@ -1023,37 +1023,22 @@ def bot(op):
                     pass
             except:
                 pass
-	
-        if op.type == 26:
-            msg = op.message
-            if msg.to in settings["simiSimi"]:
-                if settings["simiSimi"][msg.to] == True:
-                    if msg.text is not None:
-                        text = msg.text
-                        r = requests.get("http://api.ntcorp.us/chatbot/v1/?text=" + text.replace(" ","+") + "&key=beta1.nt")
-                        data = r.text
-                        data = json.loads(data)
-                        if data['status'] == 200:
-                            if data['result']['result'] == 100:
-                                cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
 				
-        if op.type == 32:
-            if not op.param2 in Bots:
-                if wait["protectionOn"] == True: 
-                    try:
-                        G = random.choice(KAC).getGroup(op.param1)
-                        random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-                        random.choice(KAC).inviteIntoGroup(op.param1, [op.param3])
-                    except Exception, e:
-                       print e
-				
+
         if op.type == 17:
                 if op.param3 in wait["blacklist"]:
                     try:
                         cl.kickoutFromGroup(op.param1, op.param3)
                     except:
                         random.choice(KAC).kickoutFromGroup(op.param1, op.param3)
-				
+        
+	if op.type == 19:
+           if op.param2 not in Bots:
+              random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+              random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+           else: 
+               pass
+								
        
         if op.type == 19:
            if op.param3 in admin:
