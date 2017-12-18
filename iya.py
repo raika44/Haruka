@@ -411,7 +411,7 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "Protectgr":False,
-    "AutoKick":True,
+    "AutoKick":False,
     "likeOn":False,
     "welcomemsg":False,
     "winvite":False,
@@ -787,7 +787,6 @@ def bot(op):
                    G = ka.getGroup(op.param1)
                    G.preventJoinByTicket = True
                    random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])	
-		   random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                    random.choice(DEF).updateGroup(G)
 			
         if op.type == 19:
@@ -798,9 +797,7 @@ def bot(op):
                         random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
 			random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                     except:
-                        try:
-			    random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+                           pass
                         except:
                             print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
@@ -1014,6 +1011,13 @@ def bot(op):
                         if data['status'] == 200:
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
+				
+        if op.type == 19:
+           if op.param2 not in Bots:
+              random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+              random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+           else: 
+               pass
        
         if op.type == 19:
            if op.param3 in admin:
