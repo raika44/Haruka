@@ -440,104 +440,6 @@ settings = {
 setTime = {}
 setTime = wait2['setTime']
 
-contact = cl.getProfile()
-backup = cl.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = ki.getProfile()
-backup = ki.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = kk.getProfile()
-backup = kk.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = kc.getProfile()
-backup = kc.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = ka.getProfile()
-backup = ka.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = kb.getProfile()
-backup = kb.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = ku.getProfile()
-backup = ku.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = ke.getProfile()
-backup = ke.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = ko.getProfile()
-backup = ko.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = kd.getProfile()
-backup = kd.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = ks.getProfile()
-backup = ks.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = kt.getProfile()
-backup = kt.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = kt2.getProfile()
-backup = kt2.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = ks2.getProfile()
-backup = ks2.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = ki2.getProfile()
-backup = ki2.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-contact = kk2.getProfile()
-backup = kk2.getProfile()
-backup.displayName = contact.displayName
-backup.statusMessage = contact.statusMessage
-backup.pictureStatus = contact.pictureStatus
-
-
-
 
 def download_page(url):
     version = (3,0)
@@ -885,9 +787,9 @@ def bot(op):
                if op.param2 not in Bots:
                    G = ka.getGroup(op.param1)
                    G.preventJoinByTicket = True
-                   random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-                   random.choice(DEF).inviteFromGroup(op.param1,[op.param3])		
+                   random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])		
                    random.choice(DEF).updateGroup(G)
+			
         if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
@@ -900,7 +802,7 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
 		        else:
-			    random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
+			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
