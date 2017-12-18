@@ -362,7 +362,7 @@ Setgroup =""" Privasi Menu V.1 􀔃􀄆red check mark􏿿
 [No Joinned]
 -- Joinn on/off
 """
-KAC=[cl,ki2,kk,kc,kb,ke]
+KAC=[cl,ki2,kk,kc,kb,ke,ki,ka,kd,kc,ku]
 DEF=[ka,ki,kk,ks,kb,ko,ke,kc,ku,kt,ks2,kk2,kd]
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
@@ -411,7 +411,7 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "Protectgr":False,
-    "AutoKick":False,
+    "AutoKick":True,
     "likeOn":False,
     "welcomemsg":False,
     "winvite":False,
@@ -791,31 +791,43 @@ def bot(op):
 			
         if op.type == 19:
 		if wait["AutoKick"] == True:
-                    if op.param2 in admin:
-                        pass
-                    try:
-                        random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])	
-			random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-                    except:
-                        try:
-                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])	
-			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-                        except:
-                            print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
+		    try:
+			if op.param3 in Bots:
+			    pass
+		        if op.param2 in Bots:
+			    pass
+		        else:
+		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+                        if op.param2 in wait["blacklist"]:
+                            pass
+		        else:
+			    kk.inviteIntoGroup(op.param1,[op.param3])
+		    except:
+		        try:
+			    if op.param2 not in Bots:
+                                random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+			    if op.param2 in wait["blacklist"]:
+			        pass
+			    else:
+			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+		        except:
+			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
                             pass
                         else:
-			    if op.param2 in admin:
+			    if op.param2 in Bots:
 			        pass
 			    else:
                                 wait["blacklist"][op.param2] = True
-                    if op.param2 in wait["blacklist"]:
+		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
-		        if op.param2 in admin:
+		        if op.param2 in Bots:
 			    pass
 		        else:
                             wait["blacklist"][op.param2] = True
+		else:
+		    pass
         #------Protect Group Kick finish-----#
 		
         if op.type == 15:
