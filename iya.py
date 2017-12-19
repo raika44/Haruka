@@ -887,7 +887,7 @@ def bot(op):
                    G.preventJoinByTicket = True
                    random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                    random.choice(DEF).updateGroup(G)
-                   cl.sendText(msg.to,"Jngn open tutup qr")
+                   ki.sendText(msg.to,"Jngn open tutup qr")
 		
         if op.type == 19:
 		if wait["AutoKick"] == True:
