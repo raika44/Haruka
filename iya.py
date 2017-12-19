@@ -879,15 +879,14 @@ def bot(op):
                 else:
                     cl.sendText(op.param1,str(wait["message"]))
 
-        #------Protect Group Kick start------#
+           #------Protect Group Kick start------#
         if op.type == 11:
            if wait["Protectgr"] == True:
                if op.param2 not in Bots:
-                   G = cl.getGroup(op.param1)
+                   G = ka.getGroup(op.param1)
                    G.preventJoinByTicket = True
                    random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                    random.choice(DEF).updateGroup(G)
-                   ki.sendText(msg.to,"Jngn open tutup qr")
 		
         if op.type == 19:
 		if wait["AutoKick"] == True:
