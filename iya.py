@@ -362,8 +362,8 @@ Setgroup =""" Privasi Menu V.1 􀔃􀄆red check mark􏿿
 [No Joinned]
 -- Joinn on/off
 """
-KAC=[cl,ki2,kk,kc,kb,ke,]
-DEF=[ka,ki,kk,ks,kb,ko,ke,kc,ku,kt,ks2,kk2,kd]
+KAC=[cl,ki2,kk,ke,kc,kb]
+DEF=[ka,ki,ks,ko,ku,kt,ks2,kk2,kd]
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
 Bmid = kk.getProfile().mid
@@ -385,7 +385,7 @@ Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Jmid,Kmid,Lmid,Mmid,Nmid,
 admin=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 wait = {
-    'contact':True,
+    'contact':False,
     'autoJoin':True,
     'autoCancel':{"on":True,"members":1},
     'leaveRoom':True,
@@ -410,9 +410,9 @@ wait = {
     "whitelist":{},
     "wblacklist":False,
     "dblacklist":False,
-    "Protectgr":False,
-    "AutoKick":False,
-    "likeOn":False,
+    "Protectgr":True,
+    "AutoKick":True,
+    "likeOn":True,
     "welcomemsg":False,
     "winvite":False,
     "Protectjoin":False,
@@ -439,6 +439,104 @@ settings = {
 
 setTime = {}
 setTime = wait2['setTime']
+
+contact = cl.getProfile()
+backup = cl.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ki.getProfile()
+backup = ki.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kk.getProfile()
+backup = kk.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kc.getProfile()
+backup = kc.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ka.getProfile()
+backup = ka.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kb.getProfile()
+backup = kb.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ku.getProfile()
+backup = ku.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ke.getProfile()
+backup = ke.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ko.getProfile()
+backup = ko.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kd.getProfile()
+backup = kd.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ks.getProfile()
+backup = ks.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kt.getProfile()
+backup = kt.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kt2.getProfile()
+backup = kt2.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ks2.getProfile()
+backup = ks2.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = ki2.getProfile()
+backup = ki2.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+contact = kk2.getProfile()
+backup = kk2.getProfile()
+backup.displayName = contact.displayName
+backup.statusMessage = contact.statusMessage
+backup.pictureStatus = contact.pictureStatus
+
+
 
 
 def download_page(url):
@@ -781,23 +879,15 @@ def bot(op):
                 else:
                     cl.sendText(op.param1,str(wait["message"]))
 
+        #------Protect Group Kick start------#
         if op.type == 11:
            if wait["Protectgr"] == True:
                if op.param2 not in Bots:
-                  G = ki.getGroup(op.param1)
-                  G.preventJoinByTicket = True
-                  Ticket = ki.reissueGroupTicket(op.param1)
-                  ku.acceptGroupInvitationByTicket(op.param1,Ticket)
-                  ku.kickoutFromGroup(op.param1,[op,param2])
-                  ki.updateGroup(G)
-                  ku.leaveGroup(op.param1)
-                  ki.sendText(msg.to,"Jngn buka makanya")
-               if op.param2 in wait["blacklist"]:
-                 pass
-               #if op.param2 inwait["whitelist"]:
-                 #pass
-               else:
-                 wait["blacklist"][op.param2] = True
+                   G = cl.getGroup(op.param1)
+                   G.preventJoinByTicket = True
+                   random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+                   random.choice(DEF).updateGroup(G)
+                   cl.sendText(msg.to,"Jngn open tutup qr")
 		
         if op.type == 19:
 		if wait["AutoKick"] == True:
@@ -807,15 +897,15 @@ def bot(op):
 		        if op.param2 in Bots:
 			    pass
 		        else:
-		            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                         if op.param2 in wait["blacklist"]:
                             pass
 		        else:
-			    cl.inviteIntoGroup(op.param1,[op.param3])
+			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
-                                random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+                                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 			    if op.param2 in wait["blacklist"]:
 			        pass
 			    else:
@@ -838,7 +928,6 @@ def bot(op):
                             wait["blacklist"][op.param2] = True
 		else:
 		    pass
-			
         #------Protect Group Kick finish-----#
 		
         if op.type == 15:
@@ -1023,27 +1112,31 @@ def bot(op):
                     pass
             except:
                 pass
-				
-
-        if op.type == 17:
-                if op.param3 in wait["blacklist"]:
-                    try:
-                        cl.kickoutFromGroup(op.param1, op.param3)
-                    except:
-                        random.choice(KAC).kickoutFromGroup(op.param1, op.param3)
-        
-	if op.type == 19:
+	
+        if op.type == 26:
+            msg = op.message
+            if msg.to in settings["simiSimi"]:
+                if settings["simiSimi"][msg.to] == True:
+                    if msg.text is not None:
+                        text = msg.text
+                        r = requests.get("http://api.ntcorp.us/chatbot/v1/?text=" + text.replace(" ","+") + "&key=beta1.nt")
+                        data = r.text
+                        data = json.loads(data)
+                        if data['status'] == 200:
+                            if data['result']['result'] == 100:
+                                cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
+       
+        if op.type == 19:
            if op.param2 not in Bots:
               random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
               random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
            else: 
                pass
-								
-       
+
         if op.type == 19:
            if op.param3 in admin:
-              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              cl.inviteIntoGroup(op.param1,admin)
+              random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+              random.choice(KAC).inviteIntoGroup(op.param1,admin)
            else:
                pass
 
@@ -1394,7 +1487,7 @@ def bot(op):
                     if op.param2 in Bots:
                         pass
                     try:
-                        random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
                             random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
@@ -3559,32 +3652,6 @@ def bot(op):
                   cl.updateGroup(G)
                   Ticket = cl.reissueGroupTicket(msg.to)
     #----------------------Fungsi Join Group Finish---------------#
-            elif msg.text in ["Protect:on","Protect on"]:
-                if wait["protectionOn"] == True:
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Already on\n\n"+ datetime.today().strftime('%H:%M:%S'))
-                    else:
-                        cl.sendText(msg.to,"Protection On\n\n"+ datetime.today().strftime('%H:%M:%S'))
-                else:
-                    wait["protectionOn"] = True
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Protection On\n\n"+ datetime.today().strftime('%H:%M:%S'))
-                    else:
-                        cl.sendText(msg.to,"Already on\n\n"+ datetime.today().strftime('%H:%M:%S'))
-
-            elif msg.text in ["Protect:off","Protect off"]:
-                if wait["protectionOn"] == False:
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Already off\n\n"+ datetime.today().strftime('%H:%M:%S'))
-                    else:
-                        cl.sendText(msg.to,"Protection Off\n\n"+ datetime.today().strftime('%H:%M:%S'))
-                else:
-                    wait["protectionOn"] = False
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Protection Off\n\n"+ datetime.today().strftime('%H:%M:%S'))
-                    else:
-                        cl.sendText(msg.to,"Already off\n\n"+ datetime.today().strftime('%H:%M:%S'))
-
             elif "Bot1 backup" in msg.text:
                 if msg.from_ in admin:
                         try:
