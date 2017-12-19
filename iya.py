@@ -880,17 +880,14 @@ def bot(op):
                     cl.sendText(op.param1,str(wait["message"]))
 
            #------Protect Group Kick start------#
+        #------Protect Group Kick start------#
         if op.type == 11:
-            if wait["Protectgr"] == True:
-		if op.param2 in Bots:
-		    pass
-		else:
-                    X = cl.getGroup(msg.to)
-                    X.preventJoinByTicket = False
-                    cl.updateGroup(X)
-                    X.preventJoinByTicket = True
-                    kk.updateGroup(X)
-                    random.choice(KAC).kickoutFromGroup(msg.to,[op.param2])
+           if wait["Protectgr"] == True:
+               if op.param2 not in Bots:
+                   G = ka.getGroup(op.param1)
+                   G.preventJoinByTicket = True
+                   random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+                   random.choice(DEF).updateGroup(G)
             else:
                 pass
 		
