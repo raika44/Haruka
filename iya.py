@@ -888,8 +888,8 @@ def bot(op):
                    G.preventJoinByTicket = True
                    random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                    random.choice(DEF).updateGroup(G)
-            else:
-                pass
+           else:
+                 pass
 		
         if op.type == 19:
 		if wait["AutoKick"] == True:
