@@ -896,7 +896,7 @@ def bot(op):
                                          break
 
 #--------------NOTIFIED_INVITE_INTO_GROUP----------------
-       if op.type == 13:
+        if op.type == 13:
             if mid in op.param3:
               if wait["autoJoin"] == True:
                 if op.param2 in Bots or owner:
