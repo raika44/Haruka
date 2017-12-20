@@ -27,11 +27,11 @@ ks.login(token="EnNxXQwSecectsEAlQzb.672la4CfyuJmLCgFJdKosW.+BS1ivQK6xiA3sGlN4+T
 ks.loginResult()
 
 
-ki2 = kk = kb = ke = kc = cl
+cl
 
-ks2 = kd = kt = ko = ka
+kb = kc = kk = ko = ka
 
-kk2 = kt2 = ki = ku = ks
+ke = ki = ku = ks
 print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -361,8 +361,8 @@ Setgroup =""" Privasi Menu V.1 􀔃􀄆red check mark􏿿
 [No Joinned]
 -- Joinn on/off
 """
-KAC=[cl,ki2,kk,ke,kc,kb,kt,ks2,kd,ka]
-DEF=[ka,ki,ks,ko,ku,kt,ks2,kk2,kd,ki2]
+KAC=[cl,,kk,ke,kc,kb,ka]
+DEF=[ka,ki,ks,ko,ku,cl,kk,ke,kc,kb,ka]
 mid = cl.getProfile().mid
 Amid = ki.getProfile().mid
 Bmid = kk.getProfile().mid
@@ -372,15 +372,9 @@ Emid = ka.getProfile().mid
 Fmid = kb.getProfile().mid
 Gmid = ko.getProfile().mid
 Hmid = ke.getProfile().mid
-Imid = ku.getProfile().mid
-Jmid = kt.getProfile().mid
-Kmid = ki2.getProfile().mid
-Lmid = kt2.getProfile().mid
-Mmid = ks2.getProfile().mid
-Nmid = kk2.getProfile().mid
-Omid = kd.getProfile().mid
 
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Jmid,Kmid,Lmid,Mmid,Nmid,Omid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
+
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 admin=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 wait = {
@@ -965,56 +959,6 @@ def bot(op):
                 else:
                   ke.rejectGroupInvitation(op.param1)
 		
-		
-            if Imid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ku.acceptGroupInvitation(op.param1)
-                else:
-                  ku.rejectGroupInvitation(op.param1)
-		
-            if Jmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kt.acceptGroupInvitation(op.param1)
-                else:
-                  kt.rejectGroupInvitation(op.param1)
-		
-            if Kmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ki2.acceptGroupInvitation(op.param1)
-                else:
-                  ki2.rejectGroupInvitation(op.param1)
-		
-            if Lmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kt2.acceptGroupInvitation(op.param1)
-                else:
-                  kt2.rejectGroupInvitation(op.param1)
-
-            if Mmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ks2.acceptGroupInvitation(op.param1)
-                else:
-                  ks2.rejectGroupInvitation(op.param1)
-		
-            if Nmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kk2.acceptGroupInvitation(op.param1)
-                else:
-                  kk2.rejectGroupInvitation(op.param1)
-		
-            if Omid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kd.acceptGroupInvitation(op.param1)
-                else:
-                  kd.rejectGroupInvitation(op.param1)
-		
         if op.type == 13:
             print op.param1
             print op.param2
@@ -1119,13 +1063,6 @@ def bot(op):
                     kb.acceptGroupInvitationByTicket(op.param1,Ti)
                     ko.acceptGroupInvitationByTicket(op.param1,Ti)
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ks2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kk2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kd.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
                     X.preventJoinByTicket = True
                     cl.updateGroup(X)
                     Ti = cl.reissueGroupTicket(op.param1)
@@ -1169,13 +1106,6 @@ def bot(op):
                     kb.acceptGroupInvitationByTicket(op.param1,Ti)
                     ko.acceptGroupInvitationByTicket(op.param1,Ti)
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ks2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kk2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kd.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
                     G = ki.getGroup(op.param1)
                     G.preventJoinByTicket = True
                     ki.updateGroup(G)
@@ -1220,13 +1150,6 @@ def bot(op):
                     kb.acceptGroupInvitationByTicket(op.param1,Ti)
                     ko.acceptGroupInvitationByTicket(op.param1,Ti)
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ks2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kk2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kd.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
                     G = kk.getGroup(op.param1)
                     G.preventJoinByTicket = True
                     kk.updateGroup(G)
@@ -1270,13 +1193,6 @@ def bot(op):
                     kb.acceptGroupInvitationByTicket(op.param1,Ti)
                     ko.acceptGroupInvitationByTicket(op.param1,Ti)
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ks2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kk2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kd.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
                     G = kc.getGroup(op.param1)
                     G.preventJoinByTicket = True
                     kc.updateGroup(G)
@@ -1320,13 +1236,6 @@ def bot(op):
                     kb.acceptGroupInvitationByTicket(op.param1,Ti)
                     ko.acceptGroupInvitationByTicket(op.param1,Ti)
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ks2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kk2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kd.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
                     G = ks.getGroup(op.param1)
                     G.preventJoinByTicket = True
                     ks.updateGroup(G)
@@ -1369,13 +1278,6 @@ def bot(op):
                     kb.acceptGroupInvitationByTicket(op.param1,Ti)
                     ko.acceptGroupInvitationByTicket(op.param1,Ti)
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ks2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kk2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kd.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
                     G = ka.getGroup(op.param1)
                     G.preventJoinByTicket = True
                     ka.updateGroup(G)
@@ -1418,13 +1320,6 @@ def bot(op):
                     kb.acceptGroupInvitationByTicket(op.param1,Ti)
                     ko.acceptGroupInvitationByTicket(op.param1,Ti)
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ks2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kk2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kd.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
                     G = kb.getGroup(op.param1)
                     G.preventJoinByTicket = True
                     kb.updateGroup(G)
@@ -1467,13 +1362,6 @@ def bot(op):
                     kb.acceptGroupInvitationByTicket(op.param1,Ti)
                     ko.acceptGroupInvitationByTicket(op.param1,Ti)
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ks2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kk2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kd.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
                     G = ko.getGroup(op.param1)
                     G.preventJoinByTicket = True
                     ko.updateGroup(G)
@@ -1516,13 +1404,6 @@ def bot(op):
                     kb.acceptGroupInvitationByTicket(op.param1,Ti)
                     ko.acceptGroupInvitationByTicket(op.param1,Ti)
                     ke.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ks2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ki2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kt2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kk2.acceptGroupInvitationByTicket(op.param1,Ti)
-                    kd.acceptGroupInvitationByTicket(op.param1,Ti)
-                    ku.acceptGroupInvitationByTicket(op.param1,Ti)
                     G = ke.getGroup(op.param1)
                     G.preventJoinByTicket = True
                     ke.updateGroup(G)
@@ -1704,7 +1585,7 @@ def bot(op):
                 ks.sendMessage(msg)
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': Emid}
-                kt.sendMessage(msg)
+                ka.sendMessage(msg)
             elif msg.text in ["Set group"]:
               if msg.from_ in admin:
                 if wait["lang"] == "JP":
@@ -2662,7 +2543,7 @@ def bot(op):
 			kk.sendText(msg.to,Bmid)
 			kc.sendText(msg.to,Cmid)
 			ks.sendText(msg.to,Dmid)
-			kt.sendText(msg.to,Emid)
+			ka.sendText(msg.to,Emid)
  #=======================================================
             elif "Vn-af " in msg.text:
               if msg.from_ in admin:
@@ -3096,7 +2977,7 @@ def bot(op):
 				kc.sendText(msg.to,(bctxt))
 				ki.sendText(msg.to,(bctxt))
 				ks.sendText(msg.to,(bctxt))
-				kt.sendText(msg.to,(bctxt))
+				ka.sendText(msg.to,(bctxt))
 				
 ##≠========================&=&==&=&=%=%=%=%==%=%=%=%;%;%;;%;;%;%
             elif msg.text in ["Welcome message:on"]:
@@ -3476,97 +3357,97 @@ def bot(op):
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
-                       kt.sendText(g.mid,"Spammed")
+                       ka.sendText(g.mid,"Spammed")
                        cl.sendText(msg.to,"done spam bossque")
 
 #-----------------------------------------------
@@ -4007,11 +3888,9 @@ def bot(op):
                 kc.sendMessage(msg)
                 cl.sendMessage(msg)
                 ks.sendMessage(msg)
-                kt.sendMessage(msg)
-                kt2.sendMessage(msg)
-                ks2.sendMessage(msg)
-                ki2.sendMessage(msg)
-                ks2.sendMessage(msg)
+                ka.sendMessage(msg)
+                ke.sendMessage(msg)
+                ko.sendMessage(msg)
 #========================================
             elif wait["SetKey"]+"Spam @" in msg.text:
                 _name = msg.text.replace(wait["SetKey"]+"Spam @","")
@@ -4101,7 +3980,7 @@ def bot(op):
                 kk.sendText(msg.to,"Sayang")
                 kc.sendText(msg.to,"Micuuuuu")
                 ks.sendText(msg.to,"Aku cinta")
-	   	kt.sendText(msg.to,"😗😗😗😗😗😗")
+	   	ka.sendText(msg.to,"😗😗😗😗😗😗")
 		
             elif "Steal cover @" in msg.text:
               if msg.from_ in admin:            
@@ -4464,9 +4343,9 @@ def bot(op):
                     profile.displayName = string
                     ks.updateProfile(profile)
                 if len(string.decode('utf-8')) <= 20:
-                    profile = kt.getProfile()
+                    profile = ka.getProfile()
                     profile.displayName = string
-                    kt.updateProfile(profile)
+                    ka.updateProfile(profile)
                     cl.sendText(msg.to,"change name: "+string+"\nsucces")
             elif msg.text.lower() == 'allbio:':
               if msg.from_ in creator:
@@ -4492,9 +4371,9 @@ def bot(op):
                     profile.statusMessage = string
                     ks.updateProfile(profile)
                 if len(string.decode('utf-8')) <= 500:
-                    profile = kt.getProfile()
+                    profile = ka.getProfile()
                     profile.statusMessage = string
-                    kt.updateProfile(profile)
+                    ka.updateProfile(profile)
                     cl.sendText(msg.to,"successfully turn it into: " + string + "")
             elif "My name:" in msg.text:
               if msg.from_ in creator:
@@ -5626,7 +5505,7 @@ def autoSta():
                    kk.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
                    kc.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
                    ks.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   kt.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   ka.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
                    if wait["commentOn"] == True:
                       if posts["userInfo"]["writerMid"] in wait["commentBlack"]:
                          pass
@@ -5636,7 +5515,7 @@ def autoSta():
                           kk.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
                           kc.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
                           ks.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          kt.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
+                          ka.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
         except:
             count += 1
             if(count == 50):
