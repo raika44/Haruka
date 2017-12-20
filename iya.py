@@ -27,7 +27,7 @@ kk.login(token="EnNxXQwSecectsEAlQzb.672la4CfyuJmLCgFJdKosW.+BS1ivQK6xiA3sGlN4+T
 kk.loginResult()
 
 
-kb = cl
+ku = kb = cl
 
 kc = ks = ko = ki
 
@@ -372,9 +372,10 @@ Emid = ka.getProfile().mid
 Fmid = kb.getProfile().mid
 Gmid = ko.getProfile().mid
 Hmid = ke.getProfile().mid
+Imid = ku.getProfile().mid
 
 
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 admin=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 wait = {
@@ -894,70 +895,303 @@ def bot(op):
                                          wait["winvite"] = False
                                          break
 
-
+#--------------NOTIFIED_INVITE_INTO_GROUP----------------
         if op.type == 13:
-            if mid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  cl.acceptGroupInvitation(op.param1)
-                else:
-                  cl.rejectGroupInvitation(op.param1)
-		
-            if Amid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ki.acceptGroupInvitation(op.param1)
-                else:
-                  ki.rejectGroupInvitation(op.param1)
-		
-            if Bmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kk.acceptGroupInvitation(op.param1)
-                else:
-                  kk.rejectGroupInvitation(op.param1)
-		
-            if Cmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kc.acceptGroupInvitation(op.param1)
-                else:
-                  kc.rejectGroupInvitation(op.param1)
-		
-            if Dmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ks.acceptGroupInvitation(op.param1)
-                else:
-                  ks.rejectGroupInvitation(op.param1)
-		
-            if Emid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ka.acceptGroupInvitation(op.param1)
-                else:
-                  ka.rejectGroupInvitation(op.param1)
-		
-            if Fmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kb.acceptGroupInvitation(op.param1)
-                else:
-                  kb.rejectGroupInvitation(op.param1)
-                
-            if Gmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ko.acceptGroupInvitation(op.param1)
-                else:
-                  ko.rejectGroupInvitation(op.param1)
-                
-            if Hmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ke.acceptGroupInvitation(op.param1)
-                else:
-                  ke.rejectGroupInvitation(op.param1)
+	    print op.param3
+            if op.param3 in mid:
+		if op.param2 in Creator:
+		    cl.acceptGroupInvitation(op.param1)
+            if op.param3 in Amid:
+		if op.param2 in Creator:
+		    ki.acceptGroupInvitation(op.param1)
+            if op.param3 in Bmid:
+		if op.param2 in Creator:
+		    kk.acceptGroupInvitation(op.param1)
+            if op.param3 in Cmid:
+		if op.param2 in Creator:
+		    kc.acceptGroupInvitation(op.param1)
+            if op.param3 in Dmid:
+		if op.param2 in Creator:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Creator:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Fmid:
+		if op.param2 in Creator:
+		    kb.acceptGroupInvitation(op.param1)
+            if op.param3 in Gmid:
+		if op.param2 in Creator:
+		    ko.acceptGroupInvitation(op.param1)
+            if op.param3 in Hmid:
+		if op.param2 in Creator:
+		    ke.acceptGroupInvitation(op.param1)
+            if op.param3 in Imid:
+		if op.param2 in Creator:
+		    ku.acceptGroupInvitation(op.param1)
+#--------------------------------------------------------
+            if op.param3 in mid:
+		if op.param2 in Amid:
+		    cl.acceptGroupInvitation(op.param1)
+            if op.param3 in mid:
+		if op.param2 in Bmid:
+		    cl.acceptGroupInvitation(op.param1)
+            if op.param3 in mid:
+		if op.param2 in Cmid:
+		    cl.acceptGroupInvitation(op.param1)
+            if op.param3 in mid:
+		if op.param2 in Dmid:
+		    cl.acceptGroupInvitation(op.param1)
+            if op.param3 in mid:
+		if op.param2 in Emid:
+		    cl.acceptGroupInvitation(op.param1)
+            if op.param3 in mid:
+		if op.param2 in Fmid:
+		    cl.acceptGroupInvitation(op.param1)
+            if op.param3 in mid:
+		if op.param2 in Gmid:
+		    cl.acceptGroupInvitation(op.param1)
+            if op.param3 in mid:
+		if op.param2 in Hmid:
+		    cl.acceptGroupInvitation(op.param1)
+            if op.param3 in mid:
+		if op.param2 in Imid:
+		    cl.acceptGroupInvitation(op.param1)
+#--------------------------------------------------------
+            if op.param3 in Amid:
+		if op.param2 in mid:
+		    ki.acceptGroupInvitation(op.param1)
+            if op.param3 in Amid:
+		if op.param2 in Bmid:
+		    ki.acceptGroupInvitation(op.param1)
+            if op.param3 in Amid:
+		if op.param2 in Cmid:
+		    ki.acceptGroupInvitation(op.param1)
+            if op.param3 in Amid:
+		if op.param2 in Dmid:
+		    ki.acceptGroupInvitation(op.param1)
+            if op.param3 in Amid:
+		if op.param2 in Emid:
+		    ki.acceptGroupInvitation(op.param1)
+            if op.param3 in Amid:
+		if op.param2 in Fmid:
+		    ki.acceptGroupInvitation(op.param1)
+            if op.param3 in Amid:
+		if op.param2 in Gmid:
+		    ki.acceptGroupInvitation(op.param1)
+            if op.param3 in Amid:
+		if op.param2 in Hmid:
+		    ki.acceptGroupInvitation(op.param1)
+            if op.param3 in Amid:
+		if op.param2 in Imid:
+		    ki.acceptGroupInvitation(op.param1)
+
+#--------------------------------------------------------
+            if op.param3 in Bmid:
+		if op.param2 in mid:
+		    kk.acceptGroupInvitation(op.param1)
+            if op.param3 in Bmid:
+		if op.param2 in Amid:
+		    kk.acceptGroupInvitation(op.param1)
+            if op.param3 in Bmid:
+		if op.param2 in Cmid:
+		    kk.acceptGroupInvitation(op.param1)
+           if op.param3 in Bmid:
+		if op.param2 in Dmid:
+		    kk.acceptGroupInvitation(op.param1)
+           if op.param3 in Bmid:
+		if op.param2 in Emid:
+		    kk.acceptGroupInvitation(op.param1)
+           if op.param3 in Bmid:
+		if op.param2 in Fmid:
+		    kk.acceptGroupInvitation(op.param1)
+           if op.param3 in Bmid:
+		if op.param2 in Gmid:
+		    kk.acceptGroupInvitation(op.param1)
+           if op.param3 in Bmid:
+		if op.param2 in Hmid:
+		    kk.acceptGroupInvitation(op.param1)
+           if op.param3 in Bmid:
+		if op.param2 in Imid:
+		    kk.acceptGroupInvitation(op.param1)
+#--------------------------------------------------------
+            if op.param3 in Cmid:
+		if op.param2 in mid:
+		    kc.acceptGroupInvitation(op.param1)
+            if op.param3 in Cmid:
+		if op.param2 in Amid:
+		    kc.acceptGroupInvitation(op.param1)
+            if op.param3 in Cmid:
+		if op.param2 in Cmid:
+		    kc.acceptGroupInvitation(op.param1)
+            if op.param3 in Cmid:
+		if op.param2 in Dmid:
+		    kc.acceptGroupInvitation(op.param1)
+            if op.param3 in Cmid:
+		if op.param2 in Emid:
+		    kc.acceptGroupInvitation(op.param1)
+            if op.param3 in Cmid:
+		if op.param2 in Fmid:
+		    kc.acceptGroupInvitation(op.param1)
+            if op.param3 in Cmid:
+		if op.param2 in Gmid:
+		    kc.acceptGroupInvitation(op.param1)
+            if op.param3 in Cmid:
+		if op.param2 in Hmid:
+		    kc.acceptGroupInvitation(op.param1)
+            if op.param3 in Cmid:
+		if op.param2 in Imid:
+		    kc.acceptGroupInvitation(op.param1)
+#--------------------------------------------------------
+            if op.param3 in Dmid:
+		if op.param2 in mid:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Dmid:
+		if op.param2 in Amid:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Dmid:
+		if op.param2 in Bmid:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Dmid:
+		if op.param2 in Cmid:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Dmid:
+		if op.param2 in Emid:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Dmid:
+		if op.param2 in Fmid:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Dmid:
+		if op.param2 in Gmid:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Dmid:
+		if op.param2 in Hmid:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Dmid:
+		if op.param2 in Imid:
+		    ks.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Creator:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Amid:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Bmid:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Cmid:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Dmid:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Fmid:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Gmid:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Hmid:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Emid:
+		if op.param2 in Imid:
+		    ka.acceptGroupInvitation(op.param1)
+            if op.param3 in Fmid:
+		if op.param2 in Amid:
+		    kb.acceptGroupInvitation(op.param1)
+            if op.param3 in Fmid:
+		if op.param2 in Bmid:
+		    kb.acceptGroupInvitation(op.param1)
+            if op.param3 in Fmid:
+		if op.param2 in Cmid:
+		    kb.acceptGroupInvitation(op.param1)
+            if op.param3 in Fmid:
+		if op.param2 in Dmid:
+		    kb.acceptGroupInvitation(op.param1)
+            if op.param3 in Fmid:
+		if op.param2 in Emid:
+		    kb.acceptGroupInvitation(op.param1)
+            if op.param3 in Fmid:
+		if op.param2 in Gmid:
+		    kb.acceptGroupInvitation(op.param1)
+            if op.param3 in Fmid:
+		if op.param2 in Hmid:
+		    kb.acceptGroupInvitation(op.param1)
+            if op.param3 in Fmid:
+		if op.param2 in Imid:
+		    kb.acceptGroupInvitation(op.param1)
+            if op.param3 in Gmid:
+		if op.param2 in Amid:
+		    ko.acceptGroupInvitation(op.param1)
+            if op.param3 in Gmid:
+		if op.param2 in Bmid:
+		    ko.acceptGroupInvitation(op.param1)
+            if op.param3 in Gmid:
+		if op.param2 in Cmid:
+		    ko.acceptGroupInvitation(op.param1)
+            if op.param3 in Gmid:
+		if op.param2 in Dmid:
+		    ko.acceptGroupInvitation(op.param1)
+            if op.param3 in Gmid:
+		if op.param2 in Emid:
+		    ko.acceptGroupInvitation(op.param1)
+            if op.param3 in Gmid:
+		if op.param2 in Fmid:
+		    ko.acceptGroupInvitation(op.param1)
+            if op.param3 in Gmid:
+		if op.param2 in Hmid:
+		    ko.acceptGroupInvitation(op.param1)
+            if op.param3 in Gmid:
+		if op.param2 in Imid:
+		    ko.acceptGroupInvitation(op.param1)
+            if op.param3 in Hmid:
+		if op.param2 in Amid:
+		    ke.acceptGroupInvitation(op.param1)
+            if op.param3 in Hmid:
+		if op.param2 in Bmid:
+		    ke.acceptGroupInvitation(op.param1)
+            if op.param3 in Hmid:
+		if op.param2 in Cmid:
+		    ke.acceptGroupInvitation(op.param1)
+            if op.param3 in Hmid:
+		if op.param2 in Dmid:
+		    ke.acceptGroupInvitation(op.param1)
+            if op.param3 in Hmid:
+		if op.param2 in Emid:
+		    ke.acceptGroupInvitation(op.param1)
+            if op.param3 in Hmid:
+		if op.param2 in Fmid:
+		    ke.acceptGroupInvitation(op.param1)
+            if op.param3 in Hmid:
+		if op.param2 in Gmid:
+		    ke.acceptGroupInvitation(op.param1)
+            if op.param3 in Hmid:
+		if op.param2 in Imid:
+		    ke.acceptGroupInvitation(op.param1)
+            if op.param3 in Imid:
+		if op.param2 in Amid:
+		    ku.acceptGroupInvitation(op.param1)
+            if op.param3 in Imid:
+		if op.param2 in Bmid:
+		    ku.acceptGroupInvitation(op.param1)
+            if op.param3 in Imid:
+		if op.param2 in Cmid:
+		    ku.acceptGroupInvitation(op.param1)
+            if op.param3 in Imid:
+		if op.param2 in Dmid:
+		    ku.acceptGroupInvitation(op.param1)
+            if op.param3 in Imid:
+		if op.param2 in Emid:
+		    ku.acceptGroupInvitation(op.param1)
+            if op.param3 in Imid:
+		if op.param2 in Fmid:
+		    ku.acceptGroupInvitation(op.param1)
+            if op.param3 in Imid:
+		if op.param2 in Gmid:
+		    ku.acceptGroupInvitation(op.param1)
+            if op.param3 in Imid:
+		if op.param2 in Hmid:
+		    ku.acceptGroupInvitation(op.param1)
 		
         if op.type == 13:
             print op.param1
@@ -1412,7 +1646,78 @@ def bot(op):
                     if op.param2 in wait["whitelist"]:
                         pass
                     else:
-                        wait["blacklist"][op.param2] = True        
+                        wait["blacklist"][op.param2] = True    
+		
+                if Imid in op.param3:
+                    if op.param2 in Bots:
+                        pass
+                    try:
+                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                    except:
+                        try:
+                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                        except:
+                            print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
+                        if op.param2 in wait["blacklist"]:
+                            pass
+                        if op.param2 in wait["whitelist"]:
+                            pass
+                        else:
+                            wait["blacklist"][op.param2] = True
+
+                    X = random.choice(KAC).getGroup(op.param1)
+                    X.preventJoinByTicket = False
+                    random.choice(KAC).updateGroup(X)
+                    Ti = random.choice(KAC).reissueGroupTicket(op.param1)
+                    cl.acceptGroupInvitationByTicket(op.param1,Ti)
+                    ki.acceptGroupInvitationByTicket(op.param1,Ti)
+                    kk.acceptGroupInvitationByTicket(op.param1,Ti)
+                    kc.acceptGroupInvitationByTicket(op.param1,Ti)
+                    ks.acceptGroupInvitationByTicket(op.param1,Ti)
+                    ka.acceptGroupInvitationByTicket(op.param1,Ti)
+                    kb.acceptGroupInvitationByTicket(op.param1,Ti)
+                    ko.acceptGroupInvitationByTicket(op.param1,Ti)
+                    ke.acceptGroupInvitationByTicket(op.param1,Ti)
+                    G = ku.getGroup(op.param1)
+                    G.preventJoinByTicket = True
+                    ku.updateGroup(G)
+                    Ticket = ku.reissueGroupTicket(op.param1)
+                    if op.param2 in wait["blacklist"]:
+                        pass
+                    if op.param2 in wait["whitelist"]:
+                        pass
+                    else:
+                        wait["blacklist"][op.param2] = True 
+			
+                if Creator in op.param3:
+                    if op.param2 in Bots:
+                        pass
+                    try:
+                        ki.kickoutFromGroup(op.param1,[op.param2])
+			kk.kickoutFromGroup(op.param1,[op.param2])
+                    except:
+                        try:
+			    if op.param2 not in Bots:
+                                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+			    if op.param2 in wait["blacklist"]:
+			        pass
+			    else:
+			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+                        except:
+                            print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
+                        if op.param2 in wait["blacklist"]:
+                            pass
+                        if op.param2 in wait["whitelist"]:
+                            pass
+                        else:
+                            wait["blacklist"][op.param2] = True
+                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+                    if op.param2 in wait["blacklist"]:
+                        pass
+                    if op.param2 in wait["whitelist"]:
+                        pass
+                    else:
+                        wait["blacklist"][op.param2] = True
                     
         if op.type == 13:
             if mid in op.param3:
