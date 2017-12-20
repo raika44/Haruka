@@ -995,22 +995,22 @@ def bot(op):
             if op.param3 in Bmid:
 		if op.param2 in Cmid:
 		    kk.acceptGroupInvitation(op.param1)
-           if op.param3 in Bmid:
+            if op.param3 in Bmid:
 		if op.param2 in Dmid:
 		    kk.acceptGroupInvitation(op.param1)
-           if op.param3 in Bmid:
+            if op.param3 in Bmid:
 		if op.param2 in Emid:
 		    kk.acceptGroupInvitation(op.param1)
-           if op.param3 in Bmid:
+            if op.param3 in Bmid:
 		if op.param2 in Fmid:
 		    kk.acceptGroupInvitation(op.param1)
-           if op.param3 in Bmid:
+            if op.param3 in Bmid:
 		if op.param2 in Gmid:
 		    kk.acceptGroupInvitation(op.param1)
-           if op.param3 in Bmid:
+            if op.param3 in Bmid:
 		if op.param2 in Hmid:
 		    kk.acceptGroupInvitation(op.param1)
-           if op.param3 in Bmid:
+            if op.param3 in Bmid:
 		if op.param2 in Imid:
 		    kk.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------
