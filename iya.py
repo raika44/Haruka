@@ -899,34 +899,34 @@ def bot(op):
         if op.type == 13:
 	    print op.param3
             if op.param3 in mid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    cl.acceptGroupInvitation(op.param1)
             if op.param3 in Amid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    ki.acceptGroupInvitation(op.param1)
             if op.param3 in Bmid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    kk.acceptGroupInvitation(op.param1)
             if op.param3 in Cmid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    kc.acceptGroupInvitation(op.param1)
             if op.param3 in Dmid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    ks.acceptGroupInvitation(op.param1)
             if op.param3 in Emid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    ka.acceptGroupInvitation(op.param1)
             if op.param3 in Fmid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    kb.acceptGroupInvitation(op.param1)
             if op.param3 in Gmid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    ko.acceptGroupInvitation(op.param1)
             if op.param3 in Hmid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    ke.acceptGroupInvitation(op.param1)
             if op.param3 in Imid:
-		if op.param2 in Creator:
+		if op.param2 in creator:
 		    ku.acceptGroupInvitation(op.param1)
 #--------------------------------------------------------
             if op.param3 in mid:
