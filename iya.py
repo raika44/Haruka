@@ -793,28 +793,6 @@ def bot(op):
               random.choice(KAC).updateGroup(G)
               random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + "Jangan Buka Tutup Kode QR Njiiir")
         #------Protect Group Kick finish-----#
-	
-	if op.type == 19:
-		if wait["kickblack"] == True:
-		   try:
-                       group = cl.getGroup(op.param1,[op.param2])
-                       gMembMids = [contact.mid for contact in group.members]
-                       matched_list = []
-                       for tag in wait["blacklist"]:
-                           matched_list+=filter(lambda str: str == tag, gMembMids)
-                       if matched_list == []:
-			  pass
-    	  	       else:
-                           cl.kickoutFromGroup(msg.to,[jj])
-                           ki.kickoutFromGroup(msg.to,[jj])
-                           kk.kickoutFromGroup(msg.to,[jj])
-                           kc.kickoutFromGroup(msg.to,[jj])
-                       cl.sendText(msg.to,"Blacklist gw kik aja sampah")
-		   except:
-			  pass
-		else:
-		     pass
-
 	if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
@@ -1054,19 +1032,16 @@ def bot(op):
                 elif wait["autoCancel"]["on"] == True:
                     if len(G.members) <= wait["autoCancel"]["members"]:
                         cl.rejectGroupInvitation(op.param1)
-	    else:
-                if wait["AutoCancel"] == True:
-		    if op.param3 in Bots:
-			pass
-		    else:
-                        cl.cancelGroupInvitation(op.param1, [op.param3])
-		else:
-		    if op.param3 in wait["blacklist"]:
-			cl.cancelGroupInvitation(op.param1, [op.param3])
-			cl.sendText(op.param1, "Blacklist Detected")
-		    else:
-			pass
-                    
+            else:
+                Inviter = op.param3.replace("",',')
+                InviterX = Inviter.split(",")
+                matched_list = []
+                for tag in wait["blacklist"]:
+                    matched_list+=filter(lambda str: str == tag, InviterX)
+                if matched_list == []:
+                    pass
+                else:
+                    cl.cancelGroupInvitation(op.param1, matched_list)
         #------Joined User Kick start------#
         if op.type == 17:
            if wait["Protectjoin"] == True:
@@ -1572,19 +1547,16 @@ def bot(op):
                 elif wait["autoCancel"]["on"] == True:
                     if len(G.members) <= wait["autoCancel"]["members"]:
                         cl.rejectGroupInvitation(op.param1)
-	    else:
-                if wait["AutoCancel"] == True:
-		    if op.param3 in Bots:
-			pass
-		    else:
-                        cl.cancelGroupInvitation(op.param1, [op.param3])
-		else:
-		    if op.param3 in wait["blacklist"]:
-			cl.cancelGroupInvitation(op.param1, [op.param3])
-			cl.sendText(op.param1, "Blacklist Detected")
-		    else:
-			pass
-                       
+            else:
+                Inviter = op.param3.replace("",',')
+                InviterX = Inviter.split(",")
+                matched_list = []
+                for tag in wait["blacklist"]:
+                    matched_list+=filter(lambda str: str == tag, InviterX)
+                if matched_list == []:
+                    pass
+                else:
+                    cl.cancelGroupInvitation(op.param1, matched_list)                       
         if op.type == 22:
             if wait["leaveRoom"] == True:
                 cl.leaveRoom(op.param1)
