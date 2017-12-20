@@ -18,13 +18,13 @@ cl = LINETCR.LINE()
 cl.login(token="EnllgadhAeBzsgTLpJu2.Zm4gXz6MY8xdnV92S49yaG.hFGzNmmdu/2K1/0y2j2R9d3kFi9Jx8r71+9t/qj5fys=")
 cl.loginResult()
 
-kc = LINETCR.LINE()
-kc.login(token="EnMJMFgBJ3cEt1xraKU4.AbZfX80renrInaDEsR0v1a.t9hmWm5jzoabiOpUJ5AAWDDDr4SxrePW+3ranmvKXmc=")
-kc.loginResult()
+ka = LINETCR.LINE()
+ka.login(token="EnMJMFgBJ3cEt1xraKU4.AbZfX80renrInaDEsR0v1a.t9hmWm5jzoabiOpUJ5AAWDDDr4SxrePW+3ranmvKXmc=")
+ka.loginResult()
 
-ki = LINETCR.LINE()
-ki.login(token="EnNxXQwSecectsEAlQzb.672la4CfyuJmLCgFJdKosW.+BS1ivQK6xiA3sGlN4+T51p7vKa5GdKWOAjsVn9AAy4=")
-ki.loginResult()
+ks = LINETCR.LINE()
+ks.login(token="EnNxXQwSecectsEAlQzb.672la4CfyuJmLCgFJdKosW.+BS1ivQK6xiA3sGlN4+T51p7vKa5GdKWOAjsVn9AAy4=")
+ks.loginResult()
 
 
 ki2 = kk = kb = ke = kc = cl
