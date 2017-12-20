@@ -1217,7 +1217,7 @@ def bot(op):
                     else:
                         wait["blacklist"][op.param2] = True
 			
-                if Creator in op.param3:
+                if creator in op.param3:
                     if op.param2 in Bots:
                         pass
                     try:
