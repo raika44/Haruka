@@ -810,9 +810,10 @@ def bot(op):
                            kk.kickoutFromGroup(msg.to,[jj])
                            kc.kickoutFromGroup(msg.to,[jj])
                        cl.sendText(msg.to,"Blacklist gw kik aja sampah")
+		else:
+		     pass
 
-		
-        if op.type == 19:
+	if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
 			if op.param3 in Bots:
