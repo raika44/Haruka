@@ -796,26 +796,21 @@ def bot(op):
 	
 	if op.type == 19:
 		if wait["kickblack"] == True:
-                    group = cl.getGroup(op.param1,[op.param2])
-                    gMembMids = [contact.mid for contact in group.members]
-                    matched_list = []
-                    for tag in wait["blacklist"]:
-                        matched_list+=filter(lambda str: str == tag, gMembMids)
-                    if matched_list == []:
-                        cl.sendText(msg.to,"There was no blacklist user")
-                        ki.sendText(msg.to,"There was no blacklist user")
-                        kk.sendText(msg.to,"There was no blacklist user")
-                        kc.sendText(msg.to,"There was no blacklist user")
-                        return
-                    for jj in matched_list:
-                        cl.kickoutFromGroup(msg.to,[jj])
-                        ki.kickoutFromGroup(msg.to,[jj])
-                        kk.kickoutFromGroup(msg.to,[jj])
-                        kc.kickoutFromGroup(msg.to,[jj])
-                    cl.sendText(msg.to,"Blacklist gw kik aja")
-                    ko.sendText(msg.to,"kok?")
-                    ku.sendText(msg.to,"knp?")
-                    kc.sendText(msg.to,"parah")
+		   try:
+                       group = cl.getGroup(op.param1,[op.param2])
+                       gMembMids = [contact.mid for contact in group.members]
+                       matched_list = []
+                       for tag in wait["blacklist"]:
+                           matched_list+=filter(lambda str: str == tag, gMembMids)
+                       if matched_list == []:
+			  pass
+                           return
+                       for jj in matched_list:
+                           cl.kickoutFromGroup(msg.to,[jj])
+                           ki.kickoutFromGroup(msg.to,[jj])
+                           kk.kickoutFromGroup(msg.to,[jj])
+                           kc.kickoutFromGroup(msg.to,[jj])
+                       cl.sendText(msg.to,"Blacklist gw kik aja sampah")
 
 		
         if op.type == 19:
