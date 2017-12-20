@@ -810,6 +810,8 @@ def bot(op):
                            kk.kickoutFromGroup(msg.to,[jj])
                            kc.kickoutFromGroup(msg.to,[jj])
                        cl.sendText(msg.to,"Blacklist gw kik aja sampah")
+		   except:
+			  pass
 		else:
 		     pass
 
