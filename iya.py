@@ -27,12 +27,11 @@ ki.login(token="EnNxXQwSecectsEAlQzb.672la4CfyuJmLCgFJdKosW.+BS1ivQK6xiA3sGlN4+T
 ki.loginResult()
 
 
-cl
+ki2 = kk = kb = ke = kc = cl
 
-ka = ks = ki2 = ks2 = kd = kt = ko = kc
+ks2 = kd = kt = ko = ka
 
-ke = kk = kk2 = kt2 = kb = ku = ki
-
+kk2 = kt2 = ki = ku = ks
 print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
