@@ -411,6 +411,7 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "Protectgr":True,
+    "kickblack":True,
     "AutoKick":True,
     "likeOn":True,
     "welcomemsg":False,
@@ -792,6 +793,29 @@ def bot(op):
               random.choice(KAC).updateGroup(G)
               random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + "Jangan Buka Tutup Kode QR Njiiir")
         #------Protect Group Kick finish-----#
+	
+	if op.type == 19:
+		if wait["kickblack"] == True:
+                    group = cl.getGroup(op.param1,[op.param2])
+                    gMembMids = [contact.mid for contact in group.members]
+                    matched_list = []
+                    for tag in wait["blacklist"]:
+                        matched_list+=filter(lambda str: str == tag, gMembMids)
+                    if matched_list == []:
+                        cl.sendText(msg.to,"There was no blacklist user")
+                        ki.sendText(msg.to,"There was no blacklist user")
+                        kk.sendText(msg.to,"There was no blacklist user")
+                        kc.sendText(msg.to,"There was no blacklist user")
+                        return
+                    for jj in matched_list:
+                        cl.kickoutFromGroup(msg.to,[jj])
+                        ki.kickoutFromGroup(msg.to,[jj])
+                        kk.kickoutFromGroup(msg.to,[jj])
+                        kc.kickoutFromGroup(msg.to,[jj])
+                    cl.sendText(msg.to,"Blacklist gw kik aja")
+                    ko.sendText(msg.to,"kok?")
+                    ku.sendText(msg.to,"knp?")
+                    kc.sendText(msg.to,"parah")
 
 		
         if op.type == 19:
@@ -1087,13 +1111,6 @@ def bot(op):
            if op.param3 in admin:
               random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
               random.choice(KAC).inviteIntoGroup(op.param1,admin)
-           else:
-               pass
-       
-	if op.type == 19:
-           if op.param3 in wait["blacklist"]:
-              random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-	      cl.sendText(msg.to,"Blacklist kick aja gk pantes disni")
            else:
                pass
 
@@ -3161,6 +3178,25 @@ def bot(op):
                     wait["media"] = False
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Already。")
+			
+            elif msg.text in ["Kickblack on"]:
+              if msg.from_ in admin:
+                if wait["Kickblack"] == True:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"GW BILANG UDH COK。")
+                else:
+                    wait["Kickblack"] = True
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Sudah aktif。")
+            elif msg.text in ["Kickblack off"]:
+              if msg.from_ in admin:
+                if wait["Kickblack"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"GW BILANG UDH COK。")
+                else:
+                    wait["Kickblack"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Sudah di nonaktifkan。")
 #==========================================================
             elif msg.text == "Lurking":
               if msg.from_ in admin:
