@@ -918,6 +918,76 @@ def bot(op):
                 else:
                   kk.rejectGroupInvitation(op.param1)
 		
+            if Cmid in op.param3:
+              if wait["autoJoin"] == True:
+                if op.param2 in Bots or owner:
+                  kc.acceptGroupInvitation(op.param1)
+                else:
+                  kc.rejectGroupInvitation(op.param1)
+		
+            if Dmid in op.param3:
+              if wait["autoJoin"] == True:
+                if op.param2 in Bots or owner:
+                  ks.acceptGroupInvitation(op.param1)
+                else:
+                  ks.rejectGroupInvitation(op.param1)
+		
+            if Emid in op.param3:
+              if wait["autoJoin"] == True:
+                if op.param2 in Bots or owner:
+                  ka.acceptGroupInvitation(op.param1)
+                else:
+                  ka.rejectGroupInvitation(op.param1)
+		
+            if Fmid in op.param3:
+              if wait["autoJoin"] == True:
+                if op.param2 in Bots or owner:
+                  kb.acceptGroupInvitation(op.param1)
+                else:
+                  kb.rejectGroupInvitation(op.param1)
+                
+            if Gmid in op.param3:
+              if wait["autoJoin"] == True:
+                if op.param2 in Bots or owner:
+                  ko.acceptGroupInvitation(op.param1)
+                else:
+                  ko.rejectGroupInvitation(op.param1)
+                
+            if Hmid in op.param3:
+              if wait["autoJoin"] == True:
+                if op.param2 in Bots or owner:
+                  ke.acceptGroupInvitation(op.param1)
+                else:
+                  ke.rejectGroupInvitation(op.param1)
+                    
+        if op.type == 13:
+            print op.param1
+            print op.param2
+            print op.param3
+            if mid in op.param3:
+                G = cl.getGroup(op.param1)
+                if wait["autoJoin"] == True:
+                    if wait["autoCancel"]["on"] == True:
+                        if len(G.members) <= wait["autoCancel"]["members"]:
+                            cl.rejectGroupInvitation(op.param1)
+                        else:
+                            cl.acceptGroupInvitation(op.param1)
+                    else:
+                        cl.acceptGroupInvitation(op.param1)
+                elif wait["autoCancel"]["on"] == True:
+                    if len(G.members) <= wait["autoCancel"]["members"]:
+                        cl.rejectGroupInvitation(op.param1)
+            else:
+                Inviter = op.param3.replace("",',')
+                InviterX = Inviter.split(",")
+                matched_list = []
+                for tag in wait["blacklist"]:
+                    matched_list+=filter(lambda str: str == tag, InviterX)
+                if matched_list == []:
+                    pass
+                else:
+                    cl.cancelGroupInvitation(op.param1, matched_list)
+		
 		
         if op.type == 13:
             print op.param1
