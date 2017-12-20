@@ -964,56 +964,6 @@ def bot(op):
                   ke.acceptGroupInvitation(op.param1)
                 else:
                   ke.rejectGroupInvitation(op.param1)
-		
-            if Imid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ku.acceptGroupInvitation(op.param1)
-                else:
-                  ku.rejectGroupInvitation(op.param1)
-		
-            if Jmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kt.acceptGroupInvitation(op.param1)
-                else:
-                  kt.rejectGroupInvitation(op.param1)
-		
-            if Kmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ki2.acceptGroupInvitation(op.param1)
-                else:
-                  ki2.rejectGroupInvitation(op.param1)
-		
-            if Lmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kt2.acceptGroupInvitation(op.param1)
-                else:
-                  kt2.rejectGroupInvitation(op.param1)
-
-            if Mmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  ks2.acceptGroupInvitation(op.param1)
-                else:
-                  ks2.rejectGroupInvitation(op.param1)
-		
-            if Nmid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kk2.acceptGroupInvitation(op.param1)
-                else:
-                  kk2.rejectGroupInvitation(op.param1)
-		
-            if Omid in op.param3:
-              if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
-                  kd.acceptGroupInvitation(op.param1)
-                else:
-                  kd.rejectGroupInvitation(op.param1)
-		
         if op.type == 13:
             print op.param1
             print op.param2
