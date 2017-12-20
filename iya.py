@@ -22,16 +22,16 @@ ka = LINETCR.LINE()
 ka.login(token="EnMJMFgBJ3cEt1xraKU4.AbZfX80renrInaDEsR0v1a.t9hmWm5jzoabiOpUJ5AAWDDDr4SxrePW+3ranmvKXmc=")
 ka.loginResult()
 
-ks = LINETCR.LINE()
-ks.login(token="EnNxXQwSecectsEAlQzb.672la4CfyuJmLCgFJdKosW.+BS1ivQK6xiA3sGlN4+T51p7vKa5GdKWOAjsVn9AAy4=")
-ks.loginResult()
+kb = LINETCR.LINE()
+kb.login(token="EnNxXQwSecectsEAlQzb.672la4CfyuJmLCgFJdKosW.+BS1ivQK6xiA3sGlN4+T51p7vKa5GdKWOAjsVn9AAy4=")
+kb.loginResult()
 
 
-ki2 = kk = kb = ke = kc = cl
+cl
 
-ks2 = kd = kt = ko = ka
+kc = ks = ki2 = ks2 = kd = kt = ko = ka
 
-kk2 = kt2 = ki = ku = ks
+ke = kk = kk2 = kt2 = ki = ku = kb
 
 print "login success"
 reload(sys)
