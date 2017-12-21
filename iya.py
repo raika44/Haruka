@@ -790,13 +790,9 @@ def bot(op):
 	if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in admin:
-			    pass
-			if op.param3 in Bots:
-			    pass
-                        if op.param2 in admin:
+			if op.param3 in Bots or admin:
 			    pass		
-                        if op.param2 in Bots:
+                        if op.param2 in Bots or admin:
 			    pass
 		        else:
 		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
@@ -816,19 +812,15 @@ def bot(op):
 			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
                             pass
-                        else:
-                            if op.param2 in admin:
-			        pass				
-			    if op.param2 in Bots:
+                        else:	
+			    if op.param2 in Bots or admin:
 			        pass
 			    else:
                                 wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
                         pass
-                    else:
-	                if op.param2 in admin:
-			    pass			
-		        if op.param2 in Bots:
+                    else:	
+		        if op.param2 in Bots or admin:
 			    pass
 		        else:
                             wait["blacklist"][op.param2] = True
