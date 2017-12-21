@@ -779,22 +779,20 @@ def bot(op):
            #------Protect Group Kick start------#
                 #------Protect Group Kick start------#
         if op.type == 11:
-           if op.param2 in not Bots or admin:
-	       if op.param2 in Bots or admin:
-	           pass
            if wait["Protectgr"] == True:
-              G = random.choice(KAC).getGroup(op.param1)
-              G.preventJoinByTicket = True
-              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              random.choice(KAC).updateGroup(G)
-              random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan Buka Tutup Kode QR Njiiir")
+	      if op.param2 in not Bots or admin:
+                  G = random.choice(KAC).getGroup(op.param1)
+                  G.preventJoinByTicket = True
+                  random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                  random.choice(KAC).updateGroup(G)
+                  random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan Buka Tutup Kode QR Njiiir")
         #------Protect Group Kick finish-----#
 	if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
 			if op.param3 in Bots or admin:
 			    pass
- admin:
+                        if op.param2 in Bots or admin:
 			    pass
 		        else:
 		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
