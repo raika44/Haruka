@@ -1005,7 +1005,7 @@ def bot(op):
                         try:
                             random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 			    cl.sendText(op.param1,"Blacklist gk pantes disini")
-                            G = cl.getGroup(op.param1)
+                            G = random.choice(KAC).getGroup(op.param1)
                             G.preventJoinByTicket = True
                             cl.updateGroup(G)
                         except:
