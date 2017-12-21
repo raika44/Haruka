@@ -850,23 +850,24 @@ def bot(op):
                   random.choice(DEF).cancelGroupInvitation(op.param1, gMembMids)
         if op.type == 17:
            if wait["kickblack"] == True:
-               if op.param2 not in Bots:			
-                  group = ka.getGroup(op.param1)
-                    gMembMids = [contact.mid for contact in group.members]
-                    matched_list = []
-                    for tag in wait["blacklist"]:
-                        matched_list+=filter(lambda str: str == tag, gMembMids)
-                    if matched_list == []:
-                        return
-                    for jj in matched_list:
-                        cl.kickoutFromGroup(msg.to,[jj])
-                        ki.kickoutFromGroup(msg.to,[jj])
-                        kk.kickoutFromGroup(msg.to,[jj])
-                        kc.kickoutFromGroup(msg.to,[jj])
-                    cl.sendText(msg.to,"Blacklist emang pantas tuk di usir")
-                    ki.sendText(msg.to,"Blacklist emang pantas tuk di usir")
-                    kk.sendText(msg.to,"Blacklist emang pantas tuk di usir")
-                    kc.sendText(msg.to,"Blacklist emang pantas tuk di usir"
+              if op.param3 in wait["blacklist"]:
+                 if not op.param2 in Bots and admin: 
+                     group = ka.getGroup(op.param1)
+                     gMembMids = [contact.mid for contact in group.members]
+                     matched_list = []
+                     for tag in wait["blacklist"]:
+                         matched_list+=filter(lambda str: str == tag, gMembMids)
+                     if matched_list == []:
+                         return
+                     for jj in matched_list:
+                         cl.kickoutFromGroup(msg.to,[jj])
+                         ki.kickoutFromGroup(msg.to,[jj])
+                         kk.kickoutFromGroup(msg.to,[jj])
+                         kc.kickoutFromGroup(msg.to,[jj])
+                     cl.sendText(msg.to,"Blacklist emang pantas tuk di usir")
+                     ki.sendText(msg.to,"Blacklist emang pantas tuk di usir")
+                     kk.sendText(msg.to,"Blacklist emang pantas tuk di usir")
+                     kc.sendText(msg.to,"Blacklist emang pantas tuk di usir")
       #------Cancel Invite User Finish------#
         if op.type == 26:
             msg = op.message
