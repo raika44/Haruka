@@ -780,7 +780,7 @@ def bot(op):
                 #------Protect Group Kick start------#
         if op.type == 11:
           if wait["Protectgr"] == True:
-            if op.param2 not in Bots:
+            if op.param2 not in Bots or admin:
               G = random.choice(KAC).getGroup(op.param1)
               G.preventJoinByTicket = True
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
@@ -790,9 +790,9 @@ def bot(op):
 	if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in Bots and admin:
+			if op.param3 in Bots or admin:
 			    pass
-		        if op.param2 in Bots and admin:
+		        if op.param2 in Bots or admin:
 			    pass
 		        else:
 		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
@@ -802,7 +802,7 @@ def bot(op):
 			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
-			    if op.param2 not in Bots and admin:
+			    if op.param2 not in Bots or admin:
                                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 			    if op.param2 in wait["blacklist"]:
 			        pass
@@ -813,14 +813,14 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
                         else:
-			    if op.param2 in Bots and admin:
+			    if op.param2 in Bots or admin:
 			        pass
 			    else:
                                 wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
-		        if op.param2 in Bots and admin:
+		        if op.param2 in Bots or admin:
 			    pass
 		        else:
                             wait["blacklist"][op.param2] = True
@@ -996,14 +996,14 @@ def bot(op):
             if wait["AutoKick"] == True:
                 if wait["blacklist"][op.param2] == True:
                     try:
-                        cl.kickoutFromGroup(op.param1,[op.param2])
+                        random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
 			cl.sendText(op.param1,"Blacklist gk pantes disini")
                         G = cl.getGroup(op.param1)
                         G.preventJoinByTicket = True
                         cl.updateGroup(G)
                     except:
                         try:
-                            cl.kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 			    cl.sendText(op.param1,"Blacklist gk pantes disini")
                             G = cl.getGroup(op.param1)
                             G.preventJoinByTicket = True
