@@ -790,9 +790,13 @@ def bot(op):
 	if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in Bots or admin:
+			if op.param3 in admin:
 			    pass
-                        if op.param2 in Bots or admin:
+			if op.param3 in Bots:
+			    pass
+                        if op.param2 in admin:
+			    pass		
+                        if op.param2 in Bots:
 			    pass
 		        else:
 		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
@@ -813,14 +817,18 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
                         else:
-			    if op.param2 in Bots or admin:
+                            if op.param2 in admin:
+			        pass				
+			    if op.param2 in Bots:
 			        pass
 			    else:
                                 wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
-		        if op.param2 in Bots or admin:
+	                if op.param2 in admin:
+			    pass			
+		        if op.param2 in Bots:
 			    pass
 		        else:
                             wait["blacklist"][op.param2] = True
