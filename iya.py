@@ -790,9 +790,9 @@ def bot(op):
 	if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in Bots:
+			if op.param3 in Bots and admin:
 			    pass
-		        if op.param2 in Bots:
+		        if op.param2 in Bots and admin:
 			    pass
 		        else:
 		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
@@ -802,7 +802,7 @@ def bot(op):
 			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
-			    if op.param2 not in Bots:
+			    if op.param2 not in Bots and admin:
                                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 			    if op.param2 in wait["blacklist"]:
 			        pass
@@ -813,14 +813,14 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
                         else:
-			    if op.param2 in Bots:
+			    if op.param2 in Bots and admin:
 			        pass
 			    else:
                                 wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
-		        if op.param2 in Bots:
+		        if op.param2 in Bots and :
 			    pass
 		        else:
                             wait["blacklist"][op.param2] = True
@@ -990,8 +990,8 @@ def bot(op):
                     cl.cancelGroupInvitation(op.param1, matched_list)
 		
         if op.type == 17:
-            if op.param2 not in Bots:
-                if op.param2 in Bots:
+            if op.param2 not in Bots and admin:
+                if op.param2 in Bots and admin:
                     pass
             if wait["AutoKick"] == True:
                 if wait["blacklist"][op.param2] == True:
