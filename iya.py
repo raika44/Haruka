@@ -785,7 +785,7 @@ def bot(op):
               G.preventJoinByTicket = True
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
               random.choice(KAC).updateGroup(G)
-              random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + "Jangan Buka Tutup Kode QR Njiiir")
+              random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan Buka Tutup Kode QR Njiiir")
         #------Protect Group Kick finish-----#
 	if op.type == 19:
 		if wait["AutoKick"] == True:
@@ -865,7 +865,7 @@ def bot(op):
                                  break
                              elif invite in wait["blacklist"]:
                                  ki.sendText(msg.to,"Sorry, " + _name + " On Blacklist")
-                                 ki.sendText(msg.to,"Call my owner to use command !, \n➡Unban: " + invite)
+                                 ku.sendText(msg.to,"Call my owner to use command !, \n➡Unban: " + invite)
                                  break                             
                              else:
                                  targets.append(invite)
@@ -1011,18 +1011,11 @@ def bot(op):
                         except:
                             pass
 		
-        if op.type == 19:
-          if op.param2 not in Bots or admin:
-            if op.param2 in Bots or admin:
-             pass
-          elif wait["kickblack"] == True:
-           wait ["blacklist"][op.param2] = True
-           random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-	   cl.sendText(op.param1,"Blacklist gk pantes disini tau")
+  
         #------Joined User Kick start------#
         if op.type == 17:
            if wait["Protectjoin"] == True:
-               if op.param2 not in Bots:
+               if op.param2 not in Bots or admin:
                    random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                
         #------Joined User Kick start------#
