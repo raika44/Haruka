@@ -990,8 +990,8 @@ def bot(op):
                     cl.cancelGroupInvitation(op.param1, matched_list)
 		
         if op.type == 17:
-            if op.param2 not in Bots and admin:
-                if op.param2 in Bots and admin:
+            if op.param2 not in Bots or admin:
+                if op.param2 in Bots or admin:
                     pass
             if wait["AutoKick"] == True:
                 if wait["blacklist"][op.param2] == True:
@@ -1012,13 +1012,13 @@ def bot(op):
                             pass
 		
         if op.type == 19:
-          if op.param2 not in admin and Bots:
-            if op.param2 in Bots:
+          if op.param2 not in Bots or admin:
+            if op.param2 in Bots or admin:
              pass
           elif wait["kickblack"] == True:
            wait ["blacklist"][op.param2] = True
            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-	   cl.sendText(op.param1,"Blacklist gk pantes disini")
+	   cl.sendText(op.param1,"Blacklist gk pantes disini tau")
         #------Joined User Kick start------#
         if op.type == 17:
            if wait["Protectjoin"] == True:
