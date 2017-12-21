@@ -993,7 +993,7 @@ def bot(op):
             if op.param2 not in Bots:
                 if op.param2 in Bots:
                     pass
-            if wait["protect"] == True:
+            if wait["Autokick"] == True:
                 if wait["blacklist"][op.param2] == True:
                     try:
                         cl.kickoutFromGroup(op.param1,[op.param2])
