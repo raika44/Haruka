@@ -820,7 +820,7 @@ def bot(op):
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
-		        if op.param2 in Bots and :
+		        if op.param2 in Bots and admin:
 			    pass
 		        else:
                             wait["blacklist"][op.param2] = True
