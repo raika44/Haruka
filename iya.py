@@ -784,7 +784,7 @@ def bot(op):
                   pass
 	      if op.param2 in Bots:
 		  pass
-	       else:
+	      else:
 		    G = random.choice(KAC).getGroup(op.param1)
                     G.preventJoinByTicket = True
                     random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
