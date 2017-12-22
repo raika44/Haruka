@@ -378,6 +378,7 @@ Imid = ku.getProfile().mid
 Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 admin=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
+admin = Bots
 wait = {
     'contact':False,
     'autoJoin':True,
@@ -794,9 +795,9 @@ def bot(op):
 	if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in Bots or admin:
+			if op.param3 in Bots:
 			    pass		
-                        if op.param2 in Bots or admin:
+                        if op.param2 in Bots:
 			    pass 
 		        else:
 		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
@@ -806,7 +807,7 @@ def bot(op):
 			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
-			    if op.param2 not in Bots or admin:
+			    if op.param2 not in Bots:
                                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 			    if op.param2 in wait["blacklist"]:
 			        pass
@@ -819,8 +820,6 @@ def bot(op):
                         else:	
 			    if op.param2 in Bots:
 			        pass
-	                    if op.param2 in admin:
-			        pass		
 			    else:
                                 wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
@@ -828,8 +827,6 @@ def bot(op):
                     else:	
 		        if op.param2 in Bots:
 			    pass
-	                if op.param2 in admin:
-		            pass
 		        else:
                             wait["blacklist"][op.param2] = True
 		else:
