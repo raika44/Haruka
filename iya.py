@@ -796,7 +796,7 @@ def bot(op):
        
         if op.type == 15:
             if wait["autorein"] == True:
-               if op.param2 in admin:
+               if op.param2 not in admin:
 		   if op.param2 in wait["blacklist"]:
 	               pass
 	           else:
