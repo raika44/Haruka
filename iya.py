@@ -780,7 +780,7 @@ def bot(op):
                 #------Protect Group Kick start------#
         if op.type == 11:
            if wait["Protectgr"] == True:
-              if op.param2 not in Bots and admin:
+              if op.param2 not in Bots,admin:
 		  G = random.choice(KAC).getGroup(op.param1)
                   G.preventJoinByTicket = True
                   random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
