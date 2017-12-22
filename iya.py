@@ -794,9 +794,9 @@ def bot(op):
 	if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in Bots:
+			if op.param2 in Bots:
 			    pass		
-                        if op.param2 in Bots:
+                        if op.param2 in admin:
 			    pass
 		        else:
 		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
@@ -806,7 +806,7 @@ def bot(op):
 			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
-			    if op.param2 not in Bots:
+			    if op.param2 not in Bots or admin:
                                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 			    if op.param2 in wait["blacklist"]:
 			        pass
@@ -819,6 +819,8 @@ def bot(op):
                         else:	
 			    if op.param2 in Bots:
 			        pass
+	                    if op.param2 in admin:
+			        pass		
 			    else:
                                 wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
@@ -826,6 +828,8 @@ def bot(op):
                     else:	
 		        if op.param2 in Bots:
 			    pass
+	                if op.param2 in admin:
+		            pass
 		        else:
                             wait["blacklist"][op.param2] = True
 		else:
@@ -847,12 +851,18 @@ def bot(op):
 
         #------Cancel Invite User start------#
         if op.type == 13:
-           if wait["Protectcancl"] == True:
-               if op.param2 not in Bots or admin:
-                  group = ka.getGroup(op.param1)
-                  gMembMids = [contact.mid for contact in group.invitee]
-                  random.choice(DEF).cancelGroupInvitation(op.param1, gMembMids)
-      #------Cancel Invite User Finish------#
+          if wait["Protectcancl"] == True:
+            group = cl.getGroup(op.param1)
+            gMembMids = [contact.mid for contact in group.invitee]
+            if op.param2 in Bots:
+              pass
+            if op.param2 in admin:
+              pass
+            else:
+              random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
+              random.choice(KAC).sendText(op.param1, "Sorry you not admin😛")
+        #------Cancel Invite User Finish------#
+            
         if op.type == 26:
             msg = op.message
             if msg.contentType == 13:
