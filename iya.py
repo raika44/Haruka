@@ -792,6 +792,15 @@ def bot(op):
                     random.choice(KAC).updateGroup(G)
                     random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan Buka Tutup Kode QR Njiiir")
         #------Protect Group Kick finish-----#
+       
+        if op.type == 15:
+            if wait["Protectgr"] == True:
+               if op.param2 in admin:
+                  klist=[ki,kk,kc,ks,kt]
+                  kicker = random.choice(klist)
+                  kicker.inviteIntoGroup(op.param1,[op.param2])
+
+	
         if op.type == 19: #Member Ke Kick
           if op.param2 in Bots:
             pass
