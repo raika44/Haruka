@@ -792,19 +792,19 @@ def bot(op):
                     random.choice(KAC).updateGroup(G)
                     random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan Buka Tutup Kode QR Njiiir")
         #------Protect Group Kick finish-----#
-	if op.type == 19:
+        if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
 			if op.param3 in Bots:
-			    pass		
-                        if op.param2 in Bots:
-			    pass 
+			    pass
+		        if op.param2 in Bots:
+			    pass
 		        else:
-		            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+		            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                         if op.param2 in wait["blacklist"]:
                             pass
 		        else:
-			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			    kk.inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
@@ -817,20 +817,22 @@ def bot(op):
 			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
                             pass
-                        else:	
+                        else:
 			    if op.param2 in Bots:
 			        pass
 			    else:
                                 wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
                         pass
-                    else:	
+                    else:
 		        if op.param2 in Bots:
 			    pass
 		        else:
                             wait["blacklist"][op.param2] = True
 		else:
 		    pass
+
+#------------------
         #------Protect Group Kick finish-----#
 		
         if op.type == 15:
