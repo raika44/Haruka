@@ -844,7 +844,7 @@ def bot(op):
         #------Cancel Invite User start------#
         if op.type == 13:
            if wait["Protectcancl"] == True:
-               if op.param2 not in Bots or admin:
+               if op.param2 not in Bots and admin:
                   group = ka.getGroup(op.param1)
                   gMembMids = [contact.mid for contact in group.invitee]
                   random.choice(DEF).cancelGroupInvitation(op.param1, gMembMids)
