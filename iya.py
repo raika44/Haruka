@@ -818,7 +818,7 @@ def bot(op):
                            if op.param2 in wait["blacklist"]:
                                pass
 		           else:
-			       random.(KAC).inviteIntoGroup(op.param1,[op.param2])
+			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param2])
 			else:
 		            pass
 		    except:
@@ -829,7 +829,7 @@ def bot(op):
 			       if op.param2 in wait["blacklist"]:
 			           pass
 			       else:
-			           random.(KAC).inviteIntoGroup(op.param1,[op.param2])
+			           random.choice(KAC).inviteIntoGroup(op.param1,[op.param2])
 			    else:
 		                pass
 		        except:
