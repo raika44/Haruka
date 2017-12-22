@@ -792,19 +792,7 @@ def bot(op):
                     random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     random.choice(KAC).updateGroup(G)
                     random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan Buka Tutup Kode QR Njiiir")
-        #------Protect Group Kick finish-----#
-       
-        if op.type == 15:
-            if wait["autorein"] == True:
-               if op.param2 not in admin:
-		   if op.param2 in wait["blacklist"]:
-	               pass
-	           else:
-                        klist=[ki,kk,kc,ks,kt]
-                        kicker = random.choice(klist)
-                        kicker.inviteIntoGroup(op.param1,[op.param2])
-
-	
+        #------Protect Group Kick finish-----#       	
         if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
@@ -818,20 +806,16 @@ def bot(op):
                            if op.param2 in wait["blacklist"]:
                                pass
 		           else:
-			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param2])
-			else:
-		            pass
+			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
                                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-			    if wait["autorein"] == True:
+		            if wait["autorein"] == True:
 			       if op.param2 in wait["blacklist"]:
 			           pass
 			       else:
-			           random.choice(KAC).inviteIntoGroup(op.param1,[op.param2])
-			    else:
-		                pass
+			           random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		        except:
 			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
