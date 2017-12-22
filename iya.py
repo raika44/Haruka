@@ -782,7 +782,7 @@ def bot(op):
            if wait["Protectgr"] == True:
               if op.param2 in Bots:
                   pass
-	      if op.param2 in Bots:
+	      if op.param2 in admin:
 		  pass
 	      else:
 		    G = random.choice(KAC).getGroup(op.param1)
