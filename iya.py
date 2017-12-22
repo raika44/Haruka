@@ -818,7 +818,9 @@ def bot(op):
                            if op.param2 in wait["blacklist"]:
                                pass
 		           else:
-			        random.(KAC).inviteIntoGroup(op.param1,[op.param2])
+			       random.(KAC).inviteIntoGroup(op.param1,[op.param2])
+			else:
+		            pass
 		    except:
 		        try:
 			    if op.param2 not in Bots:
@@ -827,7 +829,9 @@ def bot(op):
 			       if op.param2 in wait["blacklist"]:
 			           pass
 			       else:
-			            random.(KAC).inviteIntoGroup(op.param1,[op.param2])
+			           random.(KAC).inviteIntoGroup(op.param1,[op.param2])
+			    else:
+		                pass
 		        except:
 			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
