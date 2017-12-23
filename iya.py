@@ -3255,7 +3255,7 @@ def bot(op):
 			
             elif msg.text in ["Invite:on"]:
               if msg.from_ in admin:
-                 if wait["autorein"] == True:
+                if wait["autorein"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Done。")
                 else:
