@@ -1070,10 +1070,10 @@ def bot(op):
                        wait ["blacklist"][op.param2] = True
                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 		       if wait["autorein"] == True:
-			  if op.param2 in wait["blacklist"]:
-			      pass
-			  else:
-			      random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			    if op.param2 in wait["blacklist"]:
+			        pass
+			    else:
+			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 
         if op.type == 19:
            if op.param3 in admin:
