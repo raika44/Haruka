@@ -407,7 +407,7 @@ wait = {
     "dblacklist":False,
     "Protectgr":True,
     "kickblack":True,
-    "AutoKick":True,
+    "AutoKick":False,
     "likeOn":True,
     "welcomemsg":False,
     "winvite":False,
@@ -417,8 +417,7 @@ wait = {
     "Backup":False,
     "protectionOn":True,
     "atjointicket":True,
-    "Pap":"http://kucingpedia.com/wp-content/uploads/2016/06/Gambar-Kucing-Gemuk-Lucu.jpg",
-    "SetKey":".",
+    "Pap":True,
     "spam":"Your Account Has Been Spammed",
     }
 
@@ -1009,7 +1008,7 @@ def bot(op):
             if op.param2 not in Bots or admin:
                 if op.param2 in Bots or admin:
                     pass
-            if wait["AutoKick"] == True:
+            if wait["kickblack"] == True:
                 if wait["blacklist"][op.param2] == True:
                     try:
                         random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
@@ -1063,6 +1062,17 @@ def bot(op):
                         if data['status'] == 200:
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
+				
+        if op.type == 19:
+            if op.param2 not in Bots:
+                elif wait["protect"] == True:
+                       wait ["blacklist"][op.param2] = True
+                       random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		       if wait["autorein"] == True:
+			  if op.param2 in wait["blacklist"]:
+			      pass
+			  else:
+			      random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 
         if op.type == 19:
            if op.param3 in admin:
@@ -1954,6 +1964,9 @@ def bot(op):
                         cl.sendText(msg.to,"Can not be used outside the group")
                     else:
                         cl.sendText(msg.to,"Not for use less than group")
+            elif msg.text in ["Auto like"]:
+                wait["likeOn"] = True
+                cl.sendText(msg.to,"Shere Post Kamu Yang Mau Di Like!")	    
             elif msg.text in ["Cv1 curl","Cv1 link off"]:
                 if msg.toType == 2:
                     X = ki.getGroup(msg.to)
@@ -4178,10 +4191,11 @@ def bot(op):
                     cu = cl.channel.getCover(mid)
                     path = str(cu)
                     cl.sendImageWithUrl(msg.to, path)
-            elif wait["SetKey"]+"Set pap:" in msg.text:
-                wait["Pap"] = msg.text.replace(wait["SetKey"]+"Set pap:","")
+	    elif "Pap set " in msg.text:
+                wait["Pap"] = msg.text.replace("Pap set ","")
                 cl.sendText(msg.to,"Pap Has Ben Set To")
-            elif msg.text in [wait["SetKey"]+".Pap",wait["SetKey"]+"Pap"]:
+
+	    elif msg.text in [".Pap","Pap"]:
                 cl.sendImageWithURL(msg.to,wait["Pap"])
 				    
 	    elif "Vn" in msg.text:
@@ -5585,51 +5599,183 @@ thread2 = threading.Thread(target=nameUpdate)
 thread2.daemon = True
 thread2.start()
 
-def likefriend():
-    for zx in range(0,20):
-      hasil = cl.activity(limit=20)
-      if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
-        try:
-          cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil ['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
-          print "Like"
-        except:
-          pass
-      else:
-          print "Already Liked"
-time.sleep(0.60)
 
-def autoSta():
+def autolike():
     count = 1
     while True:
         try:
            for posts in cl.activity(1)["result"]["posts"]:
              if posts["postInfo"]["liked"] is False:
                 if wait["likeOn"] == True:
-                   cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   ki.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   kk.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   kc.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   ks.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   ka.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"],likeType=1001)
+                   print "Like"
                    if wait["commentOn"] == True:
                       if posts["userInfo"]["writerMid"] in wait["commentBlack"]:
                          pass
                       else:
-                          cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          ki.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          kk.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          kc.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          ks.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          ka.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
+                          cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],oceh["pesanlike"])
         except:
             count += 1
             if(count == 50):
                 sys.exit(0)
             else:
                 pass
-thread1 = threading.Thread(target=autoSta)
-thread1.daemon = True
-thread1.start()
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
+
+def likefriend():
+    for zx in range(0,20):
+      hasil = cl.activity(limit=20)
+      if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+        try:
+          cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
+          cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+          c2.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
+          c2.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+          c3.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
+          c3.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+          c4.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+          c4.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+          c5.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+          c5.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],str(oceh["pesanlike"]))
+          c6.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+          c6.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+          print "Like"
+        except:
+          pass
+      else:
+          print "Already Liked"
+time.sleep(0.60)
+#thread3 = threading.Thread(target=autolike)
+#thread3.daemon = True
+#thread3.start()
+#--------------------
+def likeme():
+    for zx in range(0,20):
+        hasil = cl.activity(limit=20)
+        if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+            if hasil['result']['posts'][zx]['userInfo']['mid'] in admin:
+                try:
+                    cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+                    c2.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    c2.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+                    c3.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    c3.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+                    c4.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    c4.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+                    c5.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    c5.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+                    c6.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    c6.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Auto Like By D3BL3NK |\n line://ti/p/~deblip_")
+                    print "Like"
+                except:
+                    pass
+            else:
+                print "Status Sudah di Like Plak"
+
+def autolike():
+     for zx in range(0,20):
+         hasil = cl.activity(limit=20)
+         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+             try:    
+                 cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                 cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],oceh["pesanlike"])
+                 print "DiLike"
+             except:
+                     pass
+          else:
+                 print "Sudah DiLike"
+              time.sleep(500)
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
+
+def autolike():
+     for zx in range(0,20):
+         hasil = c2.activity(limit=20)
+         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+             try:    
+                 c2.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                 c2.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],oceh["pesanlike"])
+                 print "DiLike"
+             except:
+                     pass
+          else:
+                 print "Sudah DiLike"
+              time.sleep(500)
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
+
+def autolike():
+     for zx in range(0,20):
+         hasil = c3.activity(limit=20)
+         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+             try:    
+                 c3.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                 c3.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],oceh["pesanlike"])
+                 print "DiLike"
+             except:
+                     pass
+          else:
+                 print "Sudah DiLike"
+              time.sleep(500)
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
+
+def autolike():
+     for zx in range(0,20):
+         hasil = c4.activity(limit=20)
+         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+             try:    
+                 c4.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                 c4.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],oceh["pesanlike"])
+                 print "DiLike"
+             except:
+                     pass
+          else:
+                 print "Sudah DiLike"
+              time.sleep(500)
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
+
+def autolike():
+     for zx in range(0,20):
+         hasil = c5.activity(limit=20)
+         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+             try:    
+                 c5.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                 c5.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],oceh["pesanlike"])
+                 print "DiLike"
+             except:
+                     pass
+          else:
+                 print "Sudah DiLike"
+              time.sleep(500)
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
+
+def autolike():
+     for zx in range(0,20):
+         hasil = c6.activity(limit=20)
+         if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+             try:    
+                 c6.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                 c6.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],oceh["pesanlike"])
+                 print "DiLike"
+             except:
+                     pass
+          else:
+                 print "Sudah DiLike"
+              time.sleep(500)
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start(
 
 while True:
     try:
