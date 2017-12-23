@@ -3253,9 +3253,9 @@ def bot(op):
                     else:
                         cl.sendText(msg.to, "anda slah ketik-_-")
 			
-           elif msg.text in ["Invite:on"]:
-             if msg.from_ in admin:
-                if wait["autorein"] == True:
+            elif msg.text in ["Invite:on"]:
+              if msg.from_ in admin:
+                 if wait["autorein"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Done。")
                 else:
