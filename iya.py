@@ -408,7 +408,7 @@ wait = {
     "Protectgr":True,
     "protect":True,
     "kickblack":True,
-    "AutoKick":False,
+    "AutoKick":True,
     "likeOn":True,
     "welcomemsg":False,
     "winvite":False,
