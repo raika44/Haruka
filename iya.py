@@ -794,7 +794,47 @@ def bot(op):
                     random.choice(KAC).updateGroup(G)
                     random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan Buka Tutup Kode QR Njiiir")
         #------Protect Group Kick finish-----#       	
-
+        if op.type == 19:
+		if wait["AutoKick"] == True:
+		    try:
+			if op.param3 in Bots:
+			    pass
+		        if op.param2 in Bots:
+			    pass
+		        else:
+		            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+			if wait["autorein"] == True:
+                           if op.param2 in wait["blacklist"]:
+                               pass
+		           else:
+			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+		    except:
+		        try:
+			    if op.param2 not in Bots:
+                                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		            if wait["autorein"] == True:
+			       if op.param2 in wait["blacklist"]:
+			           pass
+			       else:
+			           random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+		        except:
+			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
+                        if op.param2 in wait["blacklist"]:
+                            pass
+                        else:
+			    if op.param2 in Bots:
+			        pass
+			    else:
+                                wait["blacklist"][op.param2] = True
+		    if op.param2 in wait["blacklist"]:
+                        pass
+                    else:
+		        if op.param2 in Bots:
+			    pass
+		        else:
+                            wait["blacklist"][op.param2] = True
+		else:
+		    pass
     
 #------------------
         #------Protect Group Kick finish-----#
@@ -1025,15 +1065,34 @@ def bot(op):
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
 				
-        if op.type == 19:
-            if op.param2 not in Bots:
-                wait ["blacklist"][op.param2] = True
-                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-		if wait["autorein"] == True:
-	             if op.param2 in wait["blacklist"]:
-			 pass
-	             else:
-		         random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+        if op.type == 19: #Member Ke Kick
+          if op.param2 in Bots:
+            pass
+          elif op.param2 in admin:
+            pass
+          elif op.param2 in whitelist:
+            pass
+          else:
+            try:
+              cl.kickoutFromGroup(op.param1,[op.param2])
+              wait["blacklist"][op.param2] = True
+	      if wait["autorein"] == True:
+	           if op.param2 in wait["blacklist"]:
+		       pass
+	           else:
+		       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+              #f=codecs.open('st2__b.json','w','utf-8')
+              #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
+            except:
+              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+              wait["blacklist"][op.param2] = True
+	      if wait["autorein"] == True:
+	           if op.param2 in wait["blacklist"]:
+		       pass
+	           else:
+		       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+              #f=codecs.open('st2__b.json','w','utf-8')
+              #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False
 
         if op.type == 19:
            if op.param3 in admin:
