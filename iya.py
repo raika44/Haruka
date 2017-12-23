@@ -406,6 +406,7 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "Protectgr":True,
+    "protect":True,
     "kickblack":True,
     "AutoKick":False,
     "likeOn":True,
@@ -3235,6 +3236,24 @@ def bot(op):
                         cl.sendText(msg.to,"GW BILANG UDH COK。")
                 else:
                     wait["Kickblack"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Sudah di nonaktifkan。")
+            elif msg.text in ["Prot on"]:
+              if msg.from_ in admin:
+                if wait["protect"] == True:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"GW BILANG UDH COK。")
+                else:
+                    wait["protect"] = True
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Sudah aktif。")
+            elif msg.text in ["Prot off"]:
+              if msg.from_ in admin:
+                if wait["protect"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"GW BILANG UDH COK。")
+                else:
+                    wait["protect"] = False
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Sudah di nonaktifkan。")
 #==========================================================
