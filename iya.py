@@ -3092,7 +3092,7 @@ def bot(op):
 				ka.sendText(msg.to,(bctxt))
 				
 ##≠========================&=&==&=&=%=%=%=%==%=%=%=%;%;%;;%;;%;%
-            elif msg.text in ["Welcome message:on"]:
+            elif msg.text in ["Sambutan on","Welcome message:on"]:
               if msg.from_ in admin:
                 if wait["welcomemsg"] == True:
                     if wait["lang"] == "JP":
@@ -3106,7 +3106,7 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"welcome message on")
 		
-            elif msg.text in ["Welcome message:off"]:
+            elif msg.text in ["Sambutan off","Welcome message:off"]:
               if msg.from_ in admin:
                 if wait["welcomemsg"] == False:
                     if wait["lang"] == "JP":
@@ -3253,32 +3253,25 @@ def bot(op):
                     else:
                         cl.sendText(msg.to, "anda slah ketik-_-")
 			
-	    elif msg.text in ["Reinvite:off","auto reinvite:off"]:
-              if msg.from_ in admin:
-                if wait["autorein"] == False:
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to, "Already off\n\n"+ datetime.today().strftime('%H:%M:%S'))
-                    else:
-                        cl.sendText(msg.to,"Already off\n\n"+ datetime.today().strftime('%H:%M:%S'))
-                else:
-                    wait["autorein"] = False
-                    if wait["lang"] == "JP":
-                        cl.sendText(msg.to, "Already off\n\n"+ datetime.today().strftime('%H:%M:%S'))
-                    else:
-                        cl.sendText(msg.to,"Already off\n\n"+ datetime.today().strftime('%H:%M:%S'))
-            elif msg.text in ["Reinvite:on","auto reinvite:on"]:
-              if msg.from_ in admin:
+           elif msg.text in ["Invite:on"]:
+             if msg.from_ in admin:
                 if wait["autorein"] == True:
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to, "Already on\n"+ datetime.today().strftime('%H:%M:%S'))
-                    else:
-                        cl.sendText(msg.to ,"Already on\n"+ datetime.today().strftime('%H:%M:%S'))
+                        cl.sendText(msg.to,"Done。")
                 else:
                     wait["autorein"] = True
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to, "Already on\n"+ datetime.today().strftime('%H:%M:%S'))
-                    else:
-                        cl.sendText(msg.to,"Already on\n"+ datetime.today().strftime('%H:%M:%S'))
+                        cl.sendText(msg.to,"Already。")
+            elif msg.text in [":off"]:
+              if msg.from_ in admin:
+                if wait["autorein"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Done。")
+                else:
+                    wait["autorein"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Already。")
+			
          #-------------Fungsi Change Clock Start------------------#
             elif msg.text in ["Change clock"]:
                 n = msg.text.replace("Change clock","")
