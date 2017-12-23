@@ -802,7 +802,7 @@ def bot(op):
 		        if op.param2 in Bots:
 			    pass
 		        else:
-		            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		            cl.kickoutFromGroup(op.param1,[op.param2])
 			if wait["autorein"] == True:
                            if op.param2 in wait["blacklist"]:
                                pass
@@ -1065,34 +1065,17 @@ def bot(op):
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
 				
-        if op.type == 19: #Member Ke Kick
-          if op.param2 in Bots:
-            pass
-          elif op.param2 in admin:
-            pass
-          elif op.param2 in whitelist:
-            pass
-          else:
-            try:
-              cl.kickoutFromGroup(op.param1,[op.param2])
-              wait["blacklist"][op.param2] = True
+        if op.type == 19:
+           if op.param2 not in Bots:
+              random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+	      wait["blacklist"][op.param2] = True
 	      if wait["autorein"] == True:
-	           if op.param2 in wait["blacklist"]:
+		   if op.param2 in wait["blacklist"]:
 		       pass
-	           else:
-		       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-              #f=codecs.open('st2__b.json','w','utf-8')
-              #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-            except:
-              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              wait["blacklist"][op.param2] = True
-	      if wait["autorein"] == True:
-	           if op.param2 in wait["blacklist"]:
-		       pass
-	           else:
-		       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-              #f=codecs.open('st2__b.json','w','utf-8')
-              #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False
+		   else:
+		       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])	
+           else: 
+               pass
 
         if op.type == 19:
            if op.param3 in admin:
