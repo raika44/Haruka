@@ -419,7 +419,7 @@ wait = {
     "protectionOn":True,
     "atjointicket":True,
     "Pap":True,
-    "SetKey":"."
+    "SetKey":".",
     "spam":"Your Account Has Been Spammed",
     }
 
