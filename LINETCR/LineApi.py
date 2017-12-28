@@ -115,8 +115,8 @@ class LINE:
         msg = Message()
         msg.to = Tomid
         msg.text = text
-
         return self.Talk.client.sendMessage(0, msg)
+
   def post_content(self, url, data=None, files=None):
         return self._session.post(url, headers=self._headers, data=data, files=files)
 
@@ -136,9 +136,8 @@ class LINE:
             'ver': '1.0',
         }
         data = {
-            'params': json.dumps(params)            
-        }       
-
+            'params': json.dumps(params)
+        }
         r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
         print r
         if r.status_code != 201:
@@ -147,95 +146,95 @@ class LINE:
 
   def sendImageWithURL(self, to_, url):
         """Send a image with given image url
-
         :param url: image url to send
         """
         path = 'pythonLine.data'
-
         r = requests.get(url, stream=True)
         if r.status_code == 200:
             with open(path, 'w') as f:
                 shutil.copyfileobj(r.raw, f)
         else:
             raise Exception('Download image failure.')
-
         try:
             self.sendImage(to_, path)
         except Exception as e:
             raise e
 
   def sendAudioWithURL(self, to_, url):
-      path = 'pythonLiness.data'
-      r = requests.get(url, stream=True)
-      if r.status_code == 200:
-         with open(path, 'w') as f:
-            shutil.copyfileobj(r.raw, f)
-      else:
-         raise Exception('Download Audio failure.')
-      try:
-         self.sendAudio(to_, path)
-      except Exception as e:
-         raise e
-  def sendAudio(self, to_, path):
-      M = Message(to=to_,contentType = 3)
-      M.contentMetadata = None
-      M.contentPreview = None
-      M_id = self.Talk.client.sendMessage(0,M).id
-      files = {
-         'file': open(path, 'rb'),
-      }
-      params = {
-         'name': 'media',
-         'oid': M_id,
-         'size': len(open(path, 'rb').read()),
-         'type': 'audio',
-         'ver': '1.0',
-      }
-      data = {
-         'params': json.dumps(params)
-      }
-      r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
-      if r.status_code != 201:
-         raise Exception('Upload image failure.')
-      return True
-  def sendVideo(self, to_, path):
-      M = Message(to=to_,contentType = 2)
-      M.contentMetadata = {
-           'VIDLEN' : '0',
-           'DURATION' : '0'
-       }
-      M.contentPreview = None
-      M_id = self.Talk.client.sendMessage(0,M).id
-      files = {
-         'file': open(path, 'rb'),
-      }
-      params = {
-         'name': 'media',
-         'oid': M_id,
-         'size': len(open(path, 'rb').read()),
-         'type': 'video',
-         'ver': '1.0',
-      }
-      data = {
-         'params': json.dumps(params)
-      }
-      r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
-      if r.status_code != 201:
-         raise Exception('Upload image failure.')
-      return True
-  def sendVideoWithURL(self, to_, url):
-      path = 'pythonLines.data'
-      r = requests.get(url, stream=True)
-      if r.status_code == 200:
-         with open(path, 'w') as f:
-            shutil.copyfileobj(r.raw, f)
-      else:
-         raise Exception('Download Audio failure.')
-      try:
-         self.sendVideo(to_, path)
-      except Exception as e:
-         raise e
+        path = 'pythonLiness.data'
+        r = requests.get(url, stream=True)
+        if r.status_code == 200:
+            with open(path, 'w') as f:
+                shutil.copyfileobj(r.raw, f)
+        else:
+            raise Exception('Download Audio failure.')
+        try:
+            self.sendAudio(to_, path)
+        except Exception as e:
+            raise e
 
+  def sendAudio(self, to_, path):
+        M = Message(to=to_,contentType = 3)
+        M.contentMetadata = None
+        M.contentPreview = None
+        M_id = self.Talk.client.sendMessage(0,M).id
+        files = {
+            'file': open(path, 'rb'),
+        }
+        params = {
+            'name': 'media',
+            'oid': M_id,
+            'size': len(open(path, 'rb').read()),
+            'type': 'audio',
+            'ver': '1.0',
+        }
+        data = {
+            'params': json.dumps(params)
+        }
+        r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
+        if r.status_code != 201:
+            raise Exception('Upload audio failure.')
+        return True
+
+  def sendVideo(self, to_, path):
+        M = Message(to=to_,contentType = 2)
+        M.contentMetadata = {
+              'VIDLEN' : '0',
+              'DURATION' : '0'
+        }
+        M.contentPreview = None
+        M_id = self.Talk.client.sendMessage(0,M).id
+        files = {
+            'file': open(path, 'rb'),
+        }
+        params = {
+            'name': 'media',
+            'oid': M_id,
+            'size': len(open(path, 'rb').read()),
+            'type': 'video',
+            'ver': '1.0',
+        }
+        data = {
+            'params': json.dumps(params)
+        }
+        r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
+        if r.status_code != 201:
+            raise Exception('Upload video failure.')
+        return True
+
+  def sendVideoWithURL(self, to_, url):
+        path = 'pythonLines.data'
+        r = requests.get(url, stream=True)
+        if r.status_code == 200:
+            with open(path, 'w') as f:
+               shutil.copyfileobj(r.raw, f)
+        else:
+            raise Exception('Download Video failure.')
+        try:
+            self.sendVideo(to_, path)
+        except Exception as e:
+            raise e
+	
   def sendEvent(self, messageObject):
         return self.Talk.client.sendEvent(0, messageObject)
 
