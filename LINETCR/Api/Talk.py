@@ -21,7 +21,7 @@ class Talk:
   port = 443;
 
   UA = "Line/7.14.0"
-  LA = "IOSIPAD\t7.14.0\tiPhone OS\t10.12.0"
+  LA = "CHROMEOS\t7.18.0\tChrome_OS\t1"
 
   authToken = None
   cert = None
