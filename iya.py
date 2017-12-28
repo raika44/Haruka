@@ -3215,7 +3215,7 @@ def bot(op):
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Already。")
             elif msg.text in ["Media:on"]:
-              if msg.from_ in admin:
+              if msg.from_ in creator:
                 if wait["media"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Done。")
@@ -3224,7 +3224,7 @@ def bot(op):
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Already。")
             elif msg.text in ["Media:off"]:
-              if msg.from_ in admin:
+              if msg.from_ in creator:
                 if wait["media"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Done。")
@@ -4406,12 +4406,14 @@ def bot(op):
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
-			kc.sendText(msg.to,"see you yang")
-                        kc.leaveGroup(msg.to)
-			ka.sendText(msg.to,"makasih sayang")
+			ki.sendText(msg.to,"see you yang")
+                        ki.leaveGroup(msg.to)
+			kk.sendText(msg.to,"makasih sayang")
+                        kk.leaveGroup(msg.to)
+			ke.sendText(msg.to,"dadah bebih")
+                        ke.leaveGroup(msg.to)
+			ka.sendText(msg.to,"mblaem")
                         ka.leaveGroup(msg.to)
-			ks.sendText(msg.to,"dadah bebih")
-                        ks.leaveGroup(msg.to)
                     except:
                         pass
             elif msg.text in ["Bye _Second"]:
