@@ -731,12 +731,6 @@ def sendText(self, Tomid, text):
         msg = Message()
         msg.to = Tomid
         msg.text = text
-
-def sendMessage(self, messageObject):
-        return self.Talk.client.sendMessage(0,messageObject)
-
-def post_content(self, urls, data=None, files=None):
-        return self._session.post(urls, headers=self._headers, data=data, files=files)
 def sendMessage(to, text, contentMetadata={}, contentType=0):
     mes = Message()
     mes.to, mes.from_ = to, profile.mid
