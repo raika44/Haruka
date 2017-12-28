@@ -46,11 +46,11 @@ class LINE:
     #self.channel = channel.Channel(self.authToken)
     #self.channel.login()
 	
-    self.mid = self.channel.mid
-    self.channel_access_token = self.channel.channel_access_token
-    self.token = self.channel.token
-    self.obs_token = self.channel.obs_token
-    self.refresh_token = self.channel.refresh_token
+    #self.mid = self.channel.mid
+    #self.channel_access_token = self.channel.channel_access_token
+    #self.token = self.channel.token
+    #self.obs_token = self.channel.obs_token
+    #self.refresh_token = self.channel.refresh_token
 
 
   """User"""
