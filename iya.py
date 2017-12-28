@@ -36,13 +36,11 @@ ka.loginResult()
 
 cl
 
-ke
-
 ko = ki
 
 ku = kk
 
-kc = kb
+kc = kb = ke
 
 ks = ka
 print "login success"
