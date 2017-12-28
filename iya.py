@@ -15,23 +15,34 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EnllgadhAeBzsgTLpJu2.Zm4gXz6MY8xdnV92S49yaG.hFGzNmmdu/2K1/0y2j2R9d3kFi9Jx8r71+9t/qj5fys=")
+cl.login(token="Eoudy8qUZCzBMi9HwIRc.eoXp0xK1vqkdnL9Q78yCpa.IcyNCrZW9inSMqlyR05Brv8sP3AcqKyM60ZnT/0qDJw=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EnMJMFgBJ3cEt1xraKU4.AbZfX80renrInaDEsR0v1a.t9hmWm5jzoabiOpUJ5AAWDDDr4SxrePW+3ranmvKXmc=")
+ki.login(token="EoAcTdUbALSUVM5pQRwf.vVPISdEKRjCwFNpzI3k+RW.KaTYRyHBNeJ73lJuuu0DarZ0s2vZt+8yUgU5YO0aXCg=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="EnNxXQwSecectsEAlQzb.672la4CfyuJmLCgFJdKosW.+BS1ivQK6xiA3sGlN4+T51p7vKa5GdKWOAjsVn9AAy4=")
+kk.login(token="EovzjaTatTCkv6m4Nia2.h6ACMEcQmlMxE/DJN7DS0G.VMNqraTtdu3QvsnVR3NOw4bew1B7CKklikLum+chpSY=")
 kk.loginResult()
 
+ke = LINETCR.LINE()
+ke.login(token="Eo6k8Z9N8BbCLKi0Wyuf.ySK6/7lzzXJWVTkhLlNW+W.GJzEUxQCO1QTgLiZg2xkSYQFznrEdVIViWmWc+/grJw=")
+ke.loginResult()
 
-ku = kb = cl
+ka = LINETCR.LINE()
+ka.login(token="EooS6p4HR9R8MR2fW1ca.nKWTtdkTR1t0s6tTguGLAG.j2goFGqf/74PeGdizcTgNuY89qcxdGFLQApMDVBA5YE=")
+ka.loginResult()
 
-kc = ks = ko = ki
+cl
 
-ke = ka = ku = kk
+ko = ki
+
+kb = ku = kk
+
+kc = kb
+
+ks = ka
 print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -3634,15 +3645,18 @@ def bot(op):
                         cl.updateGroup(G)
                         invsend = 0
                         Ticket = cl.reissueGroupTicket(msg.to)
-                        kc.acceptGroupInvitationByTicket(msg.to,Ticket)
+                        ki.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.2)
-			kc.sendText(msg.to,"hadir sayang")
-                        ka.acceptGroupInvitationByTicket(msg.to,Ticket)
+			ki.sendText(msg.to,"hadir sayang")
+                        kk.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.2)
-			ka.sendText(msg.to,"aku juga sayang")
-                        ks.acceptGroupInvitationByTicket(msg.to,Ticket)
+			kk.sendText(msg.to,"aku juga sayang")
+                        kb.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.2)
-                        ks.sendText(msg.to,"aku disini yang")
+                        kb.sendText(msg.to,"aku disini yang")
+                        kb.acceptGroupInvitationByTicket(msg.to,Ticket)
+                        time.sleep(0.2)
+			ka.sendText(msg.to,"ada apa sayang")
                         G = cl.getGroup(msg.to)
                         G.preventJoinByTicket = True
                         cl.updateGroup(G)
