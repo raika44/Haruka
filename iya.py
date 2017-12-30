@@ -1076,17 +1076,15 @@ def bot(op):
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
 				
+                            pass
         if op.type == 19:
-           if op.param2 not in Bots:
-              random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-	      wait["blacklist"][op.param2] = True
-	      if wait["autorein"] == True:
-		   if op.param2 in wait["blacklist"]:
-		       pass
-		   else:
-		       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])	
-           else: 
-               pass
+            if op.param2 not in Bots:
+                if op.param2 in Bots:
+                    pass
+                elif wait["kickblack"] == True:
+                    wait ["blacklist"][op.param2] = True
+                    cl.kickoutFromGroup(op.param1,[op.param2])
+                    cl.inviteIntoGroup(op.param1,[op.param2])pass
 
         if op.type == 19:
            if op.param3 in admin:
@@ -5420,6 +5418,58 @@ def bot(op):
                     cl.sendText(msg.to,mc)
                     print "[Command]Stafflist executed" 
 #-----------------------------------------------
+            elif "Checkdate " in msg.text:
+                tanggal = msg.text.replace("Checkdate ","")
+                r=requests.get('https://script.google.com/macros/exec?service=AKfycbw7gKzP-WYV2F5mc9RaR7yE3Ve1yN91Tjs91hp_jHSE02dSv9w&nama=ervan&tanggal='+tanggal)
+                data=r.text
+                data=json.loads(data)
+                lahir = data["data"]["lahir"]
+                usia = data["data"]["usia"]
+                ultah = data["data"]["ultah"]
+                zodiak = data["data"]["zodiak"]
+                cl.sendText(msg.to,"============ I N F O R M A S I ============\n"+"Date Of Birth : "+lahir+"\nAge : "+usia+"\nUltah : "+ultah+"\nZodiak : "+zodiak+"\n============ I N F O R M A S I ============")
+
+            elif msg.text in ["Like:me","Like me"]: #Semua Bot Ngelike Status Akun Utama
+                print "[Command]Like executed"
+                cl.sendText(msg.to,"Like Status Owner")
+                try:
+                  likeme()
+                except:
+                  pass
+                
+            elif msg.text in ["Like:friend","Like friend"]: #Semua Bot Ngelike Status Teman
+                print "[Command]Like executed"
+                cl.sendText(msg.to,"Like Status Teman")
+                try:
+                  likefriend()
+                except:
+                  pass		
+		
+            elif msg.text in ["Memlist"]:   
+                kontak = cl.getGroup(msg.to)
+                group = kontak.members
+                num=1
+                msgs="═════════List Member═════════-"
+                for ids in group:
+                    msgs+="\n[%i] %s" % (num, ids.displayName)
+                    num=(num+1)
+                msgs+="\n═════════List Member═════════\n\nTotal Members : %i" % len(group)
+                cl.sendText(msg.to, msgs)
+                
+            elif "Grupmember: " in msg.text:
+                saya = msg.text.replace('Grupmember: ','')
+                gid = cl.getGroupIdsJoined()
+                num=1
+                msgs="═════════List Member═════════-"
+                for i in gid:
+                    h = cl.getGroup(i).name
+                    gna = cl.getGroup(i)
+                    me = gna.members(i)
+                    msgs+="\n[%i] %s" % (num, me.displayName)
+                    num=(num+1)
+                    msgs+="\n═════════List Member═════════\n\nTotal Members : %i" % len(me)
+                    if h == saya:
+                        cl.sendText(msg.to, msgs)		
 #-----------------------------------------------
             elif "Steal " in msg.text:
                 if msg.from_ in admin:
@@ -5660,6 +5710,19 @@ def autolike():
 thread2 = threading.Thread(target=autolike)
 thread2.daemon = True
 thread2.start()
+
+def likeme():
+    for zx in range(0,20):
+        hasil = cl.activity(limit=20)
+        if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+            if hasil['result']['posts'][zx]['userInfo']['mid'] in mid:
+                try:
+                    cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    print "Like"
+                except:
+                    pass
+            else:
+                print "Status Sudah di Like"
 
 while True:
     try:
