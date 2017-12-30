@@ -15,23 +15,23 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="Eoudy8qUZCzBMi9HwIRc.eoXp0xK1vqkdnL9Q78yCpa.IcyNCrZW9inSMqlyR05Brv8s3AcqKyM60ZnT/0qDJw=")
+cl.login(token="Eo6f5PYNbA4D1v2MZtqc.eoXp0xK1vqkdnL9Q78yCpa.8SSA5xdioBV64zcq6RD+OEu6xVfUK8wdZzElm+WS3YE=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EoAcTdUbALSUVM5pQRwf.vVPISdEKRjCwFNpzI3k+RW.KaTYRyHBNeJ73lJuuu0DarZ0s2vZt+8yUgU5YO0aXCg=")
+ki.login(token="EoGUuTZUxnmLAQqLsuCf.vVPISdEKRjCwFNpzI3k+RW.QMobQn+LnJj6+eZYbD7KfX5t8Sj5YuTmM504FktqORI=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="EovzjaTatTCkv6m4Nia2.h6ACMEcQmlMxE/DJN7DS0G.VMNqraTtdu3QvsnVR3NOw4bew1B7CKklikLum+chpSY=")
+kk.login(token="Eo0LfTh7kOusahbuTLd2.h6ACMEcQmlMxE/DJN7DS0G.oHU9ubwmq2kRZbqrcvtF1t+rI60qudjJ9fTC4q7/0Fs=")
 kk.loginResult()
 
 ke = LINETCR.LINE()
-ke.login(token="Eo6k8Z9N8BbCLKi0Wyuf.ySK6/7lzzXJWVTkhLlNW+W.GJzEUxQCO1QTgLiZg2xkSYQFznrEdVIViWmWc+/grJw=")
+ke.login(token="Eo2HshQtPK5HEfDjcEfa.nKWTtdkTR1t0s6tTguGLAG.fjnskUBDnyUzkQDNza7TmA+LI9LnIp+1gpBrFWY5bHE=")
 ke.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="EooS6p4HR9R8MR2fW1ca.nKWTtdkTR1t0s6tTguGLAG.j2goFGqf/74PeGdizcTgNuY89qcxdGFLQApMDVBA5YE=")
+ka.login(token="EoXpTDSRlW6Wp4teICRf.ySK6/7lzzXJWVTkhLlNW+W.+xSEpP0kbZwcM61k8AGQjf8HBJrOH/UICJlIxQLkCzI=")
 ka.loginResult()
 
 cl
@@ -3596,7 +3596,7 @@ def bot(op):
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
-                       cl.sendText(msg.to,"done spam bossque")
+                       cl.sendText(msg.to,"Udah di spam tuh kali aja khilaf")
 
 #-----------------------------------------------
             elif msg.text in ["Rejectall"]:
@@ -3663,7 +3663,7 @@ def bot(op):
                         cl.updateGroup(G)
 
             elif msg.text in ["_First join"]:
-              if msg.form_ in admin:
+              if msg.form_ in creator:
                   x = ki.getGroup(msg.to)
                   x.preventJoinByTicket = False
                   ki.updateGroup(x)
@@ -3676,7 +3676,7 @@ def bot(op):
                   Ticket = ki.reissueGroupTicket(msg.to)
 
             elif msg.text in ["_Second join"]:
-              if msg.from_ in admin:
+              if msg.from_ in creator:
                   x = cl.getGroup(msg.to)
                   x.preventJoinByTicket = False
                   cl.updateGroup(x)
@@ -3689,7 +3689,7 @@ def bot(op):
                   Ticket = cl.reissueGroupTicket(msg.to)
 
             elif msg.text in ["_Third join"]:
-              if msg.from_ in admin:
+              if msg.from_ in creator:
                   x = cl.getGroup(msg.to)
                   x.preventJoinByTicket = False
                   cl.updateGroup(x)
@@ -3702,7 +3702,7 @@ def bot(op):
                   Ticket = cl.reissueGroupTicket(msg.to)
                   
             elif msg.text in ["_Fourth join"]:
-              if msg.from_ in admin:
+              if msg.from_ in creator:
                   X = cl.getGroup(msg.to)
                   X.preventJoinByTicket = False
                   cl.updateGroup(X)
@@ -4415,7 +4415,7 @@ def bot(op):
                     except:
                         pass
             elif msg.text in ["Bye _Second"]:
-              if msg.from_ in admin:
+              if msg.from_ in creator:
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
@@ -4423,7 +4423,7 @@ def bot(op):
                     except:
                         pass
             elif msg.text in ["Bye _Third"]:
-              if msg.from_ in admin:
+              if msg.from_ in creator:
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
@@ -4431,28 +4431,7 @@ def bot(op):
                     except:
                         pass
             elif msg.text in ["Bye _Fourth"]:
-              if msg.from_ in admin:
-                if msg.toType == 2:
-                    ginfo = cl.getGroup(msg.to)
-                    try:
-                        kc.leaveGroup(msg.to)
-                    except:
-                        pass
-            elif msg.text in ["Cv1 @bye"]:
-                if msg.toType == 2:
-                    ginfo = cl.getGroup(msg.to)
-                    try:
-                        ki.leaveGroup(msg.to)
-                    except:
-                        pass
-            elif msg.text in ["Cv2 @bye"]:
-                if msg.toType == 2:
-                    ginfo = cl.getGroup(msg.to)
-                    try:
-                        kk.leaveGroup(msg.to)
-                    except:
-                        pass
-            elif msg.text in ["Cv3 @bye"]:
+              if msg.from_ in creator:
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
@@ -4539,7 +4518,7 @@ def bot(op):
                     cl.sendText(msg.to,"change name: "+string+"\nsucces")
 
     #-------------Fungsi Tag All Start---------------#
-            elif msg.text in ["kiwkiw","Tagall","Kuchiyose no jutsu","Summon all member"]:
+            elif msg.text in ["kiwkiw","Tagall","Kuchiyose no jutsu","Summon all member","Kuchiyose"]:
                   group = cl.getGroup(msg.to)
                   nama = [contact.mid for contact in group.members]
 
@@ -4591,7 +4570,7 @@ def bot(op):
          #----------------Fungsi Banned Kick Target Finish----------------------#                
 
             elif "cleansemua" in msg.text:
-              if msg.from_ in Bots:
+              if msg.from_ in creator:
                 if msg.toType == 2:
                     print "ok"
                     _name = msg.text.replace("cleansemua","")
@@ -5471,6 +5450,20 @@ def bot(op):
                     if h == saya:
                         cl.sendText(msg.to, msgs)		
 #-----------------------------------------------
+	    elif msg.text in ["Self Like"]:
+		try:
+		    print "activity"
+		    url = cl.activity(limit=1)
+		    print url
+		    cl.like(url['result']['posts'][0]['userInfo']['mid'], url['result']['posts'][0]['postInfo']['postId'], likeType=1001)
+		    cl.comment(url['result']['posts'][0]['userInfo']['mid'], url['result']['posts'][0]['postInfo']['postId'], "Mau Bot Protect?\nFollow ig : @rid1bdbx\nLalu dm ke dia")
+		    cl.sendText(msg.to, "Success~")
+		except Exception as E:
+		    try:
+			cl.sendText(msg.to,str(E))
+		    except:
+			pass
+
             elif "Steal " in msg.text:
                 if msg.from_ in admin:
                     salsa = msg.text.replace("Steal ","")
@@ -5575,6 +5568,7 @@ def bot(op):
                     ku.sendText(msg.to,"knp?")
                     kc.sendText(msg.to,"parah")
             elif msg.text in ["Clear"]:
+              if msg.from_ in admin:		
                 if msg.toType == 2:
                     group = cl.getGroup(msg.to)
                     gMembMids = [contact.mid for contact in group.invitee]
