@@ -1042,6 +1042,13 @@ def bot(op):
 	  except:
 	         pass
 		
+        if op.type == 15:
+            if wait["autorein"] == True:
+               if op.param2 in admin:
+                  klist=[ki,kk,kc,ks,kt]
+                  kicker = random.choice(klist)
+                  kicker.inviteIntoGroup(op.param1,[op.param2])
+		
         if op.type == 19: #Member Ke Kick
           if op.param2 in Bots:
             pass
