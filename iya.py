@@ -791,10 +791,18 @@ def bot(op):
         if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in Bots and staff:
+			if op.param3 in Bots:
 			    pass
-		        if op.param2 in Bots and staff:
+		        if op.param2 in Bots:
 			    pass
+			if op.param3 in admin:
+			    pass
+		        if op.param2 in admin:
+			    pass
+			if op.param3 in staff:
+			    pass
+		        if op.param2 in staff:
+			    pass		
 		        else:
 		            cl.kickoutFromGroup(op.param1,[op.param2])
 			if wait["autorein"] == True:
@@ -804,8 +812,13 @@ def bot(op):
 			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
-			    if op.param2 not in Bots and staff:
-                                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+			    if op.param2 not in Bots:
+				 if op.param2 in admin:
+			             pass
+			         if op.param2 in staff:
+			             pass
+			         else:
+				      random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 		            if wait["autorein"] == True:
 			       if op.param2 in wait["blacklist"]:
 			           pass
@@ -823,8 +836,12 @@ def bot(op):
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
-		        if op.param2 in Bots and staff:
+		        if op.param2 in Bots:
 			    pass
+		        if op.param2 in admin:
+			    pass
+		        if op.param2 in staff:
+			    pass		
 		        else:
                             wait["blacklist"][op.param2] = True
 		else:
@@ -1072,7 +1089,7 @@ def bot(op):
                     pass
                 if op.param2 in staff:
                     pass
-                elif wait["kickblack"] == True:
+                elif wait["protect"] == True:
                     wait ["blacklist"][op.param2] = True
                     cl.kickoutFromGroup(op.param1,[op.param2])
                     cl.inviteIntoGroup(op.param1,[op.param2]) 
