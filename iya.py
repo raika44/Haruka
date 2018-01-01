@@ -832,7 +832,7 @@ def bot(op):
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
-		        if op.param2 in Creator:
+		        if op.param2 in creator:
 		            if op.param2 in admin:
 		                if op.param2 in Bots:
 		                    if op.param2 in staff:
