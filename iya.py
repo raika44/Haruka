@@ -1113,6 +1113,8 @@ def bot(op):
 
         if op.type == 19:
                 if mid in op.param3:
+                    if op.param2 in creator:
+			pass
                     if op.param2 in Bots:
                         pass
                     try:
@@ -1155,6 +1157,8 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
  
                 if Amid in op.param3:
+                    if op.param2 in creator:
+			pass
                     if op.param2 in Bots:
                         pass
                     try:
@@ -1199,6 +1203,8 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
 
                 if Bmid in op.param3:
+                    if op.param2 in creator:
+			pass
                     if op.param2 in Bots:
                         pass
                     try:
@@ -1243,6 +1249,8 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
 
                 if Cmid in op.param3:
+                    if op.param2 in creator:
+			pass			
                     if op.param2 in Bots:
                         pass
                     try:
@@ -1287,6 +1295,8 @@ def bot(op):
                         
                         
                 if Dmid in op.param3:
+                    if op.param2 in creator:
+			pass			
                     if op.param2 in Bots:
                         pass
                     try:
@@ -1329,6 +1339,8 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
                         
                 if Emid in op.param3:
+                    if op.param2 in creator:
+			pass			
                     if op.param2 in Bots:
                         pass
                     try:
@@ -1371,6 +1383,8 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
                         
                 if Fmid in op.param3:
+                    if op.param2 in creator:
+			pass			
                     if op.param2 in Bots:
                         pass
                     try:
@@ -1413,6 +1427,8 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
                         
                 if Gmid in op.param3:
+                    if op.param2 in creator:
+			pass			
                     if op.param2 in Bots:
                         pass
                     try:
@@ -1455,6 +1471,8 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
                         
                 if Hmid in op.param3:
+                    if op.param2 in creator:
+			pass			
                     if op.param2 in Bots:
                         pass
                     try:
@@ -1496,6 +1514,8 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
 		
                 if Imid in op.param3:
+                    if op.param2 in creator:
+			pass			
                     if op.param2 in Bots:
                         pass
                     try:
