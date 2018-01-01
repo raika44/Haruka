@@ -806,7 +806,7 @@ def bot(op):
 		                 if op.param2 in wait["blacklist"]:
 		                     pass
 		                 else:
-			         random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in creator:
