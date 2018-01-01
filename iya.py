@@ -790,16 +790,22 @@ def bot(op):
         if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param2 not in creator:
-			    if op.param2 not in admin:
-			        if op.param2 not in Bots:
-			            if op.param2 not in staff:
-                                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-			                if wait["autorein"] == True:					
-		                         if op.param2 in wait["blacklist"]:
-			                     pass
-			                 else:
-			                     random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			if op.param3 in Creator:
+			 if op.param3 in admin:
+			  if op.param3 in Bots:
+			   if op.param3 in staff:				
+			      pass
+		         if op.param2 in Creator:
+		          if op.param2 in admin:
+		           if op.param2 in Bots:
+			    if op.param2 in staff:		
+		                pass
+		            else:
+		                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		                if op.param2 in wait["blacklist"]:
+		                    pass
+		        else:
+			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in creator:
@@ -824,6 +830,8 @@ def bot(op):
 			                    pass
 			    else:
                                 wait["blacklist"][op.param2] = True
+                                f=codecs.open('st2__b.json','w','utf-8')
+                                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
@@ -834,6 +842,8 @@ def bot(op):
 			                pass
 		        else:
                             wait["blacklist"][op.param2] = True
+                            f=codecs.open('st2__b.json','w','utf-8')
+                            json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 		else:
 		    pass	
 	
