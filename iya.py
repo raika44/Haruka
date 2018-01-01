@@ -826,10 +826,10 @@ def bot(op):
 			            if op.param2 in Bots:
 		                        if op.param2 in staff:					
 			                    pass
-			    else:
-                                wait["blacklist"][op.param2] = True
-                                f=codecs.open('st2__b.json','w','utf-8')
-                                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
+			                else:
+                                            wait["blacklist"][op.param2] = True
+                                            f=codecs.open('st2__b.json','w','utf-8')
+                                            json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
@@ -838,10 +838,10 @@ def bot(op):
 		                if op.param2 in Bots:
 		                    if op.param2 in staff:
 			                pass
-		        else:
-                            wait["blacklist"][op.param2] = True
-                            f=codecs.open('st2__b.json','w','utf-8')
-                            json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
+		                    else:
+                                        wait["blacklist"][op.param2] = True
+                                        f=codecs.open('st2__b.json','w','utf-8')
+                                        json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 		else:
 		    pass	
 	
