@@ -1042,17 +1042,28 @@ def bot(op):
 	  except:
 	         pass
 		
-        if op.type == 19:
-            if op.param3 not in Bots:
-                if op.param2 in Bots:
-                 if op.param2 in creator:
-                  if op.param2 in admin:
-                   if op.param2 in staff:		  
-                       pass
-                   elif wait["Autokick"] == True:
-                     wait ["blacklist"][op.param2] = True
-                     cl.kickoutFromGroup(op.param1,[op.param2])
-                     cl.inviteIntoGroup(op.param1,[op.param2])
+        if op.type == 19: #Member Ke Kick
+          if op.param2 in Bots:
+            pass
+          elif op.param2 in admin:
+            pass
+          elif op.param2 in creator:
+            pass
+          elif op.param2 in staff:
+            pass
+          else:
+            try:
+              wait["blacklist"][op.param2] = True
+              cl.kickoutFromGroup(op.param1,[op.param2])
+              random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+              #f=codecs.open('st2__b.json','w','utf-8')
+              #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
+            except:
+              wait["blacklist"][op.param2] = True
+              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+              random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+              #f=codecs.open('st2__b.json','w','utf-8')
+              #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 
         if op.type == 19:
                 if mid in op.param3:
