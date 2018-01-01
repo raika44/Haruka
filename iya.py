@@ -1085,8 +1085,8 @@ def bot(op):
 		   pass
 	       if op.param2 in creator:
 		   pass
-              random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-              random.choice(KAC).inviteIntoGroup(op.param1,admin)
+               random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+               random.choice(KAC).inviteIntoGroup(op.param1,admin)
            else:
                pass
 
@@ -1094,7 +1094,9 @@ def bot(op):
           try:	      
             if op.param3 in Smid: #Akun Utama Ke Kick
                 if op.param2 in creator:
-                    pass		
+                    pass
+	        if op.param2 in Bots:
+		    pass
                 G = random.choice(KAC).getGroup(op.param1)
                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                 G.preventJoinByTicket = False
