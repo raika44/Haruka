@@ -800,11 +800,11 @@ def bot(op):
 			        pass
 		            else:
 		                cl.kickoutFromGroup(op.param1,[op.param2])
-			         if wait["autorein"] == True:
-                                    if op.param2 in wait["blacklist"]:
-                                        pass
-		                    else:
-			                random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			        if wait["autorein"] == True:
+                                   if op.param2 in wait["blacklist"]:
+                                       pass
+		                   else:
+			               random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
