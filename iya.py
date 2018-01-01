@@ -794,7 +794,7 @@ def bot(op):
 			 if op.param3 in admin:
 			  if op.param3 in Bots:
 			   if op.param3 in staff:
-			        pass
+			       pass
 		         if op.param2 in creator:
 		          if op.param2 in admin:
 		           if op.param2 in Bots:
@@ -802,10 +802,11 @@ def bot(op):
 		                pass
 		            else:
 		                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-		                if op.param2 in wait["blacklist"]:
-		                    pass
-		        else:
-			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			        if wait["autorein"] == True:
+		                 if op.param2 in wait["blacklist"]:
+		                     pass
+		                 else:
+			         random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in creator:
@@ -813,10 +814,11 @@ def bot(op):
 			            if op.param2 not in Bots:
 			                if op.param2 not in staff:
                                             random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-			    if op.param2 in wait["blacklist"]:
-			        pass
-			    else:
-			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			    if wait["autorein"] == True:					
+			     if op.param2 in wait["blacklist"]:
+			         pass
+			     else:
+			         random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		        except:
 			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
@@ -1078,17 +1080,6 @@ def bot(op):
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
 				
                             pass
-
-        if op.type == 19:
-           if op.param3 in admin:
-	       if op.param2 in Bots:
-		   pass
-	       if op.param2 in creator:
-		   pass
-               random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-               random.choice(KAC).inviteIntoGroup(op.param1,admin)
-           else:
-               pass
 
         if op.type == 19:
           try:	      
