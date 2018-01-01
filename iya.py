@@ -1100,6 +1100,8 @@ def bot(op):
               random.choice(KAC).updateGroup(G)
               satpam.updateGroup(G)
               wait["blacklist"][op.param2] = True
+	  except:
+	         pass
 
         if op.type == 19:
                 if mid in op.param3:
