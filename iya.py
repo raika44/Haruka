@@ -1060,15 +1060,15 @@ def bot(op):
             pass
           else:
             try:
-              wait["blacklist"][op.param2] = True
               cl.kickoutFromGroup(op.param1,[op.param2])
               ka.inviteIntoGroup(op.param1,[op.param3])
+              wait["blacklist"][op.param2] = True
               #f=codecs.open('st2__b.json','w','utf-8')
               #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:
-              wait["blacklist"][op.param2] = True
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
               random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
+              wait["blacklist"][op.param2] = True
               #f=codecs.open('st2__b.json','w','utf-8')
               #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 
