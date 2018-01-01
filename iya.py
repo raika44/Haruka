@@ -800,10 +800,10 @@ def bot(op):
 		               pass
 		           else:
 		                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-		        if op.param2 in wait["blacklist"]:
-		            pass
-		        else:
-			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+		           if op.param2 in wait["blacklist"]:
+		               pass
+		           else:
+			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in creator:
@@ -822,22 +822,22 @@ def bot(op):
                             pass
                         else:
 			    if op.param2 in creator:
-			        if op.param2 in admin:
-			            if op.param2 in Bots:
-		                        if op.param2 in staff:					
-			                    pass
-			                else:
-                                            wait["blacklist"][op.param2] = True
+			     if op.param2 in admin:
+			      if op.param2 in Bots:
+		               if op.param2 in staff:					
+			           pass
+			       else:
+                                     wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
 		        if op.param2 in creator:
-		            if op.param2 in admin:
-		                if op.param2 in Bots:
-		                    if op.param2 in staff:
-			                pass
-		                    else:
-                                        wait["blacklist"][op.param2] = True
+		         if op.param2 in admin:
+		          if op.param2 in Bots:
+		           if op.param2 in staff:
+			       pass
+		           else:
+                                wait["blacklist"][op.param2] = True
 		else:
 		    pass	
 	
@@ -1075,8 +1075,6 @@ def bot(op):
                         if data['status'] == 200:
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
-				
-                            pass
 
         if op.type == 19:
           try:	      
