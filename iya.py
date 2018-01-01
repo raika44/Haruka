@@ -793,17 +793,17 @@ def bot(op):
 			if op.param3 in creator:
 			 if op.param3 in admin:
 			  if op.param3 in Bots:
-			   if op.param3 in Bots:
+			   if op.param3 in staff:
 			        pass
 		         if op.param2 in creator:
 		          if op.param2 in admin:
 		           if op.param2 in Bots:
-		            if op.param2 in Bots:			     	
+		            if op.param2 in staff:			     	
 		                pass
-		           else:
-		               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-		               if op.param2 in wait["blacklist"]:
-		                   pass
+		            else:
+		                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		                if op.param2 in wait["blacklist"]:
+		                    pass
 		        else:
 			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
@@ -1078,23 +1078,13 @@ def bot(op):
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
 				
                             pass
-        if op.type == 19:
-            if op.param2 not in Bots:
-                if op.param2 in Bots:
-                    pass
-                if op.param2 in admin:
-                    pass
-                if op.param2 in staff:
-                    pass
-                elif wait["protect"] == True:
-                    wait ["blacklist"][op.param2] = True
-                    cl.kickoutFromGroup(op.param1,[op.param2])
-                    cl.inviteIntoGroup(op.param1,[op.param2]) 
-	    else:
-	        pass
 
         if op.type == 19:
            if op.param3 in admin:
+	       if op.param2 in Bots:
+		   pass
+	       if op.param2 in creator:
+		   pass
               random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
               random.choice(KAC).inviteIntoGroup(op.param1,admin)
            else:
@@ -1103,17 +1093,19 @@ def bot(op):
         if op.type == 19:
           try:	      
             if op.param3 in Smid: #Akun Utama Ke Kick
-              G = random.choice(KAC).getGroup(op.param1)
-              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              G.preventJoinByTicket = False
-              random.choice(KAC).updateGroup(G)
-              Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
-              satpam.acceptGroupInvitationByTicket(op.param1,Ticket)
-              time.sleep(0.01)
-              G.preventJoinByTicket = True
-              random.choice(KAC).updateGroup(G)
-              satpam.updateGroup(G)
-              wait["blacklist"][op.param2] = True
+                if op.param2 in creator:
+                    pass		
+                G = random.choice(KAC).getGroup(op.param1)
+                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                G.preventJoinByTicket = False
+                random.choice(KAC).updateGroup(G)
+                Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
+                satpam.acceptGroupInvitationByTicket(op.param1,Ticket)
+                time.sleep(0.01)
+                G.preventJoinByTicket = True
+                random.choice(KAC).updateGroup(G)
+                satpam.updateGroup(G)
+                wait["blacklist"][op.param2] = True
 	  except:
 	         pass
 
@@ -3664,10 +3656,10 @@ def bot(op):
                         kk.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.2)
 			kk.sendText(msg.to,"aku juga sayang")
-                        kb.acceptGroupInvitationByTicket(msg.to,Ticket)
+                        ke.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.2)
-                        kb.sendText(msg.to,"aku disini yang")
-                        kb.acceptGroupInvitationByTicket(msg.to,Ticket)
+                        ke.sendText(msg.to,"aku disini yang")
+                        ka.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.2)
 			ka.sendText(msg.to,"ada apa sayang")
                         G = cl.getGroup(msg.to)
