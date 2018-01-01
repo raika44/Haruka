@@ -1054,20 +1054,20 @@ def bot(op):
                             pass
 		        else:
 		            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-			if wait["autorein"] == True:
-                           if op.param2 in wait["blacklist"]:
-                               pass
-		           else:
-			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			    if wait["autorein"] == True:
+                            if op.param2 in wait["blacklist"]:
+                                pass
+		            else:
+			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
                                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-		            if wait["autorein"] == True:
-			       if op.param2 in wait["blacklist"]:
-			           pass
-			       else:
-			           random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+		                if wait["autorein"] == True:
+			         if op.param2 in wait["blacklist"]:
+			             pass
+			         else:
+			             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		        except:
 			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
