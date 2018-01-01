@@ -1041,13 +1041,47 @@ def bot(op):
                 wait["blacklist"][op.param2] = True
 	  except:
 	         pass
-		
-        if op.type == 15:
-            if wait["autorein"] == True:
-               if op.param2 in admin:
-                  klist=[ki,kk,kc,ks,kt]
-                  kicker = random.choice(klist)
-                  kicker.inviteIntoGroup(op.param1,[op.param2])
+
+        if op.type == 19:
+		if wait["AutoKick"] == True:
+		    try:
+		        if op.param2 in Bots:
+			    pass
+                        elif op.param2 in admin:
+                            pass
+                        elif op.param2 in creator:
+                            pass
+                        elif op.param2 in staff:
+                            pass
+		        else:
+		            cl.kickoutFromGroup(op.param1,[op.param2])
+			if wait["autorein"] == True:
+                           if op.param2 in wait["blacklist"]:
+                               pass
+		           else:
+			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+		    except:
+			pass
+		        try:
+			   pass
+		        except:
+			    pass					
+                        if op.param2 in wait["blacklist"]:
+                            pass
+                        else:
+			    if op.param2 in Bots:
+			        pass
+			    else:
+                                wait["blacklist"][op.param2] = True
+		    if op.param2 in wait["blacklist"]:
+                        pass
+                    else:
+		        if op.param2 in Bots:
+			    pass
+		        else:
+                            wait["blacklist"][op.param2] = True
+		else:
+		    pass		
 		
         if op.type == 19: #Member Ke Kick
           if op.param2 in Bots:
