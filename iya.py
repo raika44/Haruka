@@ -14,25 +14,30 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.login(qr=True)
 #kk.loginResult()
 
+satpam = LINETCR.LINE() # Koplaxs # Login Pake Akun Utama Kalian(Gunanya Supaya Akun Utama Ke Kick bisa Terima Undangan dari Bot Otomatis)
+satpam.login(token="EoBI8PL5ejf3jzQTUOQ4.QXYHCXzQnIXP72luipN3Ha.uR92OO9tNjIRLg7cgifESKcVuDzcsm7xm91fugDRJGs=")
+satpam.loginResult()
+
 cl = LINETCR.LINE()
-cl.login(token="Eo6f5PYNbA4D1v2MZtqc.eoXp0xK1vqkdnL9Q78yCpa.8SSA5xdioBV64zcq6RD+OEu6xVfUK8wdZzElm+WS3YE=")
+cl.login(token="EoyxbLxhobsSl1agdUXc.eoXp0xK1vqkdnL9Q78yCpa.uN3o3Q0XwSj5T/W1FhKwxtjFKtyDbrppLPdwHYJHfYM=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EoGUuTZUxnmLAQqLsuCf.vVPISdEKRjCwFNpzI3k+RW.QMobQn+LnJj6+eZYbD7KfX5t8Sj5YuTmM504FktqORI=")
+ki.login(token="EojXEwrTBJrD0dwsw95f.vVPISdEKRjCwFNpzI3k+RW.0ZDluaOgM0e7bXi1XVqbNyMb2wr/J6Bz+BMZbNhIGBg=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="Eo0LfTh7kOusahbuTLd2.h6ACMEcQmlMxE/DJN7DS0G.oHU9ubwmq2kRZbqrcvtF1t+rI60qudjJ9fTC4q7/0Fs=")
+kk.login(token="EoNA1qrZbGPj3q9iEyZ2.h6ACMEcQmlMxE/DJN7DS0G.qtJlsr8NdMV4uC4sgnuVd5vVdnRQp6zyevpA8NYbXvk=")
 kk.loginResult()
 
 ke = LINETCR.LINE()
-ke.login(token="Eo2HshQtPK5HEfDjcEfa.nKWTtdkTR1t0s6tTguGLAG.fjnskUBDnyUzkQDNza7TmA+LI9LnIp+1gpBrFWY5bHE=")
+ke.login(token="EoRtg0ZaC0oBvXg1Ppza.nKWTtdkTR1t0s6tTguGLAG.BBk36xIC+5uctMDGjvp+Tp4Rrk66925ET6aLG8FWY8k=")
 ke.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="EoXpTDSRlW6Wp4teICRf.ySK6/7lzzXJWVTkhLlNW+W.+xSEpP0kbZwcM61k8AGQjf8HBJrOH/UICJlIxQLkCzI=")
+ka.login(token="EoRtg0ZaC0oBvXg1Ppza.nKWTtdkTR1t0s6tTguGLAG.BBk36xIC+5uctMDGjvp+Tp4Rrk66925ET6aLG8FWY8k=")
 ka.loginResult()
+
 
 cl
 
@@ -77,8 +82,8 @@ helpMessage= """\n
 ═╬════════►
 |╬| Admin on @
 |╬| Expel on @
-|╬| Staff remove @
-|╬| Staff add @
+|╬| Remove staff @
+|╬| Add staff @
 |╬| Expelal
 ═╬════════►
    📷S̸͟͞T̸͟͞E̸͟͞A̸͟͞L̸͟͞I̸͟͞N̸͟͞G̸͟͞📷
@@ -176,6 +181,7 @@ helpMessage= """\n
 |╬| Group list
 |╬| Banlist
 |╬| Admin list
+|╬| Stafflist
 |╬| Settings
 |╬| Ginfo
 |╬| TL:[text]
@@ -222,8 +228,8 @@ helpMessage= """\n
 ═╬════════►
 |╬| Lurking
 |╬| Lurking result
-|╬| Link open
-|╬| Link close
+|╬| Open url
+|╬| Close url
 |╬| Gurl
 |╬| Remove chat
 |╬| Bot restart
@@ -267,39 +273,10 @@ helpMessage= """\n
 ═╬════════►
    💻P̸͟͞o̸͟͞w̸͟͞e̸͟͞r̸͟͞💻
 ═╬════════►
-􀔃􀅕red arrow right􏿿 Command Public
-[Me]       Cek Akun Sendiri
-[My mid]   Cek Akun Mid
-[Bot?]     Cek Akun Bot
-[Id Group] Cek Id Group
-[Ginfo]    Group Info
-[Mid RA]   Cek All mid Bot
-[RA 1/2/3/4] Cek Mid Bot
-[Respon]   Cek Respon Bot
-[Speedbot] Cek Kecepatan Bot
-[Up]       Fungsi Spam Chat
-[Tagall]   Mention Semua User
-[Banlist]  Cek List Akun Banned
-[Gn namagroup] Ganti Nama Group
-[Cancel] Cancel User Masuk Group
-[Set View] Cek Privasi Group
-[Open Url]  Membuka Url Group
-[Close Url] Menutup Url Group
-􀔃􀅕red arrow right􏿿 Command Private
-[Set group] Menggatur Privasi Grup
-[Banned @] Bann Target 
-[Unban @]  Unbann Target
-[Kill @] Kick Target Bann
-[Nk @]   Kick Target User
-[Invite mid] Invite Via Mid
-[Kick mid] Kick Via mid
-[Ayo masuk] Invite Semua Bot
-[_namabot join] Invite Bot
-[Bye _namabot]  Leave Bot
 🔘Turn off bots🔘
 ●▬▬▬▬๑۩Special Thanks۩๑▬▬▬▬▬●
 P̸͟͞O̸͟͞W̸͟͞E̸͟͞R̸͟͞ B̸͟͞Y̸͟͞ T̸͟͞C̸͟͞R̸͟͞
-Edited̸͟͞ by A̸͟͞C̸͟͞I̸͟͞L̸͟͞A̸͟͞R̸͟͞D̸͟͞
+Edited̸͟͞ by Iyaitu
    ●▬▬▬▬๑۩FuckMyBot۩๑▬▬▬▬▬●
 
 """
@@ -386,10 +363,12 @@ Fmid = kb.getProfile().mid
 Gmid = ko.getProfile().mid
 Hmid = ke.getProfile().mid
 Imid = ku.getProfile().mid
+Smid = satpam.getProfile().mid #Akun Utama
 
 
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 admin=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
+staff=[""]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 admin = Bots
 wait = {
@@ -800,6 +779,8 @@ def bot(op):
                   pass
 	      if op.param2 in admin:
 		  pass
+	      if op.param2 in staff:
+		  pass
 	      else:
 		    G = random.choice(KAC).getGroup(op.param1)
                     G.preventJoinByTicket = True
@@ -810,9 +791,9 @@ def bot(op):
         if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in Bots:
+			if op.param3 in Bots and staff:
 			    pass
-		        if op.param2 in Bots:
+		        if op.param2 in Bots and staff:
 			    pass
 		        else:
 		            cl.kickoutFromGroup(op.param1,[op.param2])
@@ -823,7 +804,7 @@ def bot(op):
 			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
-			    if op.param2 not in Bots:
+			    if op.param2 not in Bots and staff:
                                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 		            if wait["autorein"] == True:
 			       if op.param2 in wait["blacklist"]:
@@ -835,14 +816,14 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
                         else:
-			    if op.param2 in Bots:
+			    if op.param2 in Bots and staff:
 			        pass
 			    else:
                                 wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
-		        if op.param2 in Bots:
+		        if op.param2 in Bots and staff:
 			    pass
 		        else:
                             wait["blacklist"][op.param2] = True
@@ -873,6 +854,8 @@ def bot(op):
             if op.param2 in Bots:
               pass
             if op.param2 in admin:
+              pass
+            if op.param2 in staff:
               pass
             else:
               random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
@@ -1023,6 +1006,8 @@ def bot(op):
             if op.param2 not in Bots or admin:
                 if op.param2 in Bots or admin:
                     pass
+                if op.param2 in admin:
+                    pass
             if wait["kickblack"] == True:
                 if wait["blacklist"][op.param2] == True:
                     try:
@@ -1083,10 +1068,16 @@ def bot(op):
             if op.param2 not in Bots:
                 if op.param2 in Bots:
                     pass
+                if op.param2 in admin:
+                    pass
+                if op.param2 in staff:
+                    pass
                 elif wait["kickblack"] == True:
                     wait ["blacklist"][op.param2] = True
                     cl.kickoutFromGroup(op.param1,[op.param2])
-                    cl.inviteIntoGroup(op.param1,[op.param2])pass
+                    cl.inviteIntoGroup(op.param1,[op.param2]) 
+	    else:
+	        pass
 
         if op.type == 19:
            if op.param3 in admin:
@@ -1094,6 +1085,21 @@ def bot(op):
               random.choice(KAC).inviteIntoGroup(op.param1,admin)
            else:
                pass
+
+        if op.type == 19:
+          try:
+            if op.param3 in Smid: #Akun Utama Ke Kick
+              G = random.choice(KAC).getGroup(op.param1)
+              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+              G.preventJoinByTicket = False
+              random.choice(KAC).updateGroup(G)
+              Ticket = random.choice(KAC).reissueGroupTicket(op.param1)
+              satpam.acceptGroupInvitationByTicket(op.param1,Ticket)
+              time.sleep(0.01)
+              G.preventJoinByTicket = True
+              random.choice(KAC).updateGroup(G)
+              satpam.updateGroup(G)
+              wait["blacklist"][op.param2] = True
 
         if op.type == 19:
                 if mid in op.param3:
