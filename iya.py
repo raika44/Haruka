@@ -788,55 +788,56 @@ def bot(op):
         if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in creator:
-			 if op.param3 in admin:
-			  if op.param3 in Bots:
-			   if op.param3 in staff:				
-			      pass
-		        if op.param2 in creator:
-		         if op.param2 in admin:
-		          if op.param2 in Bots:
-			   if op.param2 in staff:		
-		               pass
-		           else:
-		                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-		           if op.param2 in wait["blacklist"]:
-		               pass
-		           else:
-			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+		        if op.param3 in Bots:
+			 if op.param3 in Bots:
+		           if op.param3 in Bots:
+			    if op.param3 in Bots:			
+			        pass
+		        if op.param2 in Bots:
+			 if op.param2 in Bots:
+		           if op.param2 in Bots:
+			    if op.param2 in Bots:
+			        pass
+		            else:
+		                cl.kickoutFromGroup(op.param1,[op.param2])
+			         if wait["autorein"] == True:
+                                    if op.param2 in wait["blacklist"]:
+                                        pass
+		                    else:
+			                random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
-			    if op.param2 not in creator:
-			        if op.param2 not in admin:
-			            if op.param2 not in Bots:
-			                if op.param2 not in staff:
-                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-			    if wait["autorein"] == True:					
-			     if op.param2 in wait["blacklist"]:
-			         pass
-			     else:
-			         random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+			    if op.param2 not in Bots:
+			     if op.param2 not in Bots:
+			      if op.param2 not in Bots:
+			       if op.param2 not in Bots:
+                                   random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		                   if wait["autorein"] == True:
+			              if op.param2 in wait["blacklist"]:
+			                  pass
+			              else:
+			                  random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		        except:
 			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
                             pass
                         else:
-			    if op.param2 in creator:
-			     if op.param2 in admin:
+			    if op.param2 in Bots:
+			     if op.param2 in Bots:
 			      if op.param2 in Bots:
-		               if op.param2 in staff:					
+			       if op.param2 in Bots:
 			           pass
 			       else:
-                                     wait["blacklist"][op.param2] = True
+                                   wait["blacklist"][op.param2] = True
 		    if op.param2 in wait["blacklist"]:
                         pass
                     else:
-		        if op.param2 in creator:
-		         if op.param2 in admin:
-		          if op.param2 in Bots:
-		           if op.param2 in staff:
-			       pass
-		           else:
+		        if op.param2 in Bots:
+			 if op.param2 in Bots:
+		           if op.param2 in Bots:
+			    if op.param2 in Bots:
+			        pass
+		            else:
                                 wait["blacklist"][op.param2] = True
 		else:
 		    pass	
