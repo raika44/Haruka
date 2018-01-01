@@ -1042,7 +1042,7 @@ def bot(op):
 	  except:
 	         pass
         if op.type == 19:
-		if wait["AutoKick"] == True:
+		if wait["protect"] == True:
 		    try:
 		        if op.param2 in Bots:
 			    pass
@@ -1088,7 +1088,7 @@ def bot(op):
 		    pass		
 		
         if op.type == 19: #Member Ke Kick
-         if wait["protect"] == True:
+         if wait["Autokick"] == True:
           if op.param2 in Bots:
             pass
           elif op.param2 in admin:
@@ -1099,15 +1099,15 @@ def bot(op):
             pass
           else:
             try:
+              wait["blacklist"][op.param2] = True		
               cl.kickoutFromGroup(op.param1,[op.param2])
               ka.inviteIntoGroup(op.param1,[op.param3])
-              wait["blacklist"][op.param2] = True
               #f=codecs.open('st2__b.json','w','utf-8')
               #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:
+              wait["blacklist"][op.param2] = True			
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
               random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
-              wait["blacklist"][op.param2] = True
               #f=codecs.open('st2__b.json','w','utf-8')
               #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 
