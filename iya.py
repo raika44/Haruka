@@ -1041,7 +1041,6 @@ def bot(op):
                 wait["blacklist"][op.param2] = True
 	  except:
 	         pass
-
         if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
@@ -1054,18 +1053,23 @@ def bot(op):
                         elif op.param2 in staff:
                             pass
 		        else:
-		            cl.kickoutFromGroup(op.param1,[op.param2])
+		            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 			if wait["autorein"] == True:
                            if op.param2 in wait["blacklist"]:
                                pass
 		           else:
 			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
-			pass
 		        try:
-			   pass
+			    if op.param2 not in Bots:
+                                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		            if wait["autorein"] == True:
+			       if op.param2 in wait["blacklist"]:
+			           pass
+			       else:
+			           random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		        except:
-			    pass					
+			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
                             pass
                         else:
@@ -1084,6 +1088,7 @@ def bot(op):
 		    pass		
 		
         if op.type == 19: #Member Ke Kick
+         if wait["protect"] == True:
           if op.param2 in Bots:
             pass
           elif op.param2 in admin:
