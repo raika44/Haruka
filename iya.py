@@ -23,7 +23,7 @@ cl.login(token="EoyxbLxhobsSl1agdUXc.eoXp0xK1vqkdnL9Q78yCpa.uN3o3Q0XwSj5T/W1FhKw
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EojXEwrTBJrD0dwsw95f.vVPISdEKRjCwFNpzI3k+RW.0ZDluaOgM0e7bXi1XVqbNyMb2wr/J6Bz+BMZbNhIGBg=")
+ki.login(token="Eod3cb2quRwhxebXBDcf.vVPISdEKRjCwFNpzI3k+RW.Xu9UEToPBWMglpEQF+9KeyWqk7t2LvwNQdZkYYyJFFg=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
@@ -35,7 +35,7 @@ ke.login(token="EoRtg0ZaC0oBvXg1Ppza.nKWTtdkTR1t0s6tTguGLAG.BBk36xIC+5uctMDGjvp+
 ke.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="EoRtg0ZaC0oBvXg1Ppza.nKWTtdkTR1t0s6tTguGLAG.BBk36xIC+5uctMDGjvp+Tp4Rrk66925ET6aLG8FWY8k=")
+ka.login(token="EojT7R92C6oCVhTmIhdf.ySK6/7lzzXJWVTkhLlNW+W.Fcm3aVQZOSB5YodH1WDNGMIa+CAVv7FtLavopk5+UYs=")
 ka.loginResult()
 
 
@@ -805,13 +805,14 @@ def bot(op):
 			       random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
-			    if op.param2 not in Bots:
-				 if op.param2 in admin:
-			             pass
-			         if op.param2 in staff:
-			             pass
-			         else:
-				      random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+			    if op.param2 in Bots:
+				pass
+		            if op.param2 in admin:
+			        pass
+			    if op.param2 in staff:
+			        pass
+			    else:
+		                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
 		            if wait["autorein"] == True:
 			       if op.param2 in wait["blacklist"]:
 			           pass
@@ -822,7 +823,11 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
                         else:
-			    if op.param2 in Bots and staff:
+		            if op.param2 in Bots:
+			        pass
+		            if op.param2 in admin:
+			        pass
+		            if op.param2 in staff:
 			        pass
 			    else:
                                 wait["blacklist"][op.param2] = True
