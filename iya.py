@@ -1043,7 +1043,7 @@ def bot(op):
 	         pass
 		
         if op.type == 19:
-            if op.param2 not in Bots:
+            if op.param3 not in Bots:
                 if op.param2 in Bots:
                  if op.param2 in creator:
                   if op.param2 in admin:
