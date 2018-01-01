@@ -786,7 +786,62 @@ def bot(op):
                     random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     random.choice(KAC).updateGroup(G)
                     random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan Buka Tutup Kode QR Njiiir")
-        #------Protect Group Kick finish-----#       	
+        #------Protect Group Kick finish-----#    
+        if op.type == 19:
+		if wait["AutoKick"] == True:
+		    try:
+			if op.param3 in creator:
+			 if op.param3 in admin:
+			  if op.param3 in Bots:
+			   if op.param3 in Bots:
+			        pass
+		         if op.param2 in creator:
+		          if op.param2 in admin:
+		           if op.param2 in Bots:
+		            if op.param2 in Bots:			     	
+		                pass
+		           else:
+		               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		               if op.param2 in wait["blacklist"]:
+		                   pass
+		        else:
+			    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+		    except:
+		        try:
+			    if op.param2 not in creator:
+			        if op.param2 not in admin:
+			            if op.param2 not in Bots:
+			                if op.param2 not in staff:
+                                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+			    if op.param2 in wait["blacklist"]:
+			        pass
+			    else:
+			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+		        except:
+			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
+                        if op.param2 in wait["blacklist"]:
+                            pass
+                        else:
+			    if op.param2 in creator:
+			        if op.param2 in admin:
+			            if op.param2 in Bots:
+		                        if op.param2 in staff:					
+			                    pass
+			    else:
+                                wait["blacklist"][op.param2] = True
+		    if op.param2 in wait["blacklist"]:
+                        pass
+                    else:
+		        if op.param2 in Creator:
+		            if op.param2 in admin:
+		                if op.param2 in Bots:
+		                    if op.param2 in staff:
+			                pass
+		        else:
+                            wait["blacklist"][op.param2] = True
+		else:
+		    pass	
+	
 #------------------
         #------Protect Group Kick finish-----#
 		
@@ -960,10 +1015,12 @@ def bot(op):
                     cl.cancelGroupInvitation(op.param1, matched_list)
 		
         if op.type == 17:
-            if op.param2 not in Bots or admin:
-                if op.param2 in Bots or admin:
+            if op.param2 not in Bots:
+                if op.param2 in Bots:
                     pass
                 if op.param2 in admin:
+                    pass
+                if op.param2 in staff:
                     pass
             if wait["kickblack"] == True:
                 if wait["blacklist"][op.param2] == True:
@@ -1029,7 +1086,7 @@ def bot(op):
                     pass
                 if op.param2 in staff:
                     pass
-                elif wait["Autokick"] == True:
+                elif wait["protect"] == True:
                     wait ["blacklist"][op.param2] = True
                     cl.kickoutFromGroup(op.param1,[op.param2])
                     cl.inviteIntoGroup(op.param1,[op.param2]) 
@@ -1044,7 +1101,7 @@ def bot(op):
                pass
 
         if op.type == 19:
-          try:
+          try:	      
             if op.param3 in Smid: #Akun Utama Ke Kick
               G = random.choice(KAC).getGroup(op.param1)
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
