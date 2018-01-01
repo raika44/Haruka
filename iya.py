@@ -397,7 +397,7 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "Protectgr":True,
-    "protect":True,
+    "protect":False,
     "kickblack":True,
     "AutoKick":True,
     "likeOn":True,
@@ -790,15 +790,9 @@ def bot(op):
         if op.type == 19:
 		if wait["AutoKick"] == True:
 		    try:
-			if op.param3 in Bots:
-			    pass
 		        if op.param2 in Bots:
 			    pass
-			if op.param3 in admin:
-			    pass
 		        if op.param2 in admin:
-			    pass
-			if op.param3 in staff:
 			    pass
 		        if op.param2 in staff:
 			    pass		
@@ -1835,6 +1829,7 @@ def bot(op):
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': Hmid}
                 ke.sendMessage(msg)
+		
             elif msg.text in ["Me"]:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': msg.from_}
