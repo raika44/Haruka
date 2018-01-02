@@ -4107,6 +4107,7 @@ def bot(op):
                 ko.sendMessage(msg)
 #========================================
             elif "Spam @" in msg.text:
+              if msg.from_ in admin or staff:
                 _name = msg.text.replace("Spam @","")
                 _nametarget = _name.rstrip(' ')
                 gs = cl.getGroup(msg.to)
