@@ -90,7 +90,7 @@ helpMessage= """\n
 ═╬════════►
 |╬| Steal
 |╬| Steal name    @
-|╬| Steal Bio     @
+|╬| Getbio     @
 |╬| Steal status  @
 |╬| Steal mid     @
 |╬| Steal contact @
@@ -370,6 +370,7 @@ Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,"u5427d8047ab127f5e2
 admin=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b","ue43898158971147528350ad49b5e8df4","u3d27c322e83dac8c6ad9a2adf12dbf92","u8065b0be04ba4f39ea865a23ab6ba20e"]
 staff=["uab1ca173166a362c69ef62d420f9f784","u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
+adminsa=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 wait = {
     'contact':False,
     'autoJoin':True,
@@ -817,7 +818,10 @@ def bot(op):
               random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
               random.choice(KAC).sendText(op.param1, "Sorry you not admin😛")
         #------Cancel Invite User Finish------#
-            
+            if msg.contentType == 16:
+                url = msg.contentMetadata("line://home/post?userMid="+mid+"&postId="+"new_post")
+                cl.like(url[25:58], url[66:], likeType=1001)            
+		
         if op.type == 26:
             msg = op.message
             if msg.contentType == 13:
@@ -1007,6 +1011,22 @@ def bot(op):
                     pass
             except:
                 pass
+	
+            if msg.contentType == 16:
+                if wait["likeOn"] == True:
+                    url = msg.contentMetadata["postEndUrl"]
+                    cl.like(url[25:58], url[66:], likeType=1005)
+                    ki.like(url[25:58], url[66:], likeType=1002)
+                    kk.like(url[25:58], url[66:], likeType=1004)
+                    kc.like(url[25:58], url[66:], likeType=1003)
+                    kr.like(url[25:58], url[66:], likeType=1001)
+                    cl.comment(url[25:58], url[66:], wait["comment1"])
+                    ki.comment(url[25:58], url[66:], wait["comment2"])
+                    kk.comment(url[25:58], url[66:], wait["comment3"])
+                    kc.comment(url[25:58], url[66:], wait["comment4"])
+                    kr.comment(url[25:58], url[66:], wait["comment5"])
+                    cl.sendText(msg.to,"Like Success") 
+                    wait["likeOn"] == False
 	
         if op.type == 26:
             msg = op.message
@@ -1628,19 +1648,7 @@ def bot(op):
                 url = msg.contentMetadata("line://home/post?userMid="+mid+"&postId="+"new_post")
                 cl.like(url[25:58], url[66:], likeType=1001)
 		
-            if msg.contentType == 16:
-                if wait["likeOn"] == True:
-                    url = msg.contentMetadata["postEndUrl"]
-                    cl.like(url[25:58], url[66:], likeType=1005)
-                    kc.like(url[25:58], url[66:], likeType=1002)
-                    ka.like(url[25:58], url[66:], likeType=1004)
-                    ks.like(url[25:58], url[66:], likeType=1003)
-                    cl.comment(url[25:58], url[66:], wait["comment1"])
-                    kc.comment(url[25:58], url[66:], wait["comment2"])
-                    ka.comment(url[25:58], url[66:], wait["comment3"])
-                    ks.comment(url[25:58], url[66:], wait["comment4"])
-                    cl.sendText(msg.to,"Like Success") 
-                    wait["likeOn"] == False
+
         if op.type == 26:
             msg = op.message
             if msg.contentType == 13:
@@ -2547,6 +2555,19 @@ def bot(op):
                 for i in gid:
                     h += "[%s]:\n%s\n" % (cl.getGroup(i).name,i)
                 cl.sendText(msg.to,h)
+            elif "Bcg " in msg.text:
+              if msg.from_ in admin or staff:
+                bctxt = msg.text.replace("Bcg ", "")
+                a = cl.getGroupIdsJoined()
+                for manusia in a:
+                    cl.sendText(manusia, (bctxt))
+		
+            elif "Bcc " in msg.text:
+              if msg.from_ in admin or staff:
+                bctxt = msg.text.replace("Bcc ", "")
+                a = cl.getAllContactIds()
+                for manusia in a:
+                    cl.sendText(manusia, (bctxt))
             elif msg.text in ["Cancelall"]:
               if msg.from_ in admin or staff:	
                 gid = cl.getGroupIdsInvited()
@@ -3380,16 +3401,15 @@ def bot(op):
                  except:
                      pass
 #==================================================================
-            elif "Steal bio" in msg.text:
-              if msg.from_ in admin:
+            elif "Getbio" in msg.text:
                 key = eval(msg.contentMetadata["MENTION"])
                 key1 = key["MENTIONEES"][0]["M"]
                 contact = cl.getContact(key1)
                 cu = cl.channel.getCover(key1)
                 try:
-                    cl.sendText(msg.to,contact.statusMessage)
+                    cl.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
                 except:
-                    cl.sendText(msg.to,contact.statusMessage)
+                    cl.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
             elif 'Creator' in msg.text.lower():
               if msg.from_ in admin:
 				msg.contentType = 13
@@ -5304,6 +5324,24 @@ def bot(op):
 	      else:
 		   cl.sendText(msg.to, "Turn on Media")	
 #----------------------------------------------------------------------------
+            elif msg.text in ["Bot Like", "Bot like"]: #Semua Bot Ngelike Status Akun Utama
+              if msg.from_ in creator or admin:
+                print "[Command]Like executed"
+                cl.sendText(msg.to,"Kami Siap Like Status Owner\nKami Delay untuk beberapa Detik\nJangan perintah kami dulu sampai kami Selesai Ngelike")
+                try:
+                  likePost()
+                except:
+                  pass
+                
+            elif msg.text in ["Like kamu", "Bot like temen"]: #Semua Bot Ngelike Status Teman
+              if msg.from_ in creator or admin:
+                print "[Command]Like executed"
+                cl.sendText(msg.to,"Kami Siap Like Status Teman Boss")
+                cl.sendText(msg.to,"Kami Siap Like Status Owner\nKami Delay untuk beberapa Detik\nJangan perintah kami dulu sampai kami Selesai Ngelike")
+                try:
+                  autolike()
+                except:
+                  pass
 #--------------------------------- INSTAGRAM --------------------------------
             elif '/ig ' in msg.text.lower():
                 try:
@@ -5571,6 +5609,29 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"Gambar Covernya")
                         cl.sendImageWithURL(msg.to,cover)
+			
+                #----------------------
+            elif "Pap cecan" in msg.text:
+              if msg.from_ in adminsa:
+                tanya = msg.text.replace("Pap cecan","")
+                jawab = ("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQAa0KQ8XfoVfKRh82Ys63AX3VcuPml1JJFLk7iTEtMpmd7OzbN-yk_MGK6","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPMwr1Igswf8wgrTURHbGAt9jn54SvimA6Ps6W6lCtItkrh4I-kA","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg5SRVDjILsjUyBeLkBnbV96kX22_1mplLyjfCKws6nv8E_VtMDyV07e56bw","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOXZ4yFF8R8vPVmEl21Txhvzh4YpUJkJ2uuO3KQLUzYIEVsuT9")
+                jawaban = random.choice(jawab)
+                cl.sendImageWithURL(msg.to,jawaban)
+#-----------------------------------------------
+#----------------------
+            elif "Pap toket" in msg.text:
+              if msg.from_ in adminsa:
+                tanya = msg.text.replace("Pap toket","")
+                jawab = ("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTilO50kExe4q_t-l8Kfn98sxyrHcbWPWCu2GP2SNgg8XWGMaZc8h5zaxAeVA","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKgSYYgB33GP3LAvVSYxKjDlbPokmtzSWjbWJogz8lbZMNSyvqJTE3qWpwBg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgwKO_CAdZpSlXVVfA29qglGQR00WHkeqq4JakyYDuzIW2tKhvGg","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSC3ZMq4PnCX5dj7Fc_N6HOG6R_XrmOM7r6uBtpEcBfbO4hMEXQirK_lU_ePw","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgynJUxS4uYgaIiV_R6e4FY62QfhYRUEgYZg6psfJzWH_ci4dFng")
+                jawaban = random.choice(jawab)
+                cl.sendImageWithURL(msg.to,jawaban)
+#-----------------------------------------------#----------------------
+            elif "Pap anu" in msg.text:
+              if msg.from_ in adminsa:
+                tanya = msg.text.replace("Pap anu","")
+                jawab = ("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQFFKdXErF56KzAa4oWnWQT34jmGKJ66lj1g0hnN4zwYh9GgW0dHWZfRnuM","https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQTn4_JMD1ZAg-XIk6JZ1Crhz9gtXEIS8AcjTA3SYmazAutt7ekHw","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTIVuITo7KicaU6UwPhol1Rvkq4aQwznly8Xl2SiTlAa_1FrSHuwhwV5XoElA")
+                jawaban = random.choice(jawab)
+                cl.sendImageWithURL(msg.to,jawaban)
 #-----------------------------------------------
             elif "Steal @" in msg.text:
                 if msg.from_ in admin:
@@ -5771,30 +5832,66 @@ thread2 = threading.Thread(target=nameUpdate)
 thread2.daemon = True
 thread2.start()
 
-
 def autolike():
-    count = 1
-    while True:
+    for zx in range(0,500):
+      hasil = cl.activity(limit=500)
+      if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
         try:
-           for posts in cl.activity(1)["result"]["posts"]:
-             if posts["postInfo"]["liked"] is False:
-                if wait["likeOn"] == True:
-                   cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"],likeType=1001)
-                   print "Like"
-                   if wait["commentOn"] == True:
-                      if posts["userInfo"]["writerMid"] in wait["commentBlack"]:
-                         pass
-                      else:
-                          cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],oceh["pesanlike"])
+          cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
+          cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Ngelike doang")
+          ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
+          ki.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Aku Juga Ikutin Boss Aku Like Status Kamu Ka\n\n Like Back yah Ka 😊")
+          kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
+          kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Aku Juga Ikutin Boss Aku Like Status Kamu Ka\n\n Like Back yah Ka 😊")
+          ka.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
+          ka.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Aku Juga Ikutin Boss Aku Like Status Kamu Ka\n\n Like Back yah Ka 😊")
+          ke.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
+          ke.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Aku Juga Ikutin Boss Aku Like Status Kamu Ka\n\n Like Back yah Ka 😊")
+          cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"BLAEM")
+          print "Like"
         except:
-            count += 1
-            if(count == 50):
-                sys.exit(0)
+          pass
+      else:
+          print "Already Liked"
+time.sleep(0.01)
+thread3 = threading.Thread(target=autolike)
+thread3.daemon = True
+thread3.start()
+#--------------------
+def likePost():
+    for zx in range(0,500):
+        hasil = cl.activity(limit=500)
+        if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+            if hasil['result']['posts'][zx]['userInfo']['mid'] in owner:
+                try:
+                    cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    kc.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    ks.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Pertamax")
+                    ki.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Keduax")
+                    kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Ketigax")
+                    kc.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Keempatx")
+                    ks.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Kelimax")
+                    print "Like"
+                except:
+                    pass
             else:
-                pass
-thread2 = threading.Thread(target=autolike)
-thread2.daemon = True
-thread2.start()
+                print "Status Sudah di Like Boss
+
+def likefriend():
+    for zx in range(0,20):
+      hasil = cl.activity(limit=20)
+      if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+        try:
+          cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
+          print "Like"
+        except:
+          pass
+      else:
+          print "Already Liked"
+time.sleep(0.60)
 
 def likeme():
     for zx in range(0,20):
@@ -5803,7 +5900,11 @@ def likeme():
             if hasil['result']['posts'][zx]['userInfo']['mid'] in mid:
                 try:
                     cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-                    print "Like"
+                    ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    ka.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    ke.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+		    print "Like"
                 except:
                     pass
             else:
