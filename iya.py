@@ -409,7 +409,7 @@ wait = {
     "Backup":False,
     "protectionOn":True,
     "atjointicket":True,
-    "Pap":True,
+    "Pap":"https://i.imgflip.com/1bqcxs.jpg",
     "SetKey":".",
     "spam":"Your Account Has Been Spammed",
     }
