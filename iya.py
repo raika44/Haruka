@@ -4408,7 +4408,7 @@ def bot(op):
             elif "Expel staff @" in msg.text:
                 if msg.from_ in admin:
                     print "[Command]Staff remove executing"
-                    _name = msg.text.replace("Remove staff @","")
+                    _name = msg.text.replace("Expel staff @","")
                     _nametarget = _name.rstrip('  ')
                     gs = cl.getGroup(msg.to)
                     targets = []
