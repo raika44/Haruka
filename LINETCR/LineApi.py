@@ -400,6 +400,8 @@ class LINE:
 
   """TIMELINE"""
 
+  """TIMELINE"""
+
   def new_post(self, text):
     return self.channel.new_post(text)
 
