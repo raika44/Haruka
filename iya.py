@@ -2109,7 +2109,7 @@ def bot(op):
                         kk.updateProfile(profile)
                         ka.updateProfile(profile)
                         ke.updateProfile(profile)
-                        cl.sendText(msg.to,"Semua udh di ganti sayang"			
+                        cl.sendText(msg.to,"Semua udh di ganti sayang")			
             elif "Id Group" == msg.text:
                 kk.sendText(msg.to,msg.to)
             elif "My mid" == msg.text:
