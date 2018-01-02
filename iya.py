@@ -82,7 +82,7 @@ helpMessage= """\n
 ═╬════════►
 |╬| Admin on @
 |╬| Expel on @
-|╬| Remove staff @
+|╬| Expel staff @
 |╬| Add staff @
 |╬| Expelal
 ═╬════════►
