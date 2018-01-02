@@ -5850,11 +5850,7 @@ def autolike():
                       if posts["userInfo"]["writerMid"] in wait["commentBlack"]:
                          pass
                       else:
-                          cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment1])
-                          ki.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment2])
-                          kk.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment3])
-                          ka.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment4])
-                          ke.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment5])			
+                          pass		
         except:
             count += 1
             if(count == 50):
