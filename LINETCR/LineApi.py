@@ -22,8 +22,7 @@ class LINE:
 
   def __init__(self):
     self.Talk = Talk()
-    self._session = requests.session() 
-    self._headers = {'X-Line-Application': 'CHROMEOS\t1.4.17\tChrome_OS\t1'}    
+    self._session = requests.session()    
 
   def login(self, mail=None, passwd=None, cert=None, token=None, qr=False, callback=None):
     if callback is None:
@@ -43,11 +42,10 @@ class LINE:
     self.authToken = self.Talk.authToken
     self.cert = self.Talk.cert
     self._headers = {
-              'X-Line-Application': 'CHROMEOS\t1.4.17\tChrome_OS\t1', 
+              'X-Line-Application': 'IOSIPAD\t7.14.0\tiPhone OS\t10.12.0', 
               'X-Line-Access': self.authToken, 
               'User-Agent': 'Line/7.14.0'
    }
-   
     self.Poll = Poll(self.authToken)
     self.channel = channel.Channel(self.authToken)
     self.channel.login()	
@@ -112,9 +110,6 @@ class LINE:
         rst = t1 + text + t2
         M.text = rst.replace("\n", " ")
         return self.Talk.client.sendMessage(0, M)
-        
-  def removeAllMessages(self, lastMessageId):
-        return self.Talk.client.removeAllMessages(0,lastMessageId)        
 
   def sendMessage(self, messageObject):
         return self.Talk.client.sendMessage(0,messageObject)
@@ -231,7 +226,6 @@ class LINE:
       if r.status_code != 201:
          raise Exception('Upload image failure.')
       return True
-      
   def sendVideoWithURL(self, to_, url):
       path = 'pythonLines.data'
       r = requests.get(url, stream=True)
@@ -244,45 +238,6 @@ class LINE:
          self.sendVideo(to_, path)
       except Exception as e:
          raise e
-         
-  def sendGif(self, to_, path):
-      M = Message(to=to_,contentType = 1)
-      M.contentMetadata = {
-           'VIDLEN' : '0',
-           'DURATION' : '0'
-       }
-      M.contentPreview = None
-      M_id = self.Talk.client.sendMessage(0,M).id
-      files = {
-         'file': open(path, 'rb'),
-      }
-      params = {
-         'name': 'media',
-         'oid': M_id,
-         'size': len(open(path, 'rb').read()),
-         'type': 'image',
-         'ver': '1.0',
-      }
-      data = {
-         'params': json.dumps(params)
-      }
-      r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
-      if r.status_code != 201:
-         raise Exception('Upload Gif failure.')
-      return True
-      
-  def sendGifWithURL(self, to_, url):
-      path = 'pythonLiness.data'
-      r = requests.get(url, stream=True)
-      if r.status_code == 200:
-         with open(path, 'w') as f:
-            shutil.copyfileobj(r.raw, f)
-      else:
-         raise Exception('Download Gif failure.')
-      try:
-         self.sendGif(to_, path)
-      except Exception as e:
-         raise e         
 
   def sendEvent(self, messageObject):
         return self.Talk.client.sendEvent(0, messageObject)
@@ -493,8 +448,8 @@ class LINE:
     else:
       return 5
 
-  def loginResult(self, callback=True):
-    if callback is True:
+  def loginResult(self, callback=None):
+    if callback is None:
       callback = def_callback
 
       prof = self.getProfile()
