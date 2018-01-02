@@ -401,7 +401,7 @@ wait = {
     "protect":False,
     "kickblack":True,
     "AutoKick":True,
-    "likeOn":True,
+    "likeOn":False
     "welcomemsg":False,
     "winvite":False,
     "autorein":True,
@@ -5833,31 +5833,37 @@ thread2 = threading.Thread(target=nameUpdate)
 thread2.daemon = True
 thread2.start()
 
+
 def autolike():
-    for zx in range(0,500):
-      hasil = cl.activity(limit=500)
-      if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+    count = 1
+    while True:
         try:
-          cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
-          cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Pertamax")
-          ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
-          ki.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Aku Juga Ikutin Boss Aku Like Status Kamu Ka\n\n Like Back yah Ka 😊")
-          kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
-          kk.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Aku Juga Ikutin Boss Aku Like Status Kamu Ka\n\n Like Back yah Ka 😊")
-          ka.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
-          ka.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Aku Juga Ikutin Boss Aku Like Status Kamu Ka\n\n Like Back yah Ka 😊")
-          ke.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
-          ke.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Aku Juga Ikutin Boss Aku Like Status Kamu Ka\n\n Like Back yah Ka 😊")
-          cl.comment(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],"Sudah ah")
-          print "Like"
+           for posts in cl.activity(1)["result"]["posts"]:
+             if posts["postInfo"]["liked"] is False:
+                   cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   ki.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   kk.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)	
+                   ka.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   ke.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)		
+                   print "Like"
+                   if wait["commentOn"] == True:
+                      if posts["userInfo"]["writerMid"] in wait["commentBlack"]:
+                         pass
+                      else:
+                          cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment1])
+                          ki.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment2])
+                          kk.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment3])
+                          ka.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment4])
+                          ke.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment5])			
         except:
-          pass
-      else:
-          print "Already Liked"
-    time.sleep(0.01)
-thread3 = threading.Thread(target=autolike)
-thread3.daemon = True
-thread3.start()
+            count += 1
+            if(count == 50):
+                sys.exit(0)
+            else:
+                pass
+thread2 = threading.Thread(target=autolike)
+thread2.daemon = True
+thread2.start()
 #--------------------
 def likePost():
     for zx in range(0,500):
