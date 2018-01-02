@@ -20,6 +20,7 @@ class Channel:
 
     UA = "Line/7.14.0"
     LA = "CHROMEOS\t1.4.17\tChrome_OS\t1"
+    
 
     authToken = None
     mid = None
@@ -42,7 +43,7 @@ class Channel:
         self.transport.path = self.channel_query_path
 
     def login(self):
-        result = self.client.issueChannelToken("1341209950")
+        result = self.client.issueChannelToken("1341209850")
 
         self.channel_access_token = result.channelAccessToken
         self.token = result.token
