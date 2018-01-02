@@ -401,7 +401,7 @@ wait = {
     "protect":False,
     "kickblack":True,
     "AutoKick":True,
-    "likeOn":False
+    "likeOn":False,
     "welcomemsg":False,
     "winvite":False,
     "autorein":True,
