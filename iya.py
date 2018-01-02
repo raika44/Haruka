@@ -4076,7 +4076,7 @@ def bot(op):
                 ko.sendMessage(msg)
 #========================================
             elif "Spam @" in msg.text:
-                _name = msg.text.replace(wait["Spam @","")
+                _name = msg.text.replace(["Spam @","")
                 _nametarget = _name.rstrip(' ')
                 gs = cl.getGroup(msg.to)
                 for g in gs.members:
