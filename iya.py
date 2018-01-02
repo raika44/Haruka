@@ -2099,6 +2099,17 @@ def bot(op):
                         cl.sendText(msg.to,"Can not be used outside the group")
                     else:
                         cl.sendText(msg.to,"Not for use less than group")
+            elif "/bio " in msg.text:
+                    string = msg.text.replace("/bio ","")
+                    if len(string.decode('utf-8')) <= 500:
+                        profile = cl.getProfile()
+                        profile.statusMessage = string
+                        cl.updateProfile(profile)
+                        ki.updateProfile(profile)
+                        kk.updateProfile(profile)
+                        ka.updateProfile(profile)
+                        ke.updateProfile(profile)
+                        cl.sendText(msg.to,"Semua udh di ganti sayang"			
             elif "Id Group" == msg.text:
                 kk.sendText(msg.to,msg.to)
             elif "My mid" == msg.text:
