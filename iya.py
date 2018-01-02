@@ -380,11 +380,11 @@ wait = {
     'autoAdd':True,
     'message':"cie ngeadd yaa makasihh",
     "lang":"JP",
-    "comment":"Nice kak",
-    "comment1":"Nice kak",
-    "comment2":"Ciee",
-    "comment3":"gk tau keberapa",
-    "comment4":"neng neng nong neng",
+    "comment1":"Kenapa Kak?",
+    "comment2":"Wkwkwk ＼（○＾ω＾○）／",
+    "comment3":"Lucu Banget!!! ヘ(^_^)ヘ",
+    "comment4":"Nice Kak (^_^)",
+    "comment5":"ciee",
     "commentOn":True,
     "welmsg":" Selamat Datang di ",
     "commentBlack":{},
@@ -1018,13 +1018,13 @@ def bot(op):
                     cl.like(url[25:58], url[66:], likeType=1005)
                     ki.like(url[25:58], url[66:], likeType=1002)
                     kk.like(url[25:58], url[66:], likeType=1004)
-                    kc.like(url[25:58], url[66:], likeType=1003)
-                    kr.like(url[25:58], url[66:], likeType=1001)
+                    ka.like(url[25:58], url[66:], likeType=1003)
+                    ke.like(url[25:58], url[66:], likeType=1001)
                     cl.comment(url[25:58], url[66:], wait["comment1"])
                     ki.comment(url[25:58], url[66:], wait["comment2"])
                     kk.comment(url[25:58], url[66:], wait["comment3"])
-                    kc.comment(url[25:58], url[66:], wait["comment4"])
-                    kr.comment(url[25:58], url[66:], wait["comment5"])
+                    ka.comment(url[25:58], url[66:], wait["comment4"])
+                    ke.comment(url[25:58], url[66:], wait["comment5"])
                     cl.sendText(msg.to,"Like Success") 
                     wait["likeOn"] == False
 	
