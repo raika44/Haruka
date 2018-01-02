@@ -22,7 +22,8 @@ class LINE:
 
   def __init__(self):
     self.Talk = Talk()
-    self._session = requests.session()    
+    self._session = requests.session() 
+    self._headers = {'X-Line-Application': 'CHROMEOS\t1.4.17\tChrome_OS\t1'}    
 
   def login(self, mail=None, passwd=None, cert=None, token=None, qr=False, callback=None):
     if callback is None:
@@ -46,11 +47,10 @@ class LINE:
               'X-Line-Access': self.authToken, 
               'User-Agent': 'Line/7.14.0'
    }
-
+   
     self.Poll = Poll(self.authToken)
     self.channel = channel.Channel(self.authToken)
-    self.channel.login()
-	
+    self.channel.login()	
     self.mid = self.channel.mid
     self.channel_access_token = self.channel.channel_access_token
     self.token = self.channel.token
@@ -112,6 +112,9 @@ class LINE:
         rst = t1 + text + t2
         M.text = rst.replace("\n", " ")
         return self.Talk.client.sendMessage(0, M)
+        
+  def removeAllMessages(self, lastMessageId):
+        return self.Talk.client.removeAllMessages(0,lastMessageId)        
 
   def sendMessage(self, messageObject):
         return self.Talk.client.sendMessage(0,messageObject)
@@ -120,8 +123,8 @@ class LINE:
         msg = Message()
         msg.to = Tomid
         msg.text = text
-        return self.Talk.client.sendMessage(0, msg)
 
+        return self.Talk.client.sendMessage(0, msg)
   def post_content(self, url, data=None, files=None):
         return self._session.post(url, headers=self._headers, data=data, files=files)
 
@@ -141,8 +144,9 @@ class LINE:
             'ver': '1.0',
         }
         data = {
-            'params': json.dumps(params)
-        }
+            'params': json.dumps(params)            
+        }       
+
         r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
         print r
         if r.status_code != 201:
@@ -151,95 +155,135 @@ class LINE:
 
   def sendImageWithURL(self, to_, url):
         """Send a image with given image url
+
         :param url: image url to send
         """
         path = 'pythonLine.data'
+
         r = requests.get(url, stream=True)
         if r.status_code == 200:
             with open(path, 'w') as f:
                 shutil.copyfileobj(r.raw, f)
         else:
             raise Exception('Download image failure.')
+
         try:
             self.sendImage(to_, path)
         except Exception as e:
             raise e
 
   def sendAudioWithURL(self, to_, url):
-        path = 'pythonLiness.data'
-        r = requests.get(url, stream=True)
-        if r.status_code == 200:
-            with open(path, 'w') as f:
-                shutil.copyfileobj(r.raw, f)
-        else:
-            raise Exception('Download Audio failure.')
-        try:
-            self.sendAudio(to_, path)
-        except Exception as e:
-            raise e
-
+      path = 'pythonLiness.data'
+      r = requests.get(url, stream=True)
+      if r.status_code == 200:
+         with open(path, 'w') as f:
+            shutil.copyfileobj(r.raw, f)
+      else:
+         raise Exception('Download Audio failure.')
+      try:
+         self.sendAudio(to_, path)
+      except Exception as e:
+         raise e
   def sendAudio(self, to_, path):
-        M = Message(to=to_,contentType = 3)
-        M.contentMetadata = None
-        M.contentPreview = None
-        M_id = self.Talk.client.sendMessage(0,M).id
-        files = {
-            'file': open(path, 'rb'),
-        }
-        params = {
-            'name': 'media',
-            'oid': M_id,
-            'size': len(open(path, 'rb').read()),
-            'type': 'audio',
-            'ver': '1.0',
-        }
-        data = {
-            'params': json.dumps(params)
-        }
-        r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
-        if r.status_code != 201:
-            raise Exception('Upload audio failure.')
-        return True
-
+      M = Message(to=to_,contentType = 3)
+      M.contentMetadata = None
+      M.contentPreview = None
+      M_id = self.Talk.client.sendMessage(0,M).id
+      files = {
+         'file': open(path, 'rb'),
+      }
+      params = {
+         'name': 'media',
+         'oid': M_id,
+         'size': len(open(path, 'rb').read()),
+         'type': 'audio',
+         'ver': '1.0',
+      }
+      data = {
+         'params': json.dumps(params)
+      }
+      r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
+      if r.status_code != 201:
+         raise Exception('Upload image failure.')
+      return True
   def sendVideo(self, to_, path):
-        M = Message(to=to_,contentType = 2)
-        M.contentMetadata = {
-              'VIDLEN' : '0',
-              'DURATION' : '0'
-        }
-        M.contentPreview = None
-        M_id = self.Talk.client.sendMessage(0,M).id
-        files = {
-            'file': open(path, 'rb'),
-        }
-        params = {
-            'name': 'media',
-            'oid': M_id,
-            'size': len(open(path, 'rb').read()),
-            'type': 'video',
-            'ver': '1.0',
-        }
-        data = {
-            'params': json.dumps(params)
-        }
-        r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
-        if r.status_code != 201:
-            raise Exception('Upload video failure.')
-        return True
-
+      M = Message(to=to_,contentType = 2)
+      M.contentMetadata = {
+           'VIDLEN' : '0',
+           'DURATION' : '0'
+       }
+      M.contentPreview = None
+      M_id = self.Talk.client.sendMessage(0,M).id
+      files = {
+         'file': open(path, 'rb'),
+      }
+      params = {
+         'name': 'media',
+         'oid': M_id,
+         'size': len(open(path, 'rb').read()),
+         'type': 'video',
+         'ver': '1.0',
+      }
+      data = {
+         'params': json.dumps(params)
+      }
+      r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
+      if r.status_code != 201:
+         raise Exception('Upload image failure.')
+      return True
+      
   def sendVideoWithURL(self, to_, url):
-        path = 'pythonLines.data'
-        r = requests.get(url, stream=True)
-        if r.status_code == 200:
-            with open(path, 'w') as f:
-               shutil.copyfileobj(r.raw, f)
-        else:
-            raise Exception('Download Video failure.')
-        try:
-            self.sendVideo(to_, path)
-        except Exception as e:
-            raise e
-	
+      path = 'pythonLines.data'
+      r = requests.get(url, stream=True)
+      if r.status_code == 200:
+         with open(path, 'w') as f:
+            shutil.copyfileobj(r.raw, f)
+      else:
+         raise Exception('Download Audio failure.')
+      try:
+         self.sendVideo(to_, path)
+      except Exception as e:
+         raise e
+         
+  def sendGif(self, to_, path):
+      M = Message(to=to_,contentType = 1)
+      M.contentMetadata = {
+           'VIDLEN' : '0',
+           'DURATION' : '0'
+       }
+      M.contentPreview = None
+      M_id = self.Talk.client.sendMessage(0,M).id
+      files = {
+         'file': open(path, 'rb'),
+      }
+      params = {
+         'name': 'media',
+         'oid': M_id,
+         'size': len(open(path, 'rb').read()),
+         'type': 'image',
+         'ver': '1.0',
+      }
+      data = {
+         'params': json.dumps(params)
+      }
+      r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
+      if r.status_code != 201:
+         raise Exception('Upload Gif failure.')
+      return True
+      
+  def sendGifWithURL(self, to_, url):
+      path = 'pythonLiness.data'
+      r = requests.get(url, stream=True)
+      if r.status_code == 200:
+         with open(path, 'w') as f:
+            shutil.copyfileobj(r.raw, f)
+      else:
+         raise Exception('Download Gif failure.')
+      try:
+         self.sendGif(to_, path)
+      except Exception as e:
+         raise e         
+
   def sendEvent(self, messageObject):
         return self.Talk.client.sendEvent(0, messageObject)
 
@@ -400,8 +444,6 @@ class LINE:
 
   """TIMELINE"""
 
-  """TIMELINE"""
-
   def new_post(self, text):
     return self.channel.new_post(text)
 
@@ -451,8 +493,8 @@ class LINE:
     else:
       return 5
 
-  def loginResult(self, callback=None):
-    if callback is None:
+  def loginResult(self, callback=True):
+    if callback is True:
       callback = def_callback
 
       prof = self.getProfile()
