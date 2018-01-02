@@ -5878,7 +5878,7 @@ def likePost():
                 except:
                     pass
             else:
-                print "Status Sudah di Like Boss
+                print "Status Sudah di Like Boss"
 
 def likefriend():
     for zx in range(0,20):
