@@ -19,23 +19,23 @@ satpam.login(token="EoBI8PL5ejf3jzQTUOQ4.QXYHCXzQnIXP72luipN3Ha.uR92OO9tNjIRLg7c
 satpam.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EoyxbLxhobsSl1agdUXc.eoXp0xK1vqkdnL9Q78yCpa.uN3o3Q0XwSj5T/W1FhKwxtjFKtyDbrppLPdwHYJHfYM=")
+cl.login(token="EoQJeUA2Ph4fjV7OS2wc.eoXp0xK1vqkdnL9Q78yCpa.4hrbpsqfzNINyovwrrsLuyT4ncuOmPFdj50S5j3Jprw=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="Eod3cb2quRwhxebXBDcf.vVPISdEKRjCwFNpzI3k+RW.Xu9UEToPBWMglpEQF+9KeyWqk7t2LvwNQdZkYYyJFFg=")
+ki.login(token="EoDUYulQFdmFVyk5AErf.vVPISdEKRjCwFNpzI3k+RW.F6ZegndCAado1Q16Y+Dl7UnXoqgLYDmY2PBcAtpHr+U=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="EoNA1qrZbGPj3q9iEyZ2.h6ACMEcQmlMxE/DJN7DS0G.qtJlsr8NdMV4uC4sgnuVd5vVdnRQp6zyevpA8NYbXvk=")
+kk.login(token="EoR70vFulH9O76Xs41M2.h6ACMEcQmlMxE/DJN7DS0G.mkcdE1AO9XchtDDLqK6iKip1XPP66VOId4dqObbpSRA=")
 kk.loginResult()
 
 ke = LINETCR.LINE()
-ke.login(token="EoRtg0ZaC0oBvXg1Ppza.nKWTtdkTR1t0s6tTguGLAG.BBk36xIC+5uctMDGjvp+Tp4Rrk66925ET6aLG8FWY8k=")
+ke.login(token="EoHdPT8fyMWXK6JDEwxa.nKWTtdkTR1t0s6tTguGLAG.+Lrla8KHqgltC4tKqDWsDY0TDD0dQaDt3vC4eCimZNE=")
 ke.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="EojT7R92C6oCVhTmIhdf.ySK6/7lzzXJWVTkhLlNW+W.Fcm3aVQZOSB5YodH1WDNGMIa+CAVv7FtLavopk5+UYs=")
+ka.login(token="EoiGCMypacw3UFRBtBNf.ySK6/7lzzXJWVTkhLlNW+W.l65XQAga4BvBBbbSzIDd6XwEmbGeEMWJXx8rGR6k1aQ=")
 ka.loginResult()
 
 
@@ -366,10 +366,10 @@ Imid = ku.getProfile().mid
 Smid = satpam.getProfile().mid #Akun Utama
 
 
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
-admin=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
-staff=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
-creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
+admin=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"."u051cd9062ec1528d9e16cc784efca04b","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
+staff=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
+creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
 wait = {
     'contact':False,
     'autoJoin':True,
