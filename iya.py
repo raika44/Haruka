@@ -864,10 +864,10 @@ def bot(op):
             gMembMids = [contact.mid for contact in group.invitee]
             if op.param2 in Bots:
               pass
-            if op.param2 in admin:
-              pass
-            if op.param2 in staff:
-              pass
+            elif op.param2 in admin:
+                  pass
+            elif op.param2 in staff:
+                  pass
             else:
               random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
               random.choice(KAC).sendText(op.param1, "Sorry you not admin😛")
@@ -1047,7 +1047,13 @@ def bot(op):
         if op.type == 17:
            if wait["Protectjoin"] == True:
                if op.param2 not in Bots or admin:
-                   random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+	        G = random.choice(KAC).getGroup(op.param1)
+                G.preventJoinByTicket = True
+                Ticket = cl.reissueGroupTicket(op.param1)
+                km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                km.updateGroup(G)
+                km.kickoutFromGroup(op.param1,[op.param2])
+                km.leaveGroup(op.param1)
                
         #------Joined User Kick start------#
 
