@@ -789,9 +789,12 @@ def bot(op):
 	        else:
 		    G = random.choice(KAC).getGroup(op.param1)
                     G.preventJoinByTicket = True
-                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                    random.choice(KAC).updateGroup(G)
-                    random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
+                    Ticket = cl.reissueGroupTicket(msg.to)
+                    km.acceptGroupInvitationByTicket(msg.to,Ticket)
+                    km.kickoutFromGroup(op.param1,[op.param2])
+                    km.updateGroup(G)
+                    km.sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
+		    km.leaveGroup(op.param1)
         #------Protect Group Kick finish-----#    
 
 #------------------
