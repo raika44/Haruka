@@ -39,7 +39,7 @@ ka.login(token="EogSjA3eMmPWOSqvcmRf.ySK6/7lzzXJWVTkhLlNW+W.Pkq1aawmZxrQNEoQ0KVx
 ka.loginResult()
 
 km = LINETCR.LINE()
-km.login(token="EoVqwVwcYMsGknfeov35.NuOKUlcmrchxMMvHVN9o9q.NBgwZh5EHqqOIfsLCNXSQ3gGkjvYCbj4uYv4Bxu1YNY=
+km.login(token="EoVqwVwcYMsGknfeov35.NuOKUlcmrchxMMvHVN9o9q.NBgwZh5EHqqOIfsLCNXSQ3gGkjvYCbj4uYv4Bxu1YNY=)
 km.loginResult()
 
 
