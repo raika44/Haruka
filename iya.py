@@ -1046,14 +1046,7 @@ def bot(op):
   
         #------Joined User Kick start------#
         if op.type == 17:
-            if op.param2 in Bots:
-                pass
-            elif op.param2 in admin:
-                  pass
-            elif op.param2 in creator:
-                  pass
-            elif op.param2 in staff:
-                  pass
+           if op.param2 not in Bots or creator:
             if wait["Protectjoin"] == True:
 	     try:		
 	        G = cl.getGroup(op.param1)
@@ -1063,7 +1056,6 @@ def bot(op):
                 km.acceptGroupInvitationByTicket(op.param1,Ticket)
                 km.kickoutFromGroup(op.param1,[op.param2])
                 km.leaveGroup(op.param1)
-                G = cl.getGroup(msg.to)
                 G.preventJoinByTicket = True		
                 cl.updateGroup(G)		
              except:
