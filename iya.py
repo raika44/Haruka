@@ -783,13 +783,13 @@ def bot(op):
         if op.type == 11:
           if wait["Protectgr"] == True:
             if op.param2 in Bots:
-              pass
+                pass
             if op.param2 in admin:
-              pass
+                pass
             if op.param2 in creator:
-              pass
+                pass
             if op.param2 in staff:
-              pass
+                pass
             else:
                G = random.choice(KAC).getGroup(op.param1)
                G.preventJoinByTicket = True
