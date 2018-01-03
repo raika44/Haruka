@@ -782,20 +782,23 @@ def bot(op):
                 #------Protect Group Kick start------#
         if op.type == 11:
           if wait["Protectgr"] == True:
-	   if op.param2 in Bots:
+            if op.param2 in Bots:
+              pass
             if op.param2 in admin:
-             if op.param2 in creator:
-	      if op.param2 in staff:
-                  pass
-              else:
-                  G = random.choice(KAC).getGroup(op.param1)
-                  G.preventJoinByTicket = True
-                  Ticket = cl.reissueGroupTicket(op.param1)
-                  km.acceptGroupInvitationByTicket(op.param1,Ticket)
-                  km.updateGroup(G)
-                  km.kickoutFromGroup(op.param1,[op.param2])
-                  km.leaveGroup(op.param1)
-                  random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
+              pass
+            if op.param2 in staff:
+              pass
+            if op.param2 in staff:
+              pass
+            else:
+               G = random.choice(KAC).getGroup(op.param1)
+               G.preventJoinByTicket = True
+               Ticket = cl.reissueGroupTicket(op.param1)
+               km.acceptGroupInvitationByTicket(op.param1,Ticket)
+               km.updateGroup(G)
+               km.kickoutFromGroup(op.param1,[op.param2])
+               km.leaveGroup(op.param1)
+               random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
         #------Protect Group Kick finish-----#    
 
 #------------------
