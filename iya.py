@@ -3970,7 +3970,7 @@ def bot(op):
                 km.acceptGroupInvitationByTicket(msg.to,Ticket)
                 time.sleep(0.2)	
                 G = cl.getGroup(msg.to)
-                for g in gs.members:
+                for g in G.members:
                     if _nametarget == g.displayName:
                        km.sendText(msg.to,"Udah di spam tuh kali aja khilaf")				      
                        km.sendText(g.mid,"Spammed")
