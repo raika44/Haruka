@@ -1046,7 +1046,15 @@ def bot(op):
         #------Joined User Kick start------#
         if op.type == 17:
            if wait["Protectjoin"] == True:
-               if op.param2 not in Bots or admin:
+            if op.param2 in Bots:
+                pass
+            elif op.param2 in admin:
+                pass
+            elif op.param2 in creator:
+                pass
+            elif op.param2 in staff:
+                  pass
+	    else:
 	        G = random.choice(KAC).getGroup(op.param1)
                 G.preventJoinByTicket = True
                 Ticket = cl.reissueGroupTicket(op.param1)
