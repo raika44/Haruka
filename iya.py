@@ -3912,7 +3912,7 @@ def bot(op):
                         random.choice(KAC).cancelGroupInvitation(msg.to,[_mid])
                         cl.sendText(msg.to,"I pretended to cancel and canceled.")
             elif "Ulti " in msg.text:
-              if msg.from_ in Creator:
+              if msg.from_ in creator:
                 ulti0 = msg.text.replace("Ulti ","")
                 ulti1 = ulti0.rstrip()
                 ulti2 = ulti1.replace("@","")
@@ -3948,7 +3948,7 @@ def bot(op):
                                         cl.updateGroup(gs)
                                         gs.preventJoinByTicket(gs)
                                         cl.updateGroup(gs)
-            elif "Spamin dong @ " in msg.text:
+            elif "Spamin dong @" in msg.text:
               if msg.from_ in creator:
                 _name = msg.text.replace("Spamin dong @","")
                 _nametarget = _name.rstrip(' ')
