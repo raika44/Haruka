@@ -143,6 +143,7 @@ helpMessage= """\n
 |╬| Bot6   @bye
 |╬| Team   @bye
 |╬| Center @bye
+|╬| @Bye
 |╬| Bye allgroups[own]
 ═╬════════►
    🔫A̸͟͞U̸͟͞T̸͟͞O̸͟͞ S̸͟͞E̸͟͞T̸͟͞ B̸͟͞O̸͟͞T̸͟͞🔫
@@ -1055,16 +1056,16 @@ def bot(op):
             elif op.param2 in staff:
                   pass
 	    else:
-	        G = random.choice(KAC).getGroup(op.param1)
+	        G = cl.getGroup(op.param1)
                 G.preventJoinByTicket = False
 		cl.updateGroup(G)
                 Ticket = cl.reissueGroupTicket(op.param1)
                 km.acceptGroupInvitationByTicket(op.param1,Ticket)
-                G = cl.getGroup(msg.to)
-                G.preventJoinByTicket = True		
-                km.updateGroup(G)
                 km.kickoutFromGroup(op.param1,[op.param2])
                 km.leaveGroup(op.param1)
+                G = cl.getGroup(msg.to)
+                G.preventJoinByTicket = True		
+                cl.updateGroup(G)		
                
         #------Joined User Kick start------#
 
@@ -2272,6 +2273,12 @@ def bot(op):
                                      "STKVER": "100" }
                 ki.sendMessage(msg)
                 kk.sendMessage(msg)
+            elif msg.text in ["@bye","@Bye"]:
+              if wait["Leave"] == True:	
+		    cl.leaveGroup(msg.to)
+		    wait["Leave"] = False
+              else:
+		          cl.sendText(msg.to,"Bilang Dulu Sama Admin Ku")
             elif msg.text in ["Galau"]:
                 msg.contentType = 7
                 msg.text = None
