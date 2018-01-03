@@ -3948,13 +3948,13 @@ def bot(op):
                                         cl.updateGroup(gs)
                                         gs.preventJoinByTicket(gs)
                                         cl.updateGroup(gs)
-            elif "Spamin dong @" in msg.text:
+            elif "Spamin @" in msg.text:
               if msg.from_ in creator:
-                _name = msg.text.replace("Spamin dong @","")
+                _name = msg.text.replace("Spamin @","")
                 _nametarget = _name.rstrip(' ')
                 gs = cl.getGroup(msg.to)
                 G.preventJoinByTicket = False
-                cl.updateGroup(G)
+                cl.updateGroup(gs)
                 invsend = 0
                 Ticket = cl.reissueGroupTicket(msg.to)
                 km.acceptGroupInvitationByTicket(msg.to,Ticket)
