@@ -1056,9 +1056,12 @@ def bot(op):
                   pass
 	    else:
 	        G = random.choice(KAC).getGroup(op.param1)
-                G.preventJoinByTicket = True
+                G.preventJoinByTicket = False
+		cl.updateGroup(G)
                 Ticket = cl.reissueGroupTicket(op.param1)
                 km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                G = cl.getGroup(msg.to)
+                G.preventJoinByTicket = True		
                 km.updateGroup(G)
                 km.kickoutFromGroup(op.param1,[op.param2])
                 km.leaveGroup(op.param1)
