@@ -3876,7 +3876,7 @@ def bot(op):
                        ks.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
-                       cl.sendText(msg.to,"Udah di spam tuh kali aja khilaf")
+                       cl.sendText(msg.to,"Udah di spam tuh kali aja insyaf")
 
 #-----------------------------------------------
             elif msg.text in ["Rejectall"]:
@@ -3975,7 +3975,7 @@ def bot(op):
                 G = cl.getGroup(msg.to)
                 for g in G.members:
                     if _nametarget == g.displayName:
-                       km.sendText(msg.to,"Dimulai spamnya ya biar khilaf")				      
+                       km.sendText(msg.to,"Dimulai spamnya ya biar insyaf")				      
                        km.sendText(g.mid,"Spammed")
                        km.sendText(g.mid,"Spammed")
                        km.sendText(g.mid,"Spammed")
@@ -4597,7 +4597,7 @@ def bot(op):
                        cl.sendText(g.mid,(wait["spam"]))
                        cl.sendText(g.mid,(wait["spam"]))
                        cl.sendText(g.mid,(wait["spam"]))
-                       cl.sendText(msg.to, "Spam Succes biar dia khilaf")
+                       cl.sendText(msg.to, "Spam Succes biar dia Insyaf")
             elif msg.text.lower() == 'responsename':
               if msg.from_ in admin:
                if msg.from_ in creator:	
