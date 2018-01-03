@@ -38,6 +38,10 @@ ka = LINETCR.LINE()
 ka.login(token="EoiGCMypacw3UFRBtBNf.ySK6/7lzzXJWVTkhLlNW+W.l65XQAga4BvBBbbSzIDd6XwEmbGeEMWJXx8rGR6k1aQ=")
 ka.loginResult()
 
+km = LINETCR.LINE()
+km.login(token="Eoozq3GERqGafdboIaH5.NuOKUlcmrchxMMvHVN9o9q.i0hLXYjCAVcmfngU+y5mX467BGKv3gLMyhm5MYGVQK4=")
+km.loginResult()
+
 
 cl
 
@@ -153,6 +157,7 @@ helpMessage= """\n
 |╬| Auto blockqr:on/off
 |╬| Namelock:on/off
 |╬| Auto add:on/off
+|╬| Ghost on/off
 |╬| Media:on/off
 |╬| Check message
 |╬| Add message:
@@ -363,10 +368,11 @@ Fmid = kb.getProfile().mid
 Gmid = ko.getProfile().mid
 Hmid = ke.getProfile().mid
 Imid = ku.getProfile().mid
+Jmid = km.getProfile().mid
 Smid = satpam.getProfile().mid #Akun Utama
 
 
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,Jmid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
 admin=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b","ue43898158971147528350ad49b5e8df4","u3d27c322e83dac8c6ad9a2adf12dbf92","u8065b0be04ba4f39ea865a23ab6ba20e"]
 staff=["uab1ca173166a362c69ef62d420f9f784","u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
@@ -391,6 +397,7 @@ wait = {
     "wblack":False,
     "dblack":False,
     "clock":False,
+    "Ghost":False,
     "media":True,
     "cName":" ",
     "blacklist":{},
@@ -789,7 +796,46 @@ def bot(op):
 
 #------------------
         #------Protect Group Kick finish-----#
-		
+        if op.type == 19:
+	 if wait["Ghost"] == True:
+          if op.param2 in Creator:
+             if op.param2 in admin:
+                if op.param2 in staff:
+                  if op.param2 in Bots:	
+                      pass
+                  else:
+                      try:
+                          G = cl.getGroup(op.param1)
+                          G.preventJoinByTicket = False
+                          cl.updateGroup(G)
+                          Ticket = cl.reissueGroupTicket(op.param1)
+                          km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                          time.sleep(0.01)
+                          km.kickoutFromGroup(op.param1,[op.param2])
+                          c = Message(to=op.param1, from_=None, text=None, contentType=13)
+                          c.contentMetadata={'mid':op.param2}
+                          km.sendMessage(c)
+                          km.leaveGroup(op.param1)
+                          G.preventJoinByTicket = True
+                          cl.updateGroup(G)
+                          wait["blacklist"][op.param2] = True
+                      except:
+                          G = cl.getGroup(op.param1)
+                          G.preventJoinByTicket = False
+                          cl.updateGroup(G)
+                          Ticket = cl.reissueGroupTicket(op.param1)
+                          km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                          time.sleep(0.01)
+                          km.kickoutFromGroup(op.param1,[op.param2])
+                          c = Message(to=op.param1, from_=None, text=None, contentType=13)
+                          c.contentMetadata={'mid':op.param2}
+                          km.sendMessage(c)
+                          km.leaveGroup(op.param1)
+                          G.preventJoinByTicket = True
+                          cl.updateGroup(G)
+                          wait["blacklist"][op.param2] = True
+
+	
         if op.type == 15:
           if wait["welcomemsg"] == True:
             if op.param2 in admin:
@@ -1738,6 +1784,21 @@ def bot(op):
                   cl.sendText(msg.to,helpMessage)
               else:
                   cl.sendText(msg.to,helpt)
+	    elif "Ghost on" in msg.text:
+              if msg.from_ in admin or staff:
+               if msg.from_ in creator:	 	        
+		     wait["Ghost"] = True
+		     cl.sendText(msg.to,"Ghost Sudah Aktif")
+	     else:
+	        cl.sendText(msg.to,"admin yg boleh")		     
+
+	    elif "Ghost off" in msg.text:
+              if msg.from_ in admin or staff:
+               if msg.from_ in creator:	 	        
+		     wait["Ghost"] = False
+		     cl.sendText(msg.to,"Ghost Sudah Di Nonaktifkan")
+	     else:
+	         cl.sendText(msg.to,"admin yg boleh")			
 		
             elif "/invite:" in msg.text:
               if msg.from_ in admin:
@@ -2515,6 +2576,20 @@ def bot(op):
                         cl.sendText(msg.to,"done")
                     else:
                         cl.sendText(msg.to,"è¦�äº†å…³æ–­ã€‚")
+            elif "removechat" in msg.text.lower():
+              if msg.from_ in admin:
+               if msg.from_ in creator:
+                    try:
+                        cl.removeAllMessages(op.param2)
+                        ki.removeAllMessages(op.param2)
+                        kk.removeAllMessages(op.param2)
+                        kc.removeAllMessages(op.param2)
+                        kr.removeAllMessages(op.param2)
+                        print "[Command] Remove Chat"
+                        cl.sendText(msg.to,"Done")
+                    except Exception as error:
+                        print error
+                        cl.sendText(msg.to,"Error")  
             elif msg.text in ["Set View"]:
                 md = ""
                 if wait["Protectjoin"] == True: md+="􀔃􀆑lock􏿿  Block Join\n"
