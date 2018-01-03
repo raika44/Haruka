@@ -2274,11 +2274,10 @@ def bot(op):
                 ki.sendMessage(msg)
                 kk.sendMessage(msg)
             elif msg.text in ["@bye","@Bye"]:
-              if wait["Leave"] == True:	
+              if msg.from_ in creator:	
 		    cl.leaveGroup(msg.to)
-		    wait["Leave"] = False
               else:
-		          cl.sendText(msg.to,"Bilang Dulu Sama Admin Ku")
+		   cl.sendText(msg.to,"Bilang Dulu Sama Admin Ku")
             elif msg.text in ["Galau"]:
                 msg.contentType = 7
                 msg.text = None
