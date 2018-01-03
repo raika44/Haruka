@@ -781,17 +781,23 @@ def bot(op):
            #------Protect Group Kick start------#
                 #------Protect Group Kick start------#
         if op.type == 11:
-           if wait["Protectgr"] == True:
-              if op.param2 in Bots:
-	       if op.param2 in admin:
-	        if op.param2 in staff:
-		    pass
-	        else:
-		    G = random.choice(KAC).getGroup(op.param1)
-                    G.preventJoinByTicket = True
-                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-                    random.choice(KAC).updateGroup(G)
-                    random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
+          if wait["Protectgr"] == True:
+	   if op.param2 in Bots:
+                pass
+           elif op.param2 in admin:
+                 pass
+           elif op.param2 in creator:
+                 pass
+	   elif op.param2 in staff:
+                 pass
+           G = random.choice(KAC).getGroup(op.param1)
+           G.preventJoinByTicket = True
+           Ticket = cl.reissueGroupTicket(op.param1)
+           km.acceptGroupInvitationByTicket(op.param1,Ticket)
+           km.updateGroup(G)
+           km.kickoutFromGroup(op.param1,[op.param2])
+           km.leaveGroup(op.param1)
+           random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
         #------Protect Group Kick finish-----#    
 
 #------------------
@@ -3960,19 +3966,19 @@ def bot(op):
                 G = cl.getGroup(msg.to)
                 G.preventJoinByTicket = False
                 cl.updateGroup(G)
-                invsend = 0
                 Ticket = cl.reissueGroupTicket(msg.to)
                 km.acceptGroupInvitationByTicket(msg.to,Ticket)
-                time.sleep(0.2)			   
+                time.sleep(0.2)	
+                G = cl.getGroup(msg.to)
                 for g in gs.members:
                     if _nametarget == g.displayName:
                        km.sendText(msg.to,"Udah di spam tuh kali aja khilaf")				      
-                       cl.sendText(g.mid,"Spammed")
-                       ki.sendText(g.mid,"Spammed")
-                       kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
-                       kk.sendText(g.mid,"Spammed")
-                       ka.sendText(g.mid,"Spammed")
+                       km.sendText(g.mid,"Spammed")
+                       km.sendText(g.mid,"Spammed")
+                       km.sendText(g.mid,"Spammed")
+                       km.sendText(g.mid,"Spammed")
+                       km.sendText(g.mid,"Spammed")
+                       km.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
