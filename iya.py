@@ -4851,7 +4851,7 @@ def bot(op):
                             except:
                                 pass
                     print "[Command]Staff add executed"
-                else:
+               else:
                     cl.sendText(msg.to,"Command denied.")
                     cl.sendText(msg.to,"Admin permission required.")
 
@@ -4876,7 +4876,7 @@ def bot(op):
                             except:
                                 pass
                     print "[Command]Staff remove executed"
-                else:
+               else:
                     cl.sendText(msg.to,"Command denied.")
                     cl.sendText(msg.to,"Admin permission required.")
 
