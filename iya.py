@@ -4098,7 +4098,7 @@ def bot(op):
                        km.leaveGroup(msg.to)
                        G = cl.getGroup(msg.to)
                        G.preventJoinByTicket = True
-                       cl.updateGroup(G))
+                       cl.updateGroup(G)
          #----------------Fungsi Join Group Start-----------------------#
             elif msg.text in ["Sini dong","Kuy join","Ayo masuk","My waifu sini"]:
               if msg.from_ in creator:
