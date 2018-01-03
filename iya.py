@@ -1837,7 +1837,7 @@ def bot(op):
                     cl.sendText(msg.to,Sett)
             elif ("Gn " in msg.text):
               if msg.from_ in admin:
-               if msg.from_ in creator::		
+               if msg.from_ in creator:		
                 if msg.toType == 2:
                     X = cl.getGroup(msg.to)
                     X.name = msg.text.replace("Gn ","")
