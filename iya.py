@@ -789,17 +789,14 @@ def bot(op):
 	        else:
 		    G = random.choice(KAC).getGroup(op.param1)
                     G.preventJoinByTicket = True
-                    Ticket = cl.reissueGroupTicket(msg.to)
-                    km.acceptGroupInvitationByTicket(msg.to,Ticket)
-                    km.kickoutFromGroup(op.param1,[op.param2])
-                    km.updateGroup(G)
-                    km.sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
-		    km.leaveGroup(op.param1)
+                    random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                    random.choice(KAC).updateGroup(G)
+                    random.choice(KAC)km.sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
         #------Protect Group Kick finish-----#    
 
 #------------------
         #------Protect Group Kick finish-----#
-        if op.type == 19:
+        if op.type == 11:
 	 if wait["Ghost"] == True:
           if op.param2 in Creator:
              if op.param2 in admin:
@@ -3941,6 +3938,11 @@ def bot(op):
                                 try:
                                         km.kickoutFromGroup(msg.to,[target])
                                         km.leaveGroup(msg.to)
+                                        gs = cl.getGroup(msg.to)
+                                        gs.preventJoinByTicket = True
+                                        cl.updateGroup(gs)
+                                        gs.preventJoinByTicket(gs)
+                                        cl.updateGroup(gs)
                                         print (msg.to,[g.mid])
                                 except:
                                         km.sendText(msg.t,"Ter ELIMINASI....")
@@ -3955,9 +3957,9 @@ def bot(op):
               if msg.from_ in creator:
                 _name = msg.text.replace("Spamin @","")
                 _nametarget = _name.rstrip(' ')
-                gs = cl.getGroup(msg.to)
+                G = cl.getGroup(msg.to)
                 G.preventJoinByTicket = False
-                cl.updateGroup(gs)
+                cl.updateGroup(G)
                 invsend = 0
                 Ticket = cl.reissueGroupTicket(msg.to)
                 km.acceptGroupInvitationByTicket(msg.to,Ticket)
@@ -4094,11 +4096,9 @@ def bot(op):
                        km.sendText(msg.to,"Udah di spam tuh kali aja khilaf")
                        km.sendText(msg.to,"Bye cuman spamin doang wkwk")			      
                        km.leaveGroup(msg.to)
-                       gs = cl.getGroup(msg.to)
-                       gs.preventJoinByTicket = True
-                       cl.updateGroup(gs)
-                       gs.preventJoinByTicket(gs)
-                       cl.updateGroup(gs)
+                       G = cl.getGroup(msg.to)
+                       G.preventJoinByTicket = True
+                       cl.updateGroup(G))
          #----------------Fungsi Join Group Start-----------------------#
             elif msg.text in ["Sini dong","Kuy join","Ayo masuk","My waifu sini"]:
               if msg.from_ in creator:
