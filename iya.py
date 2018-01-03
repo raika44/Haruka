@@ -786,7 +786,7 @@ def bot(op):
               pass
             if op.param2 in admin:
               pass
-            if op.param2 in staff:
+            if op.param2 in creator:
               pass
             if op.param2 in staff:
               pass
