@@ -419,7 +419,7 @@ wait = {
     "atjointicket":True,
     "Pap":"https://i.imgflip.com/1bqcxs.jpg",
     "SetKey":".",
-    "spam":"Your Account Has Been Spammed",
+    "spam":"Allahulaa ilaahaillahuawalhayyulqoyyum, laata’khuduhu sinatuwwalanaum, lahumaafissamawati wamafilardi, mangdzalladzi yasyfa’u ngindahu illa biidnih, ya’lamuma bayna aydihim wamaa kholfahum, walayuhithunabisyai-immin’ilmihii illa bimasyaa, wasia kursiyuhussamawati wal’ard, walaa yauduhu hifduhuma wahuawal’aliyyul adim",
     }
 
 wait2 = {
