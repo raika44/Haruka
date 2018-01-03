@@ -19,7 +19,7 @@ satpam.login(token="EozXoFv0HgxD3OVn1B54.QXYHCXzQnIXP72luipN3Ha.2/bSCGfLGznp5CnT
 satpam.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EoLCkNE8gQJJciW20STc.eoXp0xK1vqkdnL9Q78yCpa.X0+Z/Fo9wU9YZCJBPpDOmChxjU/87p2QuciWI/654ms=")
+cl.login(token="EoVqwVwcYMsGknfeov35.NuOKUlcmrchxMMvHVN9o9q.NBgwZh5EHqqOIfsLCNXSQ3gGkjvYCbj4uYv4Bxu1YNY=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
@@ -39,7 +39,7 @@ ka.login(token="EogSjA3eMmPWOSqvcmRf.ySK6/7lzzXJWVTkhLlNW+W.Pkq1aawmZxrQNEoQ0KVx
 ka.loginResult()
 
 km = LINETCR.LINE()
-km.login(token="EoVqwVwcYMsGknfeov35.NuOKUlcmrchxMMvHVN9o9q.NBgwZh5EHqqOIfsLCNXSQ3gGkjvYCbj4uYv4Bxu1YNY=")
+km.login(token="Eom4ypuFttYeGA2V8S3c.eoXp0xK1vqkdnL9Q78yCpa.5bRFdisPRLieitV+pS9ZIzRtjjA5vzW8xmub8wrwb24=")
 km.loginResult()
 
 
