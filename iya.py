@@ -15,7 +15,7 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.loginResult()
 
 satpam = LINETCR.LINE() # Koplaxs # Login Pake Akun Utama Kalian(Gunanya Supaya Akun Utama Ke Kick bisa Terima Undangan dari Bot Otomatis)
-satpam.login(token="EocMBDHFsVgnDtIHBB54.QXYHCXzQnIXP72luipN3Ha.OfEXP3ThR+dz7Aq39v5MGE2qdSpKIodSzQi9+U4AIRA=")
+satpam.login(token="EozXoFv0HgxD3OVn1B54.QXYHCXzQnIXP72luipN3Ha.2/bSCGfLGznp5CnTWkmdGAJfWFdkrFGqtmcGobGNlyU=")
 satpam.loginResult()
 
 cl = LINETCR.LINE()
