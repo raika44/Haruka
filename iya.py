@@ -3970,9 +3970,12 @@ def bot(op):
                 km.acceptGroupInvitationByTicket(msg.to,Ticket)
                 time.sleep(0.2)	
                 G = cl.getGroup(msg.to)
+                G.preventJoinByTicket = True
+                cl.updateGroup(G)		
+                G = cl.getGroup(msg.to)
                 for g in G.members:
                     if _nametarget == g.displayName:
-                       km.sendText(msg.to,"Udah di spam tuh kali aja khilaf")				      
+                       km.sendText(msg.to,"Dimulai spamnya ya biar khilaf")				      
                        km.sendText(g.mid,"Spammed")
                        km.sendText(g.mid,"Spammed")
                        km.sendText(g.mid,"Spammed")
@@ -4099,12 +4102,9 @@ def bot(op):
                        cl.sendText(msg.to,"Iya emang")
                        km.sendText(msg.to,"Denger denger si lagi nyari pacar doi")
                        kk.sendText(msg.to,"Udah ah gosip mulu doain aja biar dapet")
-                       km.sendText(msg.to,"Udah di spam tuh kali aja khilaf")
+                       km.sendText(msg.to,"Aamiin")
                        km.sendText(msg.to,"Bye cuman spamin doang wkwk")			      
                        km.leaveGroup(msg.to)
-                       G = cl.getGroup(msg.to)
-                       G.preventJoinByTicket = True
-                       cl.updateGroup(G)
          #----------------Fungsi Join Group Start-----------------------#
             elif msg.text in ["Sini dong","Kuy join","Ayo masuk","My waifu sini"]:
               if msg.from_ in creator:
