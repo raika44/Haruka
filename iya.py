@@ -805,7 +805,7 @@ def bot(op):
 
 #------------------
         #------Protect Group Kick finish-----#
-        if op.type == 11:
+        if op.type == 19:
 	 if wait["Ghost"] == True:
           if op.param2 in Creator:
              if op.param2 in admin:
@@ -1046,16 +1046,16 @@ def bot(op):
   
         #------Joined User Kick start------#
         if op.type == 17:
-           if wait["Protectjoin"] == True:
             if op.param2 in Bots:
                 pass
             elif op.param2 in admin:
-                pass
+                  pass
             elif op.param2 in creator:
-                pass
+                  pass
             elif op.param2 in staff:
                   pass
-	    else:
+            if wait["Protectjoin"] == True:
+	     try:		
 	        G = cl.getGroup(op.param1)
                 G.preventJoinByTicket = False
 		cl.updateGroup(G)
@@ -1066,7 +1066,8 @@ def bot(op):
                 G = cl.getGroup(msg.to)
                 G.preventJoinByTicket = True		
                 cl.updateGroup(G)		
-               
+             except:
+		 pass
         #------Joined User Kick start------#
 
         if op.type == 55:
@@ -2274,7 +2275,8 @@ def bot(op):
                 ki.sendMessage(msg)
                 kk.sendMessage(msg)
             elif msg.text in ["@bye","@Bye"]:
-              if msg.from_ in creator:	
+              if msg.from_ in creator:
+		    cl.sendText(msg.to,"Bye sayangku aku sayang kalian")
 		    cl.leaveGroup(msg.to)
               else:
 		   cl.sendText(msg.to,"Bilang Dulu Sama Admin Ku")
