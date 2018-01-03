@@ -15,27 +15,27 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.loginResult()
 
 satpam = LINETCR.LINE() # Koplaxs # Login Pake Akun Utama Kalian(Gunanya Supaya Akun Utama Ke Kick bisa Terima Undangan dari Bot Otomatis)
-satpam.login(token="EoZ7Ad9BBTxBfxzztAh4.QXYHCXzQnIXP72luipN3Ha.123kJdHLI/jxe0uu+c6Oxev3KCeoF6t19odEaJcsMWM=")
+satpam.login(token="EocMBDHFsVgnDtIHBB54.QXYHCXzQnIXP72luipN3Ha.OfEXP3ThR+dz7Aq39v5MGE2qdSpKIodSzQi9+U4AIRA=")
 satpam.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EoQJeUA2Ph4fjV7OS2wc.eoXp0xK1vqkdnL9Q78yCpa.4hrbpsqfzNINyovwrrsLuyT4ncuOmPFdj50S5j3Jprw=")
+cl.login(token="EofVFrxfS7tcHup4azFc.eoXp0xK1vqkdnL9Q78yCpa.IXaaFiVxbCJmeKTlIzMrHMr0SmuyizAlSBAZh0AG+Xg=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EoDUYulQFdmFVyk5AErf.vVPISdEKRjCwFNpzI3k+RW.F6ZegndCAado1Q16Y+Dl7UnXoqgLYDmY2PBcAtpHr+U=")
+ki.login(token="Eof70D0aH3LZl4PkE23f.vVPISdEKRjCwFNpzI3k+RW./6L4h1gEMX8qEzp5Faxy3s6GbVUXHW5s/uKQF7PTe68=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="EoR70vFulH9O76Xs41M2.h6ACMEcQmlMxE/DJN7DS0G.mkcdE1AO9XchtDDLqK6iKip1XPP66VOId4dqObbpSRA=")
+kk.login(token="EoGZUYkg0mWuXTPezwj2.h6ACMEcQmlMxE/DJN7DS0G.dK2wTcgS4xp3XZvKe2jPnDUNgUQBm6VbxGBW7WYgtIU=")
 kk.loginResult()
 
 ke = LINETCR.LINE()
-ke.login(token="EoHdPT8fyMWXK6JDEwxa.nKWTtdkTR1t0s6tTguGLAG.+Lrla8KHqgltC4tKqDWsDY0TDD0dQaDt3vC4eCimZNE=")
+ke.login(token="EoWCwPJ7Ve97wocre5Xa.nKWTtdkTR1t0s6tTguGLAG.rbuTroSePN/3dOzCGvTbzb8iJWv2W2e0i4EELCTtrWo=")
 ke.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="EoiGCMypacw3UFRBtBNf.ySK6/7lzzXJWVTkhLlNW+W.l65XQAga4BvBBbbSzIDd6XwEmbGeEMWJXx8rGR6k1aQ=")
+ka.login(token="EoHPbZI7njG35Xc0kelf.ySK6/7lzzXJWVTkhLlNW+W.bnF1/bzRFzNW2eDWwrzJltKbK28PwpMYysiuLe4bXfk=")
 ka.loginResult()
 
 km = LINETCR.LINE()
