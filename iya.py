@@ -783,7 +783,7 @@ def bot(op):
         if op.type == 11:
           if wait["Protectgr"] == True:
 	   if op.param2 in Bots:
-            if op.param2 in admin
+            if op.param2 in admin:
              if op.param2 in creator:
 	      if op.param2 in staff:
                   pass
