@@ -4177,7 +4177,7 @@ def bot(op):
                   Ticket = cl.reissueGroupTicket(msg.to)
     #----------------------Fungsi Join Group Finish---------------#
             elif "Bot1 backup" in msg.text:
-                if msg.from_ in admin:
+              if msg.from_ in admin:
                if msg.from_ in creator:	
                         try:
                             h = open('mydn.txt',"r")
