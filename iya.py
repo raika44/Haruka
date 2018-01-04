@@ -1131,7 +1131,7 @@ def bot(op):
 		    try:
 			if op.param3 in Bots:
 			    pass
-			elif op.param3 in creaor:
+			elif op.param3 in creator:
 			      pass
 			elif op.param3 in admin:
 			      pass
@@ -1204,10 +1204,9 @@ def bot(op):
 
         if op.type == 19:
                 if mid in op.param3:
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
-                        ki.kickoutFromGroup(op.param1,[op.param2])
+                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                         kk.kickoutFromGroup(op.param1,[op.param2])
                         kc.kickoutFromGroup(op.param1,[op.param2])
                     except:
@@ -1247,10 +1246,7 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
  
                 if Amid in op.param3:
-                    if op.param2 in creator:
-			pass
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
                         cl.kickoutFromGroup(op.param1,[op.param2])
                         kk.kickoutFromGroup(op.param1,[op.param2])
@@ -1293,10 +1289,7 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
 
                 if Bmid in op.param3:
-                    if op.param2 in creator:
-			pass
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
                         cl.kickoutFromGroup(op.param1,[op.param2])
                         ki.kickoutFromGroup(op.param1,[op.param2])
@@ -1339,10 +1332,7 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
 
                 if Cmid in op.param3:
-                    if op.param2 in creator:
-			pass			
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
                         cl.kickoutFromGroup(op.param1,[op.param2])
                         kk.kickoutFromGroup(op.param1,[op.param2])
@@ -1385,10 +1375,7 @@ def bot(op):
                         
                         
                 if Dmid in op.param3:
-                    if op.param2 in creator:
-			pass			
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
@@ -1429,10 +1416,7 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
                         
                 if Emid in op.param3:
-                    if op.param2 in creator:
-			pass			
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
@@ -1473,10 +1457,7 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
                         
                 if Fmid in op.param3:
-                    if op.param2 in creator:
-			pass			
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
@@ -1517,10 +1498,7 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
                         
                 if Gmid in op.param3:
-                    if op.param2 in creator:
-			pass			
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
@@ -1561,10 +1539,7 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
                         
                 if Hmid in op.param3:
-                    if op.param2 in creator:
-			pass			
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
@@ -1604,10 +1579,7 @@ def bot(op):
                         wait["blacklist"][op.param2] = True
 		
                 if Imid in op.param3:
-                    if op.param2 in creator:
-			pass			
-                    if op.param2 in Bots:
-                        pass
+                   if op.param2 not in Bots:
                     try:
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
