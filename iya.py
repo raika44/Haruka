@@ -409,6 +409,7 @@ wait = {
     "Protectgr":True,
     "protect":True,
     "kickblack":True,
+    "alwayRead":True,
     "AutoKick":False,
     "likeOn":False,
     "welcomemsg":False,
@@ -794,7 +795,7 @@ def bot(op):
                   pass
             else:
                G = random.choice(KAC).getGroup(op.param1)
-               G.preventJoinByTicket = False
+               G.preventJoinByTicket = True
                Ticket = cl.reissueGroupTicket(op.param1)
                km.acceptGroupInvitationByTicket(op.param1,Ticket)
                km.updateGroup(G)
@@ -803,7 +804,6 @@ def bot(op):
                random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
         #------Protect Group Kick finish-----#    
 
-#------------------
         #------Protect Group Kick finish-----#
         if op.type == 19:
 	 if wait["Ghost"] == True:
@@ -917,7 +917,12 @@ def bot(op):
                                          cl.sendText(msg.to,"Negative, Error detected")
                                          wait["winvite"] = False
                                          break
-
+            if wait['alwayRead'] == True:
+                if msg.toType == 0:
+                    kr1.sendChatChecked(msg.from_,msg.id)
+                else:
+                    kr1.sendChatChecked(msg.to,msg.id)
+#------------------
 #--------------NOTIFIED_INVITE_INTO_GROUP----------------
         if op.type == 13:
             if mid in op.param3:
@@ -1043,10 +1048,6 @@ def bot(op):
                             cl.updateGroup(G)
                         except:
                             pass
-		
-  
-        #------Joined User Kick start------#
-        if op.type == 17:
            if op.param2 not in Bots or creator:
             if wait["Protectjoin"] == True:
 	     try:		
@@ -1060,7 +1061,11 @@ def bot(op):
                 G.preventJoinByTicket = True		
                 cl.updateGroup(G)		
              except:
-		 pass
+		 pass		
+		
+  
+        #------Joined User Kick start------#
+
         #------Joined User Kick start------#
 
         if op.type == 55:
@@ -1738,9 +1743,13 @@ def bot(op):
                         kk.sendText(msg.to,"already")
                         kc.sendText(msg.to,"already")
                         wait["wblacklist"] = False
+			f=codecs.open('st2__b.json','w','utf-8')
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                    else:
                         wait["blacklist"][msg.contentMetadata["mid"]] = True
                         wait["wblacklist"] = False
+			f=codecs.open('st2__b.json','w','utf-8')
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False			
                         cl.sendText(msg.to,"aded")
                         ki.sendText(msg.to,"aded")
                         kk.sendText(msg.to,"aded")
@@ -1754,9 +1763,13 @@ def bot(op):
                         kk.sendText(msg.to,"deleted")
                         kc.sendText(msg.to,"deleted")
                         wait["dblacklist"] = False
+			f=codecs.open('st2__b.json','w','utf-8')
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False				  
 
                    else:
                         wait["dblacklist"] = False
+			f=codecs.open('st2__b.json','w','utf-8')
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False				  
                         cl.sendText(msg.to,"It is not in the black list")
                         ki.sendText(msg.to,"It is not in the black list")
                         kk.sendText(msg.to,"It is not in the black list")
@@ -1844,6 +1857,25 @@ def bot(op):
                     cl.sendText(msg.to,Setgroup)
                 else:
                     cl.sendText(msg.to,Sett)
+            elif "reinvite" in msg.text.split():
+                if msg.from_ in admin:
+                    if msg.toType == 2:
+                        group = kr1.getGroup(msg.to)
+                        if group.invitee is not None:
+                            try:
+                                grCans = [contact.mid for contact in group.invitee]
+                                kr1.findAndAddContactByMid(msg.to, grCans)
+                                kr1.cancelGroupInvitation(msg.to, grCans)
+                                kr1.inviteIntoGroup(msg.to, grCans)
+                            except Exception as error:
+                                print error
+                        else:
+                            if wait["lang"] == "JP":
+                                kr1.sendText(msg.to,"No Invited")
+                            else:
+                                kr1.sendText(msg.to,"Error")
+                    else:
+                        pass
             elif ("Gn " in msg.text):
               if msg.from_ in admin:
                if msg.from_ in creator:		
@@ -1874,6 +1906,16 @@ def bot(op):
                     kc.updateGroup(X)
                 else:
                     kc.sendText(msg.to,"It can't be used besides the group.")
+            elif "Getmid @" in msg.text:
+                if msg.from_ in admin:
+                    _name = msg.text.replace("Getmid @","")
+                    _nametarget = _name.rstrip(' ')
+                    gs = kr1.getGroup(msg.to)
+                    for g in gs.members:
+                        if _nametarget == g.displayName:
+                            kr1.sendText(msg.to, g.mid)
+                        else:
+                            pass		
             elif "Kick " in msg.text:
               if msg.from_ in admin:
                if msg.from_ in creator:
@@ -2424,6 +2466,34 @@ def bot(op):
                         cl.sendText(msg.to,"done")
                 else:
                     wait["Protectcancl"] = False
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Cancel All Invited Off")
+                    else:
+                        cl.sendText(msg.to,"done")
+            elif msg.text in ["Read on","read on"]:
+              if msg.from_ in admin or staff:
+               if msg.from_ in creator:	
+                if wait["alwayRead"] == True:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Cancel All Invited On")
+                    else:
+                        cl.sendText(msg.to,"done")
+                else:
+                    wait["Protectcancl"] = True
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Cancel All Invited On")
+                    else:
+                        cl.sendText(msg.to,"done")
+            elif msg.text in ["Read off","read off"]:
+              if msg.from_ in admin or staff:
+               if msg.from_ in creator:	
+                if wait["alwayRead"] == False:
+                    if wait["lang"] == "JP":
+                        cl.sendText(msg.to,"Cancel All Invited Off")
+                    else:
+                        cl.sendText(msg.to,"done")
+                else:
+                    wait["alwayRead"] = False
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Cancel All Invited Off")
                     else:
@@ -3272,6 +3342,8 @@ def bot(op):
                  tts = gTTS(psn, lang='cy', slow=False)
                  tts.save('tts.mp3')
                  cl.sendAudio(msg.to, 'tts.mp3')
+			
+			
  #=======================================================
 
             elif msg.text in ["Invite user"]:
@@ -4899,6 +4971,8 @@ def bot(op):
               if msg.from_ in admin:
                if msg.from_ in creator:	
                 wait["blacklist"] = {}
+           	f=codecs.open('st2__b.json','w','utf-8')
+              	json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)		
                 cl.sendText(msg.to,"Sukses Membersihkan Daftar Penjahat")
 		
             elif "Add staff @" in msg.text:
@@ -5936,7 +6010,7 @@ def bot(op):
             elif msg.text in ["Ban"]:
 	      if msg.from_ in admin:
                if msg.from_ in creator:	
-                wait["wblacklist"] = True
+                wait["wblacklist"] = True	
                 cl.sendText(msg.to,"send contact")
                 ki.sendText(msg.to,"send contact")
                 kk.sendText(msg.to,"send contact")
