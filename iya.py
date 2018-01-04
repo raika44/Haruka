@@ -794,7 +794,7 @@ def bot(op):
                   pass
             else:
                G = random.choice(KAC).getGroup(op.param1)
-               G.preventJoinByTicket = True
+               G.preventJoinByTicket = False
                Ticket = cl.reissueGroupTicket(op.param1)
                km.acceptGroupInvitationByTicket(op.param1,Ticket)
                km.updateGroup(G)
@@ -807,7 +807,7 @@ def bot(op):
         #------Protect Group Kick finish-----#
         if op.type == 19:
 	 if wait["Ghost"] == True:
-          if op.param2 in Creator:
+          if op.param2 in creator:
              if op.param2 in admin:
                 if op.param2 in staff:
                   if op.param2 in Bots:	
