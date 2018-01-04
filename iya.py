@@ -39,7 +39,7 @@ ka.login(token="EowIhB4UKfBCOe5BT2nf.ySK6/7lzzXJWVTkhLlNW+W.XDJcYeHaHs7ZkA5ZPYqL
 ka.loginResult()
 
 km = LINETCR.LINE()
-km.login(token="")
+km.login(token="Eoi3XPJeNSn1Lqr4oX9c.eoXp0xK1vqkdnL9Q78yCpa.6eIlHcYQl5AqrSgdbIY6SkV9gXUGrT5dLsoYOH17gOE=")
 km.loginResult()
 
 
@@ -1061,8 +1061,8 @@ def bot(op):
                      km.leaveGroup(op.param1)
                      G.preventJoinByTicket = True		
                      cl.updateGroup(G)		
-               except:
-		   pass		
+                  except:
+		      pass		
 		
   
         #------Joined User Kick start------#
