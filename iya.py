@@ -922,9 +922,9 @@ def bot(op):
                                          break
             if wait['alwayRead'] == True:
                 if msg.toType == 0:
-                    kr1.sendChatChecked(msg.from_,msg.id)
+                    cl.sendChatChecked(msg.from_,msg.id)
                 else:
-                    kr1.sendChatChecked(msg.to,msg.id)
+                    cl.sendChatChecked(msg.to,msg.id)
 #------------------
 #--------------NOTIFIED_INVITE_INTO_GROUP----------------
         if op.type == 13:
@@ -1861,20 +1861,20 @@ def bot(op):
             elif "reinvite" in msg.text.split():
                 if msg.from_ in admin:
                     if msg.toType == 2:
-                        group = kr1.getGroup(msg.to)
+                        group = cl.getGroup(msg.to)
                         if group.invitee is not None:
                             try:
                                 grCans = [contact.mid for contact in group.invitee]
-                                kr1.findAndAddContactByMid(msg.to, grCans)
-                                kr1.cancelGroupInvitation(msg.to, grCans)
-                                kr1.inviteIntoGroup(msg.to, grCans)
+                                cl.findAndAddContactByMid(msg.to, grCans)
+                                cl.cancelGroupInvitation(msg.to, grCans)
+                                cl.inviteIntoGroup(msg.to, grCans)
                             except Exception as error:
                                 print error
                         else:
                             if wait["lang"] == "JP":
-                                kr1.sendText(msg.to,"No Invited")
+                                cl.sendText(msg.to,"No Invited")
                             else:
-                                kr1.sendText(msg.to,"Error")
+                                cl.sendText(msg.to,"Error")
                     else:
                         pass
             elif ("Gn " in msg.text):
