@@ -1750,7 +1750,7 @@ def bot(op):
                         wait["blacklist"][msg.contentMetadata["mid"]] = True
                         wait["wblacklist"] = False
 			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False			
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)			
                         cl.sendText(msg.to,"aded")
                         ki.sendText(msg.to,"aded")
                         kk.sendText(msg.to,"aded")
