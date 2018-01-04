@@ -1173,7 +1173,7 @@ def bot(op):
 		    pass		
 		
         if op.type == 19: #Member Ke Kick
-         if wait["Autokick"] == True:
+         if wait["AutoKick"] == True:
           if op.param2 in Bots:
             pass
           elif op.param2 in admin:
