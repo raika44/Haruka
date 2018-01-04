@@ -1911,10 +1911,10 @@ def bot(op):
                 if msg.from_ in admin:
                     _name = msg.text.replace("Getmid @","")
                     _nametarget = _name.rstrip(' ')
-                    gs = kr1.getGroup(msg.to)
+                    gs = cl.getGroup(msg.to)
                     for g in gs.members:
                         if _nametarget == g.displayName:
-                            kr1.sendText(msg.to, g.mid)
+                            cl.sendText(msg.to, g.mid)
                         else:
                             pass		
             elif "Kick " in msg.text:
