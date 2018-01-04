@@ -5222,7 +5222,7 @@ def bot(op):
                     cl.updateProfile(profile)
                     cl.sendText(msg.to,"change name: "+string+"\nsucces")
             elif "Bot2 rename:" in msg.text:
-              if msg.from_ in owner:
+              if msg.from_ in creator:
                 string = msg.text.replace("Bot2 rename:","")
                 if len(string.decode('utf-8')) <= 20:
                     profile = ki.getProfile()
@@ -5230,7 +5230,7 @@ def bot(op):
                     ki.updateProfile(profile)
                     ki.sendText(msg.to,"change name: "+string+"\nsucces")
             elif "Bot3 rename:" in msg.text:
-              if msg.from_ in owner:
+              if msg.from_ in creator:
                 string = msg.text.replace("Bot3 rename:","")
                 if len(string.decode('utf-8')) <= 20:
                     profile = kk.getProfile()
@@ -5238,7 +5238,7 @@ def bot(op):
                     kk.updateProfile(profile)
                     kk.sendText(msg.to,"change name: "+string+"\nsucces")
             elif "Bot4 rename:" in msg.text:
-              if msg.from_ in owner:
+              if msg.from_ in creator:
                 string = msg.text.replace("Bot4 rename:","")
                 if len(string.decode('utf-8')) <= 20:
                     profile = ke.getProfile()
@@ -5246,7 +5246,7 @@ def bot(op):
                     ke.updateProfile(profile)
                     ke.sendText(msg.to,"change name: "+string+"\nsucces")
             elif "Bot5 rename:" in msg.text:
-              if msg.from_ in owner:
+              if msg.from_ in creator:
                 string = msg.text.replace("Bot5 rename:","")
                 if len(string.decode('utf-8')) <= 20:
                     profile = ka.getProfile()
@@ -5254,7 +5254,7 @@ def bot(op):
                     ka.updateProfile(profile)
                     ka.sendText(msg.to,"change name: "+string+"\nsucces")
             elif "Bot6 rename:" in msg.text:
-              if msg.from_ in owner:
+              if msg.from_ in creator:
                 string = msg.text.replace("Bot6 rename:","")
                 if len(string.decode('utf-8')) <= 20:
                     profile = satpam.getProfile()
