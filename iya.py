@@ -1765,12 +1765,11 @@ def bot(op):
                         kc.sendText(msg.to,"deleted")
                         wait["dblacklist"] = False
 			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False				  
-
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)				  
                    else:
                         wait["dblacklist"] = False
 			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False				  
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)				  
                         cl.sendText(msg.to,"It is not in the black list")
                         ki.sendText(msg.to,"It is not in the black list")
                         kk.sendText(msg.to,"It is not in the black list")
