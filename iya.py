@@ -407,9 +407,9 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "Protectgr":True,
-    "protect":False,
+    "protect":True,
     "kickblack":True,
-    "AutoKick":True,
+    "AutoKick":False,
     "likeOn":False,
     "welcomemsg":False,
     "winvite":False,
@@ -848,7 +848,7 @@ def bot(op):
         if op.type == 15:
           if wait["welcomemsg"] == True:
             if op.param2 in admin:
-                return
+                return	     
             cl.sendText(op.param1,"Good Bye " + cl.getContact(op.param2).displayName +  "\nSee You Next Time . . . (p′︵‵。) 🤗")
             print "MEMBER HAS LEFT THE GROUP"	
 		
@@ -856,6 +856,7 @@ def bot(op):
 	   if wait["welcomemsg"] == True:
               if op.param2 not in Bots:
                  ginfo = cl.getGroup(op.param1)
+                 cl.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + ginfo.pictureStatus)
                  cl.sendText(op.param1,cl.getContact(op.param2).displayName + wait["welmsg"]+ str(ginfo.name))
 
         #------Cancel Invite User start------#
