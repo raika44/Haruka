@@ -1129,30 +1129,36 @@ def bot(op):
         if op.type == 19:
 		if wait["protect"] == True:
 		    try:
+			if op.param3 in Bots:
+			    pass
+			elif op.param3 in creaor:
+			      pass
+			elif op.param3 in admin:
+			      pass
+			elif op.param3 in staff:
+			      pass
 		        if op.param2 in Bots:
 			    pass
-                        elif op.param2 in admin:
-                            pass
-                        elif op.param2 in creator:
-                            pass
-                        elif op.param2 in staff:
-                            pass
+		        elif op.param2 in creator:
+			      pass
+		        elif op.param2 in admin:
+			      pass
+		        elif op.param2 in staff:
+			      pass
 		        else:
 		            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-			    if wait["autorein"] == True:
-                             if op.param2 in wait["blacklist"]:
-                                 pass
-		             else:
-			         random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+                        if op.param2 in wait["blacklist"]:
+                            pass
+		        else:
+		            random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
-                                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-		                if wait["autorein"] == True:
-			         if op.param2 in wait["blacklist"]:
-			             pass
-			         else:
-			             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
+                                random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+			    if op.param2 in wait["blacklist"]:
+			        pass
+			    else:
+			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
 		        except:
 			    print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
                         if op.param2 in wait["blacklist"]:
@@ -1185,21 +1191,19 @@ def bot(op):
           else:
             try:
               wait["blacklist"][op.param2] = True		
-              cl.kickoutFromGroup(op.param1,[op.param2])
+	      random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
               ka.inviteIntoGroup(op.param1,[op.param3])
               #f=codecs.open('st2__b.json','w','utf-8')
               #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:
               wait["blacklist"][op.param2] = True			
-              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+              random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
               random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
               #f=codecs.open('st2__b.json','w','utf-8')
               #json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 
         if op.type == 19:
                 if mid in op.param3:
-                    if op.param2 in creator:
-			pass
                     if op.param2 in Bots:
                         pass
                     try:
