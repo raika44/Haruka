@@ -96,6 +96,7 @@ helpMessage= """\n
 |╬| Steal
 |╬| Steal name    @
 |╬| Getbio     @
+|╬| Getmid     @
 |╬| Steal status  @
 |╬| Steal mid     @
 |╬| Steal contact @
