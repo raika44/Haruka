@@ -6318,6 +6318,12 @@ def autoSta():
                           km.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
                           ka.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
                           ke.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])												  
+        except:
+            count += 1
+            if(count == 50):
+                sys.exit(0)
+            else:
+                pass
 												  
 
 def likefriend():
