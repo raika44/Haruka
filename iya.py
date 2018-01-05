@@ -376,8 +376,8 @@ Smid = satpam.getProfile().mid #Akun Utama
 
 
 Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,Jmid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
-admin=["uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b","ue43898158971147528350ad49b5e8df4","u3d27c322e83dac8c6ad9a2adf12dbf92","u8065b0be04ba4f39ea865a23ab6ba20e"]
-staff=["uab1ca173166a362c69ef62d420f9f784","u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
+admin=["uab1ca173166a362c69ef62d420f9f784","ue43898158971147528350ad49b5e8df4","u3d27c322e83dac8c6ad9a2adf12dbf92","u8065b0be04ba4f39ea865a23ab6ba20e"]
+staff=["u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
 adminsa=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 wait = {
@@ -389,7 +389,7 @@ wait = {
     'autoAdd':True,
     'message':"cie ngeadd yaa makasihh",
     "lang":"JP",
-    "comment1":"Kenapa Kak?",
+    "comment1":"Nice kak",
     "comment2":"Wkwkwk ＼（○＾ω＾○）／",
     "comment3":"Lucu Banget!!! ヘ(^_^)ヘ",
     "comment4":"Nice Kak (^_^)",
@@ -4820,6 +4820,64 @@ def bot(op):
               	json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)		
                 cl.sendText(msg.to,"Sukses Membersihkan Daftar Penjahat")
 		
+            elif "Add creator @" in msg.text:
+              if msg.from_ in adminsa:	
+                    print "[Command]Staff add executing"
+                    _name = msg.text.replace("Add creator @","")
+                    _nametarget = _name.rstrip('  ')
+                    gs = cl.getGroup(msg.to)
+                    targets = []
+                    for g in gs.members:
+                        if _nametarget == g.displayName:
+                            targets.append(g.mid)
+                    if targets == []:
+                        cl.sendText(msg.to,"Contact not found")
+                    else:
+                        for target in targets:
+                            try:
+                                creator.append(target)
+                                cl.sendText(msg.to,"Added to the staff list")
+                            except:
+                                pass
+                    print "[Command]Staff add executed"
+              else:
+                    cl.sendText(msg.to,"Command denied.")
+                    cl.sendText(msg.to,"Creator permission required.")
+
+            elif "Expel creator @" in msg.text:
+              if msg.from_ in adminsa:	
+                    print "[Command]Staff remove executing"
+                    _name = msg.text.replace("Expel staff @","")
+                    _nametarget = _name.rstrip('  ')
+                    gs = cl.getGroup(msg.to)
+                    targets = []
+                    for g in gs.members:
+                        if _nametarget == g.displayName:
+                            targets.append(g.mid)
+                    if targets == []:
+                        ki.sendText(msg.to,"Contact not found")
+                    else:
+                        for target in targets:
+                            try:
+                                creator.remove(target)
+                                cl.sendText(msg.to,"Removed to the staff list")
+                            except:
+                                pass
+                    print "[Command]Staff remove executed"
+              else:
+                    cl.sendText(msg.to,"Command denied.")
+                    cl.sendText(msg.to,"Creator permission required.")		
+            elif msg.text in ["Creatlist","creatlist"]:
+                if creator == []:
+                    cl.sendText(msg.to,"The stafflist is empty")
+                else:
+                    cl.sendText(msg.to,"Creator list: ")
+                    mc = ""
+                    for mi_d in creator:
+                        mc += "->" +cl.getContact(mi_d).displayName + "\n"
+                    cl.sendText(msg.to,mc)
+                    print "[Command]Stafflist executed"	
+		
             elif "Add staff @" in msg.text:
               if msg.from_ in admin + creator:	
                     print "[Command]Staff add executing"
@@ -4947,7 +5005,7 @@ def bot(op):
 
     #-------------Fungsi Leave Group Start---------------#
             elif msg.text in ["Bye all","Bye sayang"]:
-              if msg.from_ in admin + creator:	
+              if msg.from_ in creator:	
                 if msg.toType == 2:
                     ginfo = cl.getGroup(msg.to)
                     try:
