@@ -1809,14 +1809,14 @@ def bot(op):
               if msg.from_ in admin + staff + creator:	        
 		     wait["Ghost"] = True
 		     cl.sendText(msg.to,"Ghost Sudah Aktif")
-	       else:
+	      else:
 	          cl.sendText(msg.to,"admin yg boleh")		     
 
 	    elif "Ghost off" in msg.text:
               if msg.from_ in admin + staff + creator:	 	        
 		     wait["Ghost"] = False
 		     cl.sendText(msg.to,"Ghost Sudah Di Nonaktifkan")
-	       else:
+	      else:
 	          cl.sendText(msg.to,"admin yg boleh")			
 		
             elif "/invite:" in msg.text:
