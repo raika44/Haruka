@@ -1050,8 +1050,10 @@ def bot(op):
                             cl.updateGroup(G)
                         except:
                             pass
-               if wait["Protectjoin"] == True:
-	          try:		
+ 	
+        if op.type == 17:
+           if wait["Protectjoin"] == True:
+               if op.param2 not in Bots:
 	             G = cl.getGroup(op.param1)
                      G.preventJoinByTicket = False
 		     cl.updateGroup(G)
@@ -1061,9 +1063,6 @@ def bot(op):
                      km.leaveGroup(op.param1)
                      G.preventJoinByTicket = True		
                      cl.updateGroup(G)		
-                  except:
-		      pass		
-		
   
         #------Joined User Kick start------#
 
@@ -5251,7 +5250,7 @@ def bot(op):
                     profile = ka.getProfile()
                     profile.displayName = string
                     ka.updateProfile(profile)
-                    ka.sendText(msg.to,"change name: "+string+"\nsucces")
+                    ka.sendText(msg.to,"change name: "+string+"\nsucces")											
             elif "Bot6 rename:" in msg.text:
               if msg.from_ in creator:
                 string = msg.text.replace("Bot6 rename:","")
@@ -5259,7 +5258,23 @@ def bot(op):
                     profile = satpam.getProfile()
                     profile.displayName = string
                     satpam.updateProfile(profile)
-                    satpam.sendText(msg.to,"change name: "+string+"\nsucces")    
+                    satpam.sendText(msg.to,"change name: "+string+"\nsucces") 
+            elif "Bot7 rename:" in msg.text:
+              if msg.from_ in creator:
+                string = msg.text.replace("Bot5 rename:","")
+                if len(string.decode('utf-8')) <= 20:
+                    G = random.choice(KAC).getGroup(op.param1)
+                    G.preventJoinByTicket = False
+	            cl.updateGroup(G)
+                    Ticket = cl.reissueGroupTicket(op.param1)
+                    km.acceptGroupInvitationByTicket(op.param1,Ticket)
+	            G.preventJoinByTicket = True
+                    km.updateGroup(G)												  
+                    profile = ka.getProfile()
+                    profile.displayName = string
+                    km.updateProfile(profile)
+                    km.sendText(msg.to,"change name: "+string+"\nsucces")
+                    km.leaveGroup(msg.to)												  
     #-------------Fungsi Tag All Start---------------#
             elif msg.text in ["kiwkiw","Tagall","Kuchiyose no jutsu","Summon all member","Kuchiyose"]:
                   group = cl.getGroup(msg.to)
