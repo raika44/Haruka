@@ -4187,7 +4187,7 @@ def bot(op):
                        ki.sendText(g.mid,(wait["spam"]))
                        ka.sendText(g.mid,(wait["spam"]))
                        ke.sendText(g.mid,(wait["spam"]))		
-                       kn.sendText(msg.to,"Waktunya nyanyi di grup")
+                       km.sendText(msg.to,"Waktunya nyanyi di grup")
                        km.sendText(msg.to,"Aku belum mandi")
                        km.sendText(msg.to,"Tak tun tuang")
                        km.sendText(msg.to,"Tak tun tuang")
@@ -5261,20 +5261,20 @@ def bot(op):
                     satpam.sendText(msg.to,"change name: "+string+"\nsucces") 
             elif "Bot7 rename:" in msg.text:
               if msg.from_ in creator:
-                string = msg.text.replace("Bot5 rename:","")
-                if len(string.decode('utf-8')) <= 20:
                     G = random.choice(KAC).getGroup(op.param1)
                     G.preventJoinByTicket = False
 	            cl.updateGroup(G)
                     Ticket = cl.reissueGroupTicket(op.param1)
                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
 	            G.preventJoinByTicket = True
-                    km.updateGroup(G)												  
-                    profile = ka.getProfile()
-                    profile.displayName = string
-                    km.updateProfile(profile)
-                    km.sendText(msg.to,"change name: "+string+"\nsucces")
-                    km.leaveGroup(msg.to)												  
+                    km.updateGroup(G)	
+                    string = msg.text.replace("Bot5 rename:","")
+                    if len(string.decode('utf-8')) <= 20:												
+                     profile = ka.getProfile()
+                     profile.displayName = string
+                     km.updateProfile(profile)
+                     km.sendText(msg.to,"change name: "+string+"\nsucces")
+                     km.leaveGroup(msg.to)												  
     #-------------Fungsi Tag All Start---------------#
             elif msg.text in ["kiwkiw","Tagall","Kuchiyose no jutsu","Summon all member","Kuchiyose"]:
                   group = cl.getGroup(msg.to)
