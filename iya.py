@@ -860,7 +860,7 @@ def bot(op):
 	   if wait["welcomemsg"] == True:
               if op.param2 not in Bots:
                  ginfo = cl.getGroup(op.param1)
-                 cl.sendText(op.param1,cl.getContact(op.param2).displayName + wait["welmsg"]+ str(ginfo.nam
+                 cl.sendText(op.param1,cl.getContact(op.param2).displayName + wait["welmsg"]+ str(ginfo.name))
 
         #------Cancel Invite User start------#
         if op.type == 13:
