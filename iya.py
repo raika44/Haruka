@@ -4929,7 +4929,7 @@ def bot(op):
 		     cl.sendText(msg.to,"Auto Kick Sudah Aktif")
 
 	    elif "Autokick off" in msg.text:
-              if msg.from_ in admin + staff + creator:	:							      
+              if msg.from_ in admin + staff + creator:							      
 		     wait["AutoKick"] = False
 		     cl.sendText(msg.to,"Auto Kick Sudah Di Nonaktifkan")
 
