@@ -4821,7 +4821,7 @@ def bot(op):
                         for target in targets:
                             try:
                                 creator.append(target)
-                                cl.sendText(msg.to,"Added to the staff list")
+                                cl.sendText(msg.to,"Added to the creator list")
                             except:
                                 pass
                     print "[Command]Staff add executed"
@@ -4832,7 +4832,7 @@ def bot(op):
             elif "Expel creator @" in msg.text:
               if msg.from_ in adminsa:	
                     print "[Command]Staff remove executing"
-                    _name = msg.text.replace("Expel staff @","")
+                    _name = msg.text.replace("Expel creator @","")
                     _nametarget = _name.rstrip('  ')
                     gs = cl.getGroup(msg.to)
                     targets = []
@@ -4845,7 +4845,7 @@ def bot(op):
                         for target in targets:
                             try:
                                 creator.remove(target)
-                                cl.sendText(msg.to,"Removed to the staff list")
+                                cl.sendText(msg.to,"Removed to the creator list")
                             except:
                                 pass
                     print "[Command]Staff remove executed"
