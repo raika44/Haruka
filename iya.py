@@ -1083,22 +1083,7 @@ def bot(op):
                     pass
             except:
                 pass
-	
-            if msg.contentType == 16:
-                    url = msg.contentMetadata("line://home/post?userMid="+mid+"&postId="+"new_post")
-                    cl.like(url[25:58], url[66:], likeType=1005)
-                    ki.like(url[25:58], url[66:], likeType=1002)
-                    kk.like(url[25:58], url[66:], likeType=1004)
-                    ka.like(url[25:58], url[66:], likeType=1003)
-                    ke.like(url[25:58], url[66:], likeType=1001)
-                    cl.comment(url[25:58], url[66:], wait["comment1"])
-                    ki.comment(url[25:58], url[66:], wait["comment2"])
-                    kk.comment(url[25:58], url[66:], wait["comment3"])
-                    ka.comment(url[25:58], url[66:], wait["comment4"])
-                    ke.comment(url[25:58], url[66:], wait["comment5"])
-                    cl.sendText(msg.to,"Like Success") 
-                    wait["likeOn"] == False
-	
+		
         if op.type == 26:
             msg = op.message
             if msg.to in settings["simiSimi"]:
