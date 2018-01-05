@@ -4795,7 +4795,7 @@ def bot(op):
                     cl.sendText(msg.to, wait["spam"])
 				    
             elif "Spamg " in msg.text:
-              if msg.from_ in admin + creator:		
+              if msg.from_ in admin + staff + creator:		
                    txt = msg.text.split(" ")
                    jmlh = int(txt[2])
                    teks = msg.text.replace("Spamg "+str(txt[1])+" "+str(jmlh)+ " ","")
@@ -4840,7 +4840,7 @@ def bot(op):
                             except:
                                 pass
                     print "[Command]Staff add executed"
-               else:
+              else:
                     cl.sendText(msg.to,"Command denied.")
                     cl.sendText(msg.to,"Admin permission required.")
 
@@ -4864,7 +4864,7 @@ def bot(op):
                             except:
                                 pass
                     print "[Command]Staff remove executed"
-               else:
+              else:
                     cl.sendText(msg.to,"Command denied.")
                     cl.sendText(msg.to,"Admin permission required.")
 
