@@ -4788,7 +4788,7 @@ def bot(op):
                     cl.sendText(msg.to,"Done")
 
             elif "Spam:" in msg.text:
-              if msg.from_ in admin + creator:	:	
+              if msg.from_ in admin + creator:	
                 strnum = msg.text.replace("Spam:","")
                 num = int(strnum)
                 for var in range(0,num):
