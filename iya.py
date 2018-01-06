@@ -857,6 +857,17 @@ def bot(op):
             print "MEMBER HAS LEFT THE GROUP"	
 		
         if op.type == 17:
+          if wait["Sambutan"] == True:
+            if op.param2 in admin:
+                return
+            ginfo = cl.getGroup(op.param1)
+            contact = cl.getContact(op.param2)
+            image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
+            cl.sendImageWithURL(op.param1,image)
+            cl.sendText(op.param1,"Hallo " + cl.getContact(op.param2).displayName +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
+            print "MEMBER JOIN TO GROUP"
+	
+        if op.type == 17:
 	   if wait["welcomemsg"] == True:
               if op.param2 not in Bots:
                  ginfo = cl.getGroup(op.param1)
