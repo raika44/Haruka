@@ -389,6 +389,7 @@ admin=["uab1ca173166a362c69ef62d420f9f784","ue43898158971147528350ad49b5e8df4","
 staff=["u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
 adminsa=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
+pembuat=["uab1ca173166a362c69ef62d420f9f784"]
 wait = {
     'contact':False,
     'autoJoin':True,
@@ -398,6 +399,7 @@ wait = {
     'autoAdd':True,
     'detectMention':True,    
     'kickMention':False,
+    'creatorMention':True,
     'message':"cie ngeadd yaa makasihh",
     'message2':"Cuman creator yg bisa inpit grup",
     "lang":"JP",
@@ -1121,9 +1123,23 @@ def bot(op):
                      mention = ast.literal_eval(msg.contentMetadata["MENTION"])
                      mentionees = mention['MENTIONEES']
                      for mention in mentionees:
-                           if mention['M'] in Bots:
+                           if mention['M'] in mid:
                                   cl.sendText(msg.to,ret_)
-                                  break            
+                                  break
+				
+            if "MENTION" in msg.contentMetadata.keys() != None:
+                 if wait['creatorMention'] == True:
+                     contact = cl.getContact(msg.from_)
+                     cName = contact.displayName
+                     balas = ["Ngapain tag creator saya? "]
+                     ret_ = "." + random.choice(balas)
+                     name = re.findall(r'@(\w+)', msg.text)
+                     mention = ast.literal_eval(msg.contentMetadata["MENTION"])
+                     mentionees = mention['MENTIONEES']
+                     for mention in mentionees:
+                           if mention['M'] in pembuat:
+                                  cl.sendText(msg.to,ret_)
+                                  break				
                     
             if "MENTION" in msg.contentMetadata.keys() != None:
                  if wait['kickMention'] == True:
@@ -3067,6 +3083,15 @@ def bot(op):
               if msg.from_ in admin + staff + creator:	
                 wait['kickMention'] = False
                 cl.sendText(msg.to,"Auto Kick tag OFF")
+            elif msg.text in ["Creattag on","Autokick:on","Responkick on","Responkick:on"]:
+              if msg.from_ in admin + staff + creator:	
+                wait['creatorMention'] = True
+                cl.sendText(msg.to,"Auto creator tag ON")
+                
+            elif msg.text in ["Creattag off","Autokick:off","Responkick off","Responkick:off"]:
+              if msg.from_ in admin + staff + creator:	
+                wait['creatorMention'] = False
+                cl.sendText(msg.to,"Auto creator tag OFF")
             elif "Time" in msg.text:
               if msg.toType == 2:
                   kr.sendText(msg.to,datetime.today().strftime('%H:%M:%S'))
