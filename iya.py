@@ -871,7 +871,7 @@ def bot(op):
             contact = cl.getContact(op.param2)
             image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
             cl.sendImageWithURL(op.param1,image)
-            cl.sendText(op.param1,"Halo " + cl.getContact(op.param2).displayName +  wait["welmsg"] + str(ginfo.name) + "\nJones" + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
+            cl.sendText(op.param1,"Halo " + cl.getContact(op.param2).displayName  + "\nJones" +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
             print "MEMBER JOIN TO GROUP"
 	
 
