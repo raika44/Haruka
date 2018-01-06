@@ -394,6 +394,8 @@ wait = {
     'leaveRoom':True,
     'timeline':True,
     'autoAdd':True,
+    'detectMention':True,    
+    'kickMention':False,
     'message':"cie ngeadd yaa makasihh",
     'message2':"Cuman creator yg bisa inpit grup",
     "lang":"JP",
@@ -409,6 +411,7 @@ wait = {
     "dblack":False,
     "clock":False,
     "Ghost":False,
+    "MENTION":True,
     "media":True,
     "cName":" ",
     "blacklist":{},
@@ -1063,7 +1066,7 @@ def bot(op):
                         except:
                             pass
  	
-        if op.type == 13:
+        if op.type == 17:
            if wait["Protectjoin"] == True:
                if op.param2 not in Bots + admin + staff + creator:
 	             G = cl.getGroup(op.param1)
@@ -1076,6 +1079,34 @@ def bot(op):
                      G.preventJoinByTicket = True		
                      cl.updateGroup(G)		
   
+            if "MENTION" in msg.contentMetadata.keys() != None:
+                 if wait['detectMention'] == True:
+                     contact = cl.getContact(msg.from_)
+                     cName = contact.displayName
+                     balas = ["Don't Tag Me! iam Bussy!, ",cName + "Ada perlu apa, ?",cName + " pc aja klo urgent! sedang sibuk,", "kenapa, ", cName + " kangen?","kangen bilang gak usah tag tag, " + cName, "knp?, " + cName, "apasi?, " + cName + "?", "pulang gih, " + cName + "?","aya naon, ?" + cName + "Tersangkut -_-","Ada apa sih mblo?, "]
+                     ret_ = "." + random.choice(balas)
+                     name = re.findall(r'@(\w+)', msg.text)
+                     mention = ast.literal_eval(msg.contentMetadata["MENTION"])
+                     mentionees = mention['MENTIONEES']
+                     for mention in mentionees:
+                           if mention['M'] in Bots:
+                                  cl.sendText(msg.to,ret_)
+                                  break            
+                    
+            if "MENTION" in msg.contentMetadata.keys() != None:
+                 if wait['kickMention'] == True:
+                     contact = cl.getContact(msg.from_)
+                     cName = contact.displayName
+                     balas = ["Dont Tag Me!! Im Busy, ",cName + " Ngapain Ngetag?, ",cName + " Nggak Usah Tag-Tag! Kalo Penting Langsung Pc Aja, ", "-_-, ","Kris lagi off, ", cName + " Kenapa Tag saya?, ","SPAM PC aja, " + cName, "Jangan Suka Tag gua, " + cName, "Kamu siapa, " + cName + "?", "Ada Perlu apa, " + cName + "?","Tag doang tidak perlu., ","Ada apa sih mblo?, "]
+                     ret_ = "[Auto Respond] " + random.choice(balas)
+                     name = re.findall(r'@(\w+)', msg.text)
+                     mention = ast.literal_eval(msg.contentMetadata["MENTION"])
+                     mentionees = mention['MENTIONEES']
+                     for mention in mentionees:
+                           if mention['M'] in Bots:
+                                  cl.sendText(msg.to,ret_)
+                                  cl.kickoutFromGroup(msg.to,[msg.from_])
+                                  break
         #------Joined User Kick start------#
 
         #------Joined User Kick start------#
@@ -3016,6 +3047,24 @@ def bot(op):
                  tts = gTTS(psn, lang='en-au', slow=False)
                  tts.save('tts.mp3')
                  cl.sendAudio(msg.to, 'tts.mp3')
+            elif msg.text in ["Respontag on","Autorespon:on","Respon on","Respon:on"]:
+                wait['detectMention'] = True
+                kr.sendText(msg.to,"Auto respon tag On")
+                
+            elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
+                wait['detectMention'] = False
+                kr.sendText(msg.to,"Auto respon tag Off")
+            
+            elif msg.text in ["Kicktag on","Autokick:on","Responkick on","Responkick:on"]:
+                wait['kickMention'] = True
+                kr.sendText(msg.to,"Auto Kick tag ON")
+                
+            elif msg.text in ["Kicktag off","Autokick:off","Responkick off","Responkick:off"]:
+                wait['kickMention'] = False
+                kr.sendText(msg.to,"Auto Kick tag OFF")
+            elif "Time" in msg.text:
+              if msg.toType == 2:
+                  kr.sendText(msg.to,datetime.today().strftime('%H:%M:%S'))
             elif "Vn-enuk " in msg.text:
               if msg.from_ in admin + staff + creator:
                  psn = msg.text.replace("Vn-enuk ","")
