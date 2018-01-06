@@ -3051,22 +3051,22 @@ def bot(op):
             elif msg.text in ["Respontag on","Autorespon:on","Respon on","Respon:on"]:
               if msg.from_ in admin + staff + creator:	
                 wait['detectMention'] = True
-                kr.sendText(msg.to,"Auto respon tag On")
+                cl.sendText(msg.to,"Auto respon tag On")
                 
             elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
               if msg.from_ in admin + staff + creator:	
                 wait['detectMention'] = False
-                kr.sendText(msg.to,"Auto respon tag Off")
+                cl.sendText(msg.to,"Auto respon tag Off")
             
             elif msg.text in ["Kicktag on","Autokick:on","Responkick on","Responkick:on"]:
               if msg.from_ in admin + staff + creator:	
                 wait['kickMention'] = True
-                kr.sendText(msg.to,"Auto Kick tag ON")
+                cl.sendText(msg.to,"Auto Kick tag ON")
                 
             elif msg.text in ["Kicktag off","Autokick:off","Responkick off","Responkick:off"]:
               if msg.from_ in admin + staff + creator:	
                 wait['kickMention'] = False
-                kr.sendText(msg.to,"Auto Kick tag OFF")
+                cl.sendText(msg.to,"Auto Kick tag OFF")
             elif "Time" in msg.text:
               if msg.toType == 2:
                   kr.sendText(msg.to,datetime.today().strftime('%H:%M:%S'))
