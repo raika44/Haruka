@@ -891,7 +891,7 @@ def bot(op):
               random.choice(KAC).sendText(op.param1, "Sorry you not admin😛")
         #------Cancel Invite User Finish------#      
 		
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
             	if wait["winvite"] == True:
@@ -906,8 +906,8 @@ def bot(op):
                                  cl.sendText(msg.to,"-> " + _name + " was here")
                                  break
                              elif invite in wait["blacklist"]:
-                                 ki.sendText(msg.to,"Sorry, " + _name + " On Blacklist")
-                                 ku.sendText(msg.to,"Call my owner to use command !, \n➡Unban: " + invite)
+                                 cl.sendText(msg.to,"Sorry, " + _name + " On Blacklist")
+                                 cl.sendText(msg.to,"Call my owner to use command !, \n➡Unban: " + invite)
                                  break                             
                              else:
                                  targets.append(invite)
