@@ -395,6 +395,7 @@ wait = {
     'timeline':True,
     'autoAdd':True,
     'message':"cie ngeadd yaa makasihh",
+    'message2':"Cuman creator yg bisa inpit grup",
     "lang":"JP",
     "comment1":"Nice kak",
     "comment2":"Wkwkwk ＼（○＾ω＾○）／",
@@ -789,7 +790,7 @@ def bot(op):
                     pass
                 else:
                     cl.sendText(op.param1,str(wait["message"]))
-
+                    cl.sendText(op.param1,str(wait["message2"]))
            #------Protect Group Kick start------#
                 #------Protect Group Kick start------#
         if op.type == 11:
@@ -2875,7 +2876,21 @@ def bot(op):
                         mc += "" +cl.getContact(mi_d).displayName + "\n"
                     cl.sendText(msg.to,mc)
 		
-                    
+            elif msg.text in ["Accept invite"]:
+                if msg.from_ in admin:
+                    gid = cl.getGroupIdsInvited()
+                    _list = ""
+                    for i in gid:
+                        if i is not None:
+                            gids = cl.getGroup(i)
+                            _list += gids.name
+                            cl.acceptGroupInvitation(i)
+                        else:
+                            break
+                    if gid is not None:
+                        cl.sendText(msg.to,"Berhasil terima semua undangan dari grup :\n" + _list)
+                    else:
+                        cl.sendText(msg.to,"Tidak ada grup yang tertunda saat ini")                    
         #-------------Fungsi Jam on/off Start-------------------#            
             elif msg.text in ["Jam on"]:
               if msg.from_ in admin + staff + creator:	
@@ -3222,10 +3237,14 @@ def bot(op):
  #=======================================================
 
             elif msg.text in ["Invite user"]:
-              if msg.from_ in admin + staff + creator:
-                if msg.from_ in creator:	
+              if msg.from_ in admin + staff + creator:	
                  wait["winvite"] = True
                  cl.sendText(msg.to,"send contact")
+		
+            elif msg.text in ["Invite","ดึง"]:
+              if msg.from_ in admin + staff + creator:
+                wait["winvite"] = True
+                random.choice(KAC).sendText(msg.to,"send contact 😉")
 		
             elif msg.text in ["Myname"]:
                 h = cl.getContact(mid)
@@ -3535,7 +3554,23 @@ def bot(op):
                     wait["autorein"] = False
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Already。")
-			
+            elif "Besar cinta " in msg.text:
+                tanya = msg.text.replace("Besar cinta ","")
+                jawab = ("0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%")
+                jawaban = random.choice(jawab)
+                cl.sendText(msg.to,"Besar Cinta " + tanya + " adalah " + jawaban)
+            elif ("Vkick" in msg.text):
+				if msg.from_ in admin + staff + creator:
+					targets = []
+					key = eval(msg.contentMetadata["MENTION"])
+					key["MENTIONEES"][0]["M"]
+					for x in key["MENTIONEES"]:
+						targets.append(x["M"])
+					for target in targets:
+						try:
+							cl.kickoutFromGroup(msg.to,[target])
+						except:
+							cl.sendText(msg.to,"Error")			
          #-------------Fungsi Change Clock Start------------------#
             elif msg.text in ["Change clock"]:
                 n = msg.text.replace("Change clock","")
