@@ -1063,9 +1063,9 @@ def bot(op):
                         except:
                             pass
  	
-        if op.type == 17:
+        if op.type == 13:
            if wait["Protectjoin"] == True:
-               if op.param2 not in Bots:
+               if op.param2 not in Bots + admin + staff + creator:
 	             G = cl.getGroup(op.param1)
                      G.preventJoinByTicket = False
 		     cl.updateGroup(G)
