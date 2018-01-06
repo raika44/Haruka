@@ -15,31 +15,31 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.loginResult()
 
 satpam = LINETCR.LINE() # Koplaxs # Login Pake Akun Utama Kalian(Gunanya Supaya Akun Utama Ke Kick bisa Terima Undangan dari Bot Otomatis)
-satpam.login(token="EoShyKDaWkrRUmbO3xT4.QXYHCXzQnIXP72luipN3Ha.7JoTwNOsziG1vYnjRN/FVlv66fYvYn0xK8GTAiL9+dI=")
+satpam.login(token="EohxzXJDUolUDzi78bC4.QXYHCXzQnIXP72luipN3Ha.j0/jpJ1mcB0Eo2oASYoOKwQkbOxe0AocjJ105fsTXeM=")
 satpam.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EohAD8zuHh7FskFIOZM5.NuOKUlcmrchxMMvHVN9o9q.C65u+OkfvcoLVPOEXbU7zWEttr9rmopzDeLWoka2w3U=")
+cl.login(token="EoiTVFUecps8ki5rzgo5.NuOKUlcmrchxMMvHVN9o9q.WI+neHXA40RWtvh56Az5Q0sX5a46FiarEnwFsD7eYKw=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="Eo1bGZ6eClzvGwQ7EWVf.vVPISdEKRjCwFNpzI3k+RW.q6QD4soLClgji0dEuPbNvbl4e6xKe1BMiIJ9dxF5Z60=")
+ki.login(token="EoNuhFvtadWCkZfgqi4f.vVPISdEKRjCwFNpzI3k+RW.x0awhvsVvLFZsq6MmNCe2PmqovXr4F7dHEYBplR6+TE=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="Eo0GqKoK2zvxp3VhmBQ2.h6ACMEcQmlMxE/DJN7DS0G.D0jJLaNao7g7kowV9BnABwDl/+/96PTkwk3d/95JOUw=")
+kk.login(token="Eo4YQ0fMiePquS4YIqha.nKWTtdkTR1t0s6tTguGLAG.VMFIMLf93yzOteu7i03VUP+A5PTQqdU8k6opN5hKisc==")
 kk.loginResult()
 
 ke = LINETCR.LINE()
-ke.login(token="Eopo2Q9uRccynYc0KOza.nKWTtdkTR1t0s6tTguGLAG.PDa+FQnhjyBLOsrrL7u4dQZxvsHwQvLoSw7Qv3CbAWI=")
+ke.login(token="EoTnHlo8U3vwQw7PVylf.ySK6/7lzzXJWVTkhLlNW+W.rD9Npp0FdGIq/yZ3rv3XYkwjBnOUYJe32jIIK2aUbT4=")
 ke.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="EowIhB4UKfBCOe5BT2nf.ySK6/7lzzXJWVTkhLlNW+W.XDJcYeHaHs7ZkA5ZPYqL+O4uTQV8XAqokoUmYgN3bQQ=")
+ka.login(token="EoaEbnWAtpldcGFGsZl2.h6ACMEcQmlMxE/DJN7DS0G.v8t8NNGcRcalsnz+ruurHTILwkhAJWSMiQttJeVgYc0==")
 ka.loginResult()
 
 km = LINETCR.LINE()
-km.login(token="Eoi3XPJeNSn1Lqr4oX9c.eoXp0xK1vqkdnL9Q78yCpa.6eIlHcYQl5AqrSgdbIY6SkV9gXUGrT5dLsoYOH17gOE=")
+km.login(token="Eo2e4KLT9HhVEtty7rkc.eoXp0xK1vqkdnL9Q78yCpa.vfS0teSI0FGxkBxKol8sX2Jsc5+0OEANfo2dkHbSo+0=")
 km.loginResult()
 
 
@@ -857,7 +857,7 @@ def bot(op):
             print "MEMBER HAS LEFT THE GROUP"	
 		
         if op.type == 17:
-          if wait["Sambutan"] == True:
+          if wait["welcomemsg"] == True:
             if op.param2 in admin:
                 return
             ginfo = cl.getGroup(op.param1)
@@ -867,11 +867,6 @@ def bot(op):
             cl.sendText(op.param1,"Hallo " + cl.getContact(op.param2).displayName +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
             print "MEMBER JOIN TO GROUP"
 	
-        if op.type == 17:
-	   if wait["welcomemsg"] == True:
-              if op.param2 not in Bots:
-                 ginfo = cl.getGroup(op.param1)
-                 cl.sendText(op.param1,cl.getContact(op.param2).displayName + wait["welmsg"]+ str(ginfo.name))
 
         #------Cancel Invite User start------#
         if op.type == 13:
@@ -3718,6 +3713,7 @@ def bot(op):
                 gs = cl.getGroup(msg.to)
                 for g in gs.members:
                     if _nametarget == g.displayName:
+                       satpam.sendText(msg.to,"Yuk dimulai spamnya")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
