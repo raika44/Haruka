@@ -160,6 +160,8 @@ helpMessage= """\n
 |╬| Auto notice:on/off
 |╬| Blockinvite:on/off
 |╬| Gr on/off
+|╬| Kicktag on/off
+|╬| Respontag on/off
 |╬| Autokick on/off
 |╬| Cancl on/off
 |╬| Joinn on/off
@@ -3047,18 +3049,22 @@ def bot(op):
                  tts.save('tts.mp3')
                  cl.sendAudio(msg.to, 'tts.mp3')
             elif msg.text in ["Respontag on","Autorespon:on","Respon on","Respon:on"]:
+              if msg.from_ in admin + staff + creator:	
                 wait['detectMention'] = True
                 kr.sendText(msg.to,"Auto respon tag On")
                 
             elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
+              if msg.from_ in admin + staff + creator:	
                 wait['detectMention'] = False
                 kr.sendText(msg.to,"Auto respon tag Off")
             
             elif msg.text in ["Kicktag on","Autokick:on","Responkick on","Responkick:on"]:
+              if msg.from_ in admin + staff + creator:	
                 wait['kickMention'] = True
                 kr.sendText(msg.to,"Auto Kick tag ON")
                 
             elif msg.text in ["Kicktag off","Autokick:off","Responkick off","Responkick:off"]:
+              if msg.from_ in admin + staff + creator:	
                 wait['kickMention'] = False
                 kr.sendText(msg.to,"Auto Kick tag OFF")
             elif "Time" in msg.text:
