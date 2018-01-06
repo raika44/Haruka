@@ -1065,9 +1065,7 @@ def bot(op):
                             cl.updateGroup(G)
                         except:
                             pass
- 	
-        if op.type == 17:
-           if wait["Protectjoin"] == True:
+            if wait["Protectjoin"] == True:
                if op.param2 not in Bots + admin + staff + creator:
 	             G = cl.getGroup(op.param1)
                      G.preventJoinByTicket = False
@@ -1079,34 +1077,7 @@ def bot(op):
                      G.preventJoinByTicket = True		
                      cl.updateGroup(G)		
   
-            if "MENTION" in msg.contentMetadata.keys() != None:
-                 if wait['detectMention'] == True:
-                     contact = cl.getContact(msg.from_)
-                     cName = contact.displayName
-                     balas = ["Don't Tag Me! iam Bussy!, ",cName + "Ada perlu apa, ?",cName + " pc aja klo urgent! sedang sibuk,", "kenapa, ", cName + " kangen?","kangen bilang gak usah tag tag, " + cName, "knp?, " + cName, "apasi?, " + cName + "?", "pulang gih, " + cName + "?","aya naon, ?" + cName + "Tersangkut -_-","Ada apa sih mblo?, "]
-                     ret_ = "." + random.choice(balas)
-                     name = re.findall(r'@(\w+)', msg.text)
-                     mention = ast.literal_eval(msg.contentMetadata["MENTION"])
-                     mentionees = mention['MENTIONEES']
-                     for mention in mentionees:
-                           if mention['M'] in Bots:
-                                  cl.sendText(msg.to,ret_)
-                                  break            
-                    
-            if "MENTION" in msg.contentMetadata.keys() != None:
-                 if wait['kickMention'] == True:
-                     contact = cl.getContact(msg.from_)
-                     cName = contact.displayName
-                     balas = ["Dont Tag Me!! Im Busy, ",cName + " Ngapain Ngetag?, ",cName + " Nggak Usah Tag-Tag! Kalo Penting Langsung Pc Aja, ", "-_-, ","Kris lagi off, ", cName + " Kenapa Tag saya?, ","SPAM PC aja, " + cName, "Jangan Suka Tag gua, " + cName, "Kamu siapa, " + cName + "?", "Ada Perlu apa, " + cName + "?","Tag doang tidak perlu., ","Ada apa sih mblo?, "]
-                     ret_ = "[Auto Respond] " + random.choice(balas)
-                     name = re.findall(r'@(\w+)', msg.text)
-                     mention = ast.literal_eval(msg.contentMetadata["MENTION"])
-                     mentionees = mention['MENTIONEES']
-                     for mention in mentionees:
-                           if mention['M'] in Bots:
-                                  cl.sendText(msg.to,ret_)
-                                  cl.kickoutFromGroup(msg.to,[msg.from_])
-                                  break
+
         #------Joined User Kick start------#
 
         #------Joined User Kick start------#
@@ -1138,6 +1109,34 @@ def bot(op):
                         if data['status'] == 200:
                             if data['result']['result'] == 100:
                                 cl.sendText(msg.to,data['result']['response'].encode('utf-8'))
+            if "MENTION" in msg.contentMetadata.keys() != None:
+                 if wait['detectMention'] == True:
+                     contact = cl.getContact(msg.from_)
+                     cName = contact.displayName
+                     balas = ["Don't Tag Me! iam Bussy!, ",cName + "Ada perlu apa, ?",cName + " pc aja klo urgent! sedang sibuk,", "kenapa, ", cName + " kangen?","kangen bilang gak usah tag tag, " + cName, "knp?, " + cName, "apasi?, " + cName + "?", "pulang gih, " + cName + "?","aya naon, ?" + cName + "Tersangkut -_-","Ada apa sih mblo?, "]
+                     ret_ = "." + random.choice(balas)
+                     name = re.findall(r'@(\w+)', msg.text)
+                     mention = ast.literal_eval(msg.contentMetadata["MENTION"])
+                     mentionees = mention['MENTIONEES']
+                     for mention in mentionees:
+                           if mention['M'] in Bots:
+                                  cl.sendText(msg.to,ret_)
+                                  break            
+                    
+            if "MENTION" in msg.contentMetadata.keys() != None:
+                 if wait['kickMention'] == True:
+                     contact = cl.getContact(msg.from_)
+                     cName = contact.displayName
+                     balas = ["Dont Tag Me!! Im Busy, ",cName + " Ngapain Ngetag?, ",cName + " Nggak Usah Tag-Tag! Kalo Penting Langsung Pc Aja, ", "-_-, ","Kris lagi off, ", cName + " Kenapa Tag saya?, ","SPAM PC aja, " + cName, "Jangan Suka Tag gua, " + cName, "Kamu siapa, " + cName + "?", "Ada Perlu apa, " + cName + "?","Tag doang tidak perlu., ","Ada apa sih mblo?, "]
+                     ret_ = "[Auto Respond] " + random.choice(balas)
+                     name = re.findall(r'@(\w+)', msg.text)
+                     mention = ast.literal_eval(msg.contentMetadata["MENTION"])
+                     mentionees = mention['MENTIONEES']
+                     for mention in mentionees:
+                           if mention['M'] in Bots:
+                                  cl.sendText(msg.to,ret_)
+                                  cl.kickoutFromGroup(msg.to,[msg.from_])
+                                  break				
 
         if op.type == 19:
           try:	      
