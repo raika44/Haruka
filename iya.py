@@ -89,6 +89,8 @@ helpMessage= """\n
 |╬| Expel on @
 |╬| Expel staff @
 |╬| Add staff @
+|╬| Expel creator @
+|╬| Add creator @
 |╬| Expelal
 ═╬════════►
    📷S̸͟͞T̸͟͞E̸͟͞A̸͟͞L̸͟͞I̸͟͞N̸͟͞G̸͟͞📷
@@ -154,10 +156,14 @@ helpMessage= """\n
 |╬| Auto leave:on/off
 |╬| Auto like:on/off
 |╬| Like friend:on/off
-|╬| Welcome message:on/off
+|╬| Sambutan on/off
 |╬| Auto notice:on/off
 |╬| Blockinvite:on/off
-|╬| Auto blockqr:on/off
+|╬| Gr on/off
+|╬| Autokick on/off
+|╬| Cancl on/off
+|╬| Joinn on/off
+|╬| Prot on/off
 |╬| Namelock:on/off
 |╬| Auto add:on/off
 |╬| Ghost on/off
@@ -188,7 +194,8 @@ helpMessage= """\n
 ═╬════════►
 |╬| Group list
 |╬| Banlist
-|╬| Admin list
+|╬| Adminlist
+|╬| Creatlist
 |╬| Stafflist
 |╬| Settings
 |╬| Ginfo
@@ -864,7 +871,7 @@ def bot(op):
             contact = cl.getContact(op.param2)
             image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
             cl.sendImageWithURL(op.param1,image)
-            cl.sendText(op.param1,"Hallo " + cl.getContact(op.param2).displayName +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
+            cl.sendText(op.param1,"Halo " + cl.getContact(op.param2).displayName +  wait["welmsg"] + str(ginfo.name) + "\nJones" + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
             print "MEMBER JOIN TO GROUP"
 	
 
@@ -882,10 +889,7 @@ def bot(op):
             else:
               random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
               random.choice(KAC).sendText(op.param1, "Sorry you not admin😛")
-        #------Cancel Invite User Finish------#
-            if msg.contentType == 16:
-                url = msg.contentMetadata("line://home/post?userMid="+mid+"&postId="+"new_post")
-                cl.like(url[25:58], url[66:], likeType=1001)            
+        #------Cancel Invite User Finish------#      
 		
         if op.type == 26:
             msg = op.message
@@ -2616,7 +2620,7 @@ def bot(op):
                     except Exception as error:
                         print error
                         cl.sendText(msg.to,"Error")  
-            elif msg.text in ["Set View"]:
+            elif msg.text in ["Settings"]:
                 md = ""
                 if wait["Protectjoin"] == True: md+="􀔃􀆑lock􏿿  Block Join\n"
                 else: md+=" Block Join Off\n"
@@ -2628,20 +2632,22 @@ def bot(op):
                 else: md+=" Contact    : off\n"
                 if wait["autoJoin"] == True: md+=" Auto join : on\n"
                 else: md +=" Auto join : off\n"
-                if wait["autoCancel"]["on"] == True:md+=" Group cancel :" + str(wait["autoCancel"]["members"]) + "\n"
-                else: md+= " Group cancel : off\n"
-                if wait["leaveRoom"] == True: md+=" Auto leave    : on\n"
-                else: md+=" Auto leave : off\n"
-                if wait["timeline"] == True: md+=" Share   : on\n"
+                if wait["autoCancel"]["on"] == True:md+="Group cancel :" + str(wait["autoCancel"]["members"]) + "\n"
+                else: md+= "Group cancel : off\n"
+                if wait["leaveRoom"] == True: md+="Auto leave    : on\n"
+                else: md+="Auto leave : off\n"
+                if wait["timeline"] == True: md+="Share   : on\n"
                 else:md+=" Share   : off\n"
-                if wait["autoAdd"] == True: md+=" Auto add : on\n"
-                else:md+=" Auto add : off\n"
+                if wait["autoAdd"] == True: md+="Auto add : on\n"
+                else:md+="Auto add : off\n"
                 if wait["commentOn"] == True: md+=" Comment : on\n"
                 else:md+=" Comment : off\n"
 		if wait["likeOn"] == True: md+="Auto like : on\n"
                 else:md+="Auto like : off\n"
-                if wait["welcomemsg"] == True: md+="welcome message : on\n"
-                else:md+="welcome message : off\n"
+		if wait["protect"] == True: md+="Protect group : on\n"
+                else:md+="Protect group : off\n"		
+                if wait["welcomemsg"] == True: md+="Sambutan : on\n"
+                else:md+="Sambutan : off\n"
                 cl.sendText(msg.to,md)
             elif "album merit " in msg.text:
                 gid = msg.text.replace("album merit ","")
@@ -3626,6 +3632,19 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"Command denied.")
                     cl.sendText(msg.to,"owner permission required.")
+            elif msg.text in ["Bye allgroups"]:
+              if msg.from_ in admin:
+				gid = cl.getGroupIdsJoined()
+				for i in gid:
+					#cl.leaveGroup(i)
+                                        ki.leaveGroup(i)
+                                        kk.leaveGroup(i)
+                                        ka.leaveGroup(i)
+					ke.leaveGroup(i)
+				if wait["lang"] == "JP":
+					ki.sendText(msg.to,"bye-bye")
+				else:
+					ki.sendText(msg.to,"He declined all invitations")			
 #------------------------------- CHECK SIDER --------------------------------
             if msg.text.lower() in ["/set"]:
                 if msg.toType == 2:
