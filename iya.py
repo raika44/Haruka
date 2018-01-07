@@ -1273,7 +1273,7 @@ def bot(op):
                        km.kickoutFromGroup(op.param1,[op.param2])
                        kicker.kickoutFromGroup(op.param1,[op.param2])
                        km.leaveGroup(op.param1)
-                       kicker.updateGroup(X)
+                       cl.updateGroup(X)
                    except Exception, e:
                             print e
                 if not op.param2 in Bots + admin + staff + creator:
