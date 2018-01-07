@@ -1180,13 +1180,19 @@ def bot(op):
 		if wait["AutoKick"][op.param1] == True:
 		    try:
 			if op.param3 in Creator:
+			    pass
 			elif op.param3 in admin:
+			      pass
 			elif op.param3 in Bots:
+			      pass
 			elif op.param3 in staff:				
 			    pass
 		         if op.param2 in Creator:
+			     pass
 		         elif op.param2 in admin:
+			       pass
 		         elif op.param2 in Bots:
+			       pass
 		         elif op.param2 in staff:				
 		             pass
 		         else:
