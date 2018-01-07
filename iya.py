@@ -865,7 +865,6 @@ def bot(op):
                           G.preventJoinByTicket = True
                           cl.updateGroup(G)
                           wait["blacklist"][op.param2] = True
-        if op.type == 17:
             if wait["Protectjoin"] == True:
                if op.param2 not in Bots + admin + staff + creator:
 	             G = cl.getGroup(op.param1)
@@ -877,11 +876,29 @@ def bot(op):
                      km.leaveGroup(op.param1)
                      G.preventJoinByTicket = True		
                      cl.updateGroup(G)	
-	       else:
-		   pass			
-	    else:
-		pass
+
 			
+
+		
+	
+        if op.type == 15:
+          if wait["welcomemsg"] == True:
+            if op.param2 in Bots:
+                return	     	
+            cl.sendText(op.param1,"Good Bye " + cl.getContact(op.param2).displayName +  "\nSee You Next Time . . . (p′︵‵。) 🤗")
+            print "MEMBER HAS LEFT THE GROUP"	
+		
+        if op.type == 17:
+          if wait["welcomemsg"] == True:
+            if op.param2 in Bots:
+                return			
+            ginfo = cl.getGroup(op.param1)
+            contact = cl.getContact(op.param2)
+            image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
+            cl.sendImageWithURL(op.param1,image)
+            cl.sendText(op.param1,"Halo " + cl.getContact(op.param2).displayName  + "\nJones" +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
+            print "MEMBER JOIN TO GROUP"
+	
         if op.type == 17:
             if op.param2 not in Bots:
                 if op.param2 in Bots:
@@ -907,25 +924,17 @@ def bot(op):
                             cl.updateGroup(G)
                         except:
                             pass
-	
-        if op.type == 15:
-          if wait["welcomemsg"] == True:
-            if op.param2 in Bots:
-                return	     	
-            cl.sendText(op.param1,"Good Bye " + cl.getContact(op.param2).displayName +  "\nSee You Next Time . . . (p′︵‵。) 🤗")
-            print "MEMBER HAS LEFT THE GROUP"	
-		
-        if op.type == 17:
-          if wait["welcomemsg"] == True:
-            if op.param2 in Bots:
-                return			
-            ginfo = cl.getGroup(op.param1)
-            contact = cl.getContact(op.param2)
-            image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
-            cl.sendImageWithURL(op.param1,image)
-            cl.sendText(op.param1,"Halo " + cl.getContact(op.param2).displayName  + "\nJones" +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
-            print "MEMBER JOIN TO GROUP"
-	
+            elif wait["Protectjoin"] == True:
+               if op.param2 not in Bots + admin + staff + creator:
+	             G = cl.getGroup(op.param1)
+                     G.preventJoinByTicket = False
+		     cl.updateGroup(G)
+                     Ticket = cl.reissueGroupTicket(op.param1)
+                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                     km.kickoutFromGroup(op.param1,[op.param2])
+                     km.leaveGroup(op.param1)
+                     G.preventJoinByTicket = True		
+                     cl.updateGroup(G)		
 
         #------Cancel Invite User start------#
         if op.type == 13:
