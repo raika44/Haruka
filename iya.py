@@ -1230,75 +1230,7 @@ def bot(op):
           		    f=codecs.open('st2__b.json','w','utf-8')
            		    json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 		else:
-		    pass		
-
-        if op.type == 19:
-                if not op.param2 in Bots + admin + staff + creator:
-                    try:
-                        gs = ki.getGroup(op.param1)
-                        gs = kk.getGroup(op.param1)
-                        gs = ka.getGroup(op.param1)
-                        gs = ke.getGroup(op.param1)
-                        gs = cl.getGroup(op.param1)
-                        targets = [op.param2]
-                        for target in targets:
-                           try:
-                                wait["blacklist"][target] = True
-                                f=codecs.open('st2__b.json','w','utf-8')
-                                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                           except:
-                            pass
-                                
-                    except Exception, e:
-                        print e
-                if not op.param2 in Bots + admin + staff + creator:
-                  if wait["Backup"] == True:
-                    try:
-                        cl.inviteIntoGroup(op.param1, [op.param3])
-                    except Exception, e:
-                        print e
-                if not op.param2 in Bots + admin + staff + creator:
-                  if wait["protectionOn"] == True:  
-                   try:
-                       klist=[ki,kk,ka,ke,cl]
-                       kicker = random.choice(klist)
-                       G = kicker.getGroup(op.param1)
-                       G.preventJoinByTicket = False
-                       kicker.updateGroup(G)
-                       Ticket = kicker.reissueGroupTicket(op.param1)
-                       km.acceptGroupInvitationByTicket(op.param1,Ticket)
-                       time.sleep(0.0002)
-                       X = kicker.getGroup(op.param1)             
-                       X.preventJoinByTicket = True
-                       kicker.updateGroup(X)			
-                       km.kickoutFromGroup(op.param1,[op.param2])
-                       kicker.kickoutFromGroup(op.param1,[op.param2])
-                       km.leaveGroup(op.param1)			
-                   except Exception, e:
-                            print e
-                if not op.param2 in Bots + admin + staff + creator:
-                    try:
-                        gs = ki.getGroup(op.param1)
-                        gs = kk.getGroup(op.param1)
-                        targets = [op.param2]
-                        for target in targets:
-                           try:
-                                wait["blacklist"][target] = True
-                                f=codecs.open('st2__b.json','w','utf-8')
-                                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                           except:
-                            pass
-                                
-                    except Exception, e:
-                        print e
-                if not op.param2 in Bots + admin + staff + creator:
-                  if wait["Backup"] == True:
-                    try:
-                        random.choice(KAC).inviteIntoGroup(op.param1, [op.param3])
-                        random.choice(DEF).inviteIntoGroup(op.param1, [op.param3])
-                    except Exception, e:
-                        print e	
-	
+		    pass			
         if op.type == 19: #Member Ke Kick
          if wait["AutoKick"] == True:
           if op.param2 in Bots:
