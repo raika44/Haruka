@@ -864,22 +864,7 @@ def bot(op):
                           km.leaveGroup(op.param1)
                           G.preventJoinByTicket = True
                           cl.updateGroup(G)
-                          wait["blacklist"][op.param2] = True
-            if wait["Protectjoin"] == True:
-               if op.param2 not in Bots + admin + staff + creator:
-	             G = cl.getGroup(op.param1)
-                     G.preventJoinByTicket = False
-		     cl.updateGroup(G)
-                     Ticket = cl.reissueGroupTicket(op.param1)
-                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
-                     km.kickoutFromGroup(op.param1,[op.param2])
-                     km.leaveGroup(op.param1)
-                     G.preventJoinByTicket = True		
-                     cl.updateGroup(G)	
-
-			
-
-		
+                          wait["blacklist"][op.param2] = True				
 	
         if op.type == 15:
           if wait["welcomemsg"] == True:
