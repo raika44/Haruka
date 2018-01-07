@@ -3314,7 +3314,7 @@ def bot(op):
 			
  #=======================================================
             elif "Kickall" == msg.text:
-		    if msg.from_ in Creator:
+		    if msg.from_ in creator:
                      if msg.toType == 2:
                         print "Kick all member"
                         _name = msg.text.replace("Kickall","")
