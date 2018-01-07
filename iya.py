@@ -5868,8 +5868,9 @@ def bot(op):
 #-----------------------------------------------
             elif msg.text in ["Creator"]:
 					msg.contentType = 13
-					msg.contentMetadata = {'mid': "u1fa69c99e0aa30b9977be7639fb76cd2"}
+					msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784"}
 					cl.sendMessage(msg)
+		                        kk.sendText(msg.to,"Itu creator saya!")			
 #-----------------------------------------------
 					
        #-------------Fungsi Respon Start---------------------#
