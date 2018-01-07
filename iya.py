@@ -15,31 +15,31 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.loginResult()
 
 satpam = LINETCR.LINE() # Koplaxs # Login Pake Akun Utama Kalian(Gunanya Supaya Akun Utama Ke Kick bisa Terima Undangan dari Bot Otomatis)
-satpam.login(token="EohxzXJDUolUDzi78bC4.QXYHCXzQnIXP72luipN3Ha.j0/jpJ1mcB0Eo2oASYoOKwQkbOxe0AocjJ105fsTXeM=")
+satpam.login(token="Eotm0D45wbG9CIl12R04.QXYHCXzQnIXP72luipN3Ha.Ix/dfEEuIu6wqvx2jCaamzacDpsYga0gNeNpXA/Pq9w=")
 satpam.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EoiTVFUecps8ki5rzgo5.NuOKUlcmrchxMMvHVN9o9q.WI+neHXA40RWtvh56Az5Q0sX5a46FiarEnwFsD7eYKw=")
+cl.login(token="EoJaM16KrCfsb2Lc4w85.NuOKUlcmrchxMMvHVN9o9q.PP8qfjfFXUYgFmf7H9paz5gJ+OqDSIS4llchupsvB68=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EoNuhFvtadWCkZfgqi4f.vVPISdEKRjCwFNpzI3k+RW.x0awhvsVvLFZsq6MmNCe2PmqovXr4F7dHEYBplR6+TE=")
+ki.login(token="EogwtQpI4hVy3PVeqj1f.vVPISdEKRjCwFNpzI3k+RW.lpOeW9vgEuX9nOrxBL+FsTeOi9VzlE0u3cE+F4InDgE=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="Eo4YQ0fMiePquS4YIqha.nKWTtdkTR1t0s6tTguGLAG.VMFIMLf93yzOteu7i03VUP+A5PTQqdU8k6opN5hKisc==")
+kk.login(token="EoNlg0aH7DbEV1RYrOs2.h6ACMEcQmlMxE/DJN7DS0G.ZKPo04IH91M+CwipXV/xPsuF3M1juGNsm64WkVBBH4g=")
 kk.loginResult()
 
 ke = LINETCR.LINE()
-ke.login(token="EomYR4rgpeSL7rrmMAJf.ySK6/7lzzXJWVTkhLlNW+W.aT0/WtGYjskhWCBFY9xScC51qgVHRFqmCpr7lnFTCJg=")
+ke.login(token="EoYNY5u4hTPzpPc7asC2.h6ACMEcQmlMxE/DJN7DS0G./YeN6C4vUNJBvsn0mtzc0sMbGN3AwejHIdv98++e1XQ=")
 ke.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="EoaEbnWAtpldcGFGsZl2.h6ACMEcQmlMxE/DJN7DS0G.v8t8NNGcRcalsnz+ruurHTILwkhAJWSMiQttJeVgYc0==")
+ka.login(token="EoH9zIwhoIDhkdAJqaFf.ySK6/7lzzXJWVTkhLlNW+W.nM345spB4+Y5J0p/9q8Geqmp3ohMC/k2hUIftg+fW+w=")
 ka.loginResult()
 
 km = LINETCR.LINE()
-km.login(token="Eo2e4KLT9HhVEtty7rkc.eoXp0xK1vqkdnL9Q78yCpa.vfS0teSI0FGxkBxKol8sX2Jsc5+0OEANfo2dkHbSo+0=")
+km.login(token="EoWg0FU0fEVqmDUeZBbc.eoXp0xK1vqkdnL9Q78yCpa.knLDF1l3k9Wsdd/KbF26TmM6+okkW3uevIWAooipMSg=")
 km.loginResult()
 
 
