@@ -434,7 +434,7 @@ wait = {
     "autorein":True,
     "Protectjoin":False,
     "Protectcancl":False,
-    "Backup":False,
+    "Backup":True,
     "protectionOn":True,
     "atjointicket":True,
     "Pap":"https://i.imgflip.com/1bqcxs.jpg",
@@ -1263,17 +1263,8 @@ def bot(op):
                        klist=[ki,kk,cl,ke,ka]
                        kicker = random.choice(klist)
                        G = kicker.getGroup(op.param1)
-                       G.preventJoinByTicket = False
-                       kicker.updateGroup(G)
-                       Ticket = kicker.reissueGroupTicket(op.param1)
-                       km.acceptGroupInvitationByTicket(op.param1,Ticket)
-                       time.sleep(0.0002)
-                       X = kicker.getGroup(op.param1)             
-                       X.preventJoinByTicket = True
-                       km.kickoutFromGroup(op.param1,[op.param2])
                        kicker.kickoutFromGroup(op.param1,[op.param2])
-                       km.leaveGroup(op.param1)
-                       cl.updateGroup(X)
+                       kicker.kickoutFromGroup(op.param1,[op.param2])			
                    except Exception, e:
                             print e
                 if not op.param2 in Bots + admin + staff + creator:
