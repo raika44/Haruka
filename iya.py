@@ -865,11 +865,47 @@ def bot(op):
                           G.preventJoinByTicket = True
                           cl.updateGroup(G)
                           wait["blacklist"][op.param2] = True
-
+			
+        if op.type == 17:
+            if op.param2 not in Bots:
+                if op.param2 in Bots:
+                    pass
+                if op.param2 in admin:
+                    pass
+                if op.param2 in staff:
+                    pass
+            if wait["kickblack"] == True:
+               if wait["blacklist"][op.param2] == True:
+                    try:
+                        random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+			cl.sendText(op.param1,"Blacklist gk pantes disini")
+                        G = cl.getGroup(op.param1)
+                        G.preventJoinByTicket = True
+                        cl.updateGroup(G)
+                    except:
+                        try:
+                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+			    cl.sendText(op.param1,"Blacklist gk pantes disini")
+                            G = random.choice(KAC).getGroup(op.param1)
+                            G.preventJoinByTicket = True
+                            cl.updateGroup(G)
+                        except:
+                            pass
+            elif wait["Protectjoin"] == True:
+               if op.param2 not in Bots + admin + staff + creator:
+	             G = cl.getGroup(op.param1)
+                     G.preventJoinByTicket = False
+		     cl.updateGroup(G)
+                     Ticket = cl.reissueGroupTicket(op.param1)
+                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                     km.kickoutFromGroup(op.param1,[op.param2])
+                     km.leaveGroup(op.param1)
+                     G.preventJoinByTicket = True		
+                     cl.updateGroup(G)	
 	
         if op.type == 15:
           if wait["welcomemsg"] == True:
-            if op.param2 in admin:
+            if op.param2 in creator:
                 return	  
             elif op.param2 in Bots:
                 return	   	
@@ -881,7 +917,9 @@ def bot(op):
             if op.param2 in admin:
                 return
             elif op.param2 in Bots:
-                return	    
+                return	
+   	    elif op.param2 in wait["blacklist"]:
+                return				
             ginfo = cl.getGroup(op.param1)
             contact = cl.getContact(op.param2)
             image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
@@ -914,42 +952,34 @@ def bot(op):
         if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
-            	if wait["winvite"] == True:
-                     if msg.from_ in admin:
-                         _name = msg.contentMetadata["displayName"]
-                         invite = msg.contentMetadata["mid"]
-                         groups = cl.getGroup(msg.to)
-                         pending = groups.invitee
-                         targets = []
-                         for s in groups.members:
-                             if _name in s.displayName:
-                                 cl.sendText(msg.to,"-> " + _name + " was here")
-                                 break
-                             elif invite in wait["blacklist"]:
-                                 cl.sendText(msg.to,"Sorry, " + _name + " On Blacklist")
-                                 cl.sendText(msg.to,"Call my owner to use command !, \n➡Unban: " + invite)
-                                 break                             
-                             else:
-                                 targets.append(invite)
-                         if targets == []:
-                             pass
+                if wait['winvite'] == True:
+                     _name = msg.contentMetadata["displayName"]
+                     invite = msg.contentMetadata["mid"]
+                     groups = random.choice(KAC).getGroup(msg.to)
+                     pending = groups.invitee
+                     targets = []
+                     for s in groups.members:
+                         if _name in s.displayName:
+                             ra.sendText(msg.to, _name + " Berada DiGrup Ini")
+                         elif invite in wait["blacklist"]:
+                           random.choice(KAC).sendText(msg.to,"Maaf, " + _name + " kena Blacklist")
+                           random.choice(KAC).sendText(msg.to,"hubungi owner kami ya !, \n➡Unban: " + invite)			  
                          else:
-                             for target in targets:
-                                 try:
-                                     cl.findAndAddContactsByMid(target)
-                                     cl.inviteIntoGroup(msg.to,[target])
-                                     cl.sendText(msg.to,"Done Invite : \n➡" + _name)
-                                     wait["winvite"] = False
-                                     break
-                                 except:
-                                     try:
-                                         ki.findAndAddContactsByMid(invite)
-                                         ki.inviteIntoGroup(op.param1,[invite])
-                                         wait["winvite"] = False
-                                     except:
-                                         cl.sendText(msg.to,"Negative, Error detected")
-                                         wait["winvite"] = False
-                                         break
+                             targets.append(invite)
+                     if targets == []:
+                         pass
+                     else:
+                         for target in targets:
+                             try:
+                                 random.choice(KAC).findAndAddContactsByMid(target)
+                                 random.choice(KAC).inviteIntoGroup(msg.to,[target])
+                                 random.choice(KAC).sendText(msg.to,"Invite " + _name)
+                                 wait['winvite'] = False
+                                 break                              
+                             except:             
+                                      random.choice(KAC).sendText(msg.to,"Error")
+                                      wait['winvite'] = False
+                                      break
             if wait['alwayRead'] == True:
                 if msg.toType == 0:
                     cl.sendChatChecked(msg.from_,msg.id)
@@ -1055,25 +1085,6 @@ def bot(op):
                     pass
                 else:
                     cl.cancelGroupInvitation(op.param1, matched_list)
-        if op.type == 17:
-            if op.param2 not in Bots:
-                if op.param2 in Bots:
-                    pass
-                if op.param2 in admin:
-                    pass
-                if op.param2 in staff:
-                    pass
-            if wait["Protectjoin"] == True:
-               if op.param2 not in Bots + admin + staff + creator:
-	             G = cl.getGroup(op.param1)
-                     G.preventJoinByTicket = False
-		     cl.updateGroup(G)
-                     Ticket = cl.reissueGroupTicket(op.param1)
-                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
-                     km.kickoutFromGroup(op.param1,[op.param2])
-                     km.leaveGroup(op.param1)
-                     G.preventJoinByTicket = True		
-                     cl.updateGroup(G)			
 		
         if op.type == 17:
             if op.param2 not in Bots:
@@ -6087,14 +6098,14 @@ def bot(op):
 
       #-------------Fungsi Banned Send Contact Start------------------#
             elif msg.text in ["Ban"]:
-	      if msg.from_ in admin:
-               if msg.from_ in creator:	
+              if msg.from_ in admin + creator:		
                 wait["wblacklist"] = True	
                 cl.sendText(msg.to,"send contact")
                 ki.sendText(msg.to,"send contact")
                 kk.sendText(msg.to,"send contact")
                 kc.sendText(msg.to,"send contact")
             elif msg.text in ["Unban"]:
+              if msg.from_ in admin + creator:			
                 wait["dblacklist"] = True
                 cl.sendText(msg.to,"send contact")
                 ki.sendText(msg.to,"send contact")
