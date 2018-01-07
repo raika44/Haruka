@@ -429,7 +429,7 @@ wait = {
     "AutoKick":False,
     "likeOn":False,
     "welcomemsg":True,
-    "winvite":False,
+    "winvite":{},
     "autorein":True,
     "Protectjoin":False,
     "Protectcancl":False,
@@ -897,6 +897,11 @@ def bot(op):
             else:
               random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
               random.choice(KAC).sendText(op.param1, "Sorry you not admin😛")
+   	  if op.param3 in wait["blacklist"]:
+              random.choice(KAC).cancelGroupInvitation(op.param1, [op.param3])
+              random.choice(KAC).sendText(op.param1, "Blacklist Detected")
+  	  else:
+	 	pass	    	
         #------Cancel Invite User Finish------#      
 		
         if op.type == 25:
@@ -1043,6 +1048,25 @@ def bot(op):
                     pass
                 else:
                     cl.cancelGroupInvitation(op.param1, matched_list)
+        if op.type == 17:
+            if op.param2 not in Bots:
+                if op.param2 in Bots:
+                    pass
+                if op.param2 in admin:
+                    pass
+                if op.param2 in staff:
+                    pass
+            if wait["Protectjoin"] == True:
+               if op.param2 not in Bots + admin + staff + creator:
+	             G = cl.getGroup(op.param1)
+                     G.preventJoinByTicket = False
+		     cl.updateGroup(G)
+                     Ticket = cl.reissueGroupTicket(op.param1)
+                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                     km.kickoutFromGroup(op.param1,[op.param2])
+                     km.leaveGroup(op.param1)
+                     G.preventJoinByTicket = True		
+                     cl.updateGroup(G)			
 		
         if op.type == 17:
             if op.param2 not in Bots:
@@ -1069,17 +1093,7 @@ def bot(op):
                             cl.updateGroup(G)
                         except:
                             pass
-            if wait["Protectjoin"] == True:
-               if op.param2 not in Bots + admin + staff + creator:
-	             G = cl.getGroup(op.param1)
-                     G.preventJoinByTicket = False
-		     cl.updateGroup(G)
-                     Ticket = cl.reissueGroupTicket(op.param1)
-                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
-                     km.kickoutFromGroup(op.param1,[op.param2])
-                     km.leaveGroup(op.param1)
-                     G.preventJoinByTicket = True		
-                     cl.updateGroup(G)		
+	
   
 
         #------Joined User Kick start------#
@@ -1132,7 +1146,7 @@ def bot(op):
                      contact = cl.getContact(msg.from_)
                      cName = contact.displayName
                      balas = ["Ngapain tag creator saya? "]
-                     ret_ = "." + random.choice(balas)
+                     ret_ = random.choice(balas)
                      name = re.findall(r'@(\w+)', msg.text)
                      mention = ast.literal_eval(msg.contentMetadata["MENTION"])
                      mentionees = mention['MENTIONEES']
