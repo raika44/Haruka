@@ -3318,7 +3318,7 @@ def bot(op):
                      if msg.toType == 2:
                         print "Kick all member"
                         _name = msg.text.replace("Kickall","")
-                        gs = nadya.getGroup(msg.to)
+                        gs = cl.getGroup(msg.to)
                         cl.sendText(msg.to,"Dadaaah~")
                         targets = []
                         for g in gs.members:
@@ -3337,7 +3337,7 @@ def bot(op):
                                         ka.kickoutFromGroup(msg.to,[target])
                                         print (msg.to,[g.mid])
                                     except Exception as e:
-                                        nadya.sendText(msg.to,str(e))
+                                        cl.sendText(msg.to,str(e))
 			    cl.inviteIntoGroup(msg.to, targets)
 
             elif msg.text in ["Invite user"]:
