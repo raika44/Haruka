@@ -3313,6 +3313,32 @@ def bot(op):
 			
 			
  #=======================================================
+            elif "Kickall" == msg.text:
+		    if msg.from_ in Creator:
+                     if msg.toType == 2:
+                        print "Kick all member"
+                        _name = msg.text.replace("Kickall","")
+                        gs = nadya.getGroup(msg.to)
+                        cl.sendText(msg.to,"Dadaaah~")
+                        targets = []
+                        for g in gs.members:
+                            if _name in g.displayName:
+                                targets.append(g.mid)
+                        if targets == []:
+                            cl.sendText(msg.to,"Not found.")
+                        else:
+                            for target in targets:
+				if target not in creator:
+                                    try:
+                                        cl.kickoutFromGroup(msg.to,[target])
+                                        ki.kickoutFromGroup(msg.to,[target])
+                                        kk.kickoutFromGroup(msg.to,[target])
+                                        ke.kickoutFromGroup(msg.to,[target])
+                                        ka.kickoutFromGroup(msg.to,[target])
+                                        print (msg.to,[g.mid])
+                                    except Exception as e:
+                                        nadya.sendText(msg.to,str(e))
+			    cl.inviteIntoGroup(msg.to, targets)
 
             elif msg.text in ["Invite user"]:
               if msg.from_ in admin + staff + creator:	
@@ -5414,15 +5440,41 @@ def bot(op):
                         for target in targets:
                           if target not in Bots:
                             try:
-                                klist=[ki,kk,kc,ks,ka]
+                                klist=[ki,kk,cl,ke,ka]
                                 kicker=random.choice(klist)
                                 kicker.kickoutFromGroup(msg.to,[target])
                                 print (msg.to,[g.mid])
                             except:
-                                ki.sendText(msg.to,"Group cleanse")
-                                kk.sendText(msg.to,"Group cleanse")
-                                kc.sendText(msg.to,"Group cleanse")
+				 pass
 
+            elif "Cleanse" in msg.text:
+	      if msg.from_ in creator:
+                if msg.toType == 2:
+                    print "ok cleanse"
+                    _name = msg.text.replace("Cleanse","")
+                    gs = ki.getGroup(msg.to)
+                    gs = kk.getGroup(msg.to)
+                    gs = kc.getGroup(msg.to)
+                    cl.sendText(msg.to,"Just some casual cleansing ")
+                    targets = []
+                    for g in gs.members:
+                        if _name in g.displayName:
+                            targets.append(g.mid)
+                    if targets == []:
+                        ki.sendText(msg.to,"you are not admin")
+                    else:
+                        for target in targets:
+                          if not target in Bots:
+                            if not target in admin:
+                              if not target in owner:
+                                if not target in creator:
+                                    try:
+                                     klist=[ki,kk,ka,cl,ke]
+                                     kicker=random.choice(klist)
+                                     kicker.kickoutFromGroup(msg.to,[target])
+                                     print (msg.to,[g.mid])
+                                    except:
+                                     cl.sendText(msg.to,"Group cleanse")
         #----------------Fungsi Kick User Target Start----------------------#
             elif "Nk " in msg.text:
               if msg.from_ in admin + creator:	
