@@ -435,7 +435,7 @@ wait = {
     "Protectjoin":False,
     "Protectcancl":False,
     "Backup":True,
-    "protectionOn":True,
+    "protectionOn":False,
     "atjointicket":True,
     "Pap":"https://i.imgflip.com/1bqcxs.jpg",
     "SetKey":".",
@@ -1260,11 +1260,20 @@ def bot(op):
                 if not op.param2 in Bots + admin + staff + creator:
                   if wait["protectionOn"] == True:  
                    try:
-                       klist=[ki,kk,cl,ke,ka]
+                       klist=[ki,kk,ka,ke,cl]
                        kicker = random.choice(klist)
                        G = kicker.getGroup(op.param1)
+                       G.preventJoinByTicket = False
+                       kicker.updateGroup(G)
+                       Ticket = kicker.reissueGroupTicket(op.param1)
+                       km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                       time.sleep(0.0002)
+                       X = kicker.getGroup(op.param1)             
+                       X.preventJoinByTicket = True
+                       kicker.updateGroup(X)			
+                       km.kickoutFromGroup(op.param1,[op.param2])
                        kicker.kickoutFromGroup(op.param1,[op.param2])
-                       kicker.kickoutFromGroup(op.param1,[op.param2])			
+                       km.leaveGroup(op.param1)			
                    except Exception, e:
                             print e
                 if not op.param2 in Bots + admin + staff + creator:
