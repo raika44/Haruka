@@ -3971,6 +3971,52 @@ def bot(op):
                         cl.sendText(msg.to,"Can not be used outside the group")
                     else:
                         cl.sendText(msg.to,"Not for use less than group")
+			
+            elif "Summon","Crot","Crit","Sayang tag" == msg.text.lower():
+                if msg.from_ in admin:
+                    group = cl.getGroup(msg.to)
+                    nama = [contact.mid for contact in group.members]
+                    nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
+                    if jml <= 100:
+                        summon(msg.to, nama)
+                    if jml > 100 and jml < 200:
+                        for i in range(0, 99):
+                            nm1 += [nama[i]]
+                        summon(msg.to, nm1)
+                        for j in range(100, len(nama)-1):
+                            nm2 += [nama[j]]
+                        summon(msg.to, nm2)
+                    if jml > 200  and jml < 700:
+                        for i in range(0, 99):
+                            nm1 += [nama[i]]
+                        summon(msg.to, nm1)
+                        for j in range(100, 199):
+                            nm2 += [nama[j]]
+                        summon(msg.to, nm2)
+                        for k in range(200, 299):
+                            nm3 += [nama[k]]
+                        summon(msg.to, nm3)
+                        for l in range(300, 399):
+                            nm4 += [nama[l]]
+                        summon(msg.to, nm4)
+                        for l in range(400, 499):
+                            nm4 += [nama[l]]
+                        summon(msg.to, nm4)
+                        for l in range(500, 599):
+                            nm4 += [nama[l]]
+                        summon(msg.to, nm4)
+                        for l in range(600, 699):
+                            nm4 += [nama[l]]
+                        summon(msg.to, nm4)			
+                        for m in range(700, len(nama)-1):
+                            nm5 += [nama[m]]
+                        summon(msg.to, nm5)
+                    if jml > 700:
+                         print "Terlalu Banyak Men 700+"
+                    cnt = Message()
+                    cnt.text = "Jumlah:\n" + str(jml) +  " Members"
+                    cnt.to = msg.to
+                    cl.sendMessage(cnt)			
 #================================================================================
             elif 'clear invites' in msg.text.lower():
               if msg.from_ in admin + staff + creator:
