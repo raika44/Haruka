@@ -3972,7 +3972,7 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"Not for use less than group")
 			
-            elif msg.text in ["Sumon","Crit","Crot","Sayang tag"]:
+            elif msg.text in ["Summon","kuchiyose","kuchiyose no jutsu","Crit","Crot","Sayang tag"]:
                     group = cl.getGroup(msg.to)
                     nama = [contact.mid for contact in group.members]
                     nm1, nm2, nm3, nm4, nm5, jml = [], [], [], [], [], len(nama)
