@@ -821,6 +821,9 @@ def bot(op):
                km.kickoutFromGroup(op.param1,[op.param2])
                km.leaveGroup(op.param1)
                random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
+               wait["blacklist"][op.param2] = True
+               f=codecs.open('st2__b.json','w','utf-8')
+               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)	
         #------Protect Group Kick finish-----#    
 
         #------Protect Group Kick finish-----#
@@ -867,7 +870,9 @@ def bot(op):
         if op.type == 15:
           if wait["welcomemsg"] == True:
             if op.param2 in admin:
-                return	     
+                return	  
+            elif op.param2 in Bots:
+                return	   	
             cl.sendText(op.param1,"Good Bye " + cl.getContact(op.param2).displayName +  "\nSee You Next Time . . . (p′︵‵。) 🤗")
             print "MEMBER HAS LEFT THE GROUP"	
 		
@@ -875,6 +880,8 @@ def bot(op):
           if wait["welcomemsg"] == True:
             if op.param2 in admin:
                 return
+            elif op.param2 in Bots:
+                return	    
             ginfo = cl.getGroup(op.param1)
             contact = cl.getContact(op.param2)
             image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
@@ -1076,7 +1083,7 @@ def bot(op):
                     pass
                 if op.param2 in staff:
                     pass
-             if wait["kickblack"] == True:
+            if wait["kickblack"] == True:
                if wait["blacklist"][op.param2] == True:
                     try:
                         random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
@@ -1093,7 +1100,7 @@ def bot(op):
                             cl.updateGroup(G)
                         except:
                             pass
-            if wait["Protectjoin"] == True:
+            elif wait["Protectjoin"] == True:
                if op.param2 not in Bots + admin + staff + creator:
 	             G = cl.getGroup(op.param1)
                      G.preventJoinByTicket = False
