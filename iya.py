@@ -905,21 +905,15 @@ def bot(op):
 	
         if op.type == 15:
           if wait["welcomemsg"] == True:
-            if op.param2 in creator:
-                return	  
-            elif op.param2 in Bots:
-                return	   	
+            if op.param2 in Bots:
+                return	     	
             cl.sendText(op.param1,"Good Bye " + cl.getContact(op.param2).displayName +  "\nSee You Next Time . . . (p′︵‵。) 🤗")
             print "MEMBER HAS LEFT THE GROUP"	
 		
         if op.type == 17:
           if wait["welcomemsg"] == True:
-            if op.param2 in admin:
-                return
-            elif op.param2 in Bots:
-                return	
-   	    elif op.param2 in wait["blacklist"]:
-                return				
+            if op.param2 in Bots:
+                return			
             ginfo = cl.getGroup(op.param1)
             contact = cl.getContact(op.param2)
             image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
@@ -1085,7 +1079,21 @@ def bot(op):
                     pass
                 else:
                     cl.cancelGroupInvitation(op.param1, matched_list)
-		
+        if op.type == 17:		
+            if wait["Protectjoin"] == True:
+               if op.param2 not in Bots + admin + staff + creator:
+	             G = cl.getGroup(op.param1)
+                     G.preventJoinByTicket = False
+		     cl.updateGroup(G)
+                     Ticket = cl.reissueGroupTicket(op.param1)
+                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
+                     km.kickoutFromGroup(op.param1,[op.param2])
+                     km.leaveGroup(op.param1)
+                     G.preventJoinByTicket = True		
+                     cl.updateGroup(G)				
+	    else:
+		pass
+	
         if op.type == 17:
             if op.param2 not in Bots:
                 if op.param2 in Bots:
@@ -1110,18 +1118,7 @@ def bot(op):
                             G.preventJoinByTicket = True
                             cl.updateGroup(G)
                         except:
-                            pass
-            elif wait["Protectjoin"] == True:
-               if op.param2 not in Bots + admin + staff + creator:
-	             G = cl.getGroup(op.param1)
-                     G.preventJoinByTicket = False
-		     cl.updateGroup(G)
-                     Ticket = cl.reissueGroupTicket(op.param1)
-                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
-                     km.kickoutFromGroup(op.param1,[op.param2])
-                     km.leaveGroup(op.param1)
-                     G.preventJoinByTicket = True		
-                     cl.updateGroup(G)				
+                            pass			
 	
   
 
