@@ -946,8 +946,20 @@ def bot(op):
             if wait['alwayRead'] == True:
                 if msg.toType == 0:
                     cl.sendChatChecked(msg.from_,msg.id)
+                    kk.sendChatChecked(msg.from_,msg.id)
+                    ke.sendChatChecked(msg.from_,msg.id)
+                    ka.sendChatChecked(msg.from_,msg.id)
+                    ki.sendChatChecked(msg.from_,msg.id)
+                    km.sendChatChecked(msg.from_,msg.id)
+                    kc.sendChatChecked(msg.from_,msg.id)			
                 else:
                     cl.sendChatChecked(msg.to,msg.id)
+                    ka.sendChatChecked(msg.to,msg.id)
+                    ke.sendChatChecked(msg.to,msg.id)
+                    kk.sendChatChecked(msg.to,msg.id)	
+                    ki.sendChatChecked(msg.to,msg.id)
+                    km.sendChatChecked(msg.to,msg.id)
+                    kc.sendChatChecked(msg.to,msg.id)			
 #------------------
 #--------------NOTIFIED_INVITE_INTO_GROUP----------------
         if op.type == 13:
