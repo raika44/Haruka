@@ -15,31 +15,35 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.loginResult()
 
 satpam = LINETCR.LINE() # Koplaxs # Login Pake Akun Utama Kalian(Gunanya Supaya Akun Utama Ke Kick bisa Terima Undangan dari Bot Otomatis)
-satpam.login(token="Eotm0D45wbG9CIl12R04.QXYHCXzQnIXP72luipN3Ha.Ix/dfEEuIu6wqvx2jCaamzacDpsYga0gNeNpXA/Pq9w=")
+satpam.login(token="EotT71h6t7eCcjroQwe4.QXYHCXzQnIXP72luipN3Ha.LIkERl7Lw5jz1gDCU7jY+ptrfAHe2xF85CZ+Ak6jnRI=")
 satpam.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EoJaM16KrCfsb2Lc4w85.NuOKUlcmrchxMMvHVN9o9q.PP8qfjfFXUYgFmf7H9paz5gJ+OqDSIS4llchupsvB68=")
+cl.login(token="EoRATfTDyTrjuoZaWE25.NuOKUlcmrchxMMvHVN9o9q.N1crM2jfMMlsPEcUlZgw6SkTfHGhazqviMe7dV9Jfss=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EogwtQpI4hVy3PVeqj1f.vVPISdEKRjCwFNpzI3k+RW.lpOeW9vgEuX9nOrxBL+FsTeOi9VzlE0u3cE+F4InDgE=")
+ki.login(token="Eo6GbnYSattfCV9mGztf.vVPISdEKRjCwFNpzI3k+RW.CxresV4qLH0GkjhZf9x5IJJBIhG9T5LT3kP27SRhTrM=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="EoscPQG5jaYOOEZKuEI2.h6ACMEcQmlMxE/DJN7DS0G.CJgx9dlquUs9PqCTH3qtPJDw3P7aoMrgamL8yhbooL4=")
+kk.login(token="EoD6Vw2sJn1AwiMzejP2.h6ACMEcQmlMxE/DJN7DS0G.Ntxb559PdrXKUhy6gSzDVgM9X6IFf1EiF22RG3gTCPM=")
 kk.loginResult()
 
 ke = LINETCR.LINE()
-ke.login(token="EoMgDoF2wYhO8YZGEl8a.nKWTtdkTR1t0s6tTguGLAG.DNDPL+G0eT79Rzcjy5QDhHFpT8g2ewIe3Tkmbp/bnUQ=")
+ke.login(token="EoMWnCQlimyflqOIpI4a.nKWTtdkTR1t0s6tTguGLAG.K/WbVSnyuvM+/R6uI8UmquGh/8NH+YJX3QxsblYHmbE=")
 ke.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="EoH9zIwhoIDhkdAJqaFf.ySK6/7lzzXJWVTkhLlNW+W.nM345spB4+Y5J0p/9q8Geqmp3ohMC/k2hUIftg+fW+w=")
+ka.login(token="EoSiY9vAPC0MVOU5g20f.ySK6/7lzzXJWVTkhLlNW+W.qRPWal2kq4OZOVZQ7/2h2RvzzrlFc5iOADY3rixvWA4=")
 ka.loginResult()
 
+kc = LINETCR.LINE()
+kc.login(token="EoQkiR0R6wjMzvwq0TE7.HxjzPXa8Fqfsn35p9smcPW.1s0lKxEcu07belA94jDUQjUQ4e9lkK1iSU7TDuDPijU=")
+kc.loginResult()
+
 km = LINETCR.LINE()
-km.login(token="EoWg0FU0fEVqmDUeZBbc.eoXp0xK1vqkdnL9Q78yCpa.knLDF1l3k9Wsdd/KbF26TmM6+okkW3uevIWAooipMSg=")
+km.login(token="EoElNEqxSFqf7tu5salc.eoXp0xK1vqkdnL9Q78yCpa.TpwIon2UKKlBVbS2Wpnm+M3KFydtD2HWGbl32Z7fZW4=")
 km.loginResult()
 
 
@@ -49,10 +53,11 @@ ko = ki
 
 ku = kk
 
-kc = kb = ke
+kb = ke
 
 ks = ka
 
+kc
 print "login success"
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -294,7 +299,7 @@ helpMessage= """\n
 🔘Turn off bots🔘
 ●▬▬▬▬๑۩Special Thanks۩๑▬▬▬▬▬●
 P̸͟͞O̸͟͞W̸͟͞E̸͟͞R̸͟͞ B̸͟͞Y̸͟͞ T̸͟͞C̸͟͞R̸͟͞
-Edited̸͟͞ by Iyaitu
+Edited̸͟͞ by Touka Kirishima
    ●▬▬▬▬๑۩FuckMyBot۩๑▬▬▬▬▬●
 
 """
@@ -950,8 +955,10 @@ def bot(op):
               if wait["autoJoin"] == True:
                 if op.param2 in Bots or owner:
                   cl.acceptGroupInvitation(op.param1)
+		  cl.sendText(op.param1,"☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")		
                 else:
                   cl.rejectGroupInvitation(op.param1)
+		
 		
             if Amid in op.param3:
               if wait["autoJoin"] == True:
@@ -1200,7 +1207,7 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
 		        else:
-		            random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
+		            kc.inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
@@ -1244,7 +1251,7 @@ def bot(op):
             try:
               wait["blacklist"][op.param2] = True		
 	      random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              ka.inviteIntoGroup(op.param1,[op.param3])
+              kc.inviteIntoGroup(op.param1,[op.param3])
               f=codecs.open('st2__b.json','w','utf-8')
               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:
@@ -2661,7 +2668,8 @@ def bot(op):
                         ki.removeAllMessages(op.param2)
                         kk.removeAllMessages(op.param2)
                         kc.removeAllMessages(op.param2)
-                        kr.removeAllMessages(op.param2)
+                        ka.removeAllMessages(op.param2)
+                        ke.removeAllMessages(op.param2)			
                         print "[Command] Remove Chat"
                         cl.sendText(msg.to,"Done")
                     except Exception as error:
@@ -3360,6 +3368,7 @@ def bot(op):
                                         kk.kickoutFromGroup(msg.to,[target])
                                         ke.kickoutFromGroup(msg.to,[target])
                                         ka.kickoutFromGroup(msg.to,[target])
+                                        kc.kickoutFromGroup(msg.to,[target])					
                                         print (msg.to,[g.mid])
                                     except Exception as e:
                                         cl.sendText(msg.to,str(e))
@@ -3800,7 +3809,7 @@ def bot(op):
               if msg.from_ in admin:
 				gid = cl.getGroupIdsJoined()
 				for i in gid:
-					#cl.leaveGroup(i)
+					kc.leaveGroup(i)
                                         ki.leaveGroup(i)
                                         kk.leaveGroup(i)
                                         ka.leaveGroup(i)
@@ -3900,97 +3909,97 @@ def bot(op):
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(g.mid,"Spammed")
                        ki.sendText(g.mid,"Spammed")
                        kc.sendText(g.mid,"Spammed")
-                       ks.sendText(g.mid,"Spammed")
+                       ke.sendText(g.mid,"Spammed")
                        kk.sendText(g.mid,"Spammed")
                        ka.sendText(g.mid,"Spammed")
                        cl.sendText(msg.to,"Udah di spam tuh kali aja insyaf")
@@ -4066,7 +4075,7 @@ def bot(op):
                     cnt = Message()
                     cnt.text = "Jumlah:\n" + str(jml) +  " Members"
                     cnt.to = msg.to
-                    cl.sendMessage(cnt)			
+                    kc.sendMessage(cnt)			
 #================================================================================
             elif 'clear invites' in msg.text.lower():
               if msg.from_ in admin + staff + creator:
@@ -4322,6 +4331,9 @@ def bot(op):
                         ka.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.2)
 			ka.sendText(msg.to,"ada apa sayang")
+                        kc.acceptGroupInvitationByTicket(msg.to,Ticket)
+                        time.sleep(0.2)
+			kc.sendText(msg.to,"Aku sayang kamu")			
                         G = cl.getGroup(msg.to)
                         G.preventJoinByTicket = True
                         cl.updateGroup(G)
@@ -4724,7 +4736,7 @@ def bot(op):
                 ks.sendMessage(msg)
                 ka.sendMessage(msg)
                 ke.sendMessage(msg)
-                ko.sendMessage(msg)												  
+                kc.sendMessage(msg)												  
 #========================================
             elif "Spam @" in msg.text:
               if msg.from_ in admin + staff + creator:		
@@ -5237,6 +5249,8 @@ def bot(op):
                         ke.leaveGroup(msg.to)
 			ka.sendText(msg.to,"mblaem")
                         ka.leaveGroup(msg.to)
+			kc.sendText(msg.to,"mblaem-mblaem")
+                        kc.leaveGroup(msg.to)			
                     except:
                         pass
             elif msg.text in ["Bye _Second"]:
@@ -5465,7 +5479,7 @@ def bot(op):
                         for target in targets:
                           if target not in Bots:
                             try:
-                                klist=[ki,kk,cl,ke,ka]
+                                klist=[ki,kk,cl,ke,ka,kc]
                                 kicker=random.choice(klist)
                                 kicker.kickoutFromGroup(msg.to,[target])
                                 print (msg.to,[g.mid])
@@ -5494,7 +5508,7 @@ def bot(op):
                               if not target in owner:
                                 if not target in creator:
                                     try:
-                                     klist=[ki,kk,ka,cl,ke]
+                                     klist=[ki,kk,ka,cl,ke,kc]
                                      kicker=random.choice(klist)
                                      kicker.kickoutFromGroup(msg.to,[target])
                                      print (msg.to,[g.mid])
