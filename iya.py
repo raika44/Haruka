@@ -6079,7 +6079,7 @@ def bot(op):
               if wait["media"] == True:
 					songname = msg.text.replace("/musrik ","")
 					params = {"songname": songname}
-					r = requests.get('http://ide.fdlrcn.com/workspace/yumi-apis/joox?' + urllib.urlencode(params))
+					r = requests.get('https://www.youtube.com/watch?v=%s' + urllib.urlencode(params))
 					data = r.text
 					data = json.loads(data)
 					for song in data:
