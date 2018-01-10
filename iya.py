@@ -882,8 +882,6 @@ def bot(op):
         if op.type == 17:
           if wait["welcomemsg"] == True:
             if op.param2 in Bots:
-                return	
-            elif op.param2 in wait["blacklist"]:	
                 return				
             ginfo = cl.getGroup(op.param1)
             contact = cl.getContact(op.param2)
