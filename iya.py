@@ -903,7 +903,7 @@ def bot(op):
             if wait["kickblack"] == True:
                if wait["blacklist"][op.param2] == True:
                     try:
-                        random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+                        cl.kickoutFromGroup(op.param1,[op.param2])
 			cl.sendText(op.param1,"Blacklist gk pantes disini")
                         G = cl.getGroup(op.param1)
                         G.preventJoinByTicket = True
