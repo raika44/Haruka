@@ -30,9 +30,9 @@ kk = LINETCR.LINE()
 kk.login(token="Eo2sLRZaJoanpwTQra02.h6ACMEcQmlMxE/DJN7DS0G.jOE4ohkJpyw9sda45oqMBK+xUIsjmomEqVI6pq3N49o=")
 kk.loginResult()
 
-ke = LINETCR.LINE()
-ke.login(token="EoF4SG7HWdC8VnKAmMYa.nKWTtdkTR1t0s6tTguGLAG.b6hXLoxV9ovXbZDy2GNbsM8PvpfUQsNEOoYNYJ2c7xM=")
-ke.loginResult()
+ks = LINETCR.LINE()
+ks.login(token="EoF4SG7HWdC8VnKAmMYa.nKWTtdkTR1t0s6tTguGLAG.b6hXLoxV9ovXbZDy2GNbsM8PvpfUQsNEOoYNYJ2c7xM=")
+ks.loginResult()
 
 ka = LINETCR.LINE()
 ka.login(token="EooAsM5WFsNR90vGFW7f.ySK6/7lzzXJWVTkhLlNW+W.tQldr3bmB6n+BCD1vpC/EpM/0sOZx7ztlTUG5R4t0Xw=")
