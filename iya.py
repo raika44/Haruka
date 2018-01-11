@@ -1079,7 +1079,7 @@ def bot(op):
                         except:
                             pass
 		
-          if wait["welcomemsg"] == True:
+          elif wait["welcomemsg"] == True:
             if op.param2 in Bots:
                 return				
             ginfo = cl.getGroup(op.param1)
