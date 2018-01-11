@@ -3495,8 +3495,8 @@ def bot(op):
 				ks.sendText(msg.to,(bctxt))
 				ka.sendText(msg.to,(bctxt))
 				
-            elif "idline " in msg.text:
-                id = msg.text.replace("idline ", "")
+            elif "Idline " in msg.text:
+                id = msg.text.replace("Idline ", "")
                 find = cl.findContactsByUserId(id)
                 for findid in find:
                     try:
