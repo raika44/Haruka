@@ -15,35 +15,35 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.loginResult()
 
 satpam = LINETCR.LINE() # Koplaxs # Login Pake Akun Utama Kalian(Gunanya Supaya Akun Utama Ke Kick bisa Terima Undangan dari Bot Otomatis)
-satpam.login(token="EobMOWeCBzOOXczDIx34.QXYHCXzQnIXP72luipN3Ha.7mo4pURd17qQRrjHXbRo1ka/NKHZOL24xaxF+a7kWUY=")
+satpam.login(token="Eowp9ui5izDOdSoyA4L4.QXYHCXzQnIXP72luipN3Ha.ppOrMcQLGqoIYBcZHlP8g+V5PTEksIk9XykEfmk5GzY=")
 satpam.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EoiQgIRSwkzi6HWF2NQ5.NuOKUlcmrchxMMvHVN9o9q.FVMEUoUosd6PNnNgJOdLToEOIOi4wo8CR9BDptHukSo=")
+cl.login(token="EoRfPWOzFZjcqypD94O5.NuOKUlcmrchxMMvHVN9o9q.YBYP80UApzbbkfr9RSFH7S2qOJtOf4pgsZKGW0D+WVw=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EonQHDM8y0J4rxvCEDtf.vVPISdEKRjCwFNpzI3k+RW.d9njxo6TINhEUAYHecxweNtlYBqQYMW6kTIJL4+0AQU=")
+ki.login(token="EowjGXLOK64KbEamIvcf.vVPISdEKRjCwFNpzI3k+RW.HXMP5NvA/jfSLAyaU639xkxykiXMATWtYxTfqiizLYQ=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="Eo2sLRZaJoanpwTQra02.h6ACMEcQmlMxE/DJN7DS0G.jOE4ohkJpyw9sda45oqMBK+xUIsjmomEqVI6pq3N49o=")
+kk.login(token="EopziF4D1s9HBr1baBo2.h6ACMEcQmlMxE/DJN7DS0G.6ru0wK8CXjKBgQ4wZFQsSt48N4sMtysiLxFNsax+pCk=")
 kk.loginResult()
 
 ks = LINETCR.LINE()
-ks.login(token="EoF4SG7HWdC8VnKAmMYa.nKWTtdkTR1t0s6tTguGLAG.b6hXLoxV9ovXbZDy2GNbsM8PvpfUQsNEOoYNYJ2c7xM=")
+ks.login(token="EoRKMra8veiHNg1iQ5Ja.nKWTtdkTR1t0s6tTguGLAG.VH949flaTPDyNHc98+BXyGzkaQB9Li9sscVYrByvGj0=")
 ks.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="EooAsM5WFsNR90vGFW7f.ySK6/7lzzXJWVTkhLlNW+W.tQldr3bmB6n+BCD1vpC/EpM/0sOZx7ztlTUG5R4t0Xw=")
+ka.login(token="EodKgXb0hLIZz5vKk5Of.ySK6/7lzzXJWVTkhLlNW+W.nrzcu9EYEa4hUz2KfLrsCT03ECc33NwgNW5Fc6h78M0=")
 ka.loginResult()
 
 kc = LINETCR.LINE()
-kc.login(token="EoHEQYfSIbyM5WAZC987.HxjzPXa8Fqfsn35p9smcPW.m8gzCKPwDCwSnvcEJM7IJumaoYMrz2LPqr/GFpaTpqw=")
+kc.login(token="EoICMUQnm2OnBznAM7p7.HxjzPXa8Fqfsn35p9smcPW.Uo5Sj4v3hQ76Gxsykl+yqcnWy9+L7W9dKUizFgclUs4=")
 kc.loginResult()
 
 km = LINETCR.LINE()
-km.login(token="EonV5f3a7v3pkeVHjQec.eoXp0xK1vqkdnL9Q78yCpa.ZxKQUYdqRDkrSZpOMIRYue3WbHSmQE9PGX5rtlh01vE=")
+km.login(token="Eo66zH0Fyx4A0ei6n7fc.eoXp0xK1vqkdnL9Q78yCpa.0+A2qsv+Aao4ev6T+BEROLlZ1x0JEk0BNc1COhPUXno=")
 km.loginResult()
 
 
@@ -879,18 +879,6 @@ def bot(op):
             cl.sendText(op.param1,"Good Bye " + cl.getContact(op.param2).displayName +  "\nSee You Next Time . . . (p′︵‵。) 🤗")
             print "MEMBER HAS LEFT THE GROUP"	
 		
-        if op.type == 17:
-          if wait["welcomemsg"] == True:
-            if op.param2 in Bots:
-                return				
-            ginfo = cl.getGroup(op.param1)
-            contact = cl.getContact(op.param2)
-            image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
-            cl.sendImageWithURL(op.param1,image)
-            cl.sendText(op.param1,"Halo " + cl.getContact(op.param2).displayName  + "\nJones" +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
-            print "MEMBER JOIN TO GROUP"
-	
-
         #------Cancel Invite User start------#
         if op.type == 13:
           if wait["Protectcancl"] == True:
@@ -1064,7 +1052,7 @@ def bot(op):
                     cl.cancelGroupInvitation(op.param1, matched_list)			
  
         if op.type == 17:
-            if op.param2 not in Bots:
+          if op.param2 not in Bots:
                 if op.param2 in Bots:
                     pass
                 elif op.param2 in admin:
@@ -1073,7 +1061,7 @@ def bot(op):
                     pass
                 elif op.param2 in creator:
                     pass	
-            if wait["kickblack"] == True:
+          if wait["kickblack"] == True:
                if wait["blacklist"][op.param2] == True:
                     try:
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
@@ -1089,7 +1077,17 @@ def bot(op):
                             G.preventJoinByTicket = True
                             cl.updateGroup(G)
                         except:
-                            pass	
+                            pass
+		
+          if wait["welcomemsg"] == True:
+            if op.param2 in Bots:
+                return				
+            ginfo = cl.getGroup(op.param1)
+            contact = cl.getContact(op.param2)
+            image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
+            cl.sendImageWithURL(op.param1,image)
+            cl.sendText(op.param1,"Halo " + cl.getContact(op.param2).displayName  + "\nJones" +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
+            print "MEMBER JOIN TO GROUP"		
         #------Joined User Kick start------#
 
         #------Joined User Kick start------#
@@ -1208,7 +1206,7 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
 		        else:
-		            kc.inviteIntoGroup(op.param1,[op.param3])
+		            cl.inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
