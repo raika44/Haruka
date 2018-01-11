@@ -1078,8 +1078,8 @@ def bot(op):
                             cl.updateGroup(G)
                         except:
                             pass
-		
-          elif wait["welcomemsg"] == True:
+        if op.type == 17:		
+          if wait["welcomemsg"] == True:
             if op.param2 in Bots:
                 return				
             ginfo = cl.getGroup(op.param1)
