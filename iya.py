@@ -422,7 +422,7 @@ wait = {
     "clock":False,
     "Ghost":False,
     "MENTION":True,
-    "media":True,
+    "media":False,
     "cName":" ",
     "blacklist":{},
     "whitelist":{},
@@ -871,14 +871,24 @@ def bot(op):
                           G.preventJoinByTicket = True
                           cl.updateGroup(G)
                           wait["blacklist"][op.param2] = True				
-	
+        if op.type == 17:		
+          if wait["welcomemsg"] == True:
+            if op.param2 in Bots:
+                return				
+            ginfo = cl.getGroup(op.param1)
+            contact = cl.getContact(op.param2)
+            image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
+            cl.sendImageWithURL(op.param1,image)
+            cl.sendText(op.param1,"Halo " + cl.getContact(op.param2).displayName  + "\nJones" +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
+            print "MEMBER JOIN TO GROUP"			
+			
         if op.type == 15:
           if wait["welcomemsg"] == True:
             if op.param2 in Bots:
                 return	     	
             cl.sendText(op.param1,"Good Bye " + cl.getContact(op.param2).displayName +  "\nSee You Next Time . . . (p′︵‵。) 🤗")
             print "MEMBER HAS LEFT THE GROUP"	
-		
+
         #------Cancel Invite User start------#
         if op.type == 13:
           if wait["Protectcancl"] == True:
@@ -1078,16 +1088,7 @@ def bot(op):
                             cl.updateGroup(G)
                         except:
                             pass
-        if op.type == 17:		
-          if wait["welcomemsg"] == True:
-            if op.param2 in Bots:
-                return				
-            ginfo = cl.getGroup(op.param1)
-            contact = cl.getContact(op.param2)
-            image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
-            cl.sendImageWithURL(op.param1,image)
-            cl.sendText(op.param1,"Halo " + cl.getContact(op.param2).displayName  + "\nJones" +  wait["welmsg"] + str(ginfo.name) + " ☜" + "\nBudayakan Cek Note\nDan Semoga Betah Disini ^_^")
-            print "MEMBER JOIN TO GROUP"		
+		
         #------Joined User Kick start------#
 
         #------Joined User Kick start------#
