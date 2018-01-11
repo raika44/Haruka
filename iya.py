@@ -119,6 +119,7 @@ helpMessage= """\n
 |╬| Pap set:
 |╬| Pap
 |╬| Image      [Text]
+|╬| Idline
 ═╬════════►
    🔐S̸͟͞E̸͟͞C̸͟͞U̸͟͞R̸͟͞Y̸͟͞I̸͟͞T̸͟͞Y̸͟͞🔐
 ═╬════════►
@@ -3494,6 +3495,16 @@ def bot(op):
 				ks.sendText(msg.to,(bctxt))
 				ka.sendText(msg.to,(bctxt))
 				
+            elif "idline " in msg.text:
+                id = msg.text.replace("idline ", "")
+                find = cl.findContactsByUserId(id)
+                for findid in find:
+                    try:
+                        msg.contentType = 13
+                        msg.contentMetadata = {'mid': findid.mid}
+                        cl.sendMessage(msg)
+                    except Exception as error:
+                        print error			
 ##≠========================&=&==&=&=%=%=%=%==%=%=%=%;%;%;;%;;%;%
             elif msg.text in ["Sambutan on","Welcome message:on"]:
               if msg.from_ in admin + staff + creator:
