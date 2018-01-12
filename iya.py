@@ -1196,7 +1196,7 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
 		        else:
-		            cl.inviteIntoGroup(op.param1,[op.param3])
+		            satpam.inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
@@ -1240,7 +1240,7 @@ def bot(op):
             try:
               wait["blacklist"][op.param2] = True		
 	      random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              kc.inviteIntoGroup(op.param1,[op.param3])
+              satpam.inviteIntoGroup(op.param1,[op.param3])
               f=codecs.open('st2__b.json','w','utf-8')
               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:
@@ -3118,7 +3118,7 @@ def bot(op):
                 cl.sendText(msg.to,"Auto creator tag OFF")
             elif "Time" in msg.text:
               if msg.toType == 2:
-                  kr.sendText(msg.to,datetime.today().strftime('%H:%M:%S'))
+                  cl.sendText(msg.to,datetime.today().strftime('%H:%M:%S'))
             elif "Vn-enuk " in msg.text:
               if msg.from_ in admin + staff + creator:
                  psn = msg.text.replace("Vn-enuk ","")
