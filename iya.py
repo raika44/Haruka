@@ -1210,7 +1210,7 @@ def bot(op):
                         if op.param2 in wait["blacklist"]:
                             pass
 		        else:
-		            satpam.inviteIntoGroup(op.param1,[op.param3])
+		            kc.inviteIntoGroup(op.param1,[op.param3])
 		    except:
 		        try:
 			    if op.param2 not in Bots:
@@ -1242,6 +1242,7 @@ def bot(op):
 		else:
 		    pass			
         if op.type == 19: #Member Ke Kick
+         if wait["AutoKick"] == True:
           if op.param2 in Bots:
             pass
           elif op.param2 in admin:
