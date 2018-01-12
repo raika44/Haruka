@@ -1032,7 +1032,21 @@ def bot(op):
                 if op.param2 in Bots or owner:
                   ku.acceptGroupInvitation(op.param1)
                 else:
-                  ku.rejectGroupInvitation(op.param1)      
+                  ku.rejectGroupInvitation(op.param1)   
+		
+            if Jmid in op.param3:
+              if wait["autoJoin"] == True:
+                if op.param2 in Bots or owner:
+                  km.acceptGroupInvitation(op.param1)
+                else:
+                  km.rejectGroupInvitation(op.param1)   
+		
+            if Smid in op.param3:
+              if wait["autoJoin"] == True:
+                if op.param2 in Bots or owner:
+                  satpam.acceptGroupInvitation(op.param1)
+                else:
+                  satpam.rejectGroupInvitation(op.param1)   
 		                                		
         if op.type == 13:
             print op.param1
