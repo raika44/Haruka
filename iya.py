@@ -1320,7 +1320,7 @@ def bot(op):
 		        if op.param2 in Bots + creator + admin + staff:
 			    pass
 		        else:
-		            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+		            cl.kickoutFromGroup(op.param1,[op.param2])
                         if op.param2 in wait["blacklist"]:
                             pass
 		        else:
@@ -1368,7 +1368,7 @@ def bot(op):
           else:
             try:
               wait["blacklist"][op.param2] = True		
-	      random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+	      cl.kickoutFromGroup(op.param1,[op.param2])
               satpam.inviteIntoGroup(op.param1,[op.param3])
               f=codecs.open('st2__b.json','w','utf-8')
               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
