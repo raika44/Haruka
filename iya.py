@@ -65,6 +65,34 @@ sys.setdefaultencoding('utf-8')
 helpMessage= """\n
 ▂▃▅▇█▓▒░۩H̸͟͞e̸͟͞l̸͟͞p̸͟͞ ̸͟͞۩░▒▓█▇▅▃▂
 ═╬════════►∆∆
+   Help
+═╬════════► 
+♦Help edit
+♦Help demoted
+♦Help steal
+♦Help secur
+♦Help ban
+♦Help invite
+♦Help grup
+♦Help media
+♦Help set
+♦Help cancel
+♦Help gift
+♦Help notif
+♦Help kiker
+♦Help spam
+♦Help utility
+♦Help bc
+═╬════════►∆∆
+🔘Turn off bots🔘
+●▬▬▬▬๑۩Special Thanks۩๑▬▬▬▬▬●
+P̸͟͞O̸͟͞W̸͟͞E̸͟͞R̸͟͞ B̸͟͞Y̸͟͞ T̸͟͞C̸͟͞R̸͟͞
+Edited̸͟͞ by Touka Kirishima
+   ●▬▬▬▬๑۩FuckMyBot۩๑▬▬▬▬▬●
+"""
+
+helpMessage= """\n
+═╬════════►∆∆
    E̸͟͞d̸͟͞i̸͟͞t̸͟͞e̸͟͞d̸͟͞.       
 ═╬════════► 
 🔘 My name    :  |╬|
@@ -87,6 +115,10 @@ helpMessage= """\n
 🔘 Bot1-6 backup |╬|
 🔘 Group name:   |╬|
 ═╬════════►∆∆
+"""
+
+demotedMessage= """\n
+═╬════════►∆∆
    🔓D̸͟͞e̸͟͞m̸͟͞o̸͟͞t̸͟͞e̸͟͞d̸͟͞.🔓
 ═╬════════►
 |╬| Admin on @
@@ -96,6 +128,10 @@ helpMessage= """\n
 |╬| Expel creator @
 |╬| Add creator @
 |╬| Expelal
+═╬════════►∆∆
+"""
+
+stealMessage= """\n
 ═╬════════►
    📷S̸͟͞T̸͟͞E̸͟͞A̸͟͞L̸͟͞I̸͟͞N̸͟͞G̸͟͞📷
 ═╬════════►
@@ -119,11 +155,20 @@ helpMessage= """\n
 |╬| Pap
 |╬| Image      [Text]
 |╬| Idline
+═╬════════►∆∆
+"""
+
+securMessage= """\n
 ═╬════════►
    🔐S̸͟͞E̸͟͞C̸͟͞U̸͟͞R̸͟͞Y̸͟͞I̸͟͞T̸͟͞Y̸͟͞🔐
 ═╬════════►
 |╬| Protect:low
 |╬| Protect:hight
+|╬| Autokick on/off
+═╬════════►∆∆
+"""
+
+banMessage= """\n
 ═╬════════►
    🚮L̸͟͞I̸͟͞S̸͟͞T̸͟͞ B̸͟͞A̸͟͞N̸͟͞N̸͟͞E̸͟͞D̸͟͞🚮
 ═╬════════►
@@ -134,6 +179,10 @@ helpMessage= """\n
 |╬| Ban repeat     @
 |╬| Add friend     @
 |╬| Clear banlist
+═╬════════►∆∆
+"""
+
+inviteMessage= """\n
 ═╬════════►
    📲i̲̅n̲̅v̲̅i̲̅t̲̅a̲̅t̲̅i̲̅o̲̅n̲̅📲
 ═╬════════►
@@ -141,6 +190,10 @@ helpMessage= """\n
 |╬| Invite user[contact]
 |╬| Invite me
 |╬| Team @join
+═╬════════►∆∆
+"""
+
+grupMessage= """\n
 ═╬════════►
    📴L̸͟͞E̸͟͞A̸͟͞V̸͟͞E̸͟͞ G̸͟͞R̸͟͞O̸͟͞U̸͟͞P̸͟͞📴
 ═╬════════►
@@ -153,6 +206,10 @@ helpMessage= """\n
 |╬| Center @bye
 |╬| @Bye
 |╬| Bye allgroups[own]
+═╬════════►∆∆
+"""
+
+setMessage= """\n
 ═╬════════►
    🔫A̸͟͞U̸͟͞T̸͟͞O̸͟͞ S̸͟͞E̸͟͞T̸͟͞ B̸͟͞O̸͟͞T̸͟͞🔫
 ═╬════════►
@@ -185,18 +242,30 @@ helpMessage= """\n
 |╬| Gcancel:
 |╬| Update welcome:
 |╬| Check welcome message
+═╬════════►∆∆
+"""
+
+cacelMessage= """\n
 ═╬════════►
    🚮M̸͟͞O̸͟͞D̸͟͞E̸͟͞ C̸͟͞A̸͟͞N̸͟͞C̸͟͞E̸͟͞L̸͟͞🚮
 ═╬════════►
 |╬| Rejectall
 |╬| Clean invites
 |╬| Clear invites
+═╬════════►∆∆
+"""
+
+giftMessage= """\n
 ═╬════════►
    S̸͟͞U̸͟͞R̸͟͞P̸͟͞R̸͟͞I̸͟͞S̸͟͞E̸͟͞ G̸͟͞I̸͟͞F̸͟͞T̸͟͞
 ═╬════════►
 |╬| gift1-15
 |╬| Spam gift
 |╬| Gift @
+═╬════════►∆∆
+"""
+
+notifMessage= """\n
 ═╬════════►
    📲N̸͟͞O̸͟͞T̸͟͞I̸͟͞F̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞I̸͟͞O̸͟͞N̸͟͞ 📲
 ═╬════════►
@@ -211,14 +280,22 @@ helpMessage= """\n
 |╬| Miclist
 |╬| Micdel          @
 |╬| Micadd          @
+═╬════════►∆∆
+"""
+
+kikerMessage= """\n
 ═╬════════►
    🚮W̸͟͞T̸͟͞F̸͟͞ K̸͟͞I̸͟͞L̸͟͞L̸͟͞ Y̸͟͞O̸͟͞U̸͟͞🚮
 ═╬════════►
-|╬| Cleanse
+|╬| cleansemua
 |╬| Vkick @
 |╬| Nk [name]
 |╬| Kick:[mid]
 |╬| Purge
+═╬════════►∆∆
+"""
+
+spamMessage= """\n
 ═╬════════►
    💻S̸͟͞P̸͟͞A̸͟͞M͞ S̸͟͞E̸͟͞R̸͟͞V̸͟͞E̸͟͞R̸͟͞💻
 ═╬════════►
@@ -246,16 +323,26 @@ helpMessage= """\n
 |╬| Mc:[mid]
 |╬| runtim
 |╬| show offenders:on/off
+═╬════════►∆∆
+"""
+
+utilityMessage= """\n
 ═╬════════►
    💻U̸͟͞T̸͟͞I̸͟͞L̸͟͞I̸͟͞T̸͟͞Y̸͟͞💻
 ═╬════════►
 |╬| Lurking
-|╬| Lurking result
+|╬| Result
+|╬| Set
+|╬| Read
 |╬| Open url
 |╬| Close url
 |╬| Gurl
 |╬| Remove chat
 |╬| Bot restart
+═╬════════►∆∆
+"""
+
+mediaMessage= """\n
 ═╬════════►
    💿S̸͟͞E̸͟͞A̸͟͞R̸͟͞C̸͟͞H̸͟͞ C̸͟͞H̸͟͞A̸͟͞T̸͟͞💿
 ═╬════════►
@@ -286,7 +373,11 @@ helpMessage= """\n
 |╬| apakah
 |╬| kerang ajaib
 |╬| Sticker [expression]
-|╬| Mention all
+|╬|Summon [Tag all
+═╬════════►∆∆
+"""
+
+bcMessage= """\n
 ═╬════════►
    📣B̸͟͞R̸͟͞O̸͟͞A̸͟͞D̸͟͞C̸͟͞A̸͟͞S̸͟͞T̸͟͞📣
 ═╬════════►
@@ -296,11 +387,6 @@ helpMessage= """\n
 ═╬════════►
    💻P̸͟͞o̸͟͞w̸͟͞e̸͟͞r̸͟͞💻
 ═╬════════►
-🔘Turn off bots🔘
-●▬▬▬▬๑۩Special Thanks۩๑▬▬▬▬▬●
-P̸͟͞O̸͟͞W̸͟͞E̸͟͞R̸͟͞ B̸͟͞Y̸͟͞ T̸͟͞C̸͟͞R̸͟͞
-Edited̸͟͞ by Touka Kirishima
-   ●▬▬▬▬๑۩FuckMyBot۩๑▬▬▬▬▬●
 """
 
 textspeech= """╔═════════════════
@@ -963,7 +1049,8 @@ def bot(op):
               if wait["autoJoin"] == True:
                 if op.param2 in Bots or owner:
                   cl.acceptGroupInvitation(op.param1)
-		  cl.sendText(op.param1,"☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")		
+		  cl.sendText(op.param1,"☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")	
+		  cl.sendText(op.param1,helpMessage)
                 else:
                   cl.rejectGroupInvitation(op.param1)
 		
@@ -1857,7 +1944,101 @@ def bot(op):
               if wait["lang"] == "JP":
                   cl.sendText(msg.to,helpMessage)
               else:
+                  cl.sendText(msg.to,helpt)
+			
+            elif msg.text in ["Key edit","help edit","Help edit"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,editedMessage)
+              else:
                   cl.sendText(msg.to,helpt)		
+
+            elif msg.text in ["Key demoted","help demoted","Help demoted"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,demotedMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+
+            elif msg.text in ["Key steal","help steal","Help steal"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,stealMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+
+            elif msg.text in ["Key secur","help secur","Help secur"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,securMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+
+            elif msg.text in ["Key ban","help ban","Help ban"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,banMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+
+            elif msg.text in ["Key invite","help invite","Help invite"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,inviteMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+
+            elif msg.text in ["Key grup","help grup","Help grup"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,grupMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+		
+            elif msg.text in ["Key media","help media","Help media"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,mediaMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+                
+            elif msg.text in ["Key set","help set","Help set"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,setMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+
+            elif msg.text in ["Key cancel","help cancel","Help cancel"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,cancelMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+
+            elif msg.text in ["Key gift","help gift","Help gift"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,giftMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+
+            elif msg.text in ["Key notif","help notif","Help notif"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,notifMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
+                
+            elif msg.text in ["Key kiker","help kiker","Help kiker"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,kikerMessage)  		
+              else:
+                  cl.sendText(msg.to,helpt)
+		
+            elif msg.text in ["Key spam","help spam","Help spam"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,spamMessage)
+              else:
+                  cl.sendText(msg.to,helpt)	
+
+            elif msg.text in ["Key utility","help utility","Help utility"]:
+              if wait["lang"] == "JP":			
+                cl.sendText(msg.to,utilityMessage)		
+                
+            elif msg.text in ["Key bc","help bc","Help bc"]:
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,bcMessage)  	
+              else:
+                  cl.sendText(msg.to,helpt)
 					               
             elif msg.text in ["List group"]:
               if msg.from_ in admin + staff + creator:	   		
