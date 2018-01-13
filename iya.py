@@ -989,7 +989,7 @@ def bot(op):
             elif op.param2 in staff:
                   pass
             else:
-              random.choice(KAC).cancelGroupInvitation(op.param1, gMembMids)
+              cl.cancelGroupInvitation(op.param1, gMembMids)
               random.choice(KAC).sendText(op.param1, "Sorry you not admin😛")
    	  if op.param3 in wait["blacklist"]:
               random.choice(KAC).cancelGroupInvitation(op.param1, [op.param3])
