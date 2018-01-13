@@ -121,13 +121,13 @@ demotedMessage= """\n
 ═╬════════►∆∆
    🔓D̸͟͞e̸͟͞m̸͟͞o̸͟͞t̸͟͞e̸͟͞d̸͟͞.🔓
 ═╬════════►
-|╬| Admin on @
-|╬| Expel on @
-|╬| Expel staff @
-|╬| Add staff @
-|╬| Expel creator @
-|╬| Add creator @
-|╬| Expelal
+ |╬| Admin on @
+ |╬| Expel on @
+ |╬| Expel staff @
+ |╬| Add staff @
+ |╬| Expel creator @
+ |╬| Add creator @
+ |╬| Expelal
 ═╬════════►∆∆
 """
 
@@ -135,26 +135,26 @@ stealMessage= """\n
 ═╬════════►
    📷S̸͟͞T̸͟͞E̸͟͞A̸͟͞L̸͟͞I̸͟͞N̸͟͞G̸͟͞📷
 ═╬════════►
-|╬| Steal
-|╬| Steal name    @
-|╬| Getbio     @
-|╬| Getmid     @
-|╬| Steal status  @
-|╬| Steal mid     @
-|╬| Steal contact @
-|╬| Steal cover   @
-|╬| Steal pict    @
-|╬| Steal group pict
-|╬| Midpict:   [mid]
-|╬| Pict group [name]
-|╬| My pict
-|╬| My cover
-|╬| My name
-|╬| My bio
-|╬| Pap set:
-|╬| Pap
-|╬| Image      [Text]
-|╬| Idline
+ |╬| Steal
+ |╬| Steal name    @
+ |╬| Getbio     @
+ |╬| Getmid     @
+ |╬| Steal status  @
+ |╬| Steal mid     @
+ |╬| Steal contact @
+ |╬| Steal cover   @
+ |╬| Steal pict    @
+ |╬| Steal group pict
+ |╬| Midpict:   [mid]
+ |╬| Pict group [name]
+ |╬| My pict
+ |╬| My cover
+ |╬| My name
+ |╬| My bio
+ |╬| Pap set:
+ |╬| Pap
+ |╬| Image      [Text]
+ |╬| Idline
 ═╬════════►∆∆
 """
 
@@ -162,9 +162,9 @@ securMessage= """\n
 ═╬════════►
    🔐S̸͟͞E̸͟͞C̸͟͞U̸͟͞R̸͟͞Y̸͟͞I̸͟͞T̸͟͞Y̸͟͞🔐
 ═╬════════►
-|╬| Protect:low
-|╬| Protect:hight
-|╬| Autokick on/off
+ |╬| Protect:low
+ |╬| Protect:hight
+ |╬| Autokick on/off
 ═╬════════►∆∆
 """
 
@@ -172,13 +172,13 @@ banMessage= """\n
 ═╬════════►
    🚮L̸͟͞I̸͟͞S̸͟͞T̸͟͞ B̸͟͞A̸͟͞N̸͟͞N̸͟͞E̸͟͞D̸͟͞🚮
 ═╬════════►
-|╬| Ban            @
-|╬| Unban          @
-|╬| Banned
-|╬| Unbanned
-|╬| Ban repeat     @
-|╬| Add friend     @
-|╬| Clear banlist
+ |╬| Ban            @
+ |╬| Unban          @
+ |╬| Banned
+ |╬| Unbanned
+ |╬| Ban repeat     @
+ |╬| Add friend     @
+ |╬| Clear banlist
 ═╬════════►∆∆
 """
 
@@ -186,10 +186,10 @@ inviteMessage= """\n
 ═╬════════►
    📲i̲̅n̲̅v̲̅i̲̅t̲̅a̲̅t̲̅i̲̅o̲̅n̲̅📲
 ═╬════════►
-|╬| Invite:[mid]
-|╬| Invite user[contact]
-|╬| Invite
-|╬| Team @join
+ |╬| Invite:[mid]
+ |╬| Invite user[contact]
+ |╬| Invite
+ |╬| Team @join
 ═╬════════►∆∆
 """
 
@@ -197,16 +197,16 @@ grupMessage= """\n
 ═╬════════►
    📴L̸͟͞E̸͟͞A̸͟͞V̸͟͞E̸͟͞ G̸͟͞R̸͟͞O̸͟͞U̸͟͞P̸͟͞📴
 ═╬════════►
-|╬| My waifu sini [Bot assist join]
-|╬| Bot2   @bye
-|╬| Bot3   @bye
-|╬| Bot4   @bye
-|╬| Bot5   @bye
-|╬| Bot6   @bye
-|╬| Team   @bye
-|╬| Center @bye
-|╬| @Bye
-|╬| Bye allgroups[own]
+ |╬| My waifu sini [Bot assist join]
+ |╬| Bot2   @bye
+ |╬| Bot3   @bye
+ |╬| Bot4   @bye
+ |╬| Bot5   @bye
+ |╬| Bot6   @bye
+ |╬| Team   @bye
+ |╬| Center @bye
+ |╬| @Bye
+ |╬| Bye allgroups[own]
 ═╬════════►∆∆
 """
 
@@ -214,35 +214,35 @@ setMessage= """\n
 ═╬════════►
    🔫A̸͟͞U̸͟͞T̸͟͞O̸͟͞ S̸͟͞E̸͟͞T̸͟͞ B̸͟͞O̸͟͞T̸͟͞🔫
 ═╬════════►
-|╬| Auto reinvite:on/off
-|╬| Auto join:on/off
-|╬| Protect:hight/low
-|╬| Auto leave:on/off
-|╬| Auto like:on/off
-|╬| Like friend:on/off
-|╬| Sambutan on/off
-|╬| Auto notice:on/off
-|╬| Blockinvite:on/off
-|╬| Gr on/off
-|╬| Kicktag on/off
-|╬| Respontag on/off
-|╬| Autokick on/off
-|╬| Cancl on/off
-|╬| Joinn on/off
-|╬| Prot on/off
-|╬| Namelock:on/off
-|╬| Auto add:on/off
-|╬| Ghost on/off
-|╬| Media:on/off
-|╬| Check message
-|╬| Add message:
-|╬| Comment:on/off
-|╬| Add comment:
-|╬| Check comment
-|╬| Backup:on/off
-|╬| Gcancel:
-|╬| Update welcome:
-|╬| Check welcome message
+ |╬| Auto reinvite:on/off
+ |╬| Auto join:on/off
+ |╬| Protect:hight/low
+ |╬| Auto leave:on/off
+ |╬| Auto like:on/off
+ |╬| Like friend:on/off
+ |╬| Sambutan on/off
+ |╬| Auto notice:on/off
+ |╬| Blockinvite:on/off
+ |╬| Gr on/off
+ |╬| Kicktag on/off
+ |╬| Respontag on/off
+ |╬| Autokick on/off
+ |╬| Cancl on/off
+ |╬| Joinn on/off
+ |╬| Prot on/off
+ |╬| Namelock:on/off
+ |╬| Auto add:on/off
+ |╬| Ghost on/off
+ |╬| Media:on/off
+ |╬| Check message
+ |╬| Add message:
+ |╬| Comment:on/off
+ |╬| Add comment:
+ |╬| Check comment
+ |╬| Backup:on/off
+ |╬| Gcancel:
+ |╬| Update welcome:
+ |╬| Check welcome message
 ═╬════════►∆∆
 """
 
@@ -250,9 +250,9 @@ cacelMessage= """\n
 ═╬════════►
    🚮M̸͟͞O̸͟͞D̸͟͞E̸͟͞ C̸͟͞A̸͟͞N̸͟͞C̸͟͞E̸͟͞L̸͟͞🚮
 ═╬════════►
-|╬| Rejectall
-|╬| Clean invites
-|╬| Clear invites
+ |╬| Rejectall
+ |╬| Clean invites
+ |╬| Clear invites
 ═╬════════►∆∆
 """
 
@@ -260,9 +260,9 @@ giftMessage= """\n
 ═╬════════►
    S̸͟͞U̸͟͞R̸͟͞P̸͟͞R̸͟͞I̸͟͞S̸͟͞E̸͟͞ G̸͟͞I̸͟͞F̸͟͞T̸͟͞
 ═╬════════►
-|╬| gift1-15
-|╬| Spam gift
-|╬| Gift @
+ |╬| gift1-15
+ |╬| Spam gift
+ |╬| Gift @
 ═╬════════►∆∆
 """
 
@@ -270,17 +270,17 @@ notifMessage= """\n
 ═╬════════►
    📲N̸͟͞O̸͟͞T̸͟͞I̸͟͞F̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞I̸͟͞O̸͟͞N̸͟͞ 📲
 ═╬════════►
-|╬| Group list
-|╬| Banlist
-|╬| Adminlist
-|╬| Creatlist
-|╬| Stafflist
-|╬| Settings
-|╬| Ginfo
-|╬| TL:[text]
-|╬| Miclist
-|╬| Micdel          @
-|╬| Micadd          @
+ |╬| List group
+ |╬| Banlist
+ |╬| Adminlist
+ |╬| Creatlist
+ |╬| Stafflist
+ |╬| Settings
+ |╬| Ginfo
+ |╬| TL:[text]
+ |╬| Miclist
+ |╬| Micdel          @
+ |╬| Micadd          @
 ═╬════════►∆∆
 """
 
@@ -288,11 +288,11 @@ kikerMessage= """\n
 ═╬════════►
    🚮W̸͟͞T̸͟͞F̸͟͞ K̸͟͞I̸͟͞L̸͟͞L̸͟͞ Y̸͟͞O̸͟͞U̸͟͞🚮
 ═╬════════►
-|╬| cleansemua
-|╬| Vkick @
-|╬| Nk [name]
-|╬| Kick:[mid]
-|╬| Purge
+ |╬| cleansemua
+ |╬| Vkick @
+ |╬| Nk [name]
+ |╬| Kick:[mid]
+ |╬| Purge
 ═╬════════►∆∆
 """
 
@@ -300,30 +300,30 @@ spamMessage= """\n
 ═╬════════►
    💻S̸͟͞P̸͟͞A̸͟͞M͞ S̸͟͞E̸͟͞R̸͟͞V̸͟͞E̸͟͞R̸͟͞💻
 ═╬════════►
-|╬| Spamg[on/off]
-|╬| Spam add:
-|╬| Spam change:
-|╬| Spam start:[number]
-|╬| Spam @
-|╬| Say a̸͟͞a̸͟͞a̸͟͞
-|╬| Me
-|╬| Speed
-|╬| Debug speed
-|╬| My mid
-|╬| Gcreator
-|╬| Halo
-|╬| Bot contact
-|╬| Bot mid
-|╬| Creator
-|╬| System
-|╬| Iconfig
-|╬| Kernel
-|╬| Cpu
-|╬| Respon/sname
-|╬| Help
-|╬| Mc:[mid]
-|╬| runtim
-|╬| show offenders:on/off
+ |╬| Spamg[on/off]
+ |╬| Spam add:
+ |╬| Spam change:
+ |╬| Spam start:[number]
+ |╬| Spam @
+ |╬| Say a̸͟͞a̸͟͞a̸͟͞
+ |╬| Me
+ |╬| Speed
+ |╬| Debug speed
+ |╬| My mid
+ |╬| Gcreator
+ |╬| Halo
+ |╬| Bot contact
+ |╬| Bot mid
+ |╬| Creator
+ |╬| System
+ |╬| Iconfig
+ |╬| Kernel
+ |╬| Cpu
+ |╬| Respon/sname
+ |╬| Help
+ |╬| Mc:[mid]
+ |╬| runtim
+ |╬| show offenders:on/off
 ═╬════════►∆∆
 """
 
@@ -331,15 +331,15 @@ utilityMessage= """\n
 ═╬════════►
    💻U̸͟͞T̸͟͞I̸͟͞L̸͟͞I̸͟͞T̸͟͞Y̸͟͞💻
 ═╬════════►
-|╬| Lurking
-|╬| Result
-|╬| Set
-|╬| Read
-|╬| Open url
-|╬| Close url
-|╬| Gurl
-|╬| Remove chat
-|╬| Bot restart
+ |╬| Lurking
+ |╬| Result
+ |╬| Set
+ |╬| Read
+ |╬| Open url
+ |╬| Close url
+ |╬| Gurl
+ |╬| Remove chat
+ |╬| Bot restart
 ═╬════════►∆∆
 """
 
@@ -347,34 +347,34 @@ mediaMessage= """\n
 ═╬════════►
    💿S̸͟͞E̸͟͞A̸͟͞R̸͟͞C̸͟͞H̸͟͞ C̸͟͞H̸͟͞A̸͟͞T̸͟͞💿
 ═╬════════►
-|╬| Lyric 
-|╬| Music 
-|╬| Wiki 
-|╬| Vidio 
-|╬| Youtube 
-|╬| Instagram 
-|╬| Translate-idn   [text]
-|╬| Translate-eng   [text]
-|╬| Translate-thai  [text]
-|╬| Translate-japan [text]
-|╬| Translate-arab  [text]
-|╬| Translate-korea [text]
-|╬| Translate-chin  [text]
-|╬| Vn-id           [text]
-|╬| Vn-en           [text]
-|╬| Vn-jp           [text]
-|╬| Kalender
-|╬| Vn     [Text]
-|╬| Cek zodiak [Tggl-bulan-tahun]
-|╬| Tag on/off
-|╬| Emoji [expression]
-|╬| Info @[name]
-|╬| Ping
-|╬| Time
-|╬| apakah
-|╬| kerang ajaib
-|╬| Sticker [expression]
-|╬|Summon [Tag all
+ |╬| Lyric 
+ |╬| Music 
+ |╬| Wiki 
+ |╬| Vidio 
+ |╬| Youtube 
+ |╬| Instagram 
+ |╬| Translate-idn   [text]
+ |╬| Translate-eng   [text]
+ |╬| Translate-thai  [text] 
+ |╬| Translate-japan [text]
+ |╬| Translate-arab  [text]
+ |╬| Translate-korea [text]
+ |╬| Translate-chin  [text]
+ |╬| Vn-id           [text]
+ |╬| Vn-en           [text]
+ |╬| Vn-jp           [text]
+ |╬| Kalender
+ |╬| Vn     [Text]
+ |╬| Cek zodiak [Tggl-bulan-tahun]
+ |╬| Tag on/off
+ |╬| Emoji [expression]
+ |╬| Info @[name]
+ |╬| Ping
+ |╬| Time
+ |╬| apakah
+ |╬| kerang ajaib
+ |╬| Sticker [expression]
+ |╬|Summon [Tag all
 ═╬════════►∆∆
 """
 
@@ -382,9 +382,9 @@ bcMessage= """\n
 ═╬════════►
    📣B̸͟͞R̸͟͞O̸͟͞A̸͟͞D̸͟͞C̸͟͞A̸͟͞S̸͟͞T̸͟͞📣
 ═╬════════►
-|╬| Pm cast   
-|╬| Broadcast 
-|╬| Spam @[name]
+ |╬| Pm cast   
+ |╬| Broadcast 
+ |╬| Spam @[name]
 ═╬════════►
    💻P̸͟͞o̸͟͞w̸͟͞e̸͟͞r̸͟͞💻
 ═╬════════►
