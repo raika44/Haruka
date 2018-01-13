@@ -66,6 +66,34 @@ helpMessage= """\n
 
 ▂▃▅▇█▓▒░۩H̸͟͞e̸͟͞l̸͟͞p̸͟͞ ̸͟͞۩░▒▓█▇▅▃▂
 ═╬════════►∆∆
+   Help
+═╬════════►∆∆
+♦Help edit
+♦Help demoted
+♦Help steal
+♦Help secur
+♦Help ban
+♦Help invite
+♦Help grup
+♦Help set
+♦Help cancel
+♦Help gift
+♦Help notif
+♦Help kiker
+♦Help spam
+♦Help utility
+♦Help chat
+♦Help bc
+═╬════════►∆∆
+🔘Turn off bots🔘
+●▬▬▬▬๑۩Special Thanks۩๑▬▬▬▬▬●
+P̸͟͞O̸͟͞W̸͟͞E̸͟͞R̸͟͞ B̸͟͞Y̸͟͞ T̸͟͞C̸͟͞R̸͟͞
+Edited̸͟͞ by Touka Kirishima
+   ●▬▬▬▬๑۩FuckMyBot۩๑▬▬▬▬▬●
+"""
+
+editMessage= """\n
+═╬════════►∆∆
    E̸͟͞d̸͟͞i̸͟͞t̸͟͞e̸͟͞d̸͟͞.       
 ═╬════════► 
 🔘 My name    :  |╬|
@@ -88,6 +116,10 @@ helpMessage= """\n
 🔘 Bot1-6 backup |╬|
 🔘 Group name:   |╬|
 ═╬════════►∆∆
+"""
+
+demotedMessage= """\n
+═╬════════►∆∆
    🔓D̸͟͞e̸͟͞m̸͟͞o̸͟͞t̸͟͞e̸͟͞d̸͟͞.🔓
 ═╬════════►
 |╬| Admin on @
@@ -97,6 +129,10 @@ helpMessage= """\n
 |╬| Expel creator @
 |╬| Add creator @
 |╬| Expelal
+═╬════════►∆∆
+"""
+
+stealMessage= """\n
 ═╬════════►
    📷S̸͟͞T̸͟͞E̸͟͞A̸͟͞L̸͟͞I̸͟͞N̸͟͞G̸͟͞📷
 ═╬════════►
@@ -120,11 +156,20 @@ helpMessage= """\n
 |╬| Pap
 |╬| Image      [Text]
 |╬| Idline
+═╬════════►∆∆
+"""
+
+securMessage= """\n
 ═╬════════►
    🔐S̸͟͞E̸͟͞C̸͟͞U̸͟͞R̸͟͞Y̸͟͞I̸͟͞T̸͟͞Y̸͟͞🔐
 ═╬════════►
 |╬| Protect:low
 |╬| Protect:hight
+|╬| Autokick on/off
+═╬════════►∆∆
+"""
+
+banMessage= """\n
 ═╬════════►
    🚮L̸͟͞I̸͟͞S̸͟͞T̸͟͞ B̸͟͞A̸͟͞N̸͟͞N̸͟͞E̸͟͞D̸͟͞🚮
 ═╬════════►
@@ -135,13 +180,21 @@ helpMessage= """\n
 |╬| Ban repeat     @
 |╬| Add friend     @
 |╬| Clear banlist
+═╬════════►∆∆
+"""
+
+inviteMessage= """\n
 ═╬════════►
    📲i̲̅n̲̅v̲̅i̲̅t̲̅a̲̅t̲̅i̲̅o̲̅n̲̅📲
 ═╬════════►
 |╬| Invite:[mid]
 |╬| Invite user[contact]
 |╬| Invite me
-|╬| Team @join
+|╬| My waifu sini
+═╬════════►∆∆
+"""
+
+grupMessage= """\n
 ═╬════════►
    📴L̸͟͞E̸͟͞A̸͟͞V̸͟͞E̸͟͞ G̸͟͞R̸͟͞O̸͟͞U̸͟͞P̸͟͞📴
 ═╬════════►
@@ -150,10 +203,14 @@ helpMessage= """\n
 |╬| Bot4   @bye
 |╬| Bot5   @bye
 |╬| Bot6   @bye
-|╬| Team   @bye
+|╬| Bye sayang
 |╬| Center @bye
 |╬| @Bye
 |╬| Bye allgroups[own]
+═╬════════►∆∆
+"""
+
+setMessage= """\n
 ═╬════════►
    🔫A̸͟͞U̸͟͞T̸͟͞O̸͟͞ S̸͟͞E̸͟͞T̸͟͞ B̸͟͞O̸͟͞T̸͟͞🔫
 ═╬════════►
@@ -169,7 +226,6 @@ helpMessage= """\n
 |╬| Gr on/off
 |╬| Kicktag on/off
 |╬| Respontag on/off
-|╬| Autokick on/off
 |╬| Cancl on/off
 |╬| Joinn on/off
 |╬| Prot on/off
@@ -186,18 +242,30 @@ helpMessage= """\n
 |╬| Gcancel:
 |╬| Update welcome:
 |╬| Check welcome message
+═╬════════►∆∆
+"""
+
+cancelMessage= """\n
 ═╬════════►
    🚮M̸͟͞O̸͟͞D̸͟͞E̸͟͞ C̸͟͞A̸͟͞N̸͟͞C̸͟͞E̸͟͞L̸͟͞🚮
 ═╬════════►
 |╬| Rejectall
 |╬| Clean invites
 |╬| Clear invites
+═╬════════►∆∆
+"""
+
+giftMessage= """\n
 ═╬════════►
    S̸͟͞U̸͟͞R̸͟͞P̸͟͞R̸͟͞I̸͟͞S̸͟͞E̸͟͞ G̸͟͞I̸͟͞F̸͟͞T̸͟͞
 ═╬════════►
 |╬| gift1-15
 |╬| Spam gift
 |╬| Gift @
+═╬════════►∆∆
+"""
+
+notifMessage= """\n
 ═╬════════►
    📲N̸͟͞O̸͟͞T̸͟͞I̸͟͞F̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞I̸͟͞O̸͟͞N̸͟͞ 📲
 ═╬════════►
@@ -212,14 +280,22 @@ helpMessage= """\n
 |╬| Miclist
 |╬| Micdel          @
 |╬| Micadd          @
+═╬════════►∆∆
+"""
+
+kikerMessage= """\n
 ═╬════════►
    🚮W̸͟͞T̸͟͞F̸͟͞ K̸͟͞I̸͟͞L̸͟͞L̸͟͞ Y̸͟͞O̸͟͞U̸͟͞🚮
 ═╬════════►
-|╬| Cleanse
+|╬| cleansemua
 |╬| Vkick @
 |╬| Nk [name]
 |╬| Kick:[mid]
 |╬| Purge
+═╬════════►∆∆
+"""
+
+spamMessage= """\n
 ═╬════════►
    💻S̸͟͞P̸͟͞A̸͟͞M͞ S̸͟͞E̸͟͞R̸͟͞V̸͟͞E̸͟͞R̸͟͞💻
 ═╬════════►
@@ -247,6 +323,10 @@ helpMessage= """\n
 |╬| Mc:[mid]
 |╬| runtim
 |╬| show offenders:on/off
+═╬════════►∆∆
+"""
+
+utilityMessage= """\n
 ═╬════════►
    💻U̸͟͞T̸͟͞I̸͟͞L̸͟͞I̸͟͞T̸͟͞Y̸͟͞💻
 ═╬════════►
@@ -257,6 +337,10 @@ helpMessage= """\n
 |╬| Gurl
 |╬| Remove chat
 |╬| Bot restart
+═╬════════►∆∆
+"""
+
+chatMessage= """\n
 ═╬════════►
    💿S̸͟͞E̸͟͞A̸͟͞R̸͟͞C̸͟͞H̸͟͞ C̸͟͞H̸͟͞A̸͟͞T̸͟͞💿
 ═╬════════►
@@ -288,6 +372,10 @@ helpMessage= """\n
 |╬| kerang ajaib
 |╬| Sticker [expression]
 |╬| Mention all
+═╬════════►∆∆
+"""
+
+bcMessage= """\n
 ═╬════════►
    📣B̸͟͞R̸͟͞O̸͟͞A̸͟͞D̸͟͞C̸͟͞A̸͟͞S̸͟͞T̸͟͞📣
 ═╬════════►
@@ -297,12 +385,6 @@ helpMessage= """\n
 ═╬════════►
    💻P̸͟͞o̸͟͞w̸͟͞e̸͟͞r̸͟͞💻
 ═╬════════►
-🔘Turn off bots🔘
-●▬▬▬▬๑۩Special Thanks۩๑▬▬▬▬▬●
-P̸͟͞O̸͟͞W̸͟͞E̸͟͞R̸͟͞ B̸͟͞Y̸͟͞ T̸͟͞C̸͟͞R̸͟͞
-Edited̸͟͞ by Touka Kirishima
-   ●▬▬▬▬๑۩FuckMyBot۩๑▬▬▬▬▬●
-
 """
 
 textspeech= """╔═════════════════
@@ -404,6 +486,7 @@ wait = {
     'leaveRoom':True,
     'timeline':True,
     'autoAdd':True,
+    'invite':[],
     'detectMention':True,    
     'kickMention':False,
     'creatorMention':True,
@@ -910,7 +993,33 @@ def bot(op):
   	  else:
 	 	pass	    	
         #------Cancel Invite User Finish------#      
-		
+            if msg.contentType == 13:
+                if wait['invite'] == True:
+                     _name = msg.contentMetadata["displayName"]
+                     invite = msg.contentMetadata["mid"]
+                     groups = cl.getGroup(msg.to)
+                     pending = groups.invitee
+                     targets = []
+                     for s in groups.members:
+                         if _name in s.displayName:
+                             cl.sendText(msg.to, _name + " Berada DiGrup Ini")
+                         else:
+                             targets.append(invite)
+                     if targets == []:
+                         pass
+                     else:
+                         for target in targets:
+                             try:
+                                 cl.findAndAddContactsByMid(target)
+                                 cl.inviteIntoGroup(msg.to,[target])
+                                 cl.sendText(msg.to,"Invite " + _name)
+                                 wait['invite'] = False
+                                 break                              
+                             except:             
+                                      cl.sendText(msg.to,"Limit Invite")
+                                      wait['invite'] = False
+                                      break	
+	
         if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
@@ -1861,6 +1970,67 @@ def bot(op):
                   cl.sendText(msg.to,helpMessage)
               else:
                   cl.sendText(msg.to,helpt)
+            elif msg.text in ["Key edit","help edit","Help edit"]:
+                cl.sendText(msg.to,editedMessage)
+
+            elif msg.text in ["Key demoted","help demoted","Help demoted"]:
+                cl.sendText(msg.to,demotedMessage)
+
+            elif msg.text in ["Key steal","help steal","Help steal"]:
+                cl.sendText(msg.to,stealMessage)
+
+            elif msg.text in ["Key secur","help secur","Help secur"]:
+                cl.sendText(msg.to,securMessage)
+
+            elif msg.text in ["Key ban","help ban","Help ban"]:
+                cl.sendText(msg.to,banMessage)
+
+            elif msg.text in ["Key invite","help invite","Help invite"]:
+                cl.sendText(msg.to,inviteMessage)
+
+            elif msg.text in ["Key grup","help grup","Help grup"]:
+                cl.sendText(msg.to,grupMessage)		
+		
+            elif msg.text in ["Key media","help media","Help media"]:
+                cl.sendText(msg.to,mediaMessage)
+                
+            elif msg.text in ["Key set","help set","Help set"]:
+                cl.sendText(msg.to,setMessage)    		
+
+            elif msg.text in ["Key cancel","help cancel","Help cancel"]:
+                cl.sendText(msg.to,cancelMessage)
+
+            elif msg.text in ["Key gift","help gift","Help gift"]:
+                cl.sendText(msg.to,giftMessage)
+
+            elif msg.text in ["Key notif","help notif","Help notif"]:
+                cl.sendText(msg.to,notifMessage)
+                
+            elif msg.text in ["Key kiker","help kiker","Help kiker"]:
+                cl.sendText(msg.to,kikerMessage)  		
+		
+            elif msg.text in ["Key spam","help spam","Help spam"]:
+               cl.sendText(msg.to,spamMessage)
+
+            elif msg.text in ["Key utility","help utility","Help utility"]:
+                cl.sendText(msg.to,utilityMessage)
+
+            elif msg.text in ["Key chat","help chat","Help chat"]:
+                cl.sendText(msg.to,chatMessage)
+                
+            elif msg.text in ["Key bc","help bc","Help bc"]:
+                cl.sendText(msg.to,bcMessage)  				
+                
+            elif msg.text in ["List group"]:
+                    gid = cl.getGroupIdsJoined()
+                    h = ""
+		    jml = 0
+                    for i in gid:
+		        gn = cl.getGroup(i).name
+                        h += "♦【%s】\n" % (gn)
+		        jml += 1
+                    cl.sendText(msg.to,"=======[List Group]=======\n"+ h +"\nTotal Group: "+str(jml))			
+			
 	    elif "Ghost on" in msg.text:
               if msg.from_ in admin + staff + creator:	        
 		     wait["Ghost"] = True
@@ -3388,7 +3558,7 @@ def bot(op):
 		
             elif msg.text in ["Invite","ดึง"]:
               if msg.from_ in admin + staff + creator:
-                wait["winvite"] = True
+                wait["invite"] = True
                 random.choice(KAC).sendText(msg.to,"send contact 😉")
 		
             elif msg.text in ["Myname"]:
@@ -3677,7 +3847,7 @@ def bot(op):
                     wait2['setTime'][msg.to] = datetime.now().strftime('%Y-%m-%d %H:%M')
                     wait2['ROM'][msg.to] = {}
                     print wait2
-            elif msg.text == "Lurking result":
+            elif msg.text == "Result":
               if msg.from_ in admin + staff + creator:	
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
@@ -3887,7 +4057,7 @@ def bot(op):
                     kc.sendText(msg.to,"Aktifkan jam terlebih dulu")
          #-------------Fungsi Jam Update Finish-------------------#
 
-            elif msg.text == "$set":
+            elif msg.text == "Set":
                     cl.sendText(msg.to, "Check sider")
                     ki.sendText(msg.to, "Check sider")
                     kk.sendText(msg.to, "Check sider")
@@ -3901,7 +4071,7 @@ def bot(op):
                     wait2['readMember'][msg.to] = ""
                     wait2['ROM'][msg.to] = {}
                     print wait2
-            elif msg.text == "$read":
+            elif msg.text == "Read":
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
@@ -4088,7 +4258,7 @@ def bot(op):
                             nm5 += [nama[m]]
                         summon(msg.to, nm5)
                     if jml > 700:
-                         print "Terlalu Banyak Men 700+"
+                         cl.sendText(msg.to,"Terlalu Banyak Men 700+")
                     cnt = Message()
                     cnt.text = "Jumlah:\n" + str(jml) +  " Members"
                     cnt.to = msg.to
@@ -4830,12 +5000,16 @@ def bot(op):
                 ki.sendText(msg.to, text)
                 profile = kk.getProfile()
                 text = profile.displayName + ""
-                ka.sendText(msg.to, text)
+                kk.sendText(msg.to, text)
                 profile = kc.getProfile()
                 text = profile.displayName + ""
-                ke.sendText(msg.to, text)
-                profile = ks.getProfile()
+                kc.sendText(msg.to, text)
+                profile = ka.getProfile()
                 text = profile.displayName + ""
+                ka.sendText(msg.to, text)
+                profile = ks.getProfile()
+                text = profile.displayName + ""	
+                ks.sendText(msg.to, text)		
 	
             elif msg.text in ["Sayang!"]:
                 print "EXCUTED -- ABSEN BOT"
@@ -5406,17 +5580,17 @@ def bot(op):
                     satpam.sendText(msg.to,"change name: "+string+"\nsucces") 
             elif "Bot7 rename:" in msg.text:
               if msg.from_ in creator:
-                    G = random.choice(KAC).getGroup(op.param1)
-                    G.preventJoinByTicket = False
-	            cl.updateGroup(G)
-                    Ticket = cl.reissueGroupTicket(op.param1)
-                    km.acceptGroupInvitationByTicket(op.param1,Ticket)
-	            G.preventJoinByTicket = True
-                    km.updateGroup(G)	
                     string = msg.text.replace("Bot5 rename:","")
                     if len(string.decode('utf-8')) <= 20:												
-                     profile = ka.getProfile()
-                     profile.displayName = string
+                     profile = km.getProfile()
+                     profile.displayName = string		
+                     G = random.choice(KAC).getGroup(op.param1)
+                     G.preventJoinByTicket = False
+	             cl.updateGroup(G)
+                     Ticket = cl.reissueGroupTicket(op.param1)
+                     km.acceptGroupInvitationByTicket(op.param1,Ticket)
+	             G.preventJoinByTicket = True
+                     km.updateGroup(G)												
                      km.updateProfile(profile)
                      km.sendText(msg.to,"change name: "+string+"\nsucces")
                      km.leaveGroup(msg.to)												  
