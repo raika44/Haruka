@@ -3977,7 +3977,7 @@ def bot(op):
 				msg.contentType = 13
 				msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784"}
 				cl.sendMessage(msg)
-				cl.sendText(msg.to,"Creator kami")
+				cl.sendText(msg.to,"Pembuat kami")
             elif "Admin on @" in msg.text:
                 if msg.from_ in creator:
                     print "[Command]Staff add executing"
@@ -6052,7 +6052,7 @@ def bot(op):
 					msg.contentType = 13
 					msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784"}
 					cl.sendMessage(msg)
-		                        kk.sendText(msg.to,"Itu creator kami!")			
+		                        kk.sendText(msg.to,"Itu owner kami!")			
 #-----------------------------------------------
 					
        #-------------Fungsi Respon Start---------------------#
