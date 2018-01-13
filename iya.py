@@ -3973,11 +3973,11 @@ def bot(op):
                     cl.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
                 except:
                     cl.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
-            elif 'Creator' in msg.text.lower():
+            elif 'creator' in msg.text.lower():
 				msg.contentType = 13
 				msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784"}
 				cl.sendMessage(msg)
-				cl.sendText(msg.to,"My Creator ")
+				cl.sendText(msg.to,"Creator kami")
             elif "Admin on @" in msg.text:
                 if msg.from_ in creator:
                     print "[Command]Staff add executing"
@@ -6052,7 +6052,7 @@ def bot(op):
 					msg.contentType = 13
 					msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784"}
 					cl.sendMessage(msg)
-		                        kk.sendText(msg.to,"Itu creator saya!")			
+		                        kk.sendText(msg.to,"Itu creator kami!")			
 #-----------------------------------------------
 					
        #-------------Fungsi Respon Start---------------------#
