@@ -200,7 +200,7 @@ helpMessage= """\n
 ═╬════════►
    📲N̸͟͞O̸͟͞T̸͟͞I̸͟͞F̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞I̸͟͞O̸͟͞N̸͟͞ 📲
 ═╬════════►
-|╬| List group
+|╬| Group list
 |╬| Banlist
 |╬| Adminlist
 |╬| Creatlist
@@ -363,7 +363,6 @@ textspeech= """╔═════════════════
 """
 
 Setgroup =""" Privasi Menu V.1 􀔃􀄆red check mark􏿿
-
 [Protect Group]
 -- Gr on/off
 [Mid Via Contact]
@@ -402,7 +401,6 @@ wait = {
     'leaveRoom':True,
     'timeline':True,
     'autoAdd':True,
-    'invite':[],
     'detectMention':True,    
     'kickMention':False,
     'creatorMention':True,
@@ -909,33 +907,7 @@ def bot(op):
   	  else:
 	 	pass	    	
         #------Cancel Invite User Finish------#      
-        if msg.contentType == 13:
-                if wait['invite'] == True:
-                     _name = msg.contentMetadata["displayName"]
-                     invite = msg.contentMetadata["mid"]
-                     groups = cl.getGroup(msg.to)
-                     pending = groups.invitee
-                     targets = []
-                     for s in groups.members:
-                         if _name in s.displayName:
-                             cl.sendText(msg.to, _name + " Berada DiGrup Ini")
-                         else:
-                             targets.append(invite)
-                     if targets == []:
-                         pass
-                     else:
-                         for target in targets:
-                             try:
-                                 cl.findAndAddContactsByMid(target)
-                                 cl.inviteIntoGroup(msg.to,[target])
-                                 cl.sendText(msg.to,"Invite " + _name)
-                                 wait['invite'] = False
-                                 break                              
-                             except:             
-                                      cl.sendText(msg.to,"Limit Invite")
-                                      wait['invite'] = False
-                                      break	
-	
+		
         if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
