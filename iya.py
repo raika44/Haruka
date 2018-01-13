@@ -517,10 +517,10 @@ wait = {
     "wblacklist":False,
     "dblacklist":False,
     "Protectgr":True,
-    "protect":True,
+    "protect":False,
     "kickblack":True,
     "alwayRead":True,
-    "AutoKick":False,
+    "AutoKick":True,
     "likeOn":False,
     "welcomemsg":True,
     "winvite":{},
@@ -1806,35 +1806,6 @@ def bot(op):
                     else:
                         wait["blacklist"][op.param2] = True
                        		
-                if creator in op.param3:
-                    if op.param2 in Bots:
-                        pass
-                    try:
-                        ki.kickoutFromGroup(op.param1,[op.param2])
-			kk.kickoutFromGroup(op.param1,[op.param2])
-                    except:
-                        try:
-			    if op.param2 not in Bots:
-                                random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-			    if op.param2 in wait["blacklist"]:
-			        pass
-			    else:
-			        random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-                        except:
-                            print ("client Kick regulation or Because it does not exist in the group\ngid=["+op.param1+"]\nmid=["+op.param2+"]")
-                        if op.param2 in wait["blacklist"]:
-                            pass
-                        if op.param2 in wait["whitelist"]:
-                            pass
-                        else:
-                            wait["blacklist"][op.param2] = True
-                    random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
-                    if op.param2 in wait["blacklist"]:
-                        pass
-                    if op.param2 in wait["whitelist"]:
-                        pass
-                    else:
-                        wait["blacklist"][op.param2] = True
                     
         if op.type == 13:
             if mid in op.param3:
