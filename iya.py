@@ -2068,7 +2068,7 @@ def bot(op):
                   cl.sendText(msg.to,helpt)
 					               
             elif msg.text in ["List group"]:
-              if msg.from_ in admin + staff + creator:	   		
+              if msg.from_ in creator:	   		
                     gid = cl.getGroupIdsJoined()
                     h = ""
 		    jml = 0
