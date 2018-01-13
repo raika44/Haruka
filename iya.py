@@ -993,7 +993,7 @@ def bot(op):
   	  else:
 	 	pass	    	
         #------Cancel Invite User Finish------#      
-            if msg.contentType == 13:
+        if msg.contentType == 13:
                 if wait['invite'] == True:
                      _name = msg.contentMetadata["displayName"]
                      invite = msg.contentMetadata["mid"]
