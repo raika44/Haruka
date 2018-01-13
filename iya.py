@@ -305,6 +305,7 @@ spamMessage= """\n
  |╬| Spam change:
  |╬| Spam start:[number]
  |╬| Spam @
+ |╬| Cium! [mid]
  |╬| Say a̸͟͞a̸͟͞a̸͟͞
  |╬| Me
  |╬| Speed
@@ -371,6 +372,8 @@ mediaMessage= """\n
  |╬| Info @[name]
  |╬| Ping
  |╬| Time
+ |╬| Dosa [text]
+ |╬| Pahala [text]
  |╬| apakah
  |╬| kerang ajaib
  |╬| Sticker [expression]
@@ -1294,7 +1297,7 @@ def bot(op):
             if op.param3 in Smid: #Akun Utama Ke Kick
                 if op.param2 in creator:
                     pass
-	        if op.param2 in Bots:
+	        elif op.param2 in Bots:
 		    pass
                 G = random.choice(KAC).getGroup(op.param1)
                 random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
@@ -2845,6 +2848,31 @@ def bot(op):
                         cl.sendText(msg.to,"done")
                     else:
                         cl.sendText(msg.to,"è¦�äº†å¼€ã€‚")
+            elif "Cium! " in msg.text:
+              if msg.from_ in admin + staff + creator:		
+                korban = msg.text.replace("Cium! ","")
+                korban2 = korban.split()
+                midd = korban2[0]
+                jumlah = int(korban2[1])
+                if jumlah <= 999:
+                    for var in range(0,jumlah):
+                        cl.sendText(midd,(wait["spam"]))
+                else:
+                    cl.sendText(msg.to, "Kebanyakan gblk! ")			
+#----------------------
+            elif "Dosa @" in msg.text:
+                tanya = msg.text.replace("Dosa @","")
+                jawab = ("60%","70%","80%","90%","100%","Tak terhingga")
+                jawaban = random.choice(jawab)
+                cl.sendText(msg.to,"Dosanya " + tanya + "adalah " + jawaban + " Banyak banyak tobat Nak ")
+#----------------------
+	    elif "Pahala @" in msg.text:
+                tanya = msg.text.replace("Pahala @","")
+                jawab = ("0%","20%","40%","50%","60%","Tak ada")
+                jawaban = random.choice(jawab)
+                cl.sendText(msg.to,"Pahalanya " + tanya + "adalah " + jawaban + "\nTobatlah nak")
+
+	#-------------------------------#			
             elif msg.text in ["å¼·åˆ¶è‡ªå‹•é€€å‡º:ã‚ªãƒ•","Leave off","Auto leave:off","å¼·åˆ¶è‡ªå‹•é€€å‡ºï¼šé—œ"]:
               if msg.from_ in admin + staff + creator:	
                 if wait["leaveRoom"] == False:
