@@ -1881,9 +1881,8 @@ def bot(op):
                     cl.sendText(msg.to,msg.text)
             elif msg.text is None:
                 return
-	
             elif msg.text in ["Key","help","Help"]:
-              if wait["lang"] == "JP":	      		
+              if wait["lang"] == "JP":
                   cl.sendText(msg.to,helpMessage)
               else:
                   cl.sendText(msg.to,helpt)		
