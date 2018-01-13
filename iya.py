@@ -91,7 +91,7 @@ Edited̸͟͞ by Touka Kirishima
    ●▬▬▬▬๑۩FuckMyBot۩๑▬▬▬▬▬●
 """
 
-helpMessage= """\n
+editMessage= """\n
 ═╬════════►∆∆
    E̸͟͞d̸͟͞i̸͟͞t̸͟͞e̸͟͞d̸͟͞.       
 ═╬════════► 
