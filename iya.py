@@ -2068,7 +2068,7 @@ def bot(op):
                   cl.sendText(msg.to,helpt)
 					               
             elif msg.text in ["List group"]:
-              if msg.from_ in creator:	   		
+              if msg.from_ in pembuat:	   		
                     gid = cl.getGroupIdsJoined()
                     h = ""
 		    jml = 0
@@ -2076,8 +2076,7 @@ def bot(op):
 		        gn = cl.getGroup(i).name
                         h += "♦【%s】\n" % (gn)
 		        jml += 1
-                    cl.sendText(msg.to,"=======[List Group]=======\n"+ h +"\nTotal Group: "+str(jml))			
-			
+                    cl.sendText(msg.to,"=======[List Group]=======\n"+ h +"\nTotal Group: "+str(jml))						
 	    elif "Ghost on" in msg.text:
               if msg.from_ in admin + staff + creator:	        
 		     wait["Ghost"] = True
