@@ -188,7 +188,7 @@ inviteMessage= """\n
 ═╬════════►
 |╬| Invite:[mid]
 |╬| Invite user[contact]
-|╬| Invite me
+|╬| Invite
 |╬| Team @join
 ═╬════════►∆∆
 """
@@ -197,6 +197,7 @@ grupMessage= """\n
 ═╬════════►
    📴L̸͟͞E̸͟͞A̸͟͞V̸͟͞E̸͟͞ G̸͟͞R̸͟͞O̸͟͞U̸͟͞P̸͟͞📴
 ═╬════════►
+|╬| My waifu sini [Bot assist join]
 |╬| Bot2   @bye
 |╬| Bot3   @bye
 |╬| Bot4   @bye
@@ -1025,6 +1026,34 @@ def bot(op):
                                       random.choice(KAC).sendText(msg.to,"Error")
                                       wait['winvite'] = False
                                       break
+					
+            if msg.contentType == 13:
+                if wait['invite'] == True:
+                     _name = msg.contentMetadata["displayName"]
+                     invite = msg.contentMetadata["mid"]
+                     groups = nadya.getGroup(msg.to)
+                     pending = groups.invitee
+                     targets = []
+                     for s in groups.members:
+                         if _name in s.displayName:
+                             nadya.sendText(msg.to, _name + " Berada DiGrup Ini")
+                         else:
+                             targets.append(invite)
+                     if targets == []:
+                         pass
+                     else:
+                         for target in targets:
+                             try:
+                                 nadya.findAndAddContactsByMid(target)
+                                 nadya.inviteIntoGroup(msg.to,[target])
+                                 nadya.sendText(msg.to,"Invite " + _name)
+                                 wait['invite'] = False
+                                 break                              
+                             except:             
+                                      nadya.sendText(msg.to,"Limit Invite")
+                                      wait['invite'] = False
+                                      break
+					
             if wait['alwayRead'] == True:
                 if msg.toType == 0:
                     cl.sendChatChecked(msg.from_,msg.id)
@@ -1032,7 +1061,6 @@ def bot(op):
                     ke.sendChatChecked(msg.from_,msg.id)
                     ka.sendChatChecked(msg.from_,msg.id)
                     ki.sendChatChecked(msg.from_,msg.id)
-                    km.sendChatChecked(msg.from_,msg.id)
                     kc.sendChatChecked(msg.from_,msg.id)			
                 else:
                     cl.sendChatChecked(msg.to,msg.id)
@@ -1040,7 +1068,6 @@ def bot(op):
                     ke.sendChatChecked(msg.to,msg.id)
                     kk.sendChatChecked(msg.to,msg.id)	
                     ki.sendChatChecked(msg.to,msg.id)
-                    km.sendChatChecked(msg.to,msg.id)
                     kc.sendChatChecked(msg.to,msg.id)			
 #------------------
 #--------------NOTIFIED_INVITE_INTO_GROUP----------------
