@@ -1967,60 +1967,113 @@ def bot(op):
                 return
 	
             elif msg.text in ["Key","help","Help"]:
-                cl.sendText(msg.to,helpMessage)
+              if wait["lang"] == "JP":	      		
+                  cl.sendText(msg.to,helpMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 			
             elif msg.text in ["Key edit","help edit","Help edit"]:
-                cl.sendText(msg.to,editedMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,editedMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 
             elif msg.text in ["Key demoted","help demoted","Help demoted"]:
-                cl.sendText(msg.to,demotedMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,demotedMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 
             elif msg.text in ["Key steal","help steal","Help steal"]:
-                cl.sendText(msg.to,stealMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,stealMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 
             elif msg.text in ["Key secur","help secur","Help secur"]:
-                cl.sendText(msg.to,securMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,securMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 
             elif msg.text in ["Key ban","help ban","Help ban"]:
-                cl.sendText(msg.to,banMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,banMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 
             elif msg.text in ["Key invite","help invite","Help invite"]:
-                cl.sendText(msg.to,inviteMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,inviteMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 
             elif msg.text in ["Key grup","help grup","Help grup"]:
-                cl.sendText(msg.to,grupMessage)		
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,grupMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 		
             elif msg.text in ["Key media","help media","Help media"]:
-                cl.sendText(msg.to,mediaMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,mediaMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
                 
             elif msg.text in ["Key set","help set","Help set"]:
-                cl.sendText(msg.to,setMessage)    		
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,setMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 
             elif msg.text in ["Key cancel","help cancel","Help cancel"]:
-                cl.sendText(msg.to,cancelMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,cancelMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 
             elif msg.text in ["Key gift","help gift","Help gift"]:
-                cl.sendText(msg.to,giftMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,giftMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
 
             elif msg.text in ["Key notif","help notif","Help notif"]:
-                cl.sendText(msg.to,notifMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,notifMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
                 
             elif msg.text in ["Key kiker","help kiker","Help kiker"]:
-                cl.sendText(msg.to,kikerMessage)  		
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,kikerMessage)  		
+              else:
+                  cl.sendText(msg.to,helpt)
 		
             elif msg.text in ["Key spam","help spam","Help spam"]:
-               cl.sendText(msg.to,spamMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,spamMessage)
+              else:
+                  cl.sendText(msg.to,helpt)	
 
             elif msg.text in ["Key utility","help utility","Help utility"]:
+              if wait["lang"] == "JP":			
                 cl.sendText(msg.to,utilityMessage)
 
             elif msg.text in ["Key chat","help chat","Help chat"]:
-                cl.sendText(msg.to,chatMessage)
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,chatMessage)
+              else:
+                  cl.sendText(msg.to,helpt)		
                 
             elif msg.text in ["Key bc","help bc","Help bc"]:
-                cl.sendText(msg.to,bcMessage)  				
+              if wait["lang"] == "JP":		
+                  cl.sendText(msg.to,bcMessage)  	
+              else:
+                  cl.sendText(msg.to,helpt)		
                 
             elif msg.text in ["List group"]:
+              if msg.from_ in admin + staff + creator:	   		
                     gid = cl.getGroupIdsJoined()
                     h = ""
 		    jml = 0
