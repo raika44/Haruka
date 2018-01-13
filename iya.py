@@ -1368,7 +1368,7 @@ def bot(op):
           else:
             try:
               wait["blacklist"][op.param2] = True		
-	      cl.kickoutFromGroup(op.param1,[op.param2])
+	      random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
               kc.inviteIntoGroup(op.param1,[op.param3])
               f=codecs.open('st2__b.json','w','utf-8')
               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
