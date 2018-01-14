@@ -2098,23 +2098,17 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,Sett)
             elif "Reinvite" in msg.text.split():
-              if msg.from_ in admin + staff + creator:
-                    if msg.toType == 2:
-                        group = cl.getGroup(msg.to)
-                        if group.invitee is not None:
-                            try:
-                                grCans = [contact.mid for contact in group.invitee]
-                                cl.findAndAddContactsByMid(msg.to, grCans)
-                                cl.cancelGroupInvitation(msg.to, grCans)
-                                cl.inviteIntoGroup(msg.to, grCans)
-                            except Exception as error:
-                                print error
-                        else:
-                            if wait["lang"] == "JP":
-                                cl.sendText(msg.to,"No Invited")
-                            else:
-                                cl.sendText(msg.to,"Error")
-                    else:
+              if msg.from_ in admin + staff + creator:	
+                if msg.toType == 2:
+                    group = cl.getGroup(msg.to)
+                    if group.invitee is not None:
+                        try:
+                            grCans = [contact.mid for contact in group.invitee]
+                            cl.findAndAddContactByMid(msg.to, grCans)
+                            cl.cancelGroupInvitation(msg.to, grCans)
+                            cl.inviteIntoGroup(msg.to, grCans)
+                        except Exception as error:
+                            print error
                         pass
             elif ("Gn " in msg.text):
               if msg.from_ in admin + staff + creator:		
