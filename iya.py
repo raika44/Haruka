@@ -335,8 +335,8 @@ utilityMessage= """\n
 ═╬════════►
  |╬| Lurking
  |╬| Result
- |╬| Set
- |╬| Read
+ |╬| Setlastpoint
+ |╬| Viewlastseen
  |╬| Open url
  |╬| Close url
  |╬| Gurl
@@ -4047,7 +4047,68 @@ def bot(op):
 				if wait["lang"] == "JP":
 					cl.sendText(msg.to,"bye-bye")
 				else:
-					cl.sendText(msg.to,"He declined all invitations")			
+					cl.sendText(msg.to,"He declined all invitations")
+#-------Cek sider biar mirip kek siri-----------------------------
+            elif "Setlastpoint" in msg.text:
+                subprocess.Popen("echo '' > dataSeen/"+msg.to+".txt", shell=True, stdout=subprocess.PIPE)
+                #cl.sendText(msg.to, "Checkpoint checked!")
+                cl.sendText(msg.to, "Set the lastseens' point(｀・ω・´)\n\n" + datetime.now().strftime('%H:%M:%S'))
+                print "Setlastpoint"
+#--------------------------------------------
+            elif "Viewlastseen" in msg.text:
+	        lurkGroup = ""
+	        dataResult, timeSeen, contacts, userList, timelist, recheckData = [], [], [], [], [], []
+                with open('dataSeen/'+msg.to+'.txt','r') as rr:
+                    contactArr = rr.readlines()
+                    for v in xrange(len(contactArr) -1,0,-1):
+                        num = re.sub(r'\n', "", contactArr[v])
+                        contacts.append(num)
+                        pass
+                    contacts = list(set(contacts))
+                    for z in range(len(contacts)):
+                        arg = contacts[z].split('|')
+                        userList.append(arg[0])
+                        timelist.append(arg[1])
+                    uL = list(set(userList))
+                    for ll in range(len(uL)):
+                        try:
+                            getIndexUser = userList.index(uL[ll])
+                            timeSeen.append(time.strftime("%d日 %H:%M:%S", time.localtime(int(timelist[getIndexUser]) / 1000)))
+                            recheckData.append(userList[getIndexUser])
+                        except IndexError:
+                            conName.append('nones')
+                            pass
+                    contactId = cl.getContacts(recheckData)
+                    for v in range(len(recheckData)):
+                        dataResult.append(contactId[v].displayName + ' ('+timeSeen[v]+')')
+                        pass
+                    if len(dataResult) > 0:
+                        grp = '\n• '.join(str(f) for f in dataResult)
+                        total = '\nThese %iuesrs have seen at the lastseen\npoint(｀・ω・´)\n\n%s' % (len(dataResult), datetime.now().strftime('%H:%M:%S') )
+                        cl.sendText(msg.to, "• %s %s" % (grp, total))
+                    else:
+                        cl.sendText(msg.to, "Sider ga bisa di read cek setpoint dulu bego tinggal ketik\nSetlastpoint\nkalo mau liat sider ketik\nViewlastseen")
+                    print "Viewlastseen"
+#==========================================
+            elif msg.text in ["Purge"]:
+              if msg.from_ in admin:
+                if msg.toType == 2:
+                    group = cl.getGroup(msg.to)
+                    gMembMids = [contact.mid for contact in group.members]
+                    matched_list = []
+                    for tag in wait["blacklist"]:
+                        matched_list+=filter(lambda str: str == tag, gMembMids)
+                    if matched_list == []:
+                        random.choice(KAC).sendText(msg.to,"group purge")
+                        return
+                    for jj in matched_list:
+                        try:
+                            klist=[ki,kk,kc,ks,kt]
+                            kicker = random.choice(klist)
+                            kicker.kickoutFromGroup(msg.to,[jj])
+                            print (msg.to,[jj])
+                        except:
+                            pass					
 #------------------------------- CHECK SIDER --------------------------------
             if msg.text.lower() in ["/set"]:
                 if msg.toType == 2:
@@ -6045,7 +6106,7 @@ def bot(op):
                 ginfo = cl.getGroup(msg.to)
                 cl.sendText(msg.to,"Selamat Datang Di " + str(ginfo.name))
 #-----------------------------------------------
-            elif msg.text in ["Creator"]:
+            elif msg.text in ["Owner"]:
 					msg.contentType = 13
 					msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784"}
 					cl.sendMessage(msg)
@@ -6416,7 +6477,7 @@ def bot(op):
       #-------------Fungsi Balesan Respon Finish---------------------#
 
        #-------------Fungsi Speedbot Start---------------------#
-            elif msg.text in ["Speedbot","speedbot"]:
+            elif msg.text in ["Speedbot","speedbot","Sp","sp"]:
                 start = time.time()
                 cl.sendText(msg.to, "Waiting...")
                 elapsed_time = time.time() - start
@@ -6681,7 +6742,7 @@ def bot(op):
                     cl.sendText(msg.to,mc)
       #-------------Fungsi Bannlist Finish------------------#  
       
-            elif msg.text in ["Cek ban"]:
+            elif msg.text in ["Cek banned"]:
                 if msg.toType == 2:
                     group = cl.getGroup(msg.to)
                     gMembMids = [contact.mid for contact in group.members]
