@@ -998,81 +998,7 @@ def bot(op):
 	 	pass	    	
         #------Cancel Invite User Finish------#      
 		
-        if op.type == 25:
-            msg = op.message
-            if msg.contentType == 13:
-                if wait['winvite'] == True:
-                     _name = msg.contentMetadata["displayName"]
-                     invite = msg.contentMetadata["mid"]
-                     groups = random.choice(KAC).getGroup(msg.to)
-                     pending = groups.invitee
-                     targets = []
-                     for s in groups.members:
-                         if _name in s.displayName:
-                             ra.sendText(msg.to, _name + " Berada DiGrup Ini")
-                         elif invite in wait["blacklist"]:
-                           random.choice(KAC).sendText(msg.to,"Maaf, " + _name + " kena Blacklist")
-                           random.choice(KAC).sendText(msg.to,"hubungi owner kami ya !, \n➡Unban: " + invite)			  
-                         else:
-                             targets.append(invite)
-                     if targets == []:
-                         pass
-                     else:
-                         for target in targets:
-                             try:
-                                 random.choice(KAC).findAndAddContactsByMid(target)
-                                 random.choice(KAC).inviteIntoGroup(msg.to,[target])
-                                 random.choice(KAC).sendText(msg.to,"Invite " + _name)
-                                 wait['winvite'] = False
-                                 break                              
-                             except:             
-                                      random.choice(KAC).sendText(msg.to,"Error")
-                                      wait['winvite'] = False
-                                      break
-					
-            if msg.contentType == 13:
-                if wait['invite'] == True:
-                     _name = msg.contentMetadata["displayName"]
-                     invite = msg.contentMetadata["mid"]
-                     groups = cl.getGroup(msg.to)
-                     pending = groups.invitee
-                     targets = []
-                     for s in groups.members:
-                         if _name in s.displayName:
-                             nadya.sendText(msg.to, _name + " Berada DiGrup Ini")
-                         else:
-                             targets.append(invite)
-                     if targets == []:
-                         pass
-                     else:
-                         for target in targets:
-                             try:
-                                 cl.findAndAddContactsByMid(target)
-                                 cl.inviteIntoGroup(msg.to,[target])
-                                 cl.sendText(msg.to,"Invite " + _name)
-                                 wait['invite'] = False
-                                 break                              
-                             except:             
-                                      cl.sendText(msg.to,"Limit Invite")
-                                      wait['invite'] = False
-                                      break
-					
-            if wait['alwayRead'] == True:
-                if msg.toType == 0:
-                    cl.sendChatChecked(msg.from_,msg.id)
-                    kk.sendChatChecked(msg.from_,msg.id)
-                    ke.sendChatChecked(msg.from_,msg.id)
-                    ka.sendChatChecked(msg.from_,msg.id)
-                    ki.sendChatChecked(msg.from_,msg.id)
-                    kc.sendChatChecked(msg.from_,msg.id)			
-                else:
-                    cl.sendChatChecked(msg.to,msg.id)
-                    ka.sendChatChecked(msg.to,msg.id)
-                    ke.sendChatChecked(msg.to,msg.id)
-                    kk.sendChatChecked(msg.to,msg.id)	
-                    ki.sendChatChecked(msg.to,msg.id)
-                    kc.sendChatChecked(msg.to,msg.id)			
-#------------------
+
 #--------------NOTIFIED_INVITE_INTO_GROUP----------------
         if op.type == 13:
             if mid in op.param3:
@@ -1290,7 +1216,81 @@ def bot(op):
                            if mention['M'] in Bots:
                                   cl.sendText(msg.to,ret_)
                                   cl.kickoutFromGroup(msg.to,[msg.from_])
-                                  break				
+                                  break		
+					
+            if msg.contentType == 13:
+                if wait['winvite'] == True:
+                     _name = msg.contentMetadata["displayName"]
+                     invite = msg.contentMetadata["mid"]
+                     groups = random.choice(KAC).getGroup(msg.to)
+                     pending = groups.invitee
+                     targets = []
+                     for s in groups.members:
+                         if _name in s.displayName:
+                             ra.sendText(msg.to, _name + " Berada DiGrup Ini")
+                         elif invite in wait["blacklist"]:
+                           random.choice(KAC).sendText(msg.to,"Maaf, " + _name + " kena Blacklist")
+                           random.choice(KAC).sendText(msg.to,"hubungi owner kami ya !, \n➡Unban: " + invite)			  
+                         else:
+                             targets.append(invite)
+                     if targets == []:
+                         pass
+                     else:
+                         for target in targets:
+                             try:
+                                 random.choice(KAC).findAndAddContactsByMid(target)
+                                 random.choice(KAC).inviteIntoGroup(msg.to,[target])
+                                 random.choice(KAC).sendText(msg.to,"Invite " + _name)
+                                 wait['winvite'] = False
+                                 break                              
+                             except:             
+                                      random.choice(KAC).sendText(msg.to,"Error")
+                                      wait['winvite'] = False
+                                      break
+					
+            if msg.contentType == 13:
+                if wait['invite'] == True:
+                     _name = msg.contentMetadata["displayName"]
+                     invite = msg.contentMetadata["mid"]
+                     groups = cl.getGroup(msg.to)
+                     pending = groups.invitee
+                     targets = []
+                     for s in groups.members:
+                         if _name in s.displayName:
+                             nadya.sendText(msg.to, _name + " Berada DiGrup Ini")
+                         else:
+                             targets.append(invite)
+                     if targets == []:
+                         pass
+                     else:
+                         for target in targets:
+                             try:
+                                 cl.findAndAddContactsByMid(target)
+                                 cl.inviteIntoGroup(msg.to,[target])
+                                 cl.sendText(msg.to,"Invite " + _name)
+                                 wait['invite'] = False
+                                 break                              
+                             except:             
+                                      cl.sendText(msg.to,"Limit Invite")
+                                      wait['invite'] = False
+                                      break
+					
+            if wait['alwayRead'] == True:
+                if msg.toType == 0:
+                    cl.sendChatChecked(msg.from_,msg.id)
+                    kk.sendChatChecked(msg.from_,msg.id)
+                    ke.sendChatChecked(msg.from_,msg.id)
+                    ka.sendChatChecked(msg.from_,msg.id)
+                    ki.sendChatChecked(msg.from_,msg.id)
+                    kc.sendChatChecked(msg.from_,msg.id)			
+                else:
+                    cl.sendChatChecked(msg.to,msg.id)
+                    ka.sendChatChecked(msg.to,msg.id)
+                    ke.sendChatChecked(msg.to,msg.id)
+                    kk.sendChatChecked(msg.to,msg.id)	
+                    ki.sendChatChecked(msg.to,msg.id)
+                    kc.sendChatChecked(msg.to,msg.id)			
+#------------------
 
         if op.type == 19:
           try:	      
