@@ -3715,16 +3715,14 @@ def bot(op):
 				ks.sendText(msg.to,(bctxt))
 				ka.sendText(msg.to,(bctxt))
 				
-            elif "Idline " in msg.text:
-                id = msg.text.replace("Idline ", "")
-                find = cl.findContactsByUserid(id)
-                for findid in find:
-                    try:
-                        msg.contentType = 13
-                        msg.contentMetadata = {'mid': findid.mid}
-                        cl.sendMessage(msg)
-                    except Exception as error:
-                        print error			
+            elif "Idline: " in msg.text:
+                msgg = msg.text.replace('idline: ','')
+                conn = kr.findContactsByUserid(msgg)
+                if True:
+                    msg.contentType = 13
+                    msg.contentMetadata = {'mid': conn.mid}
+                    cl.sendText(msg.to,"http://line.me/ti/p/~" + msgg)
+                    cl.sendMessage(msg)			
 ##≠========================&=&==&=&=%=%=%=%==%=%=%=%;%;%;;%;;%;%
             elif msg.text in ["Sambutan on","Welcome message:on"]:
               if msg.from_ in admin + staff + creator:
