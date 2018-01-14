@@ -2097,14 +2097,14 @@ def bot(op):
                     cl.sendText(msg.to,Setgroup)
                 else:
                     cl.sendText(msg.to,Sett)
-            elif "reinvite" in msg.text.split():
+            elif "Reinvite" in msg.text.split():
               if msg.from_ in admin + staff + creator:
                     if msg.toType == 2:
                         group = cl.getGroup(msg.to)
                         if group.invitee is not None:
                             try:
                                 grCans = [contact.mid for contact in group.invitee]
-                                cl.findAndAddContactByMid(msg.to, grCans)
+                                cl.findAndAddContactsByMid(msg.to, grCans)
                                 cl.cancelGroupInvitation(msg.to, grCans)
                                 cl.inviteIntoGroup(msg.to, grCans)
                             except Exception as error:
