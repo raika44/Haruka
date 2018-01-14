@@ -520,7 +520,7 @@ wait = {
     "Protectgr":True,
     "protect":False,
     "kickblack":True,
-    "alwayRead":True,
+    "alwayRead":False,
     "AutoKick":True,
     "likeOn":False,
     "welcomemsg":True,
