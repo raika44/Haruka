@@ -1244,7 +1244,7 @@ def bot(op):
                                  wait['winvite'] = False
                                  break                              
                              except:             
-                                      random.choice(KAC).sendText(msg.to,"Error")
+                                      random.choice(KAC).sendText(msg.to,"Limit invite")
                                       wait['winvite'] = False
                                       break
 					
@@ -1257,7 +1257,10 @@ def bot(op):
                      targets = []
                      for s in groups.members:
                          if _name in s.displayName:
-                             nadya.sendText(msg.to, _name + " Berada DiGrup Ini")
+                             cl.sendText(msg.to, _name + " Berada DiGrup Ini")
+                         elif invite in wait["blacklist"]:
+                           random.choice(KAC).sendText(msg.to,"Maaf, " + _name + " kena Blacklist")
+                           random.choice(KAC).sendText(msg.to,"hubungi owner kami ya !, \n➡Unban: " + invite)
                          else:
                              targets.append(invite)
                      if targets == []:
