@@ -1247,36 +1247,7 @@ def bot(op):
                                       random.choice(KAC).sendText(msg.to,"Limit invite")
                                       wait['winvite'] = False
                                       break
-					
-            if msg.contentType == 13:
-                if wait['invite'] == True:
-                     _name = msg.contentMetadata["displayName"]
-                     invite = msg.contentMetadata["mid"]
-                     groups = cl.getGroup(msg.to)
-                     pending = groups.invitee
-                     targets = []
-                     for s in groups.members:
-                         if _name in s.displayName:
-                             cl.sendText(msg.to, _name + " Berada DiGrup Ini")
-                         elif invite in wait["blacklist"]:
-                           random.choice(KAC).sendText(msg.to,"Maaf, " + _name + " kena Blacklist")
-                           random.choice(KAC).sendText(msg.to,"hubungi owner kami ya !, \n➡Unban: " + invite)
-                         else:
-                             targets.append(invite)
-                     if targets == []:
-                         pass
-                     else:
-                         for target in targets:
-                             try:
-                                 cl.findAndAddContactsByMid(target)
-                                 cl.inviteIntoGroup(msg.to,[target])
-                                 cl.sendText(msg.to,"Invite " + _name)
-                                 wait['invite'] = False
-                                 break                              
-                             except:             
-                                      cl.sendText(msg.to,"Limit Invite")
-                                      wait['invite'] = False
-                                      break
+
 					
             if wait['alwayRead'] == True:
                 if msg.toType == 0:
