@@ -3710,7 +3710,7 @@ def bot(op):
 				ka.sendText(msg.to,(bctxt))
 				
             elif "Idline: " in msg.text:
-                msgg = msg.text.replace('idline: ','')
+                msgg = msg.text.replace('Idline: ','')
                 conn = cl.findContactsByUserid(msgg)
                 if True:
                     msg.contentType = 13
