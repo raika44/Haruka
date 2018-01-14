@@ -189,7 +189,7 @@ inviteMessage= """\n
  |╬| Invite:[mid]
  |╬| Invite user[contact]
  |╬| Invite
- |╬| Team @join
+ |╬| Join group:
 ═╬════════►∆∆
 """
 
@@ -1915,6 +1915,23 @@ def bot(op):
                     else:
                         msg.text = "URLâ†’\n" + msg.contentMetadata["postEndUrl"]
                     cl.sendText(msg.to,msg.text)
+#--------------------------------------------------------
+            elif "Join group: " in msg.text:
+		ng = msg.text.replace("Join group: ","")
+		gid = cl.getGroupIdsJoined()
+		try:
+		    if msg.from_ in creator:
+                        for i in gid:
+                            h = cl.getGroup(i).name
+		            if h == ng:
+		                cl.inviteIntoGroup(i,[Creator])
+			        cl.sendText(msg.to,"Success join to ["+ h +"] group")
+			    else:
+			        pass
+		    else:
+		        cl.sendText(msg.to,"Khusus admin and owner")
+		except Exception as e:
+		    cl.sendMessage(msg.to, str(e))
             elif msg.text is None:
                 return
             elif msg.text in ["Key","help","Help"]:
