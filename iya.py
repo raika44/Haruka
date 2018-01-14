@@ -270,7 +270,7 @@ notifMessage= """\n
 ═╬════════►
    📲N̸͟͞O̸͟͞T̸͟͞I̸͟͞F̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞I̸͟͞O̸͟͞N̸͟͞ 📲
 ═╬════════►
- |╬| List group
+ |╬| Group list
  |╬| Banlist
  |╬| Adminlist
  |╬| Creatlist
@@ -2033,6 +2033,14 @@ def bot(op):
                   cl.sendText(msg.to,bcMessage)  	
               else:
                   cl.sendText(msg.to,helpt)
+#===============================================================
+            elif 'group list' in msg.text.lower():
+              if msg.from_ in adminsa + pembuat:
+                gs = cl.getGroupIdsJoined()
+                L = "『 Groups List 』\n"
+                for i in gs:
+                    L += "[≫] %s \n" % (cl.getGroup(i).name + " | [ " + str(len (cl.getGroup(i).members)) + " ]")
+                cl.sendText(msg.to, L + "\nTotal Group : [ " + str(len(gs)) +" ]")
 					               
             elif msg.text in ["List group"]:
               if msg.from_ in pembuat:	   		
