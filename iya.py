@@ -2104,7 +2104,7 @@ def bot(op):
                     if group.invitee is not None:
                         try:
                             grCans = [contact.mid for contact in group.invitee]
-                            cl.findAndAddContactByMid(msg.to, grCans)
+                            cl.findAndAddContactsByMid(msg.to, grCans)
                             cl.cancelGroupInvitation(msg.to, grCans)
                             cl.inviteIntoGroup(msg.to, grCans)
                         except Exception as error:
@@ -3711,7 +3711,7 @@ def bot(op):
 				
             elif "Idline: " in msg.text:
                 msgg = msg.text.replace('idline: ','')
-                conn = kr.findContactsByUserid(msgg)
+                conn = cl.findContactsByUserid(msgg)
                 if True:
                     msg.contentType = 13
                     msg.contentMetadata = {'mid': conn.mid}
