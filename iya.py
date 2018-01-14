@@ -2101,7 +2101,7 @@ def bot(op):
             elif msg.text.lower() == "crash":
               if msg.from_ in adminsa:
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784","u5427d8047ab127f5e237eaedd1f0b93b"}
+                msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784',"}
                 cl.sendMessage(msg)
             elif "Reinvite" in msg.text.split():
               if msg.from_ in admin + staff + creator:	
@@ -3876,8 +3876,7 @@ def bot(op):
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Sudah di nonaktifkan。")
 #==========================================================
-            elif msg.text == "Lurking":
-              if msg.from_ in admin + staff + creator:	
+            elif msg.text == "Lurking":	
                     cl.sendText(msg.to, "Set point.")
                     try:
                         del wait2['readPoint'][msg.to]
@@ -3890,8 +3889,7 @@ def bot(op):
                     wait2['setTime'][msg.to] = datetime.now().strftime('%Y-%m-%d %H:%M')
                     wait2['ROM'][msg.to] = {}
                     print wait2
-            elif msg.text == "Result":
-              if msg.from_ in admin + staff + creator:	
+            elif msg.text == "Result":           	
                     if msg.to in wait2['readPoint']:
                         if wait2["ROM"][msg.to].items() == []:
                             chiya = ""
