@@ -239,8 +239,11 @@ class LINE:
       except Exception as e:
          raise e
 
+  def removeAllMessages(self, lastMessageId):
+	return self.Talk.client.removeAllMessages(0, lastMessageId)
+
   def sendEvent(self, messageObject):
-        return self.Talk.client.sendEvent(0, messageObject)
+        return self._client.sendEvent(0, messageObject)
 
   def sendChatChecked(self, mid, lastMessageId):
         return self.Talk.client.sendChatChecked(0, mid, lastMessageId)
@@ -268,11 +271,6 @@ class LINE:
 
   def getMessageBoxWrapUpList(self, start, messageBoxCount):
         return self.Talk.client.getMessageBoxWrapUpList(start, messageBoxCount)
-        
-  def getCover(self,mid):
-        h = self.getHome(mid)
-        objId = h["result"]["homeInfo"]["objectId"]
-        return "http://dl.profile.line-cdn.net/myhome/c/download.nhn?userid=" + mid+ "&oid=" + objId        
 
   """Contact"""
 
@@ -319,18 +317,6 @@ class LINE:
 
   def getHiddenContactMids(self):
         return self.Talk.client.getHiddenContactMids()
-
-  def CloneContactProfile(self, mid):
-	contact = self.getContact(mid)
-	profile = self.getProfile()
-	profile.displayName = contact.displayName
-	profile.statusMessage = contact.statusMessage
-	profile.pictureStatus = contact.pictureStatus
-	self.updateDisplayPicture(profile.pictureStatus)
-	return self.updateProfile(profile)
-
-  def updateDisplayPicture(self, hash_id):
-        return self.Talk.client.updateProfileAttribute(0, 8, hash_id)
 
 
   """Group"""
@@ -379,7 +365,6 @@ class LINE:
 
   def updateGroup(self, groupObject):
         return self.Talk.client.updateGroup(0, groupObject)
-        
   def findGroupByTicket(self,ticketId):
         return self.Talk.client.findGroupByTicket(0,ticketId)
 
@@ -434,6 +419,7 @@ class LINE:
 
   def createAlbum2(self, gid, name, path):
       return self.channel.createAlbum(gid, name, path, oid)
+
 
 
   def __validate(self, mail, passwd, cert, token, qr):
