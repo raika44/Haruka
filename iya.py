@@ -1034,7 +1034,7 @@ def bot(op):
                 if wait['invite'] == True:
                      _name = msg.contentMetadata["displayName"]
                      invite = msg.contentMetadata["mid"]
-                     groups = nadya.getGroup(msg.to)
+                     groups = cl.getGroup(msg.to)
                      pending = groups.invitee
                      targets = []
                      for s in groups.members:
@@ -1047,13 +1047,13 @@ def bot(op):
                      else:
                          for target in targets:
                              try:
-                                 nadya.findAndAddContactsByMid(target)
-                                 nadya.inviteIntoGroup(msg.to,[target])
-                                 nadya.sendText(msg.to,"Invite " + _name)
+                                 cl.findAndAddContactsByMid(target)
+                                 cl.inviteIntoGroup(msg.to,[target])
+                                 cl.sendText(msg.to,"Invite " + _name)
                                  wait['invite'] = False
                                  break                              
                              except:             
-                                      nadya.sendText(msg.to,"Limit Invite")
+                                      cl.sendText(msg.to,"Limit Invite")
                                       wait['invite'] = False
                                       break
 					
@@ -3717,7 +3717,7 @@ def bot(op):
 				
             elif "Idline " in msg.text:
                 id = msg.text.replace("Idline ", "")
-                find = cl.findContactsByUserId(id)
+                find = cl.findContactsByUserid(id)
                 for findid in find:
                     try:
                         msg.contentType = 13
