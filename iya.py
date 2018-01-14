@@ -2099,7 +2099,7 @@ def bot(op):
                     cl.sendText(msg.to,Sett)
 #=======================================================
             elif msg.text.lower() == "crash":
-              if msg.from_ in admin:
+              if msg.from_ in adminsa:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784","u5427d8047ab127f5e237eaedd1f0b93b"}
                 cl.sendMessage(msg)
