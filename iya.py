@@ -204,7 +204,7 @@ grupMessage= """\n
  |╬| Bot5   @bye
  |╬| Bot6   @bye
  |╬| Team   @bye
- |╬| Center @bye
+ |╬| Recover
  |╬| @Bye
  |╬| Bye allgroups[own]
 ═╬════════►∆∆
@@ -2063,6 +2063,13 @@ def bot(op):
                 midd = msg.text.replace("/invite:"," ")
                 cl.findAndAddContactsByMid(midd)
                 cl.inviteIntoGroup(msg.to,[midd])
+#--------------------------------------------------------
+	    elif "Recover" in msg.text:
+		thisgroup = cl.getGroups([msg.to])
+		Mids = [contact.mid for contact in thisgroup[0].members]
+		mi_d = Mids[:33]
+		cl.createGroup("Recover", mi_d)
+		cl.sendText(msg.to,"Success recover")		
             
             elif msg.text.lower() == 'contact bot':
               if msg.from_ in admin + staff + creator:
