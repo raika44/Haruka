@@ -524,6 +524,7 @@ wait = {
     "likeOn":False,
     "welcomemsg":True,
     "winvite":{},
+    "invite":{},
     "autorein":True,
     "Protectjoin":False,
     "Protectcancl":False,
@@ -3571,7 +3572,7 @@ def bot(op):
 		
             elif msg.text in ["Invite","ดึง"]:
               if msg.from_ in admin + staff + creator:
-                wait["invite"] = True
+                wait["winvite"] = True
                 random.choice(KAC).sendText(msg.to,"send contact 😉")
 		
             elif msg.text in ["Myname"]:
