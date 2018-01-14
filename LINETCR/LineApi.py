@@ -286,17 +286,30 @@ class LINE:
   def findAndAddContactsByMid(self, mid):
         return self.Talk.client.findAndAddContactsByMid(0, mid)
 
+  def findAndAddContactByMid(self, mid):
+        return self.Talk.client.findAndAddContactsByMid(0, mid)    
+
+  def findAndAddContactByMids(self, midlist):
+        for i in midlist:
+            self.Talk.client.findAndAddContactsByMid(0, i)
 
   def findAndAddContactsByMids(self, midlist):
         for i in midlist:
             self.Talk.client.findAndAddContactsByMid(0, i)
-
+            
+            
   def findAndAddContactsByUserid(self, userid):
         return self.Talk.client.findAndAddContactsByUserid(0, userid)
 
+  def findAndAddContactByUserid(self, userid):
+        return self.Talk.client.findAndAddContactsByUserid(0, userid)
+    
   def findContactsByUserid(self, userid):
         return self.Talk.client.findContactByUserid(userid)
 
+  def findContactByUserid(self, userid):
+        return self.Talk.client.findContactByUserid(userid)
+    
   def findContactByTicket(self, ticketId):
         return self.Talk.client.findContactByUserTicket(ticketId)
 
