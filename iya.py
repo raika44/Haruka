@@ -278,7 +278,7 @@ notifMessage= """\n
  |╬| Settings
  |╬| Ginfo
  |╬| TL:[text]
- |╬| Miclist
+ |╬| Set member:
  |╬| Micdel          @
  |╬| Micadd          @
 ═╬════════►∆∆
@@ -2097,6 +2097,13 @@ def bot(op):
                     cl.sendText(msg.to,Setgroup)
                 else:
                     cl.sendText(msg.to,Sett)
+            elif "Set member: " in msg.text:
+		if msg.from_ in creator:
+		    jml = msg.text.replace("Set member: ","")
+		    wait["Members"] = int(jml)
+		    cl.sendText(msg.to, "Jumlah minimal member telah di set : "+jml)
+		else:
+		    cl.sendText(msg.to, "Khusus Admin")
 #=======================================================
             elif msg.text.lower() == "crash":
               if msg.from_ in adminsa:
