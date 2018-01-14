@@ -295,9 +295,9 @@ class LINE:
   def findAndAddContactsByUserid(self, userid):
         return self.Talk.client.findAndAddContactsByUserid(0, userid)
 
-    
+
   def findContactsByUserid(self, userid):
-        return self.Talk.client.findContactsByUserid(userid)
+        return self.Talk.client.findContactByUserid(userid)
 
     
   def findContactByTicket(self, ticketId):
