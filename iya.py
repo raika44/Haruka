@@ -1191,14 +1191,14 @@ def bot(op):
                  if wait['creatorMention'] == True:
                      contact = cl.getContact(msg.from_)
                      cName = contact.displayName
-                     balas = ["Ngapain tag creator saya? "]
+                     balas = ["Ada apa sih?","ngapain tag gw?","kangen gw?","Lah jones ngapain tag gw?","klo penting pc gw aja?"]
                      ret_ = random.choice(balas)
                      name = re.findall(r'@(\w+)', msg.text)
                      mention = ast.literal_eval(msg.contentMetadata["MENTION"])
                      mentionees = mention['MENTIONEES']
                      for mention in mentionees:
                            if mention['M'] in pembuat:
-                                  cl.sendText(msg.to,ret_)
+                                  satpam.sendText(msg.to,ret_)
                                   break				
                     
             if "MENTION" in msg.contentMetadata.keys() != None:
@@ -3352,8 +3352,16 @@ def bot(op):
             elif msg.text in ["Respontag off","Autorespon:off","Respon off","Respon:off"]:
               if msg.from_ in admin + staff + creator + peminjam:	
                 wait['detectMention'] = False
-                cl.sendText(msg.to,"Auto respon tag Off")
-            
+                cl.sendText(msg.to,"Auto creator tag Off")
+            elif msg.text in ["Creator tag on","Creatortag on","Respon on","Respon:on"]:
+              if msg.from_ in admin + staff + creator + peminjam:	
+                wait['detectMention'] = True
+                cl.sendText(msg.to,"Auto respon tag On")
+                
+            elif msg.text in ["Creator tag of","Creatortag off","Respon off","Respon:off"]:
+              if msg.from_ in admin + staff + creator + peminjam:	
+                wait['detectMention'] = False
+                cl.sendText(msg.to,"Auto creator tag Off")            
             elif msg.text in ["Kicktag on","Autokick:on","Responkick on","Responkick:on"]:
               if msg.from_ in admin + staff + creator + peminjam:	
                 wait['kickMention'] = True
