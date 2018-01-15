@@ -532,7 +532,7 @@ wait = {
     "Backup":True,
     "protectionOn":False,
     "atjointicket":True,
-    "Pap":"https://i.imgflip.com/1bqcxs.jpg","http://kucingpedia.com/wp-content/uploads/2016/06/Gambar-Kucing-Gemuk-Lucu.jpg","https://cdn.brilio.net/news/2015/06/23/6759/750xauto-25-meme-kucing-yang-imut-ngegemesin-dan-bikin-ketawa-150623c.jpg","https://cdn.brilio.net/news/2015/06/23/6759/21164-meme-kucing-7-9.jpg","http://m.memegen.com/kccbqe.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ--0ihgvcclOlusyzB1I2pVfenjEfkA7emCu_NR-atnyDlLbh0",
+    "Pap":["https://i.imgflip.com/1bqcxs.jpg","http://kucingpedia.com/wp-content/uploads/2016/06/Gambar-Kucing-Gemuk-Lucu.jpg","https://cdn.brilio.net/news/2015/06/23/6759/750xauto-25-meme-kucing-yang-imut-ngegemesin-dan-bikin-ketawa-150623c.jpg","https://cdn.brilio.net/news/2015/06/23/6759/21164-meme-kucing-7-9.jpg","http://m.memegen.com/kccbqe.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ--0ihgvcclOlusyzB1I2pVfenjEfkA7emCu_NR-atnyDlLbh0"],
     "SetKey":".",
     "spam":"ALLAHU LAA ILAAHA ILLA HUWAL HAYYUL QAYYUMU. LAA TA'KHUDZUHUU SINATUW WA LAA NAUUM. LAHUU MAA FISSAMAAWAATI WA MAA FIL ARDHI. MAN DZAL LADZII YASFA'U 'INDAHUU ILLAA BI IDZNIHI. YA'LAMU MAA BAINA AIDIIHIM WA MAA KHALFAHUM. WA LAA YUHITHUUNA BI SYAI-IN MIN 'ILMIHII ILLAA BI MAASYAA-A. WASI'A KURSIYYUHUSSAMAAWAATI WAL ARDHA. WA LAA YA-UDHUU HIFZHUHUMAA WAHUWAL 'ALIYYUL AZHIIM",
     }
