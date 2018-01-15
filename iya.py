@@ -1003,7 +1003,7 @@ def bot(op):
         if op.type == 13:
             if mid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + peminjam + creato:
+                if op.param2 in Bots + peminjam + creator:
                   cl.acceptGroupInvitation(op.param1)
 		  cl.sendText(op.param1,"☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")	
 		  cl.sendText(op.param1,helpMessage)
