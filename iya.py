@@ -5523,7 +5523,7 @@ def bot(op):
                 if msg.from_ in creator + peminjam:
                     saya = msg.text.replace('Grupid','')
                     gid = kr1.getGroup(msg.to)
-                    kr1.sendText(msg.to, "[ID Grup : ]\n" + gid.i		
+                    kr1.sendText(msg.to, "[ID Grup : ]\n" + gid.id)		
             elif ("Ban repeat " in msg.text):
               if msg.from_ in admin + creator + peminjam:	
                 key = eval(msg.contentMetadata["MENTION"])
