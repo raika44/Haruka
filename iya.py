@@ -270,7 +270,7 @@ notifMessage= """\n
 ═╬════════►
    📲N̸͟͞O̸͟͞T̸͟͞I̸͟͞F̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞I̸͟͞O̸͟͞N̸͟͞ 📲
 ═╬════════►
- |╬| Group list
+ |╬| Grouplistmid
  |╬| Banlist
  |╬| Adminlist
  |╬| Creatlist
@@ -1915,6 +1915,17 @@ def bot(op):
                     else:
                         msg.text = "URLâ†’\n" + msg.contentMetadata["postEndUrl"]
                     cl.sendText(msg.to,msg.text)
+            elif msg.text in ["Gruplistmid"]:
+                if msg.from_ in creator:
+                    gruplist = cl.getGroupIdsJoined()
+                    kontak = cl.getGroups(gruplist)
+                    num=1
+                    msgs="═════════List GrupMid═════════"
+                    for ids in kontak:
+                        msgs+="\n[%i] %s" % (num, ids.id)
+                        num=(num+1)
+                    msgs+="\n═════════List GrupMid═════════\n\nTotal Grup : %i" % len(kontak)
+                    cl.sendText(msg.to, msgs)
 #--------------------------------------------------------
             elif "Join group: " in msg.text:
 		ng = msg.text.replace("Join group: ","")
