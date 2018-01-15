@@ -5456,7 +5456,7 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"creator list: ")
                     mc = ""
-                    for mi_d in peminjam:
+                    for mi_d in creator:
                         mc += "->" +cl.getContact(mi_d).displayName + "\n"
                     cl.sendText(msg.to,mc)
                     print "[Command]Stafflist executed"			
