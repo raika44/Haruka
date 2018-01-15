@@ -2043,15 +2043,15 @@ def bot(op):
 #===============================================================
             elif msg.text in ["Gruplist"]:
                 if msg.from_ in creator + peminjam:
-                    gruplist = kr1.getGroupIdsJoined()
-                    kontak = kr1.getGroups(gruplist)
+                    gruplist = cl.getGroupIdsJoined()
+                    kontak = cl.getGroups(gruplist)
                     num=1
                     msgs="═════════List Grup═════════"
                     for ids in kontak:
                         msgs+="\n[%i] %s" % (num, ids.name)
                         num=(num+1)
                     msgs+="\n═════════List Grup═════════\n\nTotal Grup : %i" % len(kontak)
-                    kr1.sendText(msg.to, msgs)					               
+                    cl.sendText(msg.to, msgs)					               
             elif msg.text in ["List group"]:
               if msg.from_ in pembuat + peminjam:	   		
                     gid = cl.getGroupIdsJoined()
@@ -5543,8 +5543,8 @@ def bot(op):
             elif "Grupid" in msg.text:
                 if msg.from_ in creator + peminjam:
                     saya = msg.text.replace('Grupid','')
-                    gid = kr1.getGroup(msg.to)
-                    kr1.sendText(msg.to, "[ID Grup : ]\n" + gid.id)		
+                    gid = cl.getGroup(msg.to)
+                    cl.sendText(msg.to, "[ID Grup : ]\n" + gid.id)		
             elif ("Ban repeat " in msg.text):
               if msg.from_ in admin + creator + peminjam:	
                 key = eval(msg.contentMetadata["MENTION"])
