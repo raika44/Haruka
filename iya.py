@@ -270,8 +270,9 @@ notifMessage= """\n
 ═╬════════►
    📲N̸͟͞O̸͟͞T̸͟͞I̸͟͞F̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞I̸͟͞O̸͟͞N̸͟͞ 📲
 ═╬════════►
- |╬| Grouplistmid
+ |╬| Gruplist
  |╬| Banlist
+ |╬| Grupid
  |╬| Adminlist
  |╬| Creatlist
  |╬| Stafflist
@@ -1002,7 +1003,7 @@ def bot(op):
         if op.type == 13:
             if mid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
+                if op.param2 in Bots + peminjam + creato:
                   cl.acceptGroupInvitation(op.param1)
 		  cl.sendText(op.param1,"☆Ketik ☞Help☜ Untuk Bantuan☆\n☆Harap Gunakan Dengan Bijak ^_^ ☆")	
 		  cl.sendText(op.param1,helpMessage)
@@ -1012,77 +1013,77 @@ def bot(op):
 		
             if Amid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + owner + peminjam:
+                if op.param2 in Bots + peminjam + creator:
                   ki.acceptGroupInvitation(op.param1)
                 else:
                   ki.rejectGroupInvitation(op.param1)
 		
             if Bmid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + owner + peminjam:
+                if op.param2 in Bots + peminjam + creator:
                   kk.acceptGroupInvitation(op.param1)
                 else:
                   kk.rejectGroupInvitation(op.param1)
 		
             if Cmid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + owner + peminjam:
+                if op.param2 in Bots +  peminjam + creator:
                   kc.acceptGroupInvitation(op.param1)
                 else:
                   kc.rejectGroupInvitation(op.param1)
 		
             if Dmid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + owner + peminjam:
+                if op.param2 in Bots + peminjam + creator:
                   ks.acceptGroupInvitation(op.param1)
                 else:
                   ks.rejectGroupInvitation(op.param1)
 		
             if Emid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + owner + peminjam:
+                if op.param2 in Bots + peminjam + creator:
                   ka.acceptGroupInvitation(op.param1)
                 else:
                   ka.rejectGroupInvitation(op.param1)
 		
             if Fmid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + owner + peminjam:
+                if op.param2 in Bots + peminjam + creator:
                   kb.acceptGroupInvitation(op.param1)
                 else:
                   kb.rejectGroupInvitation(op.param1)
                 
             if Gmid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
+                if op.param2 in Bots + peminjam +  creator:
                   ko.acceptGroupInvitation(op.param1)
                 else:
                   ko.rejectGroupInvitation(op.param1)
                 
             if Hmid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + owner + peminjam:
+                if op.param2 in Bots + peminjam + creator:
                   ke.acceptGroupInvitation(op.param1)
                 else:
                   ke.rejectGroupInvitation(op.param1)
                     
             if Imid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + owner + peminjam:
+                if op.param2 in Bots + peminjam + creator:
                   ku.acceptGroupInvitation(op.param1)
                 else:
                   ku.rejectGroupInvitation(op.param1)   
 		
             if Jmid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + owner + peminjam:
+                if op.param2 in Bots + peminjam + crator:
                   km.acceptGroupInvitation(op.param1)
                 else:
                   km.rejectGroupInvitation(op.param1)   
 		
             if Smid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots or owner:
+                if op.param2 in Bots + creator:
                   satpam.acceptGroupInvitation(op.param1)
                 else:
                   satpam.rejectGroupInvitation(op.param1)   
@@ -5375,7 +5376,7 @@ def bot(op):
             elif "Add penyewa @" in msg.text:
               if msg.from_ in creator:	
                     print "[Command]Staff add executing"
-                    _name = msg.text.replace("Add creator @","")
+                    _name = msg.text.replace("Add penyewa @","")
                     _nametarget = _name.rstrip('  ')
                     gs = cl.getGroup(msg.to)
                     targets = []
@@ -5399,7 +5400,7 @@ def bot(op):
             elif "Expel penyewa @" in msg.text:
               if msg.from_ in creator:	
                     print "[Command]Staff remove executing"
-                    _name = msg.text.replace("Expel creator @","")
+                    _name = msg.text.replace("Expel penyewa @","")
                     _nametarget = _name.rstrip('  ')
                     gs = cl.getGroup(msg.to)
                     targets = []
@@ -5518,6 +5519,11 @@ def bot(op):
                    	    cl.sendText(msg.to,"Could not find it")
 		  else:
 		       cl.sendText(msg.to,"turn on media")
+            elif "Grupid" in msg.text:
+                if msg.from_ in creator + peminjam:
+                    saya = msg.text.replace('Grupid','')
+                    gid = kr1.getGroup(msg.to)
+                    kr1.sendText(msg.to, "[ID Grup : ]\n" + gid.i		
             elif ("Ban repeat " in msg.text):
               if msg.from_ in admin + creator + peminjam:	
                 key = eval(msg.contentMetadata["MENTION"])
