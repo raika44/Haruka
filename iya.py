@@ -2860,7 +2860,7 @@ def bot(op):
               if msg.from_ in admin + staff + creator + peminjam:		
                 eltime = time.time() - mulai
                 van = "Bot Sudah Berjalan Selama :\n"+waktu(eltime)
-                nadya.sendText(msg.to,van)	
+                cl.sendText(msg.to,van)	
 #----------------------
             elif "Dosa @" in msg.text:
                 tanya = msg.text.replace("Dosa @","")
