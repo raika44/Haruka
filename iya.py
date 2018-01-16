@@ -3222,7 +3222,7 @@ def bot(op):
                     wait["clock"] = False
                     kc.sendText(msg.to,"Jam Sedang Off")
 			
-            elif text.lower() == 'lurking on':
+            elif msg.text in ["Lurking on"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -3264,7 +3264,7 @@ def bot(op):
                                         json.dump(read, fp, sort_keys=True, indent=4)
                                         cl.sendMessage(msg.to, "Set reading point:\n" + readTime)
                                         
-            elif text.lower() == 'lurking off':
+            elif msg.text in ["Lurking off"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -3288,7 +3288,7 @@ def bot(op):
                                           pass
                                     cl.sendMessage(msg.to, "Delete reading point:\n" + readTime)
                 
-            elif text.lower() == 'lurking reset':
+            elif msg.text in ["Lurking reset"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -3313,7 +3313,7 @@ def bot(op):
                                 else:
                                     cl.sendMessage(msg.to, "Lurking belum diaktifkan ngapain di reset?")
                                     
-            elif text.lower() == 'lurking result':
+            elif msg.text in ["Lurking result"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
