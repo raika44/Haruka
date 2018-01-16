@@ -3222,7 +3222,7 @@ def bot(op):
                     wait["clock"] = False
                     kc.sendText(msg.to,"Jam Sedang Off")
 			
-                            elif text.lower() == 'lurking on':
+            elif text.lower() == 'lurking on':
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -3264,7 +3264,7 @@ def bot(op):
                                         json.dump(read, fp, sort_keys=True, indent=4)
                                         cl.sendMessage(msg.to, "Set reading point:\n" + readTime)
                                         
-                            elif text.lower() == 'lurking off':
+            elif text.lower() == 'lurking off':
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -3288,7 +3288,7 @@ def bot(op):
                                           pass
                                     cl.sendMessage(msg.to, "Delete reading point:\n" + readTime)
                 
-                            elif text.lower() == 'lurking reset':
+            elif text.lower() == 'lurking reset':
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -3313,7 +3313,7 @@ def bot(op):
                                 else:
                                     cl.sendMessage(msg.to, "Lurking belum diaktifkan ngapain di reset?")
                                     
-                            elif text.lower() == 'lurking result':
+            elif text.lower() == 'lurking result':
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -3355,8 +3355,6 @@ def bot(op):
                                     pass
                                 else:
                                     cl.sendMessage(receiver,"Lurking has not been set.")
-                except Exception as e:
-                    cl.log("[SEND_MESSAGE] ERROR : " + str(e))
          #-------------Fungsi Jam on/off Finish-------------------#   
             elif 'Bot mid' in msg.text.lower():
               if msg.from_ in admin + staff + creator + peminjam:	
