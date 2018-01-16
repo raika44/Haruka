@@ -201,7 +201,7 @@ grupMessage= """\n
  |╬| Bot4   @bye
  |╬| Bot5   @bye
  |╬| Bot6   @bye
- |╬| Team   @bye
+ |╬| Cl keluarallgrup
  |╬| Recover
  |╬| @Bye
  |╬| Bye allgroups[own]
@@ -2067,8 +2067,16 @@ def bot(op):
 		     wait["Ghost"] = True
 		     cl.sendText(msg.to,"Ghost Sudah Aktif")
 	      else:
-	          cl.sendText(msg.to,"admin yg boleh")		     
-
+	          cl.sendText(msg.to,"admin yg boleh")	
+			
+            elif msg.text in ["Cl keluarallgrup"]:
+              if msg.from_ in creator:
+				gid = cl.getGroupIdsJoined()
+				for i in gid:
+					cl.sendText(msg.to,"Dipaksa keluar oleh owner")					
+					cl.leaveGroup(i)
+				else:
+					cl.sendText(msg.to,"He declined all invitations")
 	    elif "Ghost off" in msg.text:
               if msg.from_ in admin + staff + creator + peminjam:	 	        
 		     wait["Ghost"] = False
