@@ -551,7 +551,7 @@ settings = {
 
 setTime = {}
 setTime = wait2['setTime']
-
+mulai = time.time() 
 
 def download_page(url):
     version = (3,0)
