@@ -3223,7 +3223,7 @@ def bot(op):
                     kc.sendText(msg.to,"Jam Sedang Off")
 			
             elif msg.text in ["Lurking on"]:
-                                tz = pytz.timezone("Asia/Jakarta")
+                                tz = cl.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
                                 hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
@@ -3265,7 +3265,7 @@ def bot(op):
                                         cl.sendMessage(msg.to, "Set reading point:\n" + readTime)
                                         
             elif msg.text in ["Lurking off"]:
-                                tz = pytz.timezone("Asia/Jakarta")
+                                tz = cl.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
                                 hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
@@ -3289,7 +3289,7 @@ def bot(op):
                                     cl.sendMessage(msg.to, "Delete reading point:\n" + readTime)
                 
             elif msg.text in ["Lurking reset"]:
-                                tz = pytz.timezone("Asia/Jakarta")
+                                tz = cl.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
                                 hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
