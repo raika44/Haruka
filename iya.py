@@ -321,7 +321,7 @@ spamMessage= """\n
  |╬| Cpu
  |╬| Crash
  |╬| Respon/sname
- |╬| Help
+ |╬| Timebot
  |╬| Mc:[mid]
  |╬| runtim
  |╬| show offenders:on/off
@@ -333,6 +333,10 @@ utilityMessage= """\n
    💻U̸͟͞T̸͟͞I̸͟͞L̸͟͞I̸͟͞T̸͟͞Y̸͟͞💻
 ═╬════════►
  |╬| Lurking
+ |╬| Lurking on
+ |╬| Lurking off
+ |╬| Lurking reset
+ |╬| Lurking result
  |╬| Result
  |╬| Setlastpoint
  |╬| Viewlastseen
@@ -2855,7 +2859,11 @@ def bot(op):
                     for var in range(0,jumlah):
                         cl.sendText(midd,(wait["spam"]))
                 else:
-                    cl.sendText(msg.to, "Kebanyakan gblk! ")			
+                    cl.sendText(msg.to, "Kebanyakan gblk! ")	
+            elif msg.text.lower() == 'timebot':
+                if msg.from_ in admin + creator + peminjam:
+                    botKernel = subprocess.Popen(["runtime"], stdout=subprocess.PIPE).communicate()[0]
+                    cl.sendText(msg.to, botKernel + "\n\n===SERVER INFO IP===")		
 #----------------------
             elif "Dosa @" in msg.text:
                 tanya = msg.text.replace("Dosa @","")
@@ -3213,6 +3221,142 @@ def bot(op):
                 else:
                     wait["clock"] = False
                     kc.sendText(msg.to,"Jam Sedang Off")
+			
+                            elif text.lower() == 'lurking on':
+                                tz = pytz.timezone("Asia/Jakarta")
+                                timeNow = datetime.now(tz=tz)
+                                day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
+                                hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+                                bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+                                hr = timeNow.strftime("%A")
+                                bln = timeNow.strftime("%m")
+                                for i in range(len(day)):
+                                    if hr == day[i]: hasil = hari[i]
+                                for k in range(0, len(bulan)):
+                                    if bln == str(k): bln = bulan[k-1]
+                                readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
+                                if msg.to in read['readPoint']:
+                                        try:
+                                            del read['readPoint'][msg.to]
+                                            del read['readMember'][msg.to]
+                                            del read['readTime'][msg.to]
+                                        except:
+                                            pass
+                                        read['readPoint'][msg.to] = msg.id
+                                        read['readMember'][msg.to] = ""
+                                        read['readTime'][msg.to] = datetime.now().strftime('%H:%M:%S')
+                                        read['ROM'][msg.to] = {}
+                                        with open('sider.json', 'w') as fp:
+                                            json.dump(read, fp, sort_keys=True, indent=4)
+                                            cl.sendMessage(msg.to,"Lurking already on")
+                                else:
+                                    try:
+                                        del read['readPoint'][msg.to]
+                                        del read['readMember'][msg.to]
+                                        del read['readTime'][msg.to]
+                                    except:
+                                        pass
+                                    read['readPoint'][msg.to] = msg.id
+                                    read['readMember'][msg.to] = ""
+                                    read['readTime'][msg.to] = datetime.now().strftime('%H:%M:%S')
+                                    read['ROM'][msg.to] = {}
+                                    with open('sider.json', 'w') as fp:
+                                        json.dump(read, fp, sort_keys=True, indent=4)
+                                        cl.sendMessage(msg.to, "Set reading point:\n" + readTime)
+                                        
+                            elif text.lower() == 'lurking off':
+                                tz = pytz.timezone("Asia/Jakarta")
+                                timeNow = datetime.now(tz=tz)
+                                day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
+                                hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+                                bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+                                hr = timeNow.strftime("%A")
+                                bln = timeNow.strftime("%m")
+                                for i in range(len(day)):
+                                    if hr == day[i]: hasil = hari[i]
+                                for k in range(0, len(bulan)):
+                                    if bln == str(k): bln = bulan[k-1]
+                                readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
+                                if msg.to not in read['readPoint']:
+                                    cl.sendMessage(msg.to,"Lurking already off")
+                                else:
+                                    try:
+                                            del read['readPoint'][msg.to]
+                                            del read['readMember'][msg.to]
+                                            del read['readTime'][msg.to]
+                                    except:
+                                          pass
+                                    cl.sendMessage(msg.to, "Delete reading point:\n" + readTime)
+                
+                            elif text.lower() == 'lurking reset':
+                                tz = pytz.timezone("Asia/Jakarta")
+                                timeNow = datetime.now(tz=tz)
+                                day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
+                                hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+                                bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+                                hr = timeNow.strftime("%A")
+                                bln = timeNow.strftime("%m")
+                                for i in range(len(day)):
+                                    if hr == day[i]: hasil = hari[i]
+                                for k in range(0, len(bulan)):
+                                    if bln == str(k): bln = bulan[k-1]
+                                readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
+                                if msg.to in read["readPoint"]:
+                                    try:
+                                        read["readPoint"][msg.to] = True
+                                        read["readMember"][msg.to] = {}
+                                        read["readTime"][msg.to] = readTime
+                                        read["ROM"][msg.to] = {}
+                                    except:
+                                        pass
+                                    cl.sendMessage(msg.to, "Reset reading point:\n" + readTime)
+                                else:
+                                    cl.sendMessage(msg.to, "Lurking belum diaktifkan ngapain di reset?")
+                                    
+                            elif text.lower() == 'lurking result':
+                                tz = pytz.timezone("Asia/Jakarta")
+                                timeNow = datetime.now(tz=tz)
+                                day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
+                                hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"]
+                                bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
+                                hr = timeNow.strftime("%A")
+                                bln = timeNow.strftime("%m")
+                                for i in range(len(day)):
+                                    if hr == day[i]: hasil = hari[i]
+                                for k in range(0, len(bulan)):
+                                    if bln == str(k): bln = bulan[k-1]
+                                readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
+                                if receiver in read['readPoint']:
+                                    if read["ROM"][receiver].items() == []:
+                                        cl.sendMessage(receiver,"[ Reader ]:\nNone")
+                                    else:
+                                        chiya = []
+                                        for rom in read["ROM"][receiver].items():
+                                            chiya.append(rom[1])
+                                        cmem = client.getContacts(chiya) 
+                                        zx = ""
+                                        zxc = ""
+                                        zx2 = []
+                                        xpesan = 'Lurkers:\n'
+                                    for x in range(len(cmem)):
+                                        xname = str(cmem[x].displayName)
+                                        pesan = ''
+                                        pesan2 = pesan+"@c\n"
+                                        xlen = str(len(zxc)+len(xpesan))
+                                        xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
+                                        zx = {'S':xlen, 'E':xlen2, 'M':cmem[x].mid}
+                                        zx2.append(zx)
+                                        zxc += pesan2
+                                    text = xpesan+ zxc + "\nLurking time: \n" + readTime
+                                    try:
+                                        cl.sendMessage(receiver, text, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
+                                    except Exception as error:
+                                        print (error)
+                                    pass
+                                else:
+                                    cl.sendMessage(receiver,"Lurking has not been set.")
+                except Exception as e:
+                    cl.log("[SEND_MESSAGE] ERROR : " + str(e))
          #-------------Fungsi Jam on/off Finish-------------------#   
             elif 'Bot mid' in msg.text.lower():
               if msg.from_ in admin + staff + creator + peminjam:	
@@ -5361,13 +5505,13 @@ def bot(op):
                    tulisan = jmlh * (teks+"\n")
                    #Keke cantik <3
                    if txt[1] == "on":
-                        if jmlh <= 10000:
+                        if jmlh <= 999:
                              for x in range(jmlh):
                                    cl.sendText(msg.to, teks)
                         else:
                                cl.sendText(msg.to, "Out of range! ")
                    elif txt[1] == "off":
-                         if jmlh <= 10000:
+                         if jmlh <= 999:
                                cl.sendText(msg.to, tulisan)
                          else:
                                cl.sendText(msg.to, "Out of range! ")
