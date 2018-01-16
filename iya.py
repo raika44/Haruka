@@ -2072,12 +2072,10 @@ def bot(op):
             elif msg.text in ["Cl keluarallgrup"]:
               if msg.from_ in creator:
 				gid = cl.getGroupIdsJoined()
+				if wait["lang"] == "JP":
+					cl.sendText(gid,"Dipaksa keluar oleh owner")				
 				for i in gid:				
 					cl.leaveGroup(i)
-				if wait["lang"] == "JP":
-					cl.sendText(msg.to,"Dipaksa keluar oleh owner")	
-				else:
-					cl.sendText(msg.to,"He declined all invitations")
 	    elif "Ghost off" in msg.text:
               if msg.from_ in admin + staff + creator + peminjam:	 	        
 		     wait["Ghost"] = False
