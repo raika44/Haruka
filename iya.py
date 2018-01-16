@@ -2856,7 +2856,7 @@ def bot(op):
                         cl.sendText(midd,(wait["spam"]))
                 else:
                     cl.sendText(msg.to, "Kebanyakan gblk! ")	
-            elif msg.text.lower() == 'Timebot':
+            elif msg.text.lower() == 'timebot':
               if msg.from_ in admin + staff + creator + peminjam:		
                 eltime = time.time() - mulai
                 van = "Bot Sudah Berjalan Selama :\n"+waktu(eltime)
