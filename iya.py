@@ -5753,9 +5753,17 @@ def bot(op):
                     profile.displayName = string
                     ka.updateProfile(profile)
                 if len(string.decode('utf-8')) <= 20:
-                    profile = ke.getProfile()
+                    profile = ks.getProfile()
                     profile.displayName = string
-                    ke.updateProfile(profile)
+                    ks.updateProfile(profile)
+                if len(string.decode('utf-8')) <= 20:
+                    profile = kc.getProfile()
+                    profile.displayName = string
+                    kc.updateProfile(profile)
+                if len(string.decode('utf-8')) <= 20:
+                    profile = kb.getProfile()
+                    profile.displayName = string
+                    kb.updateProfile(profile)		
             elif msg.text.lower() == 'allbio:':
               if msg.from_ in creator:
                 string = msg.text.lower().replace("allbio:","")
@@ -5809,10 +5817,10 @@ def bot(op):
               if msg.from_ in creator:
                 string = msg.text.replace("Bot4 rename:","")
                 if len(string.decode('utf-8')) <= 20:
-                    profile = ke.getProfile()
+                    profile = ks.getProfile()
                     profile.displayName = string
-                    ke.updateProfile(profile)
-                    ke.sendText(msg.to,"change name: "+string+"\nsucces")
+                    ks.updateProfile(profile)
+                    ks.sendText(msg.to,"change name: "+string+"\nsucces")
             elif "Bot5 rename:" in msg.text:
               if msg.from_ in creator:
                 string = msg.text.replace("Bot5 rename:","")
@@ -5831,7 +5839,15 @@ def bot(op):
                     satpam.sendText(msg.to,"change name: "+string+"\nsucces") 
             elif "Bot7 rename:" in msg.text:
               if msg.from_ in creator:
-                    string = msg.text.replace("Bot5 rename:","")
+                string = msg.text.replace("Bot7 rename:","")
+                if len(string.decode('utf-8')) <= 20:
+                    profile = kb.getProfile()
+                    profile.displayName = string
+                    kb.updateProfile(profile)
+                    kb.sendText(msg.to,"change name: "+string+"\nsucces") 
+            elif "Bot8 rename:" in msg.text:
+              if msg.from_ in creator:
+                    string = msg.text.replace("Bot8 rename:","")
                     if len(string.decode('utf-8')) <= 20:												
                      profile = km.getProfile()
                      profile.displayName = string		
@@ -5844,7 +5860,15 @@ def bot(op):
                      km.updateGroup(G)												
                      km.updateProfile(profile)
                      km.sendText(msg.to,"change name: "+string+"\nsucces")
-                     km.leaveGroup(msg.to)												  
+                     km.leaveGroup(msg.to)
+            elif "Bot9 rename:" in msg.text:
+              if msg.from_ in creator:
+                string = msg.text.replace("Bot9 rename:","")
+                if len(string.decode('utf-8')) <= 20:
+                    profile = kc.getProfile()
+                    profile.displayName = string
+                    kc.updateProfile(profile)
+                    kc.sendText(msg.to,"change name: "+string+"\nsucces") 
     #-------------Fungsi Tag All Start---------------#
             elif msg.text in ["kiwkiw","Tagall","Kuchiyose no jutsu","Summon all member","Kuchiyose"]:
                   group = cl.getGroup(msg.to)
