@@ -42,6 +42,10 @@ kc = LINETCR.LINE()
 kc.login(token="EoSvAw8NDmJ1YpwrJEL7.HxjzPXa8Fqfsn35p9smcPW.aWzwS+3xWZ3MLQ7I8zFyXRA8vVnGL7nrKULYp/Fb+4g=")
 kc.loginResult()
 
+kb = LINETCR.LINE()
+kb.login(token="EodYY18JIGI6i6VK2Hvc.K+aGvOSDEuWbEIIhnbxcBa.PqycqORTB7WX7JJgzIk+yrRowUVrzs5nvDaSQom7Pg4=")
+kb.loginResult()
+
 km = LINETCR.LINE()
 km.login(token="EoMbxaL4ssvlbYUNSBQc.eoXp0xK1vqkdnL9Q78yCpa.a7tCkTBte/Z2yRo0ALaqV5Pu0yDGDKIZdo0Q/lXXHpk=")
 km.loginResult()
@@ -53,9 +57,11 @@ ko = ki
 
 ku = kk
 
-kb = ks
+ks
 
 ke = ka
+
+kb
 
 kc
 print "login success"
@@ -1120,7 +1126,7 @@ def bot(op):
           if wait["kickblack"] == True:
                if wait["blacklist"][op.param2] == True:
                     try:
-                        random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                        random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
 			cl.sendText(op.param1,"Blacklist gk pantes disini")
                         G = cl.getGroup(op.param1)
                         G.preventJoinByTicket = True
@@ -1333,13 +1339,13 @@ def bot(op):
           else:
             try:
               wait["blacklist"][op.param2] = True		
-	      random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              kc.inviteIntoGroup(op.param1,[op.param3])
+	      random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+              kb.inviteIntoGroup(op.param1,[op.param3])
               f=codecs.open('st2__b.json','w','utf-8')
               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:
               wait["blacklist"][op.param2] = True			
-              random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+              random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
               random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
               f=codecs.open('st2__b.json','w','utf-8')
               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
@@ -1355,7 +1361,7 @@ def bot(op):
                         kc.kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                         except:
                             print ("client Kick regulation or Because it does not exist in the group、\n["+op.param1+"]\nの\n["+op.param2+"]\nを蹴る事ができませんでした。\nブラックリストに追加します。")
                         if op.param2 in wait["blacklist"]:
@@ -1397,7 +1403,7 @@ def bot(op):
                         kc.kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("clientが蹴り規制orグループに存在しない為、\n["+op.param1+"]\nの\n["+op.param2+"]\nを蹴る事ができませんでした。\nブラックリストに追加します。")
@@ -1441,7 +1447,7 @@ def bot(op):
                         kc.kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("clientが蹴り規制orグループに存在しない為、\n["+op.param1+"]\nの\n["+op.param2+"]\nを蹴る事ができませんでした。\nブラックリストに追加します。")
@@ -1484,7 +1490,7 @@ def bot(op):
                         kk.kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("clientが蹴り規制orグループに存在しない為、\n["+op.param1+"]\nの\n["+op.param2+"]\nを蹴る事ができませんでした。\nブラックリストに追加します。")
@@ -1527,7 +1533,7 @@ def bot(op):
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
@@ -1569,7 +1575,7 @@ def bot(op):
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
@@ -1611,7 +1617,7 @@ def bot(op):
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
@@ -1653,7 +1659,7 @@ def bot(op):
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                             random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
@@ -1695,7 +1701,7 @@ def bot(op):
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
                         if op.param2 in wait["blacklist"]:
@@ -1736,7 +1742,7 @@ def bot(op):
                         random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
                     except:
                         try:
-                            random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
+                            random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
                         if op.param2 in wait["blacklist"]:
@@ -2510,8 +2516,6 @@ def bot(op):
                 ks.sendText(msg.to,Dmid)
                 ka.sendText(msg.to,Emid)
                 kb.sendText(msg.to,Fmid)
-                ko.sendText(msg.to,Gmid)
-                ke.sendText(msg.to,Hmid)
             elif "RA 1" == msg.text:
                 cl.sendText(msg.to,mid)
             elif "RA 2" == msg.text:
@@ -2531,6 +2535,10 @@ def bot(op):
                 cl.sendMessage(msg)
                 ki.sendMessage(msg)
                 kk.sendMessage(msg)
+                ka.sendMessage(msg)
+                ks.sendMessage(msg)
+                kc.sendMessage(msg)
+                kb.sendMessage(msg)		
             elif msg.text in ["Hehehe","Hehe","He","hehehe","hehe","he"]:
                 msg.contentType = 7
                 msg.text = None
@@ -4080,6 +4088,7 @@ def bot(op):
                                         kk.leaveGroup(i)
                                         ka.leaveGroup(i)
 					ks.leaveGroup(i)
+					kb.leaveGroup(i)					
 				if wait["lang"] == "JP":
 					cl.sendText(msg.to,"bye-bye")
 				else:
@@ -4455,6 +4464,7 @@ def bot(op):
                                         gs.preventJoinByTicket(gs)
                                         cl.updateGroup(gs)
             elif msg.text in ["Nyanyi","Taktuntuang"]:
+              if msg.from_ in admin + staff + creator + peminjam:		
                 G = cl.getGroup(msg.to)
                 G.preventJoinByTicket = False
                 cl.updateGroup(G)
@@ -4705,7 +4715,10 @@ def bot(op):
 			ka.sendText(msg.to,"ada apa sayang")
                         kc.acceptGroupInvitationByTicket(msg.to,Ticket)
                         time.sleep(0.2)
-			kc.sendText(msg.to,"Aku sayang kamu")			
+			kc.sendText(msg.to,"Aku sayang kamu")	
+                        kb.acceptGroupInvitationByTicket(msg.to,Ticket)
+                        time.sleep(0.2)
+			kb.sendText(msg.to,"Aku cinta kamu")			
                         G = cl.getGroup(msg.to)
                         G.preventJoinByTicket = True
                         cl.updateGroup(G)
@@ -5194,7 +5207,10 @@ def bot(op):
                 ka.sendText(msg.to, text)
                 profile = ks.getProfile()
                 text = profile.displayName + ""	
-                ks.sendText(msg.to, text)		
+                ks.sendText(msg.to, text)
+                profile = kb.getProfile()
+                text = profile.displayName + ""	
+                kb.sendText(msg.to, text)		
 	
             elif msg.text in ["Sayang!"]:
                 print "EXCUTED -- ABSEN BOT"
@@ -5640,6 +5656,20 @@ def bot(op):
                     cl.sendText(msg.to,"The automatic appending information is set as follows。\n\n" + wait["welmsg"])
 
     #-------------Fungsi Leave Group Start---------------#
+            elif msg.text in ["Bye waifuku","Bye semua"]:
+              if msg.from_ in creator + peminjam:	
+                if msg.toType == 2:
+                    ginfo = cl.getGroup(msg.to)
+                    try:
+                        ki.leaveGroup(msg.to)
+                        kk.leaveGroup(msg.to)
+                        ks.leaveGroup(msg.to)
+                        ka.leaveGroup(msg.to)
+                        kc.leaveGroup(msg.to)	
+                        kb.leaveGroup(msg.to)	
+                        cl.leaveGroup(msg.to)			
+                    except:
+                        pas
             elif msg.text in ["Bye all","Bye sayang"]:
               if msg.from_ in creator + peminjam:	
                 if msg.toType == 2:
@@ -5654,7 +5684,9 @@ def bot(op):
 			ka.sendText(msg.to,"mblaem")
                         ka.leaveGroup(msg.to)
 			kc.sendText(msg.to,"mblaem-mblaem")
-                        kc.leaveGroup(msg.to)			
+                        kc.leaveGroup(msg.to)	
+			kb.sendText(msg.to,"Bye coeg")
+                        kb.leaveGroup(msg.to)						
                     except:
                         pass
             elif msg.text in ["Bye _Second"]:
