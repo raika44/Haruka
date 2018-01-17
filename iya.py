@@ -63,7 +63,6 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 helpMessage= """\n
-▂▃▅▇█▓▒░۩H̸͟͞e̸͟͞l̸͟͞p̸͟͞ ̸͟͞۩░▒▓█▇▅▃▂
 ═╬════════►∆∆
    Help
 ═╬════════► 
@@ -83,17 +82,13 @@ helpMessage= """\n
 ♦Help spam
 ♦Help utility
 ♦Help bc
-═╬════════►∆∆
-🔘Turn off bots🔘
-●▬▬▬▬๑۩Special Thanks۩๑▬▬▬▬▬●
-P̸͟͞O̸͟͞W̸͟͞E̸͟͞R̸͟͞ B̸͟͞Y̸͟͞ T̸͟͞C̸͟͞R̸͟͞
-Edited̸͟͞ by Touka Kirishima
-   ●▬▬▬▬๑۩FuckMyBot۩๑▬▬▬▬▬●
+═╬════════►
+●▬▬▬▬๑۩Kirishima Touka۩๑▬▬▬▬▬●
 """
 
 editedMessage= """\n
 ═╬════════►∆∆
-   E̸͟͞d̸͟͞i̸͟͞t̸͟͞e̸͟͞d̸͟͞.       
+    Edited     
 ═╬════════► 
 🔘 My name    :  |╬|
 🔘 Bot2 rename:  |╬|
@@ -119,7 +114,7 @@ editedMessage= """\n
 
 demotedMessage= """\n
 ═╬════════►∆∆
-   🔓D̸͟͞e̸͟͞m̸͟͞o̸͟͞t̸͟͞e̸͟͞d̸͟͞.🔓
+   Demoted
 ═╬════════►
  |╬| Admin on @
  |╬| Expel on @
@@ -131,7 +126,7 @@ demotedMessage= """\n
 
 stealMessage= """\n
 ═╬════════►
-   📷S̸͟͞T̸͟͞E̸͟͞A̸͟͞L̸͟͞I̸͟͞N̸͟͞G̸͟͞📷
+   Steal
 ═╬════════►
  |╬| Steal
  |╬| Steal name    @
@@ -158,7 +153,7 @@ stealMessage= """\n
 
 securMessage= """\n
 ═╬════════►
-   🔐S̸͟͞E̸͟͞C̸͟͞U̸͟͞R̸͟͞Y̸͟͞I̸͟͞T̸͟͞Y̸͟͞🔐
+   SECURITY
 ═╬════════►
  |╬| Protect:low
  |╬| Protect:hight
@@ -168,7 +163,7 @@ securMessage= """\n
 
 banMessage= """\n
 ═╬════════►
-   🚮L̸͟͞I̸͟͞S̸͟͞T̸͟͞ B̸͟͞A̸͟͞N̸͟͞N̸͟͞E̸͟͞D̸͟͞🚮
+   BANNED
 ═╬════════►
  |╬| Ban            @
  |╬| Unban          @
@@ -182,7 +177,7 @@ banMessage= """\n
 
 inviteMessage= """\n
 ═╬════════►
-   📲i̲̅n̲̅v̲̅i̲̅t̲̅a̲̅t̲̅i̲̅o̲̅n̲̅📲
+   INVITE
 ═╬════════►
  |╬| Invite:[mid]
  |╬| Invite user[contact]
@@ -193,7 +188,7 @@ inviteMessage= """\n
 
 grupMessage= """\n
 ═╬════════►
-   📴L̸͟͞E̸͟͞A̸͟͞V̸͟͞E̸͟͞ G̸͟͞R̸͟͞O̸͟͞U̸͟͞P̸͟͞📴
+   GRUP
 ═╬════════►
  |╬| My waifu sini [Bot assist join]
  |╬| Bot2   @bye
@@ -210,7 +205,7 @@ grupMessage= """\n
 
 setMessage= """\n
 ═╬════════►
-   🔫A̸͟͞U̸͟͞T̸͟͞O̸͟͞ S̸͟͞E̸͟͞T̸͟͞ B̸͟͞O̸͟͞T̸͟͞🔫
+   SET BOT
 ═╬════════►
  |╬| Auto reinvite:on/off
  |╬| Auto join:on/off
@@ -246,7 +241,7 @@ setMessage= """\n
 
 cancelMessage= """\n
 ═╬════════►
-   🚮M̸͟͞O̸͟͞D̸͟͞E̸͟͞ C̸͟͞A̸͟͞N̸͟͞C̸͟͞E̸͟͞L̸͟͞🚮
+   CANCEL
 ═╬════════►
  |╬| Rejectall
  |╬| Clean invites
@@ -256,7 +251,7 @@ cancelMessage= """\n
 
 giftMessage= """\n
 ═╬════════►
-   S̸͟͞U̸͟͞R̸͟͞P̸͟͞R̸͟͞I̸͟͞S̸͟͞E̸͟͞ G̸͟͞I̸͟͞F̸͟͞T̸͟͞
+   GIFT
 ═╬════════►
  |╬| gift1-15
  |╬| Spam gift
@@ -266,7 +261,7 @@ giftMessage= """\n
 
 notifMessage= """\n
 ═╬════════►
-   📲N̸͟͞O̸͟͞T̸͟͞I̸͟͞F̸͟͞I̸͟͞C̸͟͞A̸͟͞T̸͟͞I̸͟͞O̸͟͞N̸͟͞ 📲
+NOTIFICATION
 ═╬════════►
  |╬| Gruplist
  |╬| Banlist
@@ -285,7 +280,7 @@ notifMessage= """\n
 
 kikerMessage= """\n
 ═╬════════►
-   🚮W̸͟͞T̸͟͞F̸͟͞ K̸͟͞I̸͟͞L̸͟͞L̸͟͞ Y̸͟͞O̸͟͞U̸͟͞🚮
+   KICKER
 ═╬════════►
  |╬| cleansemua
  |╬| Vkick @
@@ -297,7 +292,7 @@ kikerMessage= """\n
 
 spamMessage= """\n
 ═╬════════►
-   💻S̸͟͞P̸͟͞A̸͟͞M͞ S̸͟͞E̸͟͞R̸͟͞V̸͟͞E̸͟͞R̸͟͞💻
+   SPAM
 ═╬════════►
  |╬| Spamg[on/off]
  |╬| Spam add:
@@ -330,7 +325,7 @@ spamMessage= """\n
 
 utilityMessage= """\n
 ═╬════════►
-   💻U̸͟͞T̸͟͞I̸͟͞L̸͟͞I̸͟͞T̸͟͞Y̸͟͞💻
+   UTILITY
 ═╬════════►
  |╬| Lurking
  |╬| Result
@@ -346,7 +341,7 @@ utilityMessage= """\n
 
 mediaMessage= """\n
 ═╬════════►
-   💿S̸͟͞E̸͟͞A̸͟͞R̸͟͞C̸͟͞H̸͟͞ C̸͟͞H̸͟͞A̸͟͞T̸͟͞💿
+   MEDIA
 ═╬════════►
  |╬| Lyric 
  |╬| Music 
@@ -383,13 +378,11 @@ mediaMessage= """\n
 
 bcMessage= """\n
 ═╬════════►
-   📣B̸͟͞R̸͟͞O̸͟͞A̸͟͞D̸͟͞C̸͟͞A̸͟͞S̸͟͞T̸͟͞📣
+ BROADCAST
 ═╬════════►
  |╬| Pm cast   
  |╬| Broadcast 
  |╬| Spam @[name]
-═╬════════►
-   💻P̸͟͞o̸͟͞w̸͟͞e̸͟͞r̸͟͞💻
 ═╬════════►
 """
 
@@ -4461,6 +4454,51 @@ def bot(op):
                                         cl.updateGroup(gs)
                                         gs.preventJoinByTicket(gs)
                                         cl.updateGroup(gs)
+            elif msg.text in ["Nyanyi","Taktuntuang"]:
+                G = cl.getGroup(msg.to)
+                G.preventJoinByTicket = False
+                cl.updateGroup(G)
+                Ticket = cl.reissueGroupTicket(msg.to)
+                km.acceptGroupInvitationByTicket(msg.to,Ticket)
+                time.sleep(0.2)	
+                G = cl.getGroup(msg.to)
+                G.preventJoinByTicket = True
+                cl.updateGroup(G)		
+                G = cl.getGroup(msg.to)	
+                km.sendText(msg.to,"Waktunya nyanyi di grup")
+                km.sendText(msg.to,"Aku belum mandi")
+                km.sendText(msg.to,"Tak tun tuang")
+                km.sendText(msg.to,"Tak tun tuang")
+                km.sendText(msg.to,"Tapi masih cantik juga")
+                km.sendText(msg.to,"Tak tun tuang")
+                km.sendText(msg.to,"Tak tun tuang")
+                km.sendText(msg.to,"apalagi kalau sudah mandi")
+                km.sendText(msg.to,"Tak tun tuang")
+                km.sendText(msg.to,"Pasti cantik sekali")
+                km.sendText(msg.to,"yiha")
+                km.sendText(msg.to,"Kalau orang lain melihatku")
+                km.sendText(msg.to,"Tak tun tuang")
+                km.sendText(msg.to,"Badak aku taba bana")
+                km.sendText(msg.to,"Tak tun tuang")
+                km.sendText(msg.to,"Tak tuntuang")
+                km.sendText(msg.to,"Tapi kalau langsuang diidu")
+                km.sendText(msg.to,"Tak tun tuang")
+                km.sendText(msg.to,"Atagfirullah baunya")
+                km.sendText(msg.to,"Males lanjutin ah")
+                km.sendText(msg.to,"Sepi bat")
+                kk.sendText(msg.to,"Iya sepi udah udah")
+                cl.sendText(msg.to,"Gaada yang denger juga kita nyanyi")
+                kk.sendText(msg.to,"Nah")
+                km.sendText(msg.to,"Mending gua makan dulu")
+                cl.sendText(msg.to,"Siyap")
+                ki.sendText(msg.to,"Okeh")
+                km.sendText(msg.to,"Katanya owner kita Jomblo ya")
+                cl.sendText(msg.to,"Iya emang")
+                km.sendText(msg.to,"Denger denger si lagi nyari pacar doi")
+                kk.sendText(msg.to,"Udah ah gosip mulu doain aja biar dapet")
+                km.sendText(msg.to,"Aamiin")
+                km.sendText(msg.to,"Bye cuman numpang nyanyi doang wkwk")			      
+                km.leaveGroup(msg.to)		
             elif "Spamin @" in msg.text:
               if msg.from_ in admin + staff + creator + peminjam:
                 _name = msg.text.replace("Spamin @","")
@@ -5278,7 +5316,7 @@ def bot(op):
                 wait["Pap"] = msg.text.replace("Pap set ","")
                 cl.sendText(msg.to,"Pap Has Ben Set To")
 
-	    elif msg.text in [".Pap","Pap"]:
+	    elif msg.text in ["pap","Pap"]:
                 cl.sendImageWithURL(msg.to,random.choice(wait["Pap"]))
 				    
 	    elif "Vn" in msg.text:
@@ -6095,6 +6133,7 @@ def bot(op):
                                 cl.sendText(msg.to,"Akun Bersih Kembali")
                             except:
                                 ki.sendText(msg.to,"Error")
+				
            #----------------Fungsi Unbanned User Target Finish-----------------------#
            
         #-------------Fungsi Spam Start---------------------#
