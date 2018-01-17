@@ -1249,7 +1249,7 @@ def bot(op):
               dia = ("CACAT MAINANNYA CRASH","Tercyduck ingin ngecrash","Kamu asu ngecrash terus!")
               ket = random.choice(dia)
               cl.sendText(msg.to,ket)
-              cl.kickoutFromGroup(msg.to,[msg.from_])
+              random.choice(DEF).kickoutFromGroup(msg.to,[msg.from_])
               cl.sendText(msg.to,"Mampus! gila lu kang crash")
 					
             if wait['alwayRead'] == True:
@@ -2134,7 +2134,7 @@ def bot(op):
 		else:
 		    cl.sendText(msg.to, "Khusus Admin")
 #=======================================================
-            elif msg.text.lower() == "crash":
+            elif msg.text.lower() == ".crash":
               if msg.from_ in creator + peminjam:
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784',"}
@@ -5753,17 +5753,9 @@ def bot(op):
                     profile.displayName = string
                     ka.updateProfile(profile)
                 if len(string.decode('utf-8')) <= 20:
-                    profile = ks.getProfile()
+                    profile = ke.getProfile()
                     profile.displayName = string
-                    ks.updateProfile(profile)
-                if len(string.decode('utf-8')) <= 20:
-                    profile = kc.getProfile()
-                    profile.displayName = string
-                    kc.updateProfile(profile)
-                if len(string.decode('utf-8')) <= 20:
-                    profile = kb.getProfile()
-                    profile.displayName = string
-                    kb.updateProfile(profile)		
+                    ke.updateProfile(profile)
             elif msg.text.lower() == 'allbio:':
               if msg.from_ in creator:
                 string = msg.text.lower().replace("allbio:","")
@@ -5817,10 +5809,10 @@ def bot(op):
               if msg.from_ in creator:
                 string = msg.text.replace("Bot4 rename:","")
                 if len(string.decode('utf-8')) <= 20:
-                    profile = ks.getProfile()
+                    profile = ke.getProfile()
                     profile.displayName = string
-                    ks.updateProfile(profile)
-                    ks.sendText(msg.to,"change name: "+string+"\nsucces")
+                    ke.updateProfile(profile)
+                    ke.sendText(msg.to,"change name: "+string+"\nsucces")
             elif "Bot5 rename:" in msg.text:
               if msg.from_ in creator:
                 string = msg.text.replace("Bot5 rename:","")
@@ -5839,15 +5831,7 @@ def bot(op):
                     satpam.sendText(msg.to,"change name: "+string+"\nsucces") 
             elif "Bot7 rename:" in msg.text:
               if msg.from_ in creator:
-                string = msg.text.replace("Bot7 rename:","")
-                if len(string.decode('utf-8')) <= 20:
-                    profile = kb.getProfile()
-                    profile.displayName = string
-                    kb.updateProfile(profile)
-                    kb.sendText(msg.to,"change name: "+string+"\nsucces") 
-            elif "Bot8 rename:" in msg.text:
-              if msg.from_ in creator:
-                    string = msg.text.replace("Bot8 rename:","")
+                    string = msg.text.replace("Bot5 rename:","")
                     if len(string.decode('utf-8')) <= 20:												
                      profile = km.getProfile()
                      profile.displayName = string		
@@ -5860,15 +5844,7 @@ def bot(op):
                      km.updateGroup(G)												
                      km.updateProfile(profile)
                      km.sendText(msg.to,"change name: "+string+"\nsucces")
-                     km.leaveGroup(msg.to)
-            elif "Bot9 rename:" in msg.text:
-              if msg.from_ in creator:
-                string = msg.text.replace("Bot9 rename:","")
-                if len(string.decode('utf-8')) <= 20:
-                    profile = kc.getProfile()
-                    profile.displayName = string
-                    kc.updateProfile(profile)
-                    kc.sendText(msg.to,"change name: "+string+"\nsucces") 
+                     km.leaveGroup(msg.to)												  
     #-------------Fungsi Tag All Start---------------#
             elif msg.text in ["kiwkiw","Tagall","Kuchiyose no jutsu","Summon all member","Kuchiyose"]:
                   group = cl.getGroup(msg.to)
