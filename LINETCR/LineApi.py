@@ -44,7 +44,7 @@ class LINE:
     self._headers = {
               'X-Line-Application': 'CHROMEOS\t1.4.17\tChrome_OS\t1', 
               'X-Line-Access': self.authToken, 
-              'User-Agent': 'Line/7.14.0'
+              'User-Agent': 'Line/7.18.0'
    }
     self.Poll = Poll(self.authToken)
     self.channel = channel.Channel(self.authToken)
