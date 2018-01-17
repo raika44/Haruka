@@ -3,9 +3,6 @@ from Api import Poll, Talk, channel
 from lib.curve.ttypes import *
 import requests
 import shutil
-import unicodedata
-import urllib
-import string
 import json
 from random import randint
 
@@ -45,18 +42,18 @@ class LINE:
     self.authToken = self.Talk.authToken
     self.cert = self.Talk.cert
     self._headers = {
-              'X-Line-Application': 'CHROMEOS	1.4.17	Chrome_OS	1', 
+              'X-Line-Application': 'CHROMEOS\t1.4.17\tChrome_OS\t11', 
               'X-Line-Access': self.authToken, 
-              'User-Agent': 'Mozilla/5.0'
+              'User-Agent': 'Line/7.14.0'
    }
     self.Poll = Poll(self.authToken)
-    #self.channel = channel.Channel(self.authToken)
-    #self.channel.login()	
-    #self.mid = self.channel.mid
-    #self.channel_access_token = self.channel.channel_access_token
-    #self.token = self.channel.token
-    #self.obs_token = self.channel.obs_token
-    #self.refresh_token = self.channel.refresh_token
+    self.channel = channel.Channel(self.authToken)
+    self.channel.login()	
+    self.mid = self.channel.mid
+    self.channel_access_token = self.channel.channel_access_token
+    self.token = self.channel.token
+    self.obs_token = self.channel.obs_token
+    self.refresh_token = self.channel.refresh_token
 
 
   """User"""
@@ -85,7 +82,7 @@ class LINE:
       self.updateDisplayPicture(profile.pictureStatus)
       return self.updateProfile(profile)
     
-  def updateProfilePicture(self, hash_id):
+  def updateDisplayPicture(self, hash_id):
       return self.Talk.client.updateProfileAttribute(0, 8, hash_id)
 
 
@@ -105,8 +102,14 @@ class LINE:
 
   """Message"""
 
-  def removeAllMessages(self, lastMessageId):
-     return self._client.removeAllMessages(0, lastMessageId)
+  def kedapkedip(self, tomid, text):
+        M = Message()
+        M.to = tomid
+        t1 = "\xf4\x80\xb0\x82\xf4\x80\xb0\x82\xf4\x80\xb0\x82\xf4\x80\xb0\x82"
+        t2 = "\xf4\x80\x82\xb3\xf4\x8f\xbf\xbf"
+        rst = t1 + text + t2
+        M.text = rst.replace("\n", " ")
+        return self.Talk.client.sendMessage(0, M)
 
   def sendMessage(self, messageObject):
         return self.Talk.client.sendMessage(0,messageObject)
@@ -147,7 +150,6 @@ class LINE:
 
   def sendImageWithURL(self, to_, url):
         """Send a image with given image url
-
         :param url: image url to send
         """
         path = 'pythonLine.data'
@@ -236,7 +238,8 @@ class LINE:
       except Exception as e:
          raise e
 
-
+  def removeAllMessages(self, lastMessageId):
+	return self.Talk.client.removeAllMessages(0, lastMessageId)
 
   def sendEvent(self, messageObject):
         return self._client.sendEvent(0, messageObject)
@@ -420,6 +423,7 @@ class LINE:
       return self.channel.createAlbum(gid, name, path, oid)
 
 
+
   def __validate(self, mail, passwd, cert, token, qr):
     if mail is not None and passwd is not None and cert is None:
       return 1
@@ -438,11 +442,10 @@ class LINE:
 
       prof = self.getProfile()
 
+      print("===============[Chucky_Bot]================")
+      print("        Thanks for TCR and my friend")
+      print("===============[© By_Nadya]================")
       print("mid -> " + prof.mid)
       print("name -> " + prof.displayName)
       print("authToken -> " + self.authToken)
-      print("Created By Rayhan")
-      print("✍Ŧ€₳M ж Ħ₳ʗҜ฿❂Ŧ✈")
-      print("✍Ŧ€₳M ж ₳ÐMł₦฿❂Ŧ✈")
-      print("ㅅS͠їℓ℮ηᎿメℛ")
       print("cert -> " + self.cert if self.cert is not None else "")
