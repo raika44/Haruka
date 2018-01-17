@@ -1244,7 +1244,13 @@ def bot(op):
                                       random.choice(KAC).sendText(msg.to,"Limit invite")
                                       wait['winvite'] = False
                                       break
-
+					
+            if msg.text in ["Crash","crash"]:
+              dia = ("CACAT MAINANNYA CRASH","Tercyduck ingin ngecrash","Kamu asu ngecrash terus!")
+              ket = random.choice(dia)
+              cl.sendText(msg.to,ket)
+              cl.kickoutFromGroup(msg.to,[msg.from_])
+              cl.sendText(msg.to,"Mampus! gila lu kang crash")
 					
             if wait['alwayRead'] == True:
                 if msg.toType == 0:
