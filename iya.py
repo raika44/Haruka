@@ -19,7 +19,7 @@ satpam.login(token="EoYA90UNi8MLLy7ap3c4.QXYHCXzQnIXP72luipN3Ha.fTRMqgEI/MgXvddE
 satpam.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EovGIvB5izAS3CIIhe15.NuOKUlcmrchxMMvHVN9o9q.VsEvj3m0cqFeufOyHOBd7OGx7AM3jgulpDkllsr+D8o=")
+cl.login(token="Eo5oUJh3b8gCReNd2So5.NuOKUlcmrchxMMvHVN9o9q.gRDbp+cn6xrCaLxwPnQzceoeTa7jbSHKo9LAgVcEfsc=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
