@@ -18,8 +18,8 @@ class Channel:
     http_query_path = "/S4"
     channel_query_path = "/CH4"
 
-    UA = "Line/1.4.17"
-    LA = "CHROMEOS\t1.4.17\tChrome_OS\t1"
+    UA = "Mozilla/5.0"
+    LA = "CHROMEOS\x091.4.13\x09Chrome_OS\x091"
     
 
     authToken = None
