@@ -42,7 +42,7 @@ class LINE:
     self.authToken = self.Talk.authToken
     self.cert = self.Talk.cert
     self._headers = {
-              'X-Line-Application': 'CHROMEOS\t1.7.18.0\tChrome_OS\t', 
+              'X-Line-Application': 'CHROMEOS\t1.7.18.0\tChrome_OS\t1', 
               'X-Line-Access': self.authToken, 
               'User-Agent': 'Mozilla/5.0'
    }
