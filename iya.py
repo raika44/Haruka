@@ -15,39 +15,39 @@ import time,random,sys,json,codecs,threading,glob,urllib,urllib2,urllib3,re,ast,
 #kk.loginResult()
 
 satpam = LINETCR.LINE() # Koplaxs # Login Pake Akun Utama Kalian(Gunanya Supaya Akun Utama Ke Kick bisa Terima Undangan dari Bot Otomatis)
-satpam.login(token="EocJ4DsSnP5ZcrSbBLB4.QXYHCXzQnIXP72luipN3Ha.sfTvH1PXVM3ayhG5XVPTx7R924d3ROvzWL5c+JLlqdU=")
+satpam.login(token="Eoa0vmTAAuq8ajkqIdi4.QXYHCXzQnIXP72luipN3Ha.GbsPrin0pcUd81g69nKjxtQwGa8uyJR+gXkLiAuYprE=")
 satpam.loginResult()
 
 cl = LINETCR.LINE()
-cl.login(token="EofHorvImttIGIxKUWo5.NuOKUlcmrchxMMvHVN9o9q.1aLtpqJxgflDUtMcyQY5EZZk0a9qHAXfCvpjLaRdQRQ=")
+cl.login(token="Eople05OwlQK0ulKayo5.NuOKUlcmrchxMMvHVN9o9q.t2Te5u22cPEX1C0BwDOypohY3D6NJ+3CjIM6JkCbI4c=")
 cl.loginResult()
 
 ki = LINETCR.LINE()
-ki.login(token="EoWFhlZehLgxjCjosPXf.vVPISdEKRjCwFNpzI3k+RW.SzrTxUtlEpU6qRWYsrSjonmo9nJTrnMwzAUV404PeUM")
+ki.login(token="EowvzZmNSbYHaYDQMm9f.vVPISdEKRjCwFNpzI3k+RW.dMo6uFf0Xju2CzMdT1IhNhXjWEve3v9G2fgF724chhM=")
 ki.loginResult()
 
 kk = LINETCR.LINE()
-kk.login(token="EogSZ8YiQpdEmyJVBge2.h6ACMEcQmlMxE/DJN7DS0G.xFwY4DUOMyRpR6T5lz8uHJLopKC4OUfzoGt8OhuBbH4=")
+kk.login(token="Eo2DNEpbfCZbrfnhjzw2.h6ACMEcQmlMxE/DJN7DS0G.8hK4bHmwWwhAP2jlt/W5l5A+zPcWKsXBYxTJYqCMY1M=")
 kk.loginResult()
 
 ks = LINETCR.LINE()
-ks.login(token="EoUtcJd2MqAXS7qgyksa.nKWTtdkTR1t0s6tTguGLAG.7rJzs77ma/92owhcagemKiT38eHXFvsRp2cyFGFmUbo=")
+ks.login(token="Eo5W1lzrSJlLTT5JQtXa.nKWTtdkTR1t0s6tTguGLAG.jAp03pC9FsT6kjWkiSxKHe8KIqJxqyG1fjXKKc69QO8=")
 ks.loginResult()
 
 ka = LINETCR.LINE()
-ka.login(token="Eo4jruUsfUgtUaADpHTf.ySK6/7lzzXJWVTkhLlNW+W.b9OBP8yWWWzHWtrThIhyDHD8fA2Azh1keMQ/y3bSQhc=")
+ka.login(token="EoMrPN5ivcg5VcS1Bo1f.ySK6/7lzzXJWVTkhLlNW+W.hI53TH+wIP0k8dvPLR19KD2fVg2XYYGmw3/rXwzDEPQ=")
 ka.loginResult()
 
 kc = LINETCR.LINE()
-kc.login(token="Eo14EirsetWck5PSAzh7.HxjzPXa8Fqfsn35p9smcPW.ZIRuVi7SSZndnvDyRDXyWH9T3Dsl0k8i/TEr9v+IA2w=")
+kc.login(token="EoVU4BZJKbsaZ7Woz2U7.HxjzPXa8Fqfsn35p9smcPW.iZ5SLDPWlXVHyJwFKHQ4KEqe8KE+FzCHPVZzteKoC44=")
 kc.loginResult()
 
 kb = LINETCR.LINE()
-kb.login(token="EooXdDrus2HVylulqmjc.K+aGvOSDEuWbEIIhnbxcBa.mU2oR7Tg8dqlPYE85vJDE7ZafL3Uejg9d01f11Pi+cE=")
+kb.login(token="Eosupzpt18yZkmyxwfgc.K+aGvOSDEuWbEIIhnbxcBa.Msv2hNbxftyfBNMw9EKkQd7BnEEXtuTyZ14lPuZ2PsM=")
 kb.loginResult()
 
 km = LINETCR.LINE()
-km.login(token="Eo8JQfwq5Y45a6cuP0dc.eoXp0xK1vqkdnL9Q78yCpa./8gguBFCFsgOvD5E/gYUlFTQfHowoAVwfjfhko3ubWU=")
+km.login(token="EoSMbLK0xqW5h9LTetMc.eoXp0xK1vqkdnL9Q78yCpa.OFpEHU4XaiKCoS8jIFj84RO3dCtZMN2c1kMQF4OrCHw=")
 km.loginResult()
 
 
