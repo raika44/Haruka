@@ -42,9 +42,9 @@ class LINE:
     self.authToken = self.Talk.authToken
     self.cert = self.Talk.cert
     self._headers = {
-              'X-Line-Application': 'CHROMEOS\t1.4.17\tChrome_OS\t1', 
+              'X-Line-Application': 'CHROMEOS\x091.4.13\x09Chrome_OS\x091', 
               'X-Line-Access': self.authToken, 
-              'User-Agent': 'Line/1.4.17'
+              'User-Agent': 'Mozilla/5.0'
    }
     self.Poll = Poll(self.authToken)
     self.channel = channel.Channel(self.authToken)
