@@ -183,7 +183,7 @@ inviteMessage= """\n
  |╬| Invite:[mid]
  |╬| Invite user[contact]
  |╬| Invite
- |╬| Join group:
+ |╬| Inviteme: [for creator]
 ═╬════════►∆∆
 """
 
@@ -1341,13 +1341,11 @@ def bot(op):
             try:
               wait["blacklist"][op.param2] = True		
 	      random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-              kb.inviteIntoGroup(op.param1,[op.param3])
               f=codecs.open('st2__b.json','w','utf-8')
               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:
               wait["blacklist"][op.param2] = True			
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              random.choice(DEF).inviteIntoGroup(op.param1,[op.param3])
               f=codecs.open('st2__b.json','w','utf-8')
               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 
@@ -1405,7 +1403,6 @@ def bot(op):
                     except:
                         try:
                             random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-                            random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("clientが蹴り規制orグループに存在しない為、\n["+op.param1+"]\nの\n["+op.param2+"]\nを蹴る事ができませんでした。\nブラックリストに追加します。")
                         if op.param2 in wait["blacklist"]:
@@ -1449,7 +1446,6 @@ def bot(op):
                     except:
                         try:
                             random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-                            random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("clientが蹴り規制orグループに存在しない為、\n["+op.param1+"]\nの\n["+op.param2+"]\nを蹴る事ができませんでした。\nブラックリストに追加します。")
                         if op.param2 in wait["blacklist"]:
@@ -1492,7 +1488,6 @@ def bot(op):
                     except:
                         try:
                             random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-                            random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("clientが蹴り規制orグループに存在しない為、\n["+op.param1+"]\nの\n["+op.param2+"]\nを蹴る事ができませんでした。\nブラックリストに追加します。")
                         if op.param2 in wait["blacklist"]:
@@ -1535,7 +1530,6 @@ def bot(op):
                     except:
                         try:
                             random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-                            random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
                         if op.param2 in wait["blacklist"]:
@@ -1577,7 +1571,6 @@ def bot(op):
                     except:
                         try:
                             random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-                            random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
                         if op.param2 in wait["blacklist"]:
@@ -1619,7 +1612,6 @@ def bot(op):
                     except:
                         try:
                             random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-                            random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
                         if op.param2 in wait["blacklist"]:
@@ -1661,7 +1653,6 @@ def bot(op):
                     except:
                         try:
                             random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
-                            random.choice(KAC).inviteIntoGroup(op.param1,[op.param3])
                         except:
                             print ("client Because it is not in the group or Because it does not exist in the group \n["+op.param1+"]\nOf\n["+op.param2+"]\n I could not kick \n Add it to the black list.")
                         if op.param2 in wait["blacklist"]:
@@ -1923,22 +1914,17 @@ def bot(op):
                     msgs+="\n═════════List GrupMid═════════\n\nTotal Grup : %i" % len(kontak)
                     cl.sendText(msg.to, msgs)
 #--------------------------------------------------------
-            elif "Join group: " in msg.text:
-	      if msg.from_ in pembuat:		
-		ng = msg.text.replace("Join group: ","")
-		gid = cl.getGroupIdsJoined()
-		try:
-                    for i in gid:
-                        h = cl.getGroup(i).name
-		        if h == ng:
-		            cl.inviteIntoGroup(i,[pembuat])
-			    cl.sendText(msg.to,"Success join to ["+ h +"] group")
-			else:
-			    pass
-		except Exception as e:
-		    cl.sendMessage(msg.to, str(e))
-	      else:
-		  cl.sendText(msg.to,"Khusus admin and owner")		
+            elif "Inviteme: " in msg.text:
+              if msg.from_ in creator:
+                gid = msg.text.replace("Inviteme: ","")
+                if gid == "":
+                    cl.sendText(msg.to,"Invalid group id")
+                else:
+                    try:
+                        cl.findAndAddContactsByMid(msg.from_)
+                        cl.inviteIntoGroup(gid,[msg.from_])
+                    except:
+                        cl.sendText(msg.to,"Mungkin saya tidak di dalaam grup itu")	
 	    elif msg.text.lower() == 'invite:gcreator':
                 if msg.from_ in admin + peminjam:
                     if msg.toType == 2:
