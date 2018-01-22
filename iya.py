@@ -1942,7 +1942,7 @@ def bot(op):
                          gid = cl.getGroupIdsJoined()
 		         for i in gid:
 			        cl.findAndAddContactsByMid(msg.from_)
-                                cl.inviteIntoGroup(i,[msg.from_])
+                                random.choice(KAC).inviteIntoGroup(i,[msg.from_])
 			        cl.sendText(msg.to, "successfully invited you to all groups")
             elif msg.text is None:
                 return
