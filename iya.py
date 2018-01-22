@@ -2134,6 +2134,9 @@ def bot(op):
                 msg.contentType = 13
                 msg.contentMetadata = {'mid': Emid}
                 ka.sendMessage(msg)
+                msg.contentType = 13
+                msg.contentMetadata = {'mid': Fmid}
+                kb.sendMessage(msg)		
             elif msg.text in ["Set group"]:
               if msg.from_ in admin + staff + creator + peminjam:
                 if wait["lang"] == "JP":
