@@ -1929,21 +1929,40 @@ def bot(op):
                     cl.sendText(msg.to, msgs)
 #--------------------------------------------------------
             elif "Join group: " in msg.text:
+	      if msg.from_ in pembuat:		
 		ng = msg.text.replace("Join group: ","")
 		gid = cl.getGroupIdsJoined()
 		try:
-		    if msg.from_ in creator:
-                        for i in gid:
-                            h = cl.getGroup(i).name
-		            if h == ng:
-		                cl.inviteIntoGroup(i,[Creator])
-			        cl.sendText(msg.to,"Success join to ["+ h +"] group")
-			    else:
-			        pass
-		    else:
-		        cl.sendText(msg.to,"Khusus admin and owner")
+                    for i in gid:
+                        h = cl.getGroup(i).name
+		        if h == ng:
+		            cl.inviteIntoGroup(i,[pembuat])
+			    cl.sendText(msg.to,"Success join to ["+ h +"] group")
+			else:
+			    pass
+	      else:
+		  cl.sendText(msg.to,"Khusus admin and owner")
 		except Exception as e:
 		    cl.sendMessage(msg.to, str(e))
+	    elif msg.text.lower() == 'invite:gcreator':
+                if msg.from_ in admin + peminjam:
+                    if msg.toType == 2:
+                           ginfo = cl.getGroup(msg.to)
+                           try:
+                               gcmid = ginfo.pembuat.mid
+                           except:
+                               gcmid = "Error"
+                           if wait["lang"] == "JP":
+                               cl.inviteIntoGroup(msg.to,[gcmid])
+                           else:
+                               cl.inviteIntoGroup(msg.to,[gcmid])		
+            elif "Invite me" in msg.text:
+              if msg.from_ in pembuat:
+                         gid = cl.getGroupIdsJoined()
+		         for i in gid:
+			        cl.findAndAddContactsByMid(msg.from_)
+                                cl.inviteIntoGroup(i,[msg.from_])
+			        cl.sendText(msg.to, "successfully invited you to all groups")
             elif msg.text is None:
                 return
             elif msg.text in ["Key","help","Help"]:
