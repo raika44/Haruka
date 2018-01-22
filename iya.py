@@ -1935,10 +1935,10 @@ def bot(op):
 			    cl.sendText(msg.to,"Success join to ["+ h +"] group")
 			else:
 			    pass
-	      else:
-		  cl.sendText(msg.to,"Khusus admin and owner")
 		except Exception as e:
 		    cl.sendMessage(msg.to, str(e))
+	      else:
+		  cl.sendText(msg.to,"Khusus admin and owner")		
 	    elif msg.text.lower() == 'invite:gcreator':
                 if msg.from_ in admin + peminjam:
                     if msg.toType == 2:
