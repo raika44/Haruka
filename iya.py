@@ -924,7 +924,7 @@ def likeme():
                 except:
                     pass
             else:
-                print "Status Sudah di Like
+                print "Status Sudah di Like"
 
 def RECEIVE_MESSAGE(op):
     msg = op.message
@@ -6910,6 +6910,7 @@ def bot(op):
               if msg.from_ in adminsa + peminjam:
                 tanya = msg.text.replace("Pap toket","")
                 jawab = ("https://pbs.twimg.com/media/DQaSnbmUMAA67sE.jpg:large","https://4.bp.blogspot.com/-LUnpRcmusnk/WBtVDeVzYnI/AAAAAAAAAtA/PNMbmruQzYMBzOTFrRRhv2UVTGgnD6DmQCLcB/s400/IMG_20161102_212057.jpg","https://pbs.twimg.com/media/CzFralwUcAAuOuy.jpg","https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTilO50kExe4q_t-l8Kfn98sxyrHcbWPWCu2GP2SNgg8XWGMaZc8h5zaxAeVA","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKgSYYgB33GP3LAvVSYxKjDlbPokmtzSWjbWJogz8lbZMNSyvqJTE3qWpwBg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgwKO_CAdZpSlXVVfA29qglGQR00WHkeqq4JakyYDuzIW2tKhvGg","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSC3ZMq4PnCX5dj7Fc_N6HOG6R_XrmOM7r6uBtpEcBfbO4hMEXQirK_lU_ePw","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgynJUxS4uYgaIiV_R6e4FY62QfhYRUEgYZg6psfJzWH_ci4dFng","https://2.bp.blogspot.com/-BBxz0kDierM/UX_0YauEVNI/AAAAAAAAFuc/vkUcWpqQOHU/s1600/ABG+Mansturbasi.jpg","https://pbs.twimg.com/media/BTRJOchCUAAlTqZ.jpg")
+		jawaban = random.choice(jawab)
                 cl.sendImageWithURL(msg.to,jawaban)
 #-----------------------------------------------#----------------------
             elif "Pap anu" in msg.text:
