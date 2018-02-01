@@ -862,6 +862,61 @@ def NOTIFIED_READ_MESSAGE(op):
     except:
         pass
 
+
+def autoSta():
+    count = 1
+    while True:
+        try:
+           for posts in cl.activity(1)["result"]["posts"]:
+             if posts["postInfo"]["liked"] is False:
+                if wait["likeOn"] == True:
+                   cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   ki.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   kk.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   ka.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   ke.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   km.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
+                   if wait["commentOn"] == True:
+                      if posts["userInfo"]["writerMid"] in wait["commentBlack"]:
+                         pass
+                      else:
+                          cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
+                          ki.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
+                          kk.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
+                          km.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
+                          ka.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
+                          ke.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])												  
+        except:
+            count += 1
+            if(count == 50):
+                sys.exit(0)
+            else:
+                pass
+												  
+
+def likefriend():
+    for zx in range(0,20):
+      hasil = cl.activity(limit=20)
+      if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+        try:
+
+def likeme():
+    for zx in range(0,20):
+        hasil = cl.activity(limit=20)
+        if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
+            if hasil['result']['posts'][zx]['userInfo']['mid'] in creator:
+                try:
+                    cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    ka.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+                    ke.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+		    print "Like"
+                except:
+                    pass
+            else:
+                print "Status Sudah di Like
+
 def RECEIVE_MESSAGE(op):
     msg = op.message
     try:
@@ -1244,13 +1299,27 @@ def bot(op):
                                       wait['winvite'] = False
                                       break
 					
-            if msg.text in ["Crash","crash"]:
+            if msg.text in ["Crash","crash",".crash","/crash']:
               dia = ("CACAT MAINANNYA CRASH","Tercyduck ingin ngecrash","Kamu asu ngecrash terus!")
               ket = random.choice(dia)
               cl.sendText(msg.to,ket)
               random.choice(DEF).kickoutFromGroup(msg.to,[msg.from_])
               cl.sendText(msg.to,"Mampus! gila lu kang crash")
-					
+            if msg.contentType == 16:
+                if wait['likeOn'] == True:
+                     url = msg.contentMetadata["postEndUrl"]
+                     cl.like(url[25:58], url[66:], likeType=1005)
+                     ki.like(url[25:58], url[66:], likeType=1002)
+                     kk.like(url[25:58], url[66:], likeType=1004)
+                     kc.like(url[25:58], url[66:], likeType=1003)
+                     kb.like(url[25:58], url[66:], likeType=1001)
+                     cl.comment(url[25:58], url[66:], wait["comment1"])
+                     ki.comment(url[25:58], url[66:], wait["comment2"])
+                     kk.comment(url[25:58], url[66:], wait["comment3"])
+                     kc.comment(url[25:58], url[66:], wait["comment4"])
+                     kb.comment(url[25:58], url[66:], wait["comment5"])
+                     cl.sendText(msg.to,"Like Success")                     
+                     wait['likeOn'] = False					
             if wait['alwayRead'] == True:
                 if msg.toType == 0:
                     cl.sendChatChecked(msg.from_,msg.id)
@@ -1344,7 +1413,7 @@ def bot(op):
           else:
             try:
               wait["blacklist"][op.param2] = True		
-	      random.choice(DEF).kickoutFromGroup(op.param1,[op.param2])
+	      cl.kickoutFromGroup(op.param1,[op.param2])
               f=codecs.open('st2__b.json','w','utf-8')
               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:
@@ -6822,7 +6891,6 @@ def bot(op):
 			
                 #----------------------
             elif "Pap cecan" in msg.text:
-              if msg.from_ in adminsa:
                 tanya = msg.text.replace("Pap cecan","")
                 jawab = ("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQAa0KQ8XfoVfKRh82Ys63AX3VcuPml1JJFLk7iTEtMpmd7OzbN-yk_MGK6","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPMwr1Igswf8wgrTURHbGAt9jn54SvimA6Ps6W6lCtItkrh4I-kA","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg5SRVDjILsjUyBeLkBnbV96kX22_1mplLyjfCKws6nv8E_VtMDyV07e56bw","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOXZ4yFF8R8vPVmEl21Txhvzh4YpUJkJ2uuO3KQLUzYIEVsuT9")
                 jawaban = random.choice(jawab)
@@ -6830,14 +6898,13 @@ def bot(op):
 #-----------------------------------------------
 #----------------------
             elif "Pap toket" in msg.text:
-              if msg.from_ in adminsa:
+              if msg.from_ in adminsa + penyewa:
                 tanya = msg.text.replace("Pap toket","")
-                jawab = ("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTilO50kExe4q_t-l8Kfn98sxyrHcbWPWCu2GP2SNgg8XWGMaZc8h5zaxAeVA","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKgSYYgB33GP3LAvVSYxKjDlbPokmtzSWjbWJogz8lbZMNSyvqJTE3qWpwBg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgwKO_CAdZpSlXVVfA29qglGQR00WHkeqq4JakyYDuzIW2tKhvGg","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSC3ZMq4PnCX5dj7Fc_N6HOG6R_XrmOM7r6uBtpEcBfbO4hMEXQirK_lU_ePw","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgynJUxS4uYgaIiV_R6e4FY62QfhYRUEgYZg6psfJzWH_ci4dFng")
-                jawaban = random.choice(jawab)
+                jawab = ("https://pbs.twimg.com/media/DQaSnbmUMAA67sE.jpg:large","https://4.bp.blogspot.com/-LUnpRcmusnk/WBtVDeVzYnI/AAAAAAAAAtA/PNMbmruQzYMBzOTFrRRhv2UVTGgnD6DmQCLcB/s400/IMG_20161102_212057.jpg","https://pbs.twimg.com/media/CzFralwUcAAuOuy.jpg","https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTilO50kExe4q_t-l8Kfn98sxyrHcbWPWCu2GP2SNgg8XWGMaZc8h5zaxAeVA","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKgSYYgB33GP3LAvVSYxKjDlbPokmtzSWjbWJogz8lbZMNSyvqJTE3qWpwBg","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgwKO_CAdZpSlXVVfA29qglGQR00WHkeqq4JakyYDuzIW2tKhvGg","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSC3ZMq4PnCX5dj7Fc_N6HOG6R_XrmOM7r6uBtpEcBfbO4hMEXQirK_lU_ePw","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgynJUxS4uYgaIiV_R6e4FY62QfhYRUEgYZg6psfJzWH_ci4dFng","https://2.bp.blogspot.com/-BBxz0kDierM/UX_0YauEVNI/AAAAAAAAFuc/vkUcWpqQOHU/s1600/ABG+Mansturbasi.jpg","https://pbs.twimg.com/media/BTRJOchCUAAlTqZ.jpg")
                 cl.sendImageWithURL(msg.to,jawaban)
 #-----------------------------------------------#----------------------
             elif "Pap anu" in msg.text:
-              if msg.from_ in adminsa:
+              if msg.from_ in adminsa + penyewa:
                 tanya = msg.text.replace("Pap anu","")
                 jawab = ("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQFFKdXErF56KzAa4oWnWQT34jmGKJ66lj1g0hnN4zwYh9GgW0dHWZfRnuM","https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQTn4_JMD1ZAg-XIk6JZ1Crhz9gtXEIS8AcjTA3SYmazAutt7ekHw","https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTIVuITo7KicaU6UwPhol1Rvkq4aQwznly8Xl2SiTlAa_1FrSHuwhwV5XoElA")
                 jawaban = random.choice(jawab)
@@ -7059,70 +7126,6 @@ thread2.daemon = True
 thread2.start()
 
 
-
-
-
-#--------------------
-def autoSta():
-    count = 1
-    while True:
-        try:
-           for posts in cl.activity(1)["result"]["posts"]:
-             if posts["postInfo"]["liked"] is False:
-                if wait["likeOn"] == True:
-                   cl.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   ki.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   kk.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   ka.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   ke.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   km.like(posts["userInfo"]["writerMid"], posts["postInfo"]["postId"], 1001)
-                   if wait["commentOn"] == True:
-                      if posts["userInfo"]["writerMid"] in wait["commentBlack"]:
-                         pass
-                      else:
-                          cl.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          ki.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          kk.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          km.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          ka.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])
-                          ke.comment(posts["userInfo"]["writerMid"],posts["postInfo"]["postId"],wait["comment"])												  
-        except:
-            count += 1
-            if(count == 50):
-                sys.exit(0)
-            else:
-                pass
-												  
-
-def likefriend():
-    for zx in range(0,20):
-      hasil = cl.activity(limit=20)
-      if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
-        try:
-          cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1001)
-          print "Like"
-        except:
-          pass
-      else:
-          print "Already Liked"
-time.sleep(0.60)
-
-def likeme():
-    for zx in range(0,20):
-        hasil = cl.activity(limit=20)
-        if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
-            if hasil['result']['posts'][zx]['userInfo']['mid'] in creator:
-                try:
-                    cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-                    ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-                    kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-                    ka.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-                    ke.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
-		    print "Like"
-                except:
-                    pass
-            else:
-                print "Status Sudah di Like"
 
 while True:
     try:
