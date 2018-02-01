@@ -899,7 +899,16 @@ def likefriend():
       hasil = cl.activity(limit=20)
       if hasil['result']['posts'][zx]['postInfo']['liked'] == False:
         try:
-
+           cl.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+           ki.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+           kk.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+           ka.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+           ke.like(hasil['result']['posts'][zx]['userInfo']['mid'],hasil['result']['posts'][zx]['postInfo']['postId'],likeType=1002)
+           print "Like"
+	except:
+              pass
+      else:
+	  pass	
 def likeme():
     for zx in range(0,20):
         hasil = cl.activity(limit=20)
@@ -1299,7 +1308,7 @@ def bot(op):
                                       wait['winvite'] = False
                                       break
 					
-            if msg.text in ["Crash","crash",".crash","/crash']:
+            if msg.text in ["Crash","crash","/crash"]:
               dia = ("CACAT MAINANNYA CRASH","Tercyduck ingin ngecrash","Kamu asu ngecrash terus!")
               ket = random.choice(dia)
               cl.sendText(msg.to,ket)
