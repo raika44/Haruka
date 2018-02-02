@@ -1816,7 +1816,7 @@ def bot(op):
         if op.type == 24:
             if wait["leaveRoom"] == True:
                 cl.leaveRoom(op.param1)
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
 
 
@@ -1828,7 +1828,7 @@ def bot(op):
                 cl.like(url[25:58], url[66:], likeType=1001)
 		
 
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
                if wait["wblack"] == True:
@@ -2740,26 +2740,26 @@ def bot(op):
               if msg.from_ in admin + staff + creator + peminjam:
                 if wait["alwayRead"] == True:
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Cancel All Invited On")
+                        cl.sendText(msg.to,"Done")
                     else:
                         cl.sendText(msg.to,"done")
                 else:
-                    wait["Protectcancl"] = True
+                    wait["alwayRead"] = True
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Cancel All Invited On")
+                        cl.sendText(msg.to,"Done")
                     else:
                         cl.sendText(msg.to,"done")
             elif msg.text in ["Read off","read off"]:
               if msg.from_ in admin + staff + creator + peminjam:
                 if wait["alwayRead"] == False:
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Cancel All Invited Off")
+                        cl.sendText(msg.to,"Done")
                     else:
                         cl.sendText(msg.to,"done")
                 else:
                     wait["alwayRead"] = False
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Cancel All Invited Off")
+                        cl.sendText(msg.to,"Done")
                     else:
                         cl.sendText(msg.to,"done")
             elif msg.text in ["Gr on","gr on"]:
@@ -2881,7 +2881,7 @@ def bot(op):
                 korban2 = korban.split()
                 midd = korban2[0]
                 jumlah = int(korban2[1])
-                if jumlah <= 999:
+                if jumlah <= 5000:
                     for var in range(0,jumlah):
                         cl.sendText(midd,(wait["spam"]))
                 else:
@@ -4585,50 +4585,27 @@ def bot(op):
                                         cl.updateGroup(gs)
             elif msg.text in ["Nyanyi","Taktuntuang"]:
               if msg.from_ in admin + staff + creator + peminjam:		
-                G = cl.getGroup(msg.to)
-                G.preventJoinByTicket = False
-                cl.updateGroup(G)
-                Ticket = cl.reissueGroupTicket(msg.to)
-                km.acceptGroupInvitationByTicket(msg.to,Ticket)
-                time.sleep(0.2)	
-                G = cl.getGroup(msg.to)
-                G.preventJoinByTicket = True
-                cl.updateGroup(G)		
-                G = cl.getGroup(msg.to)	
-                km.sendText(msg.to,"Waktunya nyanyi di grup")
-                km.sendText(msg.to,"Aku belum mandi")
-                km.sendText(msg.to,"Tak tun tuang")
-                km.sendText(msg.to,"Tak tun tuang")
-                km.sendText(msg.to,"Tapi masih cantik juga")
-                km.sendText(msg.to,"Tak tun tuang")
-                km.sendText(msg.to,"Tak tun tuang")
-                km.sendText(msg.to,"apalagi kalau sudah mandi")
-                km.sendText(msg.to,"Tak tun tuang")
-                km.sendText(msg.to,"Pasti cantik sekali")
-                km.sendText(msg.to,"yiha")
-                km.sendText(msg.to,"Kalau orang lain melihatku")
-                km.sendText(msg.to,"Tak tun tuang")
-                km.sendText(msg.to,"Badak aku taba bana")
-                km.sendText(msg.to,"Tak tun tuang")
-                km.sendText(msg.to,"Tak tuntuang")
-                km.sendText(msg.to,"Tapi kalau langsuang diidu")
-                km.sendText(msg.to,"Tak tun tuang")
-                km.sendText(msg.to,"Atagfirullah baunya")
-                km.sendText(msg.to,"Males lanjutin ah")
-                km.sendText(msg.to,"Sepi bat")
-                kk.sendText(msg.to,"Iya sepi udah udah")
-                cl.sendText(msg.to,"Gaada yang denger juga kita nyanyi")
-                kk.sendText(msg.to,"Nah")
-                km.sendText(msg.to,"Mending gua makan dulu")
-                cl.sendText(msg.to,"Siyap")
-                ki.sendText(msg.to,"Okeh")
-                km.sendText(msg.to,"Katanya owner kita Jomblo ya")
-                cl.sendText(msg.to,"Iya emang")
-                km.sendText(msg.to,"Denger denger si lagi nyari pacar doi")
-                kk.sendText(msg.to,"Udah ah gosip mulu doain aja biar dapet")
-                km.sendText(msg.to,"Aamiin")
-                km.sendText(msg.to,"Bye cuman numpang nyanyi doang wkwk")			      
-                km.leaveGroup(msg.to)		
+                cl.sendText(msg.to,"Waktunya nyanyi di grup")
+                cl.sendText(msg.to,"Aku belum mandi")
+                cl.sendText(msg.to,"Tak tun tuang")
+                cl.sendText(msg.to,"Tak tun tuang")
+                cl.sendText(msg.to,"Tapi masih cantik juga")
+                cl.sendText(msg.to,"Tak tun tuang")
+                cl.sendText(msg.to,"Tak tun tuang")
+                cl.sendText(msg.to,"apalagi kalau sudah mandi")
+                cl.sendText(msg.to,"Tak tun tuang")
+                cl.sendText(msg.to,"Pasti cantik sekali")
+                cl.sendText(msg.to,"yiha")
+                cl.sendText(msg.to,"Kalau orang lain melihatku")
+                cl.sendText(msg.to,"Tak tun tuang")
+                cl.sendText(msg.to,"Badak aku taba bana")
+                cl.sendText(msg.to,"Tak tun tuang")
+                cl.sendText(msg.to,"Tak tuntuang")
+                cl.sendText(msg.to,"Tapi kalau langsuang diidu")
+                cl.sendText(msg.to,"Tak tun tuang")
+                cl.sendText(msg.to,"Atagfirullah baunya")
+                cl.sendText(msg.to,"Males lanjutin ah")
+                cl.sendText(msg.to,"Sepi bat")		      		
             elif "Spamin @" in msg.text:
               if msg.from_ in admin + staff + creator + peminjam:
                 _name = msg.text.replace("Spamin @","")
@@ -4778,40 +4755,6 @@ def bot(op):
                        ki.sendText(g.mid,(wait["spam"]))
                        ka.sendText(g.mid,(wait["spam"]))
                        ks.sendText(g.mid,(wait["spam"]))		
-                       km.sendText(msg.to,"Waktunya nyanyi di grup")
-                       km.sendText(msg.to,"Aku belum mandi")
-                       km.sendText(msg.to,"Tak tun tuang")
-                       km.sendText(msg.to,"Tak tun tuang")
-                       km.sendText(msg.to,"Tapi masih cantik juga")
-                       km.sendText(msg.to,"Tak tun tuang")
-                       km.sendText(msg.to,"Tak tun tuang")
-                       km.sendText(msg.to,"apalagi kalau sudah mandi")
-                       km.sendText(msg.to,"Tak tun tuang")
-                       km.sendText(msg.to,"Pasti cantik sekali")
-                       km.sendText(msg.to,"yiha")
-                       km.sendText(msg.to,"Kalau orang lain melihatku")
-                       km.sendText(msg.to,"Tak tun tuang")
-                       km.sendText(msg.to,"Badak aku taba bana")
-                       km.sendText(msg.to,"Tak tun tuang")
-                       km.sendText(msg.to,"Tak tuntuang")
-                       km.sendText(msg.to,"Tapi kalau langsuang diidu")
-                       km.sendText(msg.to,"Tak tun tuang")
-                       km.sendText(msg.to,"Atagfirullah baunya")
-                       km.sendText(msg.to,"Males lanjutin ah")
-                       km.sendText(msg.to,"Sepi bat")
-                       kk.sendText(msg.to,"Iya sepi udah udah")
-                       cl.sendText(msg.to,"Gaada yang denger juga kita nyanyi")
-                       kk.sendText(msg.to,"Nah")
-                       km.sendText(msg.to,"Mending gua makan dulu")
-                       cl.sendText(msg.to,"Siyap")
-                       ki.sendText(msg.to,"Okeh")
-                       km.sendText(msg.to,"Katanya owner kita Jomblo ya")
-                       cl.sendText(msg.to,"Iya emang")
-                       km.sendText(msg.to,"Denger denger si lagi nyari pacar doi")
-                       kk.sendText(msg.to,"Udah ah gosip mulu doain aja biar dapet")
-                       km.sendText(msg.to,"Aamiin")
-                       km.sendText(msg.to,"Bye cuman spamin doang wkwk")			      
-                       km.leaveGroup(msg.to)
          #----------------Fungsi Join Group Start-----------------------#
             elif msg.text in ["Sini dong","Kuy join","Ayo masuk","My waifu sini"]:
               if msg.from_ in creator + peminjam:
@@ -5789,7 +5732,7 @@ def bot(op):
                         kb.leaveGroup(msg.to)	
                         cl.leaveGroup(msg.to)			
                     except:
-                        pas
+                        pass
             elif msg.text in ["Bye all","Bye sayang"]:
               if msg.from_ in creator + peminjam:	
                 if msg.toType == 2:
@@ -6240,6 +6183,8 @@ def bot(op):
                     for g in gs.members:
                         if _nametarget == g.displayName:
                             targets.append(g.mid)
+                            f=codecs.open('st2__b.json','w','utf-8')
+                            json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                     if targets == []:
                         cl.sendText(msg.to,"Dilarang Banned Bot")
                         ki.sendText(msg.to,"Dilarang Banned Bot")
@@ -6280,8 +6225,6 @@ def bot(op):
                         for target in targets:
                             try:
                                 del wait["blacklist"][target]
-                                f=codecs.open('st2__b.json','w','utf-8')
-                                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Akun Bersih Kembali")
                             except:
                                 ki.sendText(msg.to,"Error")
