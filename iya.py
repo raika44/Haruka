@@ -1322,6 +1322,8 @@ def bot(op):
                      kk.like(url[25:58], url[66:], likeType=1004)
                      kc.like(url[25:58], url[66:], likeType=1003)
                      kb.like(url[25:58], url[66:], likeType=1001)
+                     ka.like(url[25:58], url[66:], likeType=1003)
+                     ks.like(url[25:58], url[66:], likeType=1001)
                      cl.comment(url[25:58], url[66:], wait["comment1"])
                      ki.comment(url[25:58], url[66:], wait["comment2"])
                      kk.comment(url[25:58], url[66:], wait["comment3"])
@@ -1929,13 +1931,11 @@ def bot(op):
                         kk.sendText(msg.to,"already")
                         kc.sendText(msg.to,"already")
                         wait["wblacklist"] = False
-			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                    else:
                         wait["blacklist"][msg.contentMetadata["mid"]] = True
-                        wait["wblacklist"] = False
 			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)			
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
+                        wait["wblacklist"] = False			
                         cl.sendText(msg.to,"aded")
                         ki.sendText(msg.to,"aded")
                         kk.sendText(msg.to,"aded")
@@ -1948,13 +1948,9 @@ def bot(op):
                         ki.sendText(msg.to,"deleted")
                         kk.sendText(msg.to,"deleted")
                         kc.sendText(msg.to,"deleted")
-                        wait["dblacklist"] = False
-			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)				  
+                        wait["dblacklist"] = False			  
                    else:
-                        wait["dblacklist"] = False
-			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)				  
+                        wait["dblacklist"] = False			  
                         cl.sendText(msg.to,"It is not in the black list")
                         ki.sendText(msg.to,"It is not in the black list")
                         kk.sendText(msg.to,"It is not in the black list")
