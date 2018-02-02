@@ -1263,21 +1263,29 @@ def bot(op):
                                   satpam.sendText(msg.to,ret_)
                                   break				
                     
-            if "MENTION" in msg.contentMetadata.keys() != None:
-                 if wait['kickMention'] == True:
+#Kena Tag autocrash
+
+            if 'MENTION' in msg.contentMetadata.keys() != None:
+                 if wait["kickMention"] == True:
                      contact = cl.getContact(msg.from_)
                      cName = contact.displayName
-                     balas = ["Dont Tag Me!! Im Busy, ",cName + " Ngapain Ngetag?, ",cName + " Nggak Usah Tag-Tag! Kalo Penting Langsung Pc Aja, ", "-_-, ","Kris lagi off, ", cName + " Kenapa Tag saya?, ","SPAM PC aja, " + cName, "Jangan Suka Tag gua, " + cName, "Kamu siapa, " + cName + "?", "Ada Perlu apa, " + cName + "?","Tag doang tidak perlu., ","Ada apa sih mblo?, "]
-                     ret_ = "[Auto Respond] " + random.choice(balas)
+                     balas = ["Bacot",cName + "「Bacot」"]
+                     ret_ = "" + random.choice(balas)
                      name = re.findall(r'@(\w+)', msg.text)
-                     mention = ast.literal_eval(msg.contentMetadata["MENTION"])
+                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
                      mentionees = mention['MENTIONEES']
                      for mention in mentionees:
                            if mention['M'] in Bots:
                                   cl.sendText(msg.to,ret_)
-                                  cl.kickoutFromGroup(msg.to,[msg.from_])
-                                  break		
-					
+                                  msg.contentType = 13
+                                  msg.contentMetadata = {'mid': "uc4670540ac3b113403a9667df0b09df3',"}                	
+                                  cl.sendMessage(msg)                                       
+                                  break       
+
+#masihnoob:(
+#biarkannoobiberkarya!	
+
+				
             if msg.contentType == 13:
                 if wait['winvite'] == True:
                      _name = msg.contentMetadata["displayName"]
@@ -2803,26 +2811,26 @@ def bot(op):
               if msg.from_ in admin + staff + creator + peminjam:
                 if wait["alwayRead"] == True:
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Cancel All Invited On")
+                        cl.sendText(msg.to,"On")
                     else:
                         cl.sendText(msg.to,"done")
                 else:
-                    wait["Protectcancl"] = True
+                    wait["alwayRead"] = True
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Cancel All Invited On")
+                        cl.sendText(msg.to,"On")
                     else:
                         cl.sendText(msg.to,"done")
             elif msg.text in ["Read off","read off"]:
               if msg.from_ in admin + staff + creator + peminjam:
                 if wait["alwayRead"] == False:
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Cancel All Invited Off")
+                        cl.sendText(msg.to,"Off")
                     else:
                         cl.sendText(msg.to,"done")
                 else:
                     wait["alwayRead"] = False
                     if wait["lang"] == "JP":
-                        cl.sendText(msg.to,"Cancel All Invited Off")
+                        cl.sendText(msg.to,"Off")
                     else:
                         cl.sendText(msg.to,"done")
             elif msg.text in ["Gr on","gr on"]:
@@ -5712,11 +5720,11 @@ def bot(op):
                 targets = []
                 for x in key["MENTIONEES"]:
                     targets.append(x["M"])
+                    f=codecs.open('st2__b.json','w','utf-8')
+                    json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                 for target in targets:
                    try:
                       wait["blacklist"][target] = True
-                      f=codecs.open('st2__b.json','w','utf-8')
-                      json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                       cl.sendText(msg.to,"Succes Banned ")
                    except:
                       pass
@@ -6207,6 +6215,8 @@ def bot(op):
                     for g in gs.members:
                         if _nametarget == g.displayName:
                             targets.append(g.mid)
+                            f=codecs.open('st2__b.json','w','utf-8')
+                            json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                     if targets == []:
                         cl.sendText(msg.to,"Dilarang Banned Bot")
                         ki.sendText(msg.to,"Dilarang Banned Bot")
@@ -6216,8 +6226,6 @@ def bot(op):
                         for target in targets:
                             try:
                                 wait["blacklist"][target] = True
-                                f=codecs.open('st2__b.json','w','utf-8')
-                                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Akun begini mah banned aja")
                             except:
                                 ki.sendText(msg.to,"Error")
@@ -6238,6 +6246,8 @@ def bot(op):
                     for g in gs.members:
                         if _nametarget == g.displayName:
                             targets.append(g.mid)
+                            f=codecs.open('st2__b.json','w','utf-8')
+                            json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                     if targets == []:
                         cl.sendText(msg.to,"Tidak Ditemukan.....")
                         ki.sendText(msg.to,"Tidak Ditemukan.....")
@@ -6247,8 +6257,6 @@ def bot(op):
                         for target in targets:
                             try:
                                 del wait["blacklist"][target]
-                                f=codecs.open('st2__b.json','w','utf-8')
-                                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Akun Bersih Kembali")
                             except:
                                 ki.sendText(msg.to,"Error")
