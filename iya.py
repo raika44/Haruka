@@ -981,8 +981,8 @@ def bot(op):
                km.leaveGroup(op.param1)
                random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
                wait["blacklist"][op.param2] = True
-               f=codecs.open('st2__b.json','w','utf-8')
-               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)	
+	       with open('st2__b.json','w') as e:
+               json.dumps(wait, e, ident=4, short_keys=True)
         #------Protect Group Kick finish-----#    
 
         #------Protect Group Kick finish-----#
@@ -1391,6 +1391,8 @@ def bot(op):
                 random.choice(KAC).updateGroup(G)
                 satpam.updateGroup(G)
                 wait["blacklist"][op.param2] = True
+	        with open('st2__b.json','w') as e:
+                json.dumps(wait, e, ident=4, short_keys=True)
 	  except:
 	         pass
         if op.type == 19:
@@ -1448,15 +1450,15 @@ def bot(op):
             pass
           else:
             try:
-              wait["blacklist"][op.param2] = True		
+              wait["blacklist"][op.param2] = True
+	      with open('st2__b.json','w') as e:
+              json.dumps(wait, e, ident=4, short_keys=True)		
 	      cl.kickoutFromGroup(op.param1,[op.param2])
-              f=codecs.open('st2__b.json','w','utf-8')
-              json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:
-              wait["blacklist"][op.param2] = True			
+              wait["blacklist"][op.param2] = True	
+	      with open('st2__b.json','w') as e:
+              json.dumps(wait, e, ident=4, short_keys=True)		
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
-              f=codecs.open('st2__b.json','w','utf-8')
-              json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 
                   
         if op.type == 19:
@@ -1957,9 +1959,9 @@ def bot(op):
                         kc.sendText(msg.to,"already")
                         wait["wblacklist"] = False
                    else:
-                        wait["blacklist"][msg.contentMetadata["mid"]] = True
-			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
+                        wait["blacklist"][msg.contentMetadata["mid"]] = True		
+	                with open('a.json','w') as e:
+                        json.dumps(wait, e, ident=4, short_keys=True)
                         wait["wblacklist"] = False			
                         cl.sendText(msg.to,"aded")
                         ki.sendText(msg.to,"aded")
@@ -6218,7 +6220,7 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"Not for use less than group")
             #----------------Fungsi Banned User Target Start-----------------------#
-            elif "Banned @" in msg.text:
+            elif "Ban @" in msg.text:
               if msg.from_ in admin + creator + peminjam:	
                 if msg.toType == 2:
                     print "[Banned] Sukses"
@@ -6232,8 +6234,6 @@ def bot(op):
                     for g in gs.members:
                         if _nametarget == g.displayName:
                             targets.append(g.mid)
-                            f=codecs.open('st2__b.json','w','utf-8')
-                            json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                     if targets == []:
                         cl.sendText(msg.to,"Dilarang Banned Bot")
                         ki.sendText(msg.to,"Dilarang Banned Bot")
@@ -6243,6 +6243,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 wait["blacklist"][target] = True
+	                        with open('a.json','w') as e:
+                                json.dumps(wait, e, ident=4, short_keys=True)
                                 cl.sendText(msg.to,"Akun begini mah banned aja")
                             except:
                                 ki.sendText(msg.to,"Error")
@@ -6263,8 +6265,6 @@ def bot(op):
                     for g in gs.members:
                         if _nametarget == g.displayName:
                             targets.append(g.mid)
-                            f=codecs.open('st2__b.json','w','utf-8')
-                            json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                     if targets == []:
                         cl.sendText(msg.to,"Tidak Ditemukan.....")
                         ki.sendText(msg.to,"Tidak Ditemukan.....")
