@@ -521,6 +521,7 @@ wait = {
     "alwayRead":False,
     "AutoKick":True,
     "likeOn":False,
+    "like":False,
     "welcomemsg":True,
     "winvite":{},
     "invite":{},
@@ -1338,7 +1339,23 @@ def bot(op):
                      kc.comment(url[25:58], url[66:], wait["comment4"])
                      kb.comment(url[25:58], url[66:], wait["comment5"])
                      cl.sendText(msg.to,"Like Success")                     
-                     wait['likeOn'] = False					
+                     wait['likeOn'] = False
+            if msg.contentType == 16:
+                if wait['like'] == True:
+                     url = msg.contentMetadata["postEndUrl"]
+                     cl.like(url[25:58], url[66:], likeType=1005)
+                     ki.like(url[25:58], url[66:], likeType=1002)
+                     kk.like(url[25:58], url[66:], likeType=1004)
+                     kc.like(url[25:58], url[66:], likeType=1003)
+                     kb.like(url[25:58], url[66:], likeType=1001)
+                     ka.like(url[25:58], url[66:], likeType=1003)
+                     ks.like(url[25:58], url[66:], likeType=1001)
+                     cl.comment(url[25:58], url[66:], wait["comment1"])
+                     ki.comment(url[25:58], url[66:], wait["comment2"])
+                     kk.comment(url[25:58], url[66:], wait["comment3"])
+                     kc.comment(url[25:58], url[66:], wait["comment4"])
+                     kb.comment(url[25:58], url[66:], wait["comment5"])
+                     cl.sendText(msg.to,"Like Success")                     		
             if wait['alwayRead'] == True:
                 if msg.toType == 0:
                     cl.sendChatChecked(msg.from_,msg.id)
@@ -3945,20 +3962,20 @@ def bot(op):
             
             elif msg.text in ["Auto like:on"]:
               if msg.from_ in admin + staff + creator + peminjam:
-                if wait["likeOn"] == True:
+                if wait["like"] == True:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Done。")
                 else:
-                    wait["likeOn"] = True
+                    wait["like"] = True
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Already。")
             elif msg.text in ["Auto like:off"]:
               if msg.from_ in admin + staff + creator + peminjam:	
-                if wait["likeOn"] == False:
+                if wait["like"] == False:
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Done。")
                 else:
-                    wait["likeOn"] = False
+                    wait["like"] = False
                     if wait["lang"] == "JP":
                         cl.sendText(msg.to,"Already。")
             elif msg.text in ["Media:on"]:
