@@ -3273,7 +3273,7 @@ def bot(op):
               if msg.from_ in admin + staff + creator + peminjam:	
                 if msg.toType == 2:
                     x = cl.getGroup(msg.to)
-   ,                 if x.preventJoinByTicket == True:
+                     if x.preventJoinByTicket == True:
                         x.preventJoinByTicket = False
                         ki.updateGroup(x)
                     gurl = ki.reissueGroupTicket(msg.to)
