@@ -551,7 +551,6 @@ settings = {
 setTime = {}
 setTime = wait2['setTime']
 mulai = time.time() 
-blacklistFile='st2__b.json'
 
 def download_page(url):
     version = (3,0)
@@ -1960,7 +1959,7 @@ def bot(op):
                         wait["wblacklist"] = False
                    else:
                         wait["blacklist"][msg.contentMetadata["mid"]] = True		
-	                with open('a.json','w') as e:
+	                with open('st2__b.json','w') as e:
                             json.dumps(wait, e, ident=4, short_keys=True)
                         wait["wblacklist"] = False			
                         cl.sendText(msg.to,"aded")
@@ -6224,7 +6223,7 @@ def bot(op):
               if msg.from_ in admin + creator + peminjam:	
                 if msg.toType == 2:
                     print "[Banned] Sukses"
-                    _name = msg.text.replace("Banned @","")
+                    _name = msg.text.replace("Ban @","")
                     _nametarget = _name.rstrip('  ')
                     gs = cl.getGroup(msg.to)
                     gs = ki.getGroup(msg.to)
@@ -6243,7 +6242,7 @@ def bot(op):
                         for target in targets:
                             try:
                                 wait["blacklist"][target] = True
-	                        with open('a.json','w') as e:
+	                        with open('st2__b.json','w') as e:
                                   json.dumps(wait, e, ident=4, short_keys=True)
                                 cl.sendText(msg.to,"Akun begini mah banned aja")
                             except:
