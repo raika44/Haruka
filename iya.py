@@ -535,7 +535,8 @@ wait = {
     "SetKey":".",
     "spam":"Hayo gw spamin lu inget lu harus tobat jgn deh lu lakuin yg gk gk smp ngancurin hiduplu hidup cuman sebentar",
     }
-
+with open('st2__b.json','r') as e:  
+  wait['blacklist'] = json.load(e)
 wait2 = {
     'readPoint':{},
     'readMember':{},
@@ -981,8 +982,8 @@ def bot(op):
                km.leaveGroup(op.param1)
                random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
                wait["blacklist"][op.param2] = True
-	       with open('st2__b.json','w') as e:
-                   json.dumps(wait, e, short_keys=True, indent=4,)
+               f=codecs.open('st2__b.json','w','utf-8')
+               json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
         #------Protect Group Kick finish-----#    
 
         #------Protect Group Kick finish-----#
@@ -1391,8 +1392,8 @@ def bot(op):
                 random.choice(KAC).updateGroup(G)
                 satpam.updateGroup(G)
                 wait["blacklist"][op.param2] = True
-	        with open('st2__b.json','w') as e:
-                   json.dumps(wait, e, short_keys=True, indent=4,)
+                f=codecs.open('st2__b.json','w','utf-8')
+              	json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
 	  except:
 	         pass
         if op.type == 19:
@@ -1452,13 +1453,13 @@ def bot(op):
             try:	
 	      cl.kickoutFromGroup(op.param1,[op.param2])
               wait["blacklist"][op.param2] = True
-	      with open('st2__b.json','w') as e:
-                   json.dumps(wait, e, short_keys=True, indent=4,)	
+              f=codecs.open('st2__b.json','w','utf-8')
+              json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
             except:		
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
               wait["blacklist"][op.param2] = True
-	      with open('st2__b.json','w') as e:
-                   json.dumps(wait, e, short_keys=True, indent=4,)	
+              f=codecs.open('st2__b.json','w','utf-8')
+              json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)	
                   
         if op.type == 19:
                 if mid in op.param3:
@@ -5737,8 +5738,8 @@ def bot(op):
                 for target in targets:
                    try:
                       wait["blacklist"][target] = True
-		      with open('st2__b.json','w') as e:
-     	                 json.dumps(wait, e, short_keys=True, indent=4,)
+                      f=codecs.open('st2__b.json','w','utf-8')
+                      json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                       cl.sendText(msg.to,"Succes Banned ")
                    except:
                       pass
@@ -6235,8 +6236,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 wait["blacklist"][target] = True
-	 			with open('st2__b.json','w') as e:
-               			  json.dumps(wait, e, short_keys=True, indent=4,)	
+                                f=codecs.open('st2__b.json','w','utf-8')
+                         	json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)	
                                 cl.sendText(msg.to,"Akun begini mah banned aja")
                             except:
                                 ki.sendText(msg.to,"Error")
