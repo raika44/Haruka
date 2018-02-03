@@ -982,7 +982,7 @@ def bot(op):
                random.choice(KAC).sendText(op.param1,random.choice(KAC).getContact(op.param2).displayName + " Jangan otak atik  grup Njiiir")
                wait["blacklist"][op.param2] = True
 	       with open('st2__b.json','w') as e:
-                   json.dumps(wait, e, ident=4, short_keys=True)
+                   json.dumps(e, ident=4, short_keys=True)
         #------Protect Group Kick finish-----#    
 
         #------Protect Group Kick finish-----#
@@ -1453,12 +1453,12 @@ def bot(op):
 	      cl.kickoutFromGroup(op.param1,[op.param2])
               wait["blacklist"][op.param2] = True
 	      with open('st2__b.json','w') as e:
-                  json.dumps(wait, e, ident=4, short_keys=True)	
+                  json.dumps(e, ident=4, short_keys=True)	
             except:		
               random.choice(KAC).kickoutFromGroup(op.param1,[op.param2])
               wait["blacklist"][op.param2] = True
 	      with open('st2__b.json','w') as e:
-                  json.dumps(wait, e, ident=4, short_keys=True)	
+                  json.dumps(e, ident=4, short_keys=True)	
                   
         if op.type == 19:
                 if mid in op.param3:
@@ -1960,7 +1960,7 @@ def bot(op):
                    else:
                         wait["blacklist"][msg.contentMetadata["mid"]] = True		
 	                with open('st2__b.json','w') as e:
-                            json.dumps(wait, e, ident=4, short_keys=True)
+                            json.dumps(e, ident=4, short_keys=True)
                         wait["wblacklist"] = False			
                         cl.sendText(msg.to,"aded")
                         ki.sendText(msg.to,"aded")
@@ -5554,7 +5554,7 @@ def bot(op):
               if msg.from_ in admin + creator + peminjam:	
                 wait["blacklist"] = {}
 	        with open('st2__b.json','w') as e:
-                  json.dumps(wait, e, ident=4, short_keys=True)		
+                  json.dumps(e, ident=4, short_keys=True)		
                 cl.sendText(msg.to,"Sukses Membersihkan Daftar Penjahat")
 		
             elif "Add penyewa @" in msg.text:
@@ -5742,7 +5742,7 @@ def bot(op):
                    try:
                       wait["blacklist"][target] = True
 	              with open('st2__b.json','w') as e:
-                        json.dumps(wait, e, ident=4, short_keys=True)	
+                        json.dumps(e, ident=4, short_keys=True)	
                       cl.sendText(msg.to,"Succes Banned ")
                    except:
                       pass
@@ -6219,11 +6219,11 @@ def bot(op):
                     else:
                         cl.sendText(msg.to,"Not for use less than group")
             #----------------Fungsi Banned User Target Start-----------------------#
-            elif "Ban @" in msg.text:
+            elif "Banned @" in msg.text:
               if msg.from_ in admin + creator + peminjam:	
                 if msg.toType == 2:
                     print "[Banned] Sukses"
-                    _name = msg.text.replace("Ban @","")
+                    _name = msg.text.replace("Banned @","")
                     _nametarget = _name.rstrip('  ')
                     gs = cl.getGroup(msg.to)
                     gs = ki.getGroup(msg.to)
@@ -6235,15 +6235,12 @@ def bot(op):
                             targets.append(g.mid)
                     if targets == []:
                         cl.sendText(msg.to,"Dilarang Banned Bot")
-                        ki.sendText(msg.to,"Dilarang Banned Bot")
-                        kc.sendText(msg.to,"Dilarang Banned Bot")
-                        ko.sendText(msg.to,"Dilarang Banned Bot")
                     else:
                         for target in targets:
                             try:
                                 wait["blacklist"][target] = True
 	                        with open('st2__b.json','w') as e:
-                                  json.dumps(wait, e, ident=4, short_keys=True)
+                                  json.dumps(e, ident=4, short_keys=True)
                                 cl.sendText(msg.to,"Akun begini mah banned aja")
                             except:
                                 ki.sendText(msg.to,"Error")
