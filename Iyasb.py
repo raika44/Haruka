@@ -1179,7 +1179,7 @@ def bot(op):
             except:
                 pass
 		
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.to in settings["simiSimi"]:
                 if settings["simiSimi"][msg.to] == True:
@@ -1818,7 +1818,7 @@ def bot(op):
         if op.type == 24:
             if wait["leaveRoom"] == True:
                 cl.leaveRoom(op.param1)
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
 
 
@@ -1830,7 +1830,7 @@ def bot(op):
                 cl.like(url[25:58], url[66:], likeType=1001)
 		
 
-        if op.type == 26:
+        if op.type == 25:
             msg = op.message
             if msg.contentType == 13:
                if wait["wblack"] == True:
