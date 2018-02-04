@@ -537,15 +537,6 @@ wait = {
     }
 with open('st2__b.json','r') as e:  
   wait['blacklist'] = json.load(e)
-
-with open('admin.json','r') as e:  
-  wait['blacklist'] = json.load(e)
-
-with open('staff.json','r') as e:  
-  wait['blacklist'] = json.load(e)
-
-with open('peminjam.json','r') as e:  
-  wait['blacklist'] = json.load(e)
 wait2 = {
     'readPoint':{},
     'readMember':{},
