@@ -429,11 +429,11 @@ Fmid = kb.getProfile().mid
 Gmid = ko.getProfile().mid
 Hmid = ke.getProfile().mid
 Imid = ku.getProfile().mid
-Jmid = km.getProfile().mid
+#Jmid = km.getProfile().mid
 Smid = satpam.getProfile().mid #Akun Utama
 
 
-Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,Jmid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
+Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
 admin=["uab1ca173166a362c69ef62d420f9f784","ue43898158971147528350ad49b5e8df4","u3d27c322e83dac8c6ad9a2adf12dbf92","u8065b0be04ba4f39ea865a23ab6ba20e",mid]
 staff=["u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","u5c80975703f4c22a6b3a8811bb40d09e","ue5cd76e14ab4783e702df35a29b4ee3c","u542ca87275438b089fffb6d8adc49c07","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
@@ -1090,7 +1090,7 @@ def bot(op):
 		
             if Jmid in op.param3:
               if wait["autoJoin"] == True:
-                if op.param2 in Bots + peminjam + crator:
+                if op.param2 in Bots + peminjam + creator:
                   km.acceptGroupInvitation(op.param1)
                 else:
                   km.rejectGroupInvitation(op.param1)   
@@ -1816,7 +1816,7 @@ def bot(op):
         if op.type == 24:
             if wait["leaveRoom"] == True:
                 cl.leaveRoom(op.param1)
-        if op.type == 25:
+        if op.type == 26:
             msg = op.message
 
 
@@ -1828,7 +1828,7 @@ def bot(op):
                 cl.like(url[25:58], url[66:], likeType=1001)
 		
 
-        if op.type == 25:
+        if op.type == 26:
             msg = op.message
             if msg.contentType == 13:
                if wait["wblack"] == True:
@@ -1862,13 +1862,11 @@ def bot(op):
                         kk.sendText(msg.to,"already")
                         kc.sendText(msg.to,"already")
                         wait["wblacklist"] = False
-			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                    else:
                         wait["blacklist"][msg.contentMetadata["mid"]] = True
-                        wait["wblacklist"] = False
 			f=codecs.open('st2__b.json','w','utf-8')
-              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)			
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
+                        wait["wblacklist"] = False			
                         cl.sendText(msg.to,"aded")
                         ki.sendText(msg.to,"aded")
                         kk.sendText(msg.to,"aded")
@@ -1877,6 +1875,8 @@ def bot(op):
                elif wait["dblacklist"] == True:
                    if msg.contentMetadata["mid"] in wait["blacklist"]:
                         del wait["blacklist"][msg.contentMetadata["mid"]]
+			f=codecs.open('st2__b.json','w','utf-8')
+              		json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                         cl.sendText(msg.to,"deleted")
                         ki.sendText(msg.to,"deleted")
                         kk.sendText(msg.to,"deleted")
@@ -4756,90 +4756,7 @@ def bot(op):
                        ka.sendText(g.mid,(wait["spam"]))
                        ks.sendText(g.mid,(wait["spam"]))		
          #----------------Fungsi Join Group Start-----------------------#
-            elif msg.text in ["Sini dong","Kuy join","Ayo masuk","My waifu sini"]:
-              if msg.from_ in creator + peminjam:
-                        G = cl.getGroup(msg.to)
-                        ginfo = cl.getGroup(msg.to)
-                        G.preventJoinByTicket = False
-                        cl.updateGroup(G)
-                        invsend = 0
-                        Ticket = cl.reissueGroupTicket(msg.to)
-                        ki.acceptGroupInvitationByTicket(msg.to,Ticket)
-                        time.sleep(0.2)
-			ki.sendText(msg.to,"hadir sayang")
-                        kk.acceptGroupInvitationByTicket(msg.to,Ticket)
-                        time.sleep(0.2)
-			kk.sendText(msg.to,"aku juga sayang")
-                        ks.acceptGroupInvitationByTicket(msg.to,Ticket)
-                        time.sleep(0.2)
-                        ks.sendText(msg.to,"aku disini yang")
-                        ka.acceptGroupInvitationByTicket(msg.to,Ticket)
-                        time.sleep(0.2)
-			ka.sendText(msg.to,"ada apa sayang")
-                        kc.acceptGroupInvitationByTicket(msg.to,Ticket)
-                        time.sleep(0.2)
-			kc.sendText(msg.to,"Aku sayang kamu")	
-                        kb.acceptGroupInvitationByTicket(msg.to,Ticket)
-                        time.sleep(0.2)
-			kb.sendText(msg.to,"Aku cinta kamu")			
-                        G = cl.getGroup(msg.to)
-                        G.preventJoinByTicket = True
-                        cl.updateGroup(G)
-                        print "Bot Complete"
-                        G.preventJoinByTicket(G)
-                        cl.updateGroup(G)
 
-            elif msg.text in ["_First join"]:
-              if msg.form_ in creator + peminjam:
-                  x = ki.getGroup(msg.to)
-                  x.preventJoinByTicket = False
-                  ki.updateGroup(x)
-                  invsend = 0
-                  Ti = ki.reissueGroupTicket(msg.to)
-                  cl.acceptGroupInvitationByTicket(msg.to,Ti)
-                  G = ki.getGroup(msg.to)
-                  G.preventJoinByTicket = True
-                  ki.updateGroup(G)
-                  Ticket = ki.reissueGroupTicket(msg.to)
-
-            elif msg.text in ["_Second join"]:
-              if msg.from_ in creator + peminjam:
-                  x = cl.getGroup(msg.to)
-                  x.preventJoinByTicket = False
-                  cl.updateGroup(x)
-                  invsend = 0
-                  Ti = cl.reissueGroupTicket(msg.to)
-                  ki.acceptGroupInvitationByTicket(msg.to,Ti)
-                  G = cl.getGroup(msg.to)
-                  G.preventJoinByTicket = True
-                  cl.updateGroup(G)
-                  Ticket = cl.reissueGroupTicket(msg.to)
-
-            elif msg.text in ["_Third join"]:
-              if msg.from_ in creator + peminjam:
-                  x = cl.getGroup(msg.to)
-                  x.preventJoinByTicket = False
-                  cl.updateGroup(x)
-                  invsend = 0
-                  Ti = cl.reissueGroupTicket(msg.to)
-                  kk.acceptGroupInvitationByTicket(msg.to,Ti)
-                  G = cl.getGroup(msg.to)
-                  G.preventJoinByTicket = True
-                  cl.updateGroup(G)
-                  Ticket = cl.reissueGroupTicket(msg.to)
-                  
-            elif msg.text in ["_Fourth join"]:
-              if msg.from_ in creator + peminjam:
-                  X = cl.getGroup(msg.to)
-                  X.preventJoinByTicket = False
-                  cl.updateGroup(X)
-                  invsend = 0
-                  Ti = cl.reissueGroupTicket(msg.to)
-                  kc.acceptGroupInvitationByTicket(msg.to,Ti)
-                  G = cl.getGroup(msg.to)
-                  G.preventJoinByTicket = True
-                  cl.updateGroup(G)
-                  Ticket = cl.reissueGroupTicket(msg.to)
     #----------------------Fungsi Join Group Finish---------------#
             elif "Bot1 backup" in msg.text:
               if msg.from_ in admin + creator + peminjam:
@@ -5733,49 +5650,7 @@ def bot(op):
                         cl.leaveGroup(msg.to)			
                     except:
                         pass
-            elif msg.text in ["Bye all","Bye sayang"]:
-              if msg.from_ in creator + peminjam:	
-                if msg.toType == 2:
-                    ginfo = cl.getGroup(msg.to)
-                    try:
-			ki.sendText(msg.to,"see you yang")
-                        ki.leaveGroup(msg.to)
-			kk.sendText(msg.to,"makasih sayang")
-                        kk.leaveGroup(msg.to)
-			ks.sendText(msg.to,"dadah bebih")
-                        ks.leaveGroup(msg.to)
-			ka.sendText(msg.to,"mblaem")
-                        ka.leaveGroup(msg.to)
-			kc.sendText(msg.to,"mblaem-mblaem")
-                        kc.leaveGroup(msg.to)	
-			kb.sendText(msg.to,"Bye coeg")
-                        kb.leaveGroup(msg.to)						
-                    except:
-                        pass
-            elif msg.text in ["Bye _Second"]:
-              if msg.from_ in creator + peminjam:
-                if msg.toType == 2:
-                    ginfo = cl.getGroup(msg.to)
-                    try:
-                        ki.leaveGroup(msg.to)
-                    except:
-                        pass
-            elif msg.text in ["Bye _Third"]:
-              if msg.from_ in creator + peminjam:
-                if msg.toType == 2:
-                    ginfo = cl.getGroup(msg.to)
-                    try:
-                        kk.leaveGroup(msg.to)
-                    except:
-                        pass
-            elif msg.text in ["Bye _Fourth"]:
-              if msg.from_ in creator + peminjam:
-                if msg.toType == 2:
-                    ginfo = cl.getGroup(msg.to)
-                    try:
-                        kc.leaveGroup(msg.to)
-                    except:
-                        pass
+   
     #-------------Fungsi Leave Group Finish---------------#
             elif "Gift @" in msg.text:
                 _name = msg.text.replace("Gift @","")
@@ -6183,8 +6058,6 @@ def bot(op):
                     for g in gs.members:
                         if _nametarget == g.displayName:
                             targets.append(g.mid)
-                            f=codecs.open('st2__b.json','w','utf-8')
-                            json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                     if targets == []:
                         cl.sendText(msg.to,"Dilarang Banned Bot")
                         ki.sendText(msg.to,"Dilarang Banned Bot")
@@ -6225,6 +6098,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 del wait["blacklist"][target]
+                                f=codecs.open('st2__b.json','w','utf-8')
+                                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Akun Bersih Kembali")
                             except:
                                 ki.sendText(msg.to,"Error")
