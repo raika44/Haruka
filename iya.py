@@ -544,7 +544,7 @@ with open('admin.json','r') as e:
 with open('staff.json','r') as e:  
   wait['blacklist'] = json.load(e)
 
-with open('penyewa.json','r') as e:  
+with open('peminjam.json','r') as e:  
   wait['blacklist'] = json.load(e)
 wait2 = {
     'readPoint':{},
@@ -1968,7 +1968,9 @@ def bot(op):
                         kc.sendText(msg.to,"already")
                         wait["wblacklist"] = False
                    else:
-                        wait["blacklist"][msg.contentMetadata["mid"]] = True		
+                        wait["blacklist"][msg.contentMetadata["mid"]] = True	
+                        f=codecs.open('st2__b.json','w','utf-8')
+                        json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)	
                         wait["wblacklist"] = False			
                         cl.sendText(msg.to,"aded")
                         ki.sendText(msg.to,"aded")
@@ -1978,6 +1980,8 @@ def bot(op):
                elif wait["dblacklist"] == True:
                    if msg.contentMetadata["mid"] in wait["blacklist"]:
                         del wait["blacklist"][msg.contentMetadata["mid"]]
+                        f=codecs.open('st2__b.json','w','utf-8')
+                        json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                         cl.sendText(msg.to,"deleted")
                         ki.sendText(msg.to,"deleted")
                         kk.sendText(msg.to,"deleted")
