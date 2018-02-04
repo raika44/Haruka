@@ -537,6 +537,15 @@ wait = {
     }
 with open('st2__b.json','r') as e:  
   wait['blacklist'] = json.load(e)
+
+with open('admin.json','r') as e:  
+  wait['blacklist'] = json.load(e)
+
+with open('staff.json','r') as e:  
+  wait['blacklist'] = json.load(e)
+
+with open('penyewa.json','r') as e:  
+  wait['blacklist'] = json.load(e)
 wait2 = {
     'readPoint':{},
     'readMember':{},
@@ -4147,6 +4156,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 admin.append(target)
+                                f=codecs.open('admin.json','w','utf-8')
+                                json.dump(admin, f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"succes add to adminlist")
                             except:
                                 pass
@@ -4184,6 +4195,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 admin.remove(target)
+                                f=codecs.open('admin.json','w','utf-8')
+                                json.dump(admin, f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Succes remove admin from adminlist")
                             except:
                                 pass
@@ -5551,7 +5564,9 @@ def bot(op):
 			
             elif msg.text in ["Clear ban"]:
               if msg.from_ in admin + creator + peminjam:	
-                wait["blacklist"] = {}		
+                del wait["blacklist"]	
+                f=codecs.open('st2__b.json','w','utf-8')
+                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)	
                 cl.sendText(msg.to,"Sukses Membersihkan Daftar Penjahat")
 		
             elif "Add penyewa @" in msg.text:
@@ -5570,6 +5585,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 peminjam.append(target)
+                                f=codecs.open('peminjam.json','w','utf-8')
+                                json.dump(peminjam, f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Added to the penyewa list")
                             except:
                                 pass
@@ -5608,6 +5625,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 peminjam.remove(target)
+                                f=codecs.open('st2__b.json','w','utf-8')
+                                json.dump(peminjam, f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Removed to the penyewa list")
                             except:
                                 pass
@@ -5651,6 +5670,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 staff.append(target)
+                                f=codecs.open('staff.json','w','utf-8')
+                                json.dump(staff, f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Added to the staff list")
                             except:
                                 pass
@@ -5675,6 +5696,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 staff.remove(target)
+                    	        f=codecs.open('staff.json','w','utf-8')
+                                json.dump(staff, f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Removed to the staff list")
                             except:
                                 pass
@@ -6267,6 +6290,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 del wait["blacklist"][target]
+                                f=codecs.open('st2__b.json','w','utf-8')
+                                json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Akun Bersih Kembali")
                             except:
                                 ki.sendText(msg.to,"Error")
@@ -6781,6 +6806,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 admin.append(target)
+                                f=codecs.open('admin.json','w','utf-8')
+                                json.dump(admin, f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Admin Ditambahkan")
                             except:
                                 pass
@@ -6808,6 +6835,8 @@ def bot(op):
                         for target in targets:
                             try:
                                 admin.remove(target)
+                                f=codecs.open('admin.json','w','utf-8')
+                                json.dump(admin, f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Admin Dihapus")
                             except:
                                 pass
