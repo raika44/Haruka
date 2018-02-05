@@ -121,8 +121,8 @@ demotedMessage= """\n
 ═╬════════►∆∆
    Demoted
 ═╬════════►
- |╬| Admin on @
- |╬| Expel on @
+ |╬| Add admin @
+ |╬| Expel admin @
  |╬| Expel staff @
  |╬| Add staff @
  |╬| Expelal
@@ -4147,34 +4147,27 @@ def bot(op):
 				msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784"}
 				cl.sendMessage(msg)
 				cl.sendText(msg.to,"Pembuat kami")
-            elif "Admin on @" in msg.text:
-                if msg.from_ in creator + peminjam:
-                    print "[Command]Staff add executing"
-                    _name = msg.text.replace("Admin on @","")
-                    _nametarget = _name.rstrip(' ')
-                    gs = cl.getGroup(msg.to)
-                    targets = []
-                    for g in gs.members:
-                        if _nametarget == g.displayName:
-                            targets.append(g.mid)
-                    if targets == []:
-                        cl.sendText(msg.to,"Contact not found")
-                    else:
-                        for target in targets:
-                            try:
-                                wait["admin"][target] = True
-                                f=codecs.open('admin.json','w','utf-8')
-                                json.dump(wait["admin"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                cl.sendText(msg.to,"succes add to adminlist")
-                            except:
-                                pass
-                    print "[Command]Staff add executed"
-                else:
-                    cl.sendText(msg.to,"Command denied.")
-                    cl.sendText(msg.to,"owner permission required.")
+            elif ("Add admin " in msg.text):
+              if msg.from_ in creator + peminjam:	
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                targets = []
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                   try:
+                      wait["admin"][target] = True
+                      f=codecs.open('admin.json','w','utf-8')
+                      json.dump(wait["admin"], f, sort_keys=True, indent=4,ensure_ascii=False)
+                      cl.sendText(msg.to,"Succes added to admin list ")
+                   except:
+                      cl.sendText(msg.to,"Error ")
+              else:
+                  cl.sendText(msg.to,"Command denied.")
+                  cl.sendText(msg.to,"owner permission required.")
             elif msg.text.lower() == 'List admin':
               if msg.from_ in admin + staff + creator + peminjam:
-                if admin == []:
+                if wait["admin"] == []:
                        cl.sendText(msg.to,"The adminlist is empty")
                 else:
                         cl.sendText(msg.to,"loading...")
@@ -4186,31 +4179,25 @@ def bot(op):
 			    gh += "->" +cl.getContact(mi_d).displayName + "\n"				
                         cl.sendText(msg.to,"=======OWNER=======\n\n" + mc + "\n=======ADMIN=======\n\n" + gh +"\n=====================\n")
                         print "[Command]Stafflist executed"
-            elif "Expel on @" in msg.text:
-                if msg.from_ in creator + peminjam:
-                    print "[Command]Staff remove executing"
-                    _name = msg.text.replace("Expel on @","")
-                    _nametarget = _name.rstrip(' ')
-                    gs = cl.getGroup(msg.to)
-                    targets = []
-                    for g in gs.members:
-                        if _nametarget == g.displayName:
-                            targets.append(g.mid)
-                    if targets == []:
-                        ki.sendText(msg.to,"Contact not found")
-                    else:
-                        for target in targets:
-                            try:
-                                del wait["admin"][target]
-                                f=codecs.open('admin.json','w','utf-8')
-                                json.dump(wait["admin"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                cl.sendText(msg.to,"Succes remove admin from adminlist")
-                            except:
-                                pass
+            elif ("Expel admin " in msg.text):
+              if msg.from_ in admin + creator + peminjam:	
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                targets = []
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                   try:
+                      wait["admin"][target] = True
+                      f=codecs.open('admin.json','w','utf-8')
+                      json.dump(wait["admin"], f, sort_keys=True, indent=4,ensure_ascii=False)
+                      cl.sendText(msg.to,"Succes remove from admin list ")
+                   except:
+                      cl.sendText(msg.to,"Error ")
                     print "[Command]Staff remove executed"
-                else:
-                    cl.sendText(msg.to,"Command denied.")
-                    cl.sendText(msg.to,"owner permission required.")
+              else:
+                  cl.sendText(msg.to,"Command denied.")
+                  cl.sendText(msg.to,"owner permission required.")
             elif msg.text in ["Bye allgroups"]:
               if msg.from_ in creator:
 				gid = cl.getGroupIdsJoined()
@@ -5576,31 +5563,24 @@ def bot(op):
                 json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)	
                 cl.sendText(msg.to,"Sukses Membersihkan Daftar Penjahat")
 		
-            elif "Add penyewa @" in msg.text:
-              if msg.from_ in creator:	
-                    print "[Command]Staff add executing"
-                    _name = msg.text.replace("Add penyewa @","")
-                    _nametarget = _name.rstrip('  ')
-                    gs = cl.getGroup(msg.to)
-                    targets = []
-                    for g in gs.members:
-                        if _nametarget == g.displayName:
-                            targets.append(g.mid)
-                    if targets == []:
-                        cl.sendText(msg.to,"Contact not found")
-                    else:
-                        for target in targets:
-                            try:
-                                wait["peminjam"][target] = True
-                                f=codecs.open('peminjam.json','w','utf-8')
-                                json.dump(wait["peminjam"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                cl.sendText(msg.to,"Added to the penyewa list")
-                            except:
-                                pass
-                    print "[Command]Staff add executed"
+            elif ("Add penyewa " in msg.text):
+              if msg.from_ in creator + peminjam:	
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                targets = []
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                   try:
+                      wait["peminjam"][target] = True
+                      f=codecs.open('peminjam.json','w','utf-8')
+                      json.dump(wait["peminjam"], f, sort_keys=True, indent=4,ensure_ascii=False)
+                      cl.sendText(msg.to,"Succes added to list penyewa ")
+                   except:
+                      cl.sendText(msg.to,"Error ")
               else:
-                    cl.sendText(msg.to,"Command denied.")
-                    cl.sendText(msg.to,"Creator permission required.")
+                  cl.sendText(msg.to,"Command denied.")
+                  cl.sendText(msg.to,"owner permission required.")
             elif "crashkontak @" in msg.text:
                 if msg.from_ in creator + peminjam:
                     _name = msg.text.replace("crashkontak @","")
@@ -5616,33 +5596,26 @@ def bot(op):
                             cl.sendMessage(msg)
                             cl.sendText("crash kontak selesai")
                             print " Spammed crash !"
-            elif "Expel penyewa @" in msg.text:
-              if msg.from_ in creator:	
-                    print "[Command]Staff remove executing"
-                    _name = msg.text.replace("Expel penyewa @","")
-                    _nametarget = _name.rstrip('  ')
-                    gs = cl.getGroup(msg.to)
-                    targets = []
-                    for g in gs.members:
-                        if _nametarget == g.displayName:
-                            targets.append(g.mid)
-                    if targets == []:
-                        ki.sendText(msg.to,"Contact not found")
-                    else:
-                        for target in targets:
-                            try:
-                                del wait["peminjam"][target]
-                                f=codecs.open('peminjam.json','w','utf-8')
-                                json.dump(wait["peminjam"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                cl.sendText(msg.to,"Removed to the penyewa list")
-                            except:
-                                pass
-                    print "[Command]Staff remove executed"
+            elif ("Expel penyewa " in msg.text):
+              if msg.from_ in creator + peminjam:	
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                targets = []
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                   try:
+                      wait["peminjam"][target] = True
+                      f=codecs.open('peminjam.json','w','utf-8')
+                      json.dump(wait["peminjam"], f, sort_keys=True, indent=4,ensure_ascii=False)
+                      cl.sendText(msg.to,"Succes remove from list peminjam ")
+                   except:
+                      cl.sendText(msg.to,"Error ")
               else:
-                    cl.sendText(msg.to,"Command denied.")
-                    cl.sendText(msg.to,"Creator permission required.")		
+                  cl.sendText(msg.to,"Command denied.")
+                  cl.sendText(msg.to,"owner permission required.")	
             elif msg.text in ["List penyewa","list penyewa"]:
-                if wait[peminjam] == []:
+                if wait["peminjam"] == []:
                     cl.sendText(msg.to,"The penyewa is empty")
                 else:
                     cl.sendText(msg.to,"penyewa list: ")
@@ -5661,60 +5634,46 @@ def bot(op):
                         mc += "->" +cl.getContact(mi_d).displayName + "\n"
                     cl.sendText(msg.to,mc)
                     print "[Command]Stafflist executed"			
-            elif "Add staff @" in msg.text:
-              if msg.from_ in admin + creator + peminjam:	
-                    print "[Command]Staff add executing"
-                    _name = msg.text.replace("Add staff @","")
-                    _nametarget = _name.rstrip('  ')
-                    gs = cl.getGroup(msg.to)
-                    targets = []
-                    for g in gs.members:
-                        if _nametarget == g.displayName:
-                            targets.append(g.mid)
-                    if targets == []:
-                        cl.sendText(msg.to,"Contact not found")
-                    else:
-                        for target in targets:
-                            try:
-                                wait["staff"][target] = True
-                                f=codecs.open('staff.json','w','utf-8')
-                                json.dump(wait["staff"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                cl.sendText(msg.to,"Added to the staff list")
-                            except:
-                                pass
-                    print "[Command]Staff add executed"
+            elif ("Add staff " in msg.text):
+              if msg.from_ in creator + peminjam:	
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                targets = []
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                   try:
+                      wait["staff"][target] = True
+                      f=codecs.open('staff.json','w','utf-8')
+                      json.dump(wait["staff"], f, sort_keys=True, indent=4,ensure_ascii=False)
+                      cl.sendText(msg.to,"Succes added to staff list ")
+                   except:
+                      cl.sendText(msg.to,"Error ")
               else:
-                    cl.sendText(msg.to,"Command denied.")
-                    cl.sendText(msg.to,"Admin permission required.")
+                  cl.sendText(msg.to,"Command denied.")
+                  cl.sendText(msg.to,"owner permission required.")
 
-            elif "Expel staff @" in msg.text:
-              if msg.from_ in admin + creator + peminjam:	
-                    print "[Command]Staff remove executing"
-                    _name = msg.text.replace("Expel staff @","")
-                    _nametarget = _name.rstrip('  ')
-                    gs = cl.getGroup(msg.to)
-                    targets = []
-                    for g in gs.members:
-                        if _nametarget == g.displayName:
-                            targets.append(g.mid)
-                    if targets == []:
-                        ki.sendText(msg.to,"Contact not found")
-                    else:
-                        for target in targets:
-                            try:
-                                del wait["staff"][target]
-                    	        f=codecs.open('staff.json','w','utf-8')
-                                json.dump(wait["staff"], f, sort_keys=True, indent=4,ensure_ascii=False)
-                                cl.sendText(msg.to,"Removed to the staff list")
-                            except:
-                                pass
-                    print "[Command]Staff remove executed"
+            elif ("Expel staff " in msg.text):
+              if msg.from_ in creator + peminjam:	
+                key = eval(msg.contentMetadata["MENTION"])
+                key["MENTIONEES"][0]["M"]
+                targets = []
+                for x in key["MENTIONEES"]:
+                    targets.append(x["M"])
+                for target in targets:
+                   try:
+                      wait["staff"][target] = True
+                      f=codecs.open('staff.json','w','utf-8')
+                      json.dump(wait["staff"], f, sort_keys=True, indent=4,ensure_ascii=False)
+                      cl.sendText(msg.to,"Succes added to staff list ")
+                   except:
+                      cl.sendText(msg.to,"Error ")
               else:
-                    cl.sendText(msg.to,"Command denied.")
-                    cl.sendText(msg.to,"Admin permission required.")
+                  cl.sendText(msg.to,"Command denied.")
+                  cl.sendText(msg.to,"owner permission required.")
 
             elif msg.text in ["Stafflist","stafflist"]:
-                if staff == []:
+                if wait["staff"] == []:
                     cl.sendText(msg.to,"The stafflist is empty")
                 else:
                     cl.sendText(msg.to,"Staff list: ")
@@ -6854,7 +6813,7 @@ def bot(op):
 
             elif msg.text in ["Adminlist","adminlist"]:
               if msg.from_ in admin + creator + peminjam:	
-                if admin == []:
+                if wait["admin"] == []:
                     cl.sendText(msg.to,"The adminlist is empty")
                 else:
                     cl.sendText(msg.to,"Tunggu...")
@@ -7013,6 +6972,7 @@ def bot(op):
 #-----------------------------------------------
       #-------------Fungsi Bannlist Start------------------#          
             elif msg.text in ["Banlist"]:
+              if msg.from_ in admin + creator + peminjam:				
                 if wait["blacklist"] == {}:
                     cl.sendText(msg.to,"Tidak Ada Akun Terbanned")
                 else:
