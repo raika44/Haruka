@@ -4142,11 +4142,11 @@ def bot(op):
                     cl.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
                 except:
                     cl.sendText(msg.to, "===[StatusMessage]===\n" + contact.statusMessage)
-            elif 'creator' in msg.text.lower():
-				msg.contentType = 13
-				msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784"}
-				cl.sendMessage(msg)
-				cl.sendText(msg.to,"Pembuat kami")
+ #           elif 'creator' in msg.text.lower():
+#				msg.contentType = 13
+#				msg.contentMetadata = {'mid': "uab1ca173166a362c69ef62d420f9f784"}
+#				cl.sendMessage(msg)
+#				cl.sendText(msg.to,"Pembuat kami")
             elif ("Add admin " in msg.text):
               if msg.from_ in creator + peminjam:	
                 key = eval(msg.contentMetadata["MENTION"])
@@ -4194,7 +4194,6 @@ def bot(op):
                       cl.sendText(msg.to,"Succes remove from admin list ")
                    except:
                       cl.sendText(msg.to,"Error ")
-                    print "[Command]Staff remove executed"
               else:
                   cl.sendText(msg.to,"Command denied.")
                   cl.sendText(msg.to,"owner permission required.")
