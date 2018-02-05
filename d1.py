@@ -4179,7 +4179,7 @@ def bot(op):
                         gh = ""
                         for mi_d in pembuat:
                             mc += "->" +cl.getContact(mi_d).displayName + "\n"
-		        for mi_d in admin:
+		        for mi_d in wait["admin"]:
 			    gh += "->" +cl.getContact(mi_d).displayName + "\n"				
                         cl.sendText(msg.to,"=======OWNER=======\n\n" + mc + "\n=======ADMIN=======\n\n" + gh +"\n=====================\n")
                         print "[Command]Stafflist executed"
