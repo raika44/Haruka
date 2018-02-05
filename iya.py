@@ -477,10 +477,10 @@ Smid = satpam.getProfile().mid #Akun Utama
 
 
 Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,Jmid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
-admin=["uab1ca173166a362c69ef62d420f9f784","ue43898158971147528350ad49b5e8df4","u3d27c322e83dac8c6ad9a2adf12dbf92","u8065b0be04ba4f39ea865a23ab6ba20e",mid]
-staff=["u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","u5c80975703f4c22a6b3a8811bb40d09e","ue5cd76e14ab4783e702df35a29b4ee3c","u542ca87275438b089fffb6d8adc49c07","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
+#admin=["uab1ca173166a362c69ef62d420f9f784","ue43898158971147528350ad49b5e8df4","u3d27c322e83dac8c6ad9a2adf12dbf92","u8065b0be04ba4f39ea865a23ab6ba20e",mid]
+#staff=[]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
-peminjam=[]
+#peminjam=[]
 adminsa=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 pembuat=["uab1ca173166a362c69ef62d420f9f784"]
 wait = {
@@ -511,6 +511,9 @@ wait = {
     "MENTION":True,
     "media":False,
     "cName":" ",
+    "staff":{},
+    "admin":{},
+    "peminjam":{},
     "blacklist":{},
     "whitelist":{},
     "wblacklist":False,
@@ -537,6 +540,12 @@ wait = {
     }
 with open('st2__b.json','r') as e:  
   wait['blacklist'] = json.load(e)
+with open('peminjam.json','r') as e:  
+  wait['peminjam'] = json.load(e)
+with open('admin.json','r') as e:  
+  wait['admin'] = json.load(e)
+with open('staff.json','r') as e:  
+  wait['staff'] = json.load(e)
 wait2 = {
     'readPoint':{},
     'readMember':{},
@@ -741,7 +750,10 @@ def waktu(secs):
     mins, secs = divmod(secs,60)
     hours, mins = divmod(mins,60)
     return '%02d hour %02d minute %02d seconds' % (hours, mins, secs)
-	
+
+admin = wait[admin]
+staff = wait[staff]
+peminjam = wait[peminjam]
 
 def summon(to, nama):
     aa = ""
@@ -4150,9 +4162,9 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                admin.append(target)
+                                wait[admin][target] = True
                                 f=codecs.open('admin.json','w','utf-8')
-                                json.dump(admin, f, sort_keys=True, indent=4,ensure_ascii=False)
+                                json.dump(wait[admin], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"succes add to adminlist")
                             except:
                                 pass
@@ -4160,7 +4172,7 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"Command denied.")
                     cl.sendText(msg.to,"owner permission required.")
-            elif msg.text.lower() == 'Admin list':
+            elif msg.text.lower() == 'List admin':
               if msg.from_ in admin + staff + creator + peminjam:
                 if admin == []:
                        cl.sendText(msg.to,"The adminlist is empty")
@@ -4168,9 +4180,9 @@ def bot(op):
                         cl.sendText(msg.to,"loading...")
                         mc = ""
                         gh = ""
-                        for mi_d in owner:
+                        for mi_d in pembuat:
                             mc += "->" +cl.getContact(mi_d).displayName + "\n"
-		        for mi_d in admin:
+		        for mi_d in wait[admin]:
 			    gh += "->" +cl.getContact(mi_d).displayName + "\n"				
                         cl.sendText(msg.to,"=======OWNER=======\n\n" + mc + "\n=======ADMIN=======\n\n" + gh +"\n=====================\n")
                         print "[Command]Stafflist executed"
@@ -4189,9 +4201,9 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                admin.remove(target)
+                                del wait[admin][target]
                                 f=codecs.open('admin.json','w','utf-8')
-                                json.dump(admin, f, sort_keys=True, indent=4,ensure_ascii=False)
+                                json.dump(wait[admin], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Succes remove admin from adminlist")
                             except:
                                 pass
@@ -5579,9 +5591,9 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                peminjam.append(target)
+                                wait[peminjam][target] = True
                                 f=codecs.open('peminjam.json','w','utf-8')
-                                json.dump(peminjam, f, sort_keys=True, indent=4,ensure_ascii=False)
+                                json.dump(wait[peminjam], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Added to the penyewa list")
                             except:
                                 pass
@@ -5619,9 +5631,9 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                peminjam.remove(target)
+                                del wait[peminjam][target]
                                 f=codecs.open('st2__b.json','w','utf-8')
-                                json.dump(peminjam, f, sort_keys=True, indent=4,ensure_ascii=False)
+                                json.dump(wait[peminjam], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Removed to the penyewa list")
                             except:
                                 pass
@@ -5630,12 +5642,12 @@ def bot(op):
                     cl.sendText(msg.to,"Command denied.")
                     cl.sendText(msg.to,"Creator permission required.")		
             elif msg.text in ["List penyewa","list penyewa"]:
-                if peminjam == []:
+                if wait[peminjam] == []:
                     cl.sendText(msg.to,"The penyewa is empty")
                 else:
                     cl.sendText(msg.to,"penyewa list: ")
                     mc = ""
-                    for mi_d in peminjam:
+                    for mi_d in wait[peminjam]:
                         mc += "->" +cl.getContact(mi_d).displayName + "\n"
                     cl.sendText(msg.to,mc)
                     print "[Command]Stafflist executed"	
@@ -5664,9 +5676,9 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                staff.append(target)
+                                wait[staff][target] = True
                                 f=codecs.open('staff.json','w','utf-8')
-                                json.dump(staff, f, sort_keys=True, indent=4,ensure_ascii=False)
+                                json.dump(wait[staff], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Added to the staff list")
                             except:
                                 pass
@@ -5690,9 +5702,9 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                staff.remove(target)
+                                del wait[staff][target]
                     	        f=codecs.open('staff.json','w','utf-8')
-                                json.dump(staff, f, sort_keys=True, indent=4,ensure_ascii=False)
+                                json.dump(wait[staff], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Removed to the staff list")
                             except:
                                 pass
@@ -5707,7 +5719,7 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"Staff list: ")
                     mc = ""
-                    for mi_d in staff:
+                    for mi_d in wait[staff]:
                         mc += "->" +cl.getContact(mi_d).displayName + "\n"
                     cl.sendText(msg.to,mc)
                     print "[Command]Stafflist executed"			
@@ -6800,9 +6812,9 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                admin.append(target)
+                                wait[admin][target] =True
                                 f=codecs.open('admin.json','w','utf-8')
-                                json.dump(admin, f, sort_keys=True, indent=4,ensure_ascii=False)
+                                json.dump(wait[admin], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Admin Ditambahkan")
                             except:
                                 pass
@@ -6829,7 +6841,7 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                admin.remove(target)
+                                del wait[admin][target]
                                 f=codecs.open('admin.json','w','utf-8')
                                 json.dump(admin, f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Admin Dihapus")
@@ -6847,7 +6859,7 @@ def bot(op):
                 else:
                     cl.sendText(msg.to,"Tunggu...")
                     mc = ""
-                    for mi_d in admin:
+                    for mi_d in wait[admin]:
                         mc += "->" +cl.getContact(mi_d).displayName + "\n"
                     cl.sendText(msg.to,mc)
                     print "[Command]Stafflist executed" 
