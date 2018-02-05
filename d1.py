@@ -477,10 +477,10 @@ Smid = satpam.getProfile().mid #Akun Utama
 
 
 Bots=[mid,Amid,Bmid,Cmid,Dmid,Emid,Fmid,Gmid,Hmid,Imid,Smid,Jmid,"u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
-admin=["uab1ca173166a362c69ef62d420f9f784","ue43898158971147528350ad49b5e8df4","u3d27c322e83dac8c6ad9a2adf12dbf92","u8065b0be04ba4f39ea865a23ab6ba20e",mid]
-staff=["u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","u5c80975703f4c22a6b3a8811bb40d09e","ue5cd76e14ab4783e702df35a29b4ee3c","u542ca87275438b089fffb6d8adc49c07","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
+#admin=["uab1ca173166a362c69ef62d420f9f784","ue43898158971147528350ad49b5e8df4","u3d27c322e83dac8c6ad9a2adf12dbf92","u8065b0be04ba4f39ea865a23ab6ba20e",mid]
+#staff=["u37470b87308ba0c907d493205cbe2676","uc6dc9e8314e8fc3e2834631f4b048506","u5c80975703f4c22a6b3a8811bb40d09e","ue5cd76e14ab4783e702df35a29b4ee3c","u542ca87275438b089fffb6d8adc49c07","ud14122efeea90e7354f3619ad86bb1a2","u8fba8c8444fcf7ff8b34f1f0f2cd6db1"]
 creator=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784","u051cd9062ec1528d9e16cc784efca04b"]
-peminjam=[]
+#peminjam=[]
 adminsa=["u5427d8047ab127f5e237eaedd1f0b93b","uab1ca173166a362c69ef62d420f9f784"]
 pembuat=["uab1ca173166a362c69ef62d420f9f784"]
 wait = {
@@ -511,6 +511,9 @@ wait = {
     "MENTION":True,
     "media":False,
     "cName":" ",
+    "peminjam":{},
+    "admin":{},	
+    "staff":{},	
     "blacklist":{},
     "whitelist":{},
     "wblacklist":False,
@@ -537,6 +540,12 @@ wait = {
     }
 with open('st2__b.json','r') as e:  
   wait['blacklist'] = json.load(e)
+with open('peminjam.json','r') as e:  
+  wait['peminjam'] = json.load(e)
+with open('admin.json','r') as e:  
+  wait['admin'] = json.load(e)
+with open('staff.json','r') as e:  
+  wait['staff'] = json.load(e)
 wait2 = {
     'readPoint':{},
     'readMember':{},
@@ -4150,7 +4159,9 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                admin.append(target)
+                                wait["admin"]["target"] = True
+				f=codecs.open('st2__b.json','w','utf-8')
+                        	json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"succes add to adminlist")
                             except:
                                 pass
@@ -4160,13 +4171,13 @@ def bot(op):
                     cl.sendText(msg.to,"owner permission required.")
             elif msg.text.lower() == 'Admin list':
               if msg.from_ in admin + staff + creator + peminjam:
-                if admin == []:
+                if wait["admin"] == []:
                        cl.sendText(msg.to,"The adminlist is empty")
                 else:
                         cl.sendText(msg.to,"loading...")
                         mc = ""
                         gh = ""
-                        for mi_d in owner:
+                        for mi_d in pembuat:
                             mc += "->" +cl.getContact(mi_d).displayName + "\n"
 		        for mi_d in admin:
 			    gh += "->" +cl.getContact(mi_d).displayName + "\n"				
@@ -4187,7 +4198,9 @@ def bot(op):
                     else:
                         for target in targets:
                             try:
-                                admin.remove(target)
+                                del wait["admin"]["target"] = True
+				f=codecs.open('st2__b.json','w','utf-8')
+                        	json.dump(wait["blacklist"], f, sort_keys=True, indent=4,ensure_ascii=False)
                                 cl.sendText(msg.to,"Succes remove admin from adminlist")
                             except:
                                 pass
